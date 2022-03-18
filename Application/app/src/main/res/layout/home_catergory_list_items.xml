@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:backgroundTint="@color/white"
+    android:paddingTop="30dp"
+    android:paddingBottom="30dp"
+    android:paddingStart="50dp"
+    android:paddingEnd="50dp"
+    android:background="@drawable/custom_home_radius_backgound">
+
+    <ImageView
+        android:id="@+id/homeCategoryImage"
+        android:layout_width="100dp"
+        android:layout_height="140dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toEndOf="@+id/homeCategoryShopNow"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/homeCategoryTopic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:text="TextView"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/homeCategoryImage"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/homeCategoryImage" />
+
+    <TextView
+        android:id="@+id/homeCategoryShopNow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Go shop now!"
+        android:textColor="@color/primary_green"
+        app:layout_constraintStart_toStartOf="@+id/homeCategoryTopic"
+        app:layout_constraintTop_toBottomOf="@+id/homeCategoryTopic" />
+</androidx.constraintlayout.widget.ConstraintLayout>
