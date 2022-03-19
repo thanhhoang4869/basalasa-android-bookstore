@@ -1,8 +1,9 @@
-package com.example.basalasa
+package com.example.basalasa.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.example.basalasa.R
 
 class ForgetPassword : AppCompatActivity() {
     private var forgetBackBtn: Button? = null

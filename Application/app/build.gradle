@@ -6,6 +6,10 @@ plugins {
 android {
     compileSdk 31
 
+    buildFeatures {
+        viewBinding true
+    }
+
     defaultConfig {
         applicationId "com.example.basalasa"
         minSdk 24
@@ -45,7 +49,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     def nav_version = "2.1.0-alpha02"
-    implementation "androidx.navigation:navigation-fragment:$nav_version" // For Kotlin use navigation-fragment-ktx
-    implementation "androidx.navigation:navigation-ui:$nav_version" // For Kotlin use navigation-ui-ktx
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version" // For Kotlin use navigation-fragment-ktx
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version" // For Kotlin use navigation-ui-ktx
 
 }
