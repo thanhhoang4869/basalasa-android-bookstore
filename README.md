@@ -7,7 +7,9 @@
 
 Dau Sua
 - [Hoang Nhu Thanh](https://github.com/thanhhoang4869)
-- ...
+- [Vu Duc Quang Huy](https://github.com/19US-dominic)
+- [Le Thanh Khoi](https://github.com/lethanhkhoi)
+- [Hoang Thien Nhan](https://github.com/jasonhoang0621)
 
 You are free to refer from our project, but ***do not copy without permission***.
 
@@ -15,4 +17,4 @@ You are free to refer from our project, but ***do not copy without permission***
 The android application is built in Kotlin language following the N-layer model.
 
 ## Server side
-The server resides on Heroku, which works as a NodeJS server, connects to MariaDB.
+The server resides on Heroku, which works as a NodeJS server, connects to MongoDB.
