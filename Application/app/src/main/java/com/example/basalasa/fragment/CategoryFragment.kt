@@ -5,7 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.basalasa.R
+import com.example.basalasa.adapter.rvAdapter
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,8 +37,13 @@ class CategoryFragment : Fragment(R.layout.fragment_category) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val rootView=inflater.inflate(R.layout.fragment_category, container, false)
+
+        val rv=rootView.findViewById<RecyclerView>(R.id.rv_category_list_item)
+        rv.layoutManager=GridLayoutManager(activity,2)
+        rv.adapter=rvAdapter()
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_category, container, false)
+        return rootView
     }
 
     companion object {

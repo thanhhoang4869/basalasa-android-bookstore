@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="160dp"
+    android:layout_height="270dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/custom_category_recyclerview_item">
+
+    <ImageView
+        android:id="@+id/iv_category_rv_img"
+        android:layout_width="0dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tv_category_rv_title"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="The silence of the lambs"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_category_rv_img" />
+
+    <TextView
+        android:id="@+id/tv_category_rv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$25"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/tv_category_rv_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_category_rv_title" />
+
+    <TextView
+        android:id="@+id/tv_category_rv_rate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:drawableStart="@drawable/ic_baseline_star_24"
+        android:gravity="center"
+        android:text="1.2"
+        android:textColor="#000000"
+        android:textSize="10dp"
+        app:layout_constraintStart_toStartOf="@+id/tv_category_rv_price"
+        app:layout_constraintTop_toBottomOf="@+id/tv_category_rv_price" />
+
+    <TextView
+        android:id="@+id/tv_category_rv_review"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="86 reviews"
+        android:textColor="#000000"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_category_rv_rate"
+        app:layout_constraintEnd_toEndOf="@+id/iv_category_rv_img"
+        app:layout_constraintStart_toEndOf="@+id/tv_category_rv_rate"
+        app:layout_constraintTop_toTopOf="@+id/tv_category_rv_rate" />
+</androidx.constraintlayout.widget.ConstraintLayout>
