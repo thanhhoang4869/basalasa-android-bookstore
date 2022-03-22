@@ -1,0 +1,160 @@
+[{
+        "id": 1,
+        "name": "English Grammar in Use Book w Ans",
+        "author": "Raymond Murphy",
+        "distributor": "Cambridge University",
+        "seller": "thanhhoang",
+        "price": 158000,
+        "saleprice": null,
+        "category": "Foreign books",
+        "release_year": 2019,
+        "description": "The world's best-selling grammar series for learners of English. English Grammar in Use Fourth edition is an updated version of the world's best-selling grammar title. It has a fresh, appealing new design and clear layout, with revised and updated examples, but retains all the key features of clarity and accessibility that have made the book popular with millions of learners and teachers around the world. This 'with answers' version is ideal for self-study.",
+        "quantity": 100,
+        "state": true,
+        "star": null
+    },
+
+    {
+        "id": 2,
+        "name": "Life BRE A2-B1: Student Book With Web App Code And Online Workbook 2nd Edition",
+        "author": "John Hughes",
+        "distributor": "Cengage",
+        "seller": "nhanhoang",
+        "price": 247000,
+        "saleprice": null,
+        "category": "Foreign books",
+        "release_year": 2016,
+        "description": "The world's best-selling grammar series for learners of English. English Grammar in Use Fourth edition is an updated version of the world's best-selling grammar title. It has a fresh, appealing new design and clear layout, with revised and updated examples, but retains all the key features of clarity and accessibility that have made the book popular with millions of learners and teachers around the world. This 'with answers' version is ideal for self-study.",
+        "quantity": 50,
+        "state": 1,
+        "star": null
+    },
+
+    {
+        "id": 3,
+        "name": "Atomic Habits",
+        "author": "Random House Business",
+        "distributor": "Grantham Book Services",
+        "seller": "nhanhoang",
+        "price": 311400,
+        "saleprice": null,
+        "category": "Foreign books",
+        "release_year": 2019,
+        "description": "The world's best-selling grammar series for learners of English. English Grammar in Use Fourth edition is an updated version of the world's best-selling grammar title. It has a fresh, appealing new design and clear layout, with revised and updated examples, but retains all the key features of clarity and accessibility that have made the book popular with millions of learners and teachers around the world. This 'with answers' version is ideal for self-study.",
+        "quantity": 50,
+        "state": 1,
+        "star": null
+    },
+
+    {
+        "id": 4,
+        "name": "Complete IELTS B1 Student's Book with answer with CD-ROM",
+        "author": "Mark Harrison",
+        "distributor": "Cambridge",
+        "seller": "thanhhoang",
+        "price": 260400,
+        "saleprice": null,
+        "category": "Foreign books",
+        "release_year": 2019,
+        "description": "The world's best-selling grammar series for learners of English. English Grammar in Use Fourth edition is an updated version of the world's best-selling grammar title. It has a fresh, appealing new design and clear layout, with revised and updated examples, but retains all the key features of clarity and accessibility that have made the book popular with millions of learners and teachers around the world. This 'with answers' version is ideal for self-study.",
+        "quantity": 100,
+        "state": 1,
+        "star": null
+    },
+
+    {
+        "id": 5,
+        "name": "Dr.STONE - Tập 15: Vũ Khí Mạnh Nhất",
+        "author": "Riichiro Inagaki, Boichi 25",
+        "distributor": "NXB Kim Đồng",
+        "seller": "thanhhoang",
+        "price": 21250,
+        "saleprice": null,
+        "category": "Manga - Comic",
+        "release_year": 2022,
+        "description": null,
+        "quantity": 50,
+        "state": 1,
+        "star": null
+    },
+
+    {
+        "id": 6,
+        "name": "Dr.STONE - Tập 14: Vũ Khí Mạnh Nhất",
+        "author": "Riichiro Inagaki, Boichi 25",
+        "distributor": "NXB Kim Đồng",
+        "seller": "thanhhoang",
+        "price": 21250,
+        "saleprice": null,
+        "category": "Manga - Comic",
+        "release_year": 2022,
+        "description": null,
+        "quantity": 50,
+        "state": 1,
+        "star": null
+    },
+
+    {
+        "id": 7,
+        "name": "Romantica Clock - Tập 1",
+        "author": "Yoko Maki",
+        "distributor": "NXB Trẻ",
+        "seller": "nhanhoang",
+        "price": 25000,
+        "saleprice": null,
+        "category": "Manga - Comic",
+        "release_year": 2022,
+        "description": null,
+        "quantity": 50,
+        "state": 1,
+        "star": null
+    },
+
+    {
+        "id": 8,
+        "name": "Khách Sạn Mặt Nạ - Tập 1",
+        "author": "Higashino Keigo",
+        "distributor": "NXB Hà Nội",
+        "seller": "thanhhoang",
+        "price": 152000,
+        "saleprice": null,
+        "category": "Detective",
+        "release_year": 2021,
+        "description": null,
+        "quantity": 50,
+        "state": 1,
+        "star": null
+    },
+
+    {
+        "id": 9,
+        "name": "Khách Sạn Mặt Nạ - Tập 1",
+        "author": "Higashino Keigo",
+        "distributor": "NXB Hà Nội",
+        "seller": "nhanhoang",
+        "price": 150000,
+        "saleprice": null,
+        "category": "Detective",
+        "release_year": 2021,
+        "description": null,
+        "quantity": 50,
+        "state": 1,
+        "star": null
+    },
+
+    {
+        "id": 10,
+        "name": "Trái Tim Của Brutus",
+        "author": "Higashino Keigo",
+        "distributor": "NXB Hà Nội",
+        "seller": "thanhhoang",
+        "price": 117000,
+        "saleprice": null,
+        "category": "Detective",
+        "release_year": 2019,
+        "description": null,
+        "quantity": 50,
+        "state": 1,
+        "star": null
+    }
+]
