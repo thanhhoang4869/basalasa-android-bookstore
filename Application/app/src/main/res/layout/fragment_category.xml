@@ -51,6 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginStart="10dp"
+            android:scrollbars="none"
             app:layout_constraintBottom_toBottomOf="@+id/btnCategoryFilter"
             app:layout_constraintStart_toEndOf="@+id/btnCategoryFilter"
             app:layout_constraintTop_toTopOf="@+id/btnCategoryFilter">
@@ -81,7 +82,29 @@
                     android:layout_marginEnd="10dp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/white"
-                    android:text="most experience"
+                    android:text="high price"
+                    android:textColor="@color/black" />
+
+                <Button
+                    android:id="@+id/button11"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/white"
+                    android:text="low price"
+                    android:textColor="@color/black" />
+
+                <Button
+                    android:id="@+id/button12"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/white"
+                    android:text="oldest"
                     android:textColor="@color/black" />
 
                 <Button
@@ -103,7 +126,7 @@
                     android:layout_marginEnd="120dp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/white"
-                    android:text="best seller"
+                    android:text="review"
                     android:textColor="@color/black" />
             </LinearLayout>
         </HorizontalScrollView>

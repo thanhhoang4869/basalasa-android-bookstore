@@ -5,10 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ToggleButton
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.basalasa.R
 import com.example.basalasa.adapter.rvAdapter
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,6 +27,8 @@ class CategoryFragment : Fragment(R.layout.fragment_category) {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private var btnFilter:Button?=null
+    private var rv:RecyclerView?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,10 +44,16 @@ class CategoryFragment : Fragment(R.layout.fragment_category) {
     ): View? {
         val rootView=inflater.inflate(R.layout.fragment_category, container, false)
 
-        val rv=rootView.findViewById<RecyclerView>(R.id.rv_category_list_item)
-        rv.layoutManager=GridLayoutManager(activity,2)
-        rv.adapter=rvAdapter()
-        // Inflate the layout for this fragment
+        btnFilter= rootView.findViewById(R.id.btnCategoryFilter)
+        rv=rootView.findViewById(R.id.rv_category_list_item)
+
+        rv!!.layoutManager=GridLayoutManager(activity,2)
+        rv!!.adapter=rvAdapter()
+
+        btnFilter!!.setOnClickListener {
+            BottomSheetFilter().show(requireActivity().supportFragmentManager,"bs")
+        }
+
         return rootView
     }
 
@@ -64,5 +75,27 @@ class CategoryFragment : Fragment(R.layout.fragment_category) {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+}
+
+class BottomSheetFilter:BottomSheetDialogFragment(){
+    private var btnCable:ToggleButton?=null
+    private var btnNovel:ToggleButton?=null
+    private var btnEdu:ToggleButton?=null
+    private var btnForeign:ToggleButton?=null
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val rootView=inflater.inflate(R.layout.fragment_category_bottom_sheet_filter,container,false)
+
+        btnCable=rootView.findViewById(R.id.togbtnCable)
+        btnNovel=rootView.findViewById(R.id.togbtnNovel)
+        btnEdu=rootView.findViewById(R.id.togbtnEdu)
+        btnForeign=rootView.findViewById(R.id.togbtnForeign)
+
+        return rootView
     }
 }
