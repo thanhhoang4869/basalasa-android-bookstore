@@ -11,7 +11,7 @@ import com.example.basalasa.R
 data class item_book(val img:Int,val title:String,val price:String,val rate:String,val review:String)
 
 class rvAdapter:RecyclerView.Adapter<rvAdapter.ViewHolder>() {
-    var img= arrayListOf<Int>(R.drawable.ic_launcher_background,R.drawable.ic_launcher_background,R.drawable.ic_launcher_background)
+    var img= arrayListOf<Int>(R.drawable.bookcover,R.drawable.bookcover,R.drawable.bookcover)
     var title= arrayListOf<String>("The silence of the lambs","Hannibal Lecter","123")
     var price= arrayListOf<String>("25","20","11")
     var rate= arrayListOf<String>("4.5","3.4","1.0")
