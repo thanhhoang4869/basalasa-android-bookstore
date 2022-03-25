@@ -2,12 +2,18 @@ package com.example.basalasa.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
+import retrofit2.*
 import androidx.fragment.app.Fragment
 import com.example.basalasa.fragment.CategoryFragment
 import com.example.basalasa.fragment.HomeFragment
 import com.example.basalasa.fragment.ProfileFragment
 import com.example.basalasa.fragment.SettingsFragment
 import com.example.basalasa.R
+import com.example.basalasa.model.LoginBody
+import com.example.basalasa.model.LoginResponse
+import com.example.basalasa.utils.MyAPI
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -32,6 +38,28 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+
+
+        val response = MyAPI.getAPI().getLogin()
+        response.enqueue(object: Callback<LoginResponse> {
+            override fun onResponse(
+                call: Call<LoginResponse>,
+                response: Response<LoginResponse>
+            ) {
+
+                if (response.isSuccessful) {
+                    val data = response.body()
+                    if (data != null) {
+                        Log.d("log",data.data)
+                    }
+
+                }
+            }
+
+            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                Log.d("log","Teo")
+            }
+        })
     }
 
     private fun setCurrentFragment(fragment: Fragment)=

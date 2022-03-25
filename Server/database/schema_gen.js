@@ -1,9 +1,10 @@
 const mongoose = require('mongoose')
-var db = null
+const config = require('../config/config')
+const url = config.database.url
 
 function connect() {
     return new Promise((resolve, reject) => {
-        mongoose.connect("mongodb+srv://basalasa:mobiledev@basalasa.wcann.mongodb.net/basalasa?retryWrites=true&w=majority", {
+        mongoose.connect(url, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         }).then(() => {
@@ -19,7 +20,7 @@ function connect() {
 }
 
 connect().then(() => {
-    conn.db.listCollections().toArray(dropTable)
+    // conn.db.listCollections().toArray(dropTable)
     UserSchema = new mongoose.Schema({
         username: { type: String, require: true, unique: true },
         password: { type: String, require: true },
