@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Basalasa">
         <activity
+            android:name=".activity.Cart"
+            android:exported="false" />
+        <activity
             android:name=".activity.ForgetPassword"
             android:exported="false" />
         <activity
