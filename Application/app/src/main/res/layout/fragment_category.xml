@@ -12,33 +12,35 @@
 
         <EditText
             android:id="@+id/etCategorySearchBar"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
             android:autofillHints=""
             android:background="@drawable/custom_searchbar"
             android:drawableStart="@drawable/ic_baseline_search_24"
             android:hint="Search your book"
             android:inputType="text"
+            app:layout_constraintEnd_toStartOf="@+id/btnCategoryCart"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/btnCategoryCart"
             android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_height="0dp"
             android:layout_marginEnd="10dp"
             android:background="@drawable/ic_baseline_shopping_cart_24"
             android:contentDescription="ButtonCart"
+            app:layout_constraintBottom_toBottomOf="@+id/etCategorySearchBar"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/etCategorySearchBar"
             app:layout_constraintTop_toTopOf="@+id/etCategorySearchBar" />
 
         <Button
             android:id="@+id/btnCategoryFilter"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="0dp"
             android:layout_marginTop="10dp"
             android:backgroundTint="@color/white"
             android:drawableLeft="@drawable/ic_baseline_filter_alt_24"
