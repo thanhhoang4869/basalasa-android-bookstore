@@ -10,11 +10,11 @@
         <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
-            android:layout_height="24dp"
+            android:layout_height="wrap_content"
             android:text="SHOPPING CART"
             android:textAlignment="center"
             android:textColor="#000000"
-            android:textSize="15sp"
+            android:textSize="36dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -26,7 +26,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView2"
         android:layout_width="match_parent"
-        android:layout_height="539dp"
+        android:layout_height="515dp"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="1dp"
         android:layout_marginRight="15dp"
@@ -61,10 +61,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.002"
+        app:layout_constraintHorizontal_bias="0.008"
         app:layout_constraintStart_toStartOf="@+id/recyclerView2"
         app:layout_constraintTop_toBottomOf="@+id/recyclerView2"
-        app:layout_constraintVertical_bias="0.267" />
+        app:layout_constraintVertical_bias="0.119" />
 
     <TextView
         android:id="@+id/textView11"

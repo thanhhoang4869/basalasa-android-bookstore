@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Basalasa" >
         <activity
-            android:name=".Checkout"
+            android:name=".activity.Checkout"
             android:exported="false" />
         <activity
             android:name=".activity.Cart"
