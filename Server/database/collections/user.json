@@ -1,0 +1,44 @@
+[{
+        "username": "thanhhoang",
+        "password": "$2a$12$lTVajNr5Rv53eRpbRBbexuadAKA2XO2KsKKjXoKj827PNm1hkrcWK",
+        "email": "thanhhoang4869@gmail.com",
+        "otp": null,
+        "dob": "2001-07-26",
+        "address": "125 D1, P.25, Binh Thanh, HCM",
+        "phone": "0933442607",
+        "role": 1
+    },
+
+    {
+        "username": "nhanhoang",
+        "password": "$2a$12$lTVajNr5Rv53eRpbRBbexuadAKA2XO2KsKKjXoKj827PNm1hkrcWK",
+        "email": "19127489@student.hcmus.edu.vn",
+        "otp": null,
+        "dob": "2001-07-26",
+        "address": "125 D1, P.25, Binh Thanh, HCM",
+        "phone": "0933442607",
+        "role": 1
+    },
+
+    {
+        "username": "khoile",
+        "password": "$2a$12$lTVajNr5Rv53eRpbRBbexuadAKA2XO2KsKKjXoKj827PNm1hkrcWK",
+        "email": "19127186@student.hcmus.edu.vn",
+        "otp": null,
+        "dob": "2001-07-26",
+        "address": "125 D1, P.25, Binh Thanh, HCM",
+        "phone": "0933442607",
+        "role": 0
+    },
+
+    {
+        "username": "huyvu",
+        "password": "$2a$12$lTVajNr5Rv53eRpbRBbexuadAKA2XO2KsKKjXoKj827PNm1hkrcWK",
+        "email": "19127426@student.hcmus.edu.vn",
+        "otp": null,
+        "dob": "2001-07-26",
+        "address": "125 D1, P.25, Binh Thanh, HCM",
+        "phone": "0933442607",
+        "role": 0
+    }
+]

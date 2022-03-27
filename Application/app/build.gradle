@@ -53,4 +53,8 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version" // For Kotlin use navigation-ui-ktx
 
     implementation 'de.hdodenhof:circleimageview:2.1.0' //border radius imageview
+    //retrofit2
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.0.0'
+    implementation "com.squareup.retrofit2:converter-scalars:2.9.0"
 }

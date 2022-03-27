@@ -1,0 +1,36 @@
+[{
+        "username": "khoile",
+        "book_id": 1,
+        "quantity": 1
+    },
+
+    {
+        "username": "khoile",
+        "book_id": 8,
+        "quantity": 2
+    },
+
+    {
+        "username": "thanhhoang",
+        "book_id": 6,
+        "quantity": 2
+    },
+
+    {
+        "username": "huyvu",
+        "book_id": 7,
+        "quantity": 3
+    },
+
+    {
+        "username": "huyvu",
+        "book_id": 1,
+        "quantity": 2
+    },
+
+    {
+        "username": "huyvu",
+        "book_id": 3,
+        "quantity": 2
+    }
+]
