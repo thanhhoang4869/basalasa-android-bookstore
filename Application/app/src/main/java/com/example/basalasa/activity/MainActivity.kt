@@ -3,7 +3,7 @@ package com.example.basalasa.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
+import androidx.core.view.isVisible
 import retrofit2.*
 import androidx.fragment.app.Fragment
 import com.example.basalasa.fragment.CategoryFragment
@@ -11,7 +11,6 @@ import com.example.basalasa.fragment.HomeFragment
 import com.example.basalasa.fragment.ProfileFragment
 import com.example.basalasa.fragment.SettingsFragment
 import com.example.basalasa.R
-import com.example.basalasa.model.LoginBody
 import com.example.basalasa.model.LoginResponse
 import com.example.basalasa.utils.MyAPI
 import com.google.android.material.bottomnavigation.BottomNavigationView

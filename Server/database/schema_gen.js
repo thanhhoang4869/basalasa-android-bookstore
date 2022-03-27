@@ -43,6 +43,7 @@ connect().then(() => {
         price: { type: Number, required: true },
         saleprice: Number,
         category: { type: String, required: true },
+        picture: { type: String, require: true },
         release_year: Date,
         description: { type: String, required: true },
         quantity: { type: Number, required: true, min: 1 },
@@ -69,12 +70,6 @@ connect().then(() => {
     })
     Category = mongoose.model('category', CategorySchema, 'category')
 
-    ImageSchema = new mongoose.Schema({
-        book_id: { type: mongoose.Types.ObjectId, required: true },
-        index: { type: Number, required: true },
-        link: { type: String, require: true }
-    })
-    ImageLink = mongoose.model('image', ImageSchema, 'image')
 }).catch(err => {
     console.log(err)
 })
