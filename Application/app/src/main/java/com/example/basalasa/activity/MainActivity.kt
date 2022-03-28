@@ -1,5 +1,6 @@
 package com.example.basalasa.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -30,7 +31,13 @@ class MainActivity : AppCompatActivity() {
         val bottomBar: BottomNavigationView = findViewById(R.id.bottom_bar)
         bottomBar.setOnItemSelectedListener {
             when(it.itemId){
-                R.id.menu_settings->setCurrentFragment(settingsFragment)
+//                R.id.menu_settings->setCurrentFragment(settingsFragment)
+
+                R.id.menu_settings->{
+                    val intent = Intent(this, Login::class.java)
+                    startActivity(intent)
+                    finish()
+                }
                 R.id.menu_profile->setCurrentFragment(profileFragment)
                 R.id.menu_home->setCurrentFragment(homeFragment)
                 R.id.menu_category->setCurrentFragment(categoryFragment)
@@ -39,26 +46,26 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        val response = MyAPI.getAPI().getLogin()
-        response.enqueue(object: Callback<LoginResponse> {
-            override fun onResponse(
-                call: Call<LoginResponse>,
-                response: Response<LoginResponse>
-            ) {
-
-                if (response.isSuccessful) {
-                    val data = response.body()
-                    if (data != null) {
-                        Log.d("log",data.data)
-                    }
-
-                }
-            }
-
-            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                Log.d("log","Teo")
-            }
-        })
+//        val response = MyAPI.getAPI().getLogin()
+//        response.enqueue(object: Callback<LoginResponse> {
+//            override fun onResponse(
+//                call: Call<LoginResponse>,
+//                response: Response<LoginResponse>
+//            ) {
+//
+//                if (response.isSuccessful) {
+//                    val data = response.body()
+//                    if (data != null) {
+//                        Log.d("log",data.data)
+//                    }
+//
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+//                Log.d("log","Teo")
+//            }
+//        })
     }
 
     private fun setCurrentFragment(fragment: Fragment)=
