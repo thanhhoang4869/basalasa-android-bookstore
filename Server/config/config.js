@@ -1,4 +1,4 @@
-exports.constant = {
+export default {
     BOOK_STATUS: {
         AVAILABLE: 1,
         OUT_OF_STOCK: 0,
@@ -11,8 +11,6 @@ exports.constant = {
         SHIPPING: 3,
         DONE: 0
     },
-}
 
-exports.database = {
     url: 'mongodb+srv://basalasa:mobiledev@basalasa.wcann.mongodb.net/basalasa?retryWrites=true&w=majority'
-};
+}

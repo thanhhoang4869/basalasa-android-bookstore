@@ -1,9 +1,9 @@
-const accountRoutes = require('./account')
+import accountRoutes from './account.route.js'
 
 function assignRoutes(app) {
     accountRoutes.assignRoutes(app)
 }
 
-module.exports = {
+export default {
     assignRoutes
 }

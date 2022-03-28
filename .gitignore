@@ -33,6 +33,8 @@ build/
 .navigation
 captures/
 output.json 
+
+**/node_modules
     
 #NDK
 obj/

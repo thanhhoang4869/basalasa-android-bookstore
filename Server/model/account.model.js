@@ -1,6 +1,6 @@
-const db = require('../database/connect')
+import mongoose from '../database/connect.js'
 
-UserSchema = new mongoose.Schema({
+var UserSchema = new mongoose.Schema({
     username: { type: String, require: true, unique: true },
     password: { type: String, require: true },
     email: { type: String, require: true },
@@ -13,14 +13,13 @@ UserSchema = new mongoose.Schema({
 
 const Account = mongoose.model('user', UserSchema, 'user')
 
-function findByUsername(username) {
+async function findByUsername(username) {
     const ret = await Account.find({
         username: username
     })
 
     return ret[0] || null
 }
-module.exports = {
+export default {
     findByUsername,
 }
-module.exports = await true

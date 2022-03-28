@@ -1,0 +1,23 @@
+{
+    "type": "module",
+    "name": "basalasa",
+    "version": "1.0.0",
+    "description": "- This project is named Basalasa and is owned by Dau Sua team while studying the course Mobile Application Development in HCMUS. \r - In this project, we build an e-commerce Android mobile application for books, and use NodeJS as the back-end server.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/thanhhoang4869/basalasa.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/thanhhoang4869/basalasa/issues"
+    },
+    "homepage": "https://github.com/thanhhoang4869/basalasa#readme",
+    "dependencies": {
+        "bcrypt": "^5.0.1"
+    }
+}

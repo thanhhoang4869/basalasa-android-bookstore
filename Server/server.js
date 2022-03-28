@@ -1,12 +1,7 @@
-const express = require('express')
+import express from 'express';
 const app = express()
-const route = require('./route/route')
-    // jwt = require('jsonwebtoken')
-const mongoose = require('mongoose');
-const config = require('./config/config')
-const cors = require('cors')
-const db = require('./database/connect')
-
+import route from './route/route.js'
+import cors from 'cors'
 //==================== Library =======================
 
 app.use(cors())

@@ -1,8 +1,8 @@
-const accountModel = require('../model/account.model')
-const bcrypt = require("bcryptjs");
+import accountModel from '../model/account.model.js'
+import bcrypt from 'bcrypt'
 
 function assignRoutes(app) {
-    app.get('/account/login', (req, res) => {
+    app.get('/account/login', async(req, res) => {
         const account = await accountModel.findByUsername(req.body.username);
 
         if (account === null) {
@@ -24,6 +24,6 @@ function assignRoutes(app) {
     });
 }
 
-module.exports = {
+export default {
     assignRoutes
 }

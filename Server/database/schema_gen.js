@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const config = require('../config/config')
-const url = config.database.url
+const url = config.url
 
 function connect() {
     return new Promise((resolve, reject) => {
