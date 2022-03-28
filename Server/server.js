@@ -2,6 +2,7 @@ import express from 'express';
 const app = express()
 import route from './route/route.js'
 import cors from 'cors'
+import db from './database/connect.js'
 //==================== Library =======================
 
 app.use(cors())
@@ -10,40 +11,10 @@ app.use(express.urlencoded({
     extended: true
 }));
 
-// db.connect().then(
-//     console.log("Test db conn")
-// )
 
-
-// app.use(log.logger)
-
-// app.use(function(req, res, next) {
-//     if (config.server.noTokenUrl.indexOf(req.url) == -1) {
-//         //In token url
-//         const token = req.headers['x-access-token']
-
-//         jwt.verify(token, config.server.secret, (err, decoded) => {
-//             if (err) {
-//                 res.status(403);
-//                 res.send({
-//                     exitcode: 2,
-//                     message: err
-//                 })
-//                 return
-//             }
-
-//             req.payload = {
-//                 username: decoded.username
-//             }
-//             next()
-//         })
-//     } else {
-//         //Non-token url
-//         next()
-//     }
-// })
-
-// //#endregion middleware
+db.connect().then(() => {
+    console.log("Setup db")
+})
 
 //Bind route
 route.assignRoutes(app)

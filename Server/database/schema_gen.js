@@ -1,3 +1,5 @@
+//only to store schema, not to run
+
 const mongoose = require('mongoose')
 const config = require('../config/config')
 const url = config.url

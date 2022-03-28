@@ -1,6 +1,8 @@
-import mongoose from '../database/connect.js'
+// import accountModel from './account.schema.js'
 
-var UserSchema = new mongoose.Schema({
+import mongoose from 'mongoose'
+
+const UserSchema = new mongoose.Schema({
     username: { type: String, require: true, unique: true },
     password: { type: String, require: true },
     email: { type: String, require: true },
@@ -11,15 +13,14 @@ var UserSchema = new mongoose.Schema({
     role: Number
 })
 
-const Account = mongoose.model('user', UserSchema, 'user')
+const Account = mongoose.model('user', UserSchema)
 
-async function findByUsername(username) {
-    const ret = await Account.find({
-        username: username
-    })
-
-    return ret[0] || null
-}
 export default {
-    findByUsername,
+    async findByUsername(username) {
+        const ret = await Account.find({
+            username: username
+        })
+
+        return ret[0] || null
+    }
 }
