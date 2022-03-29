@@ -2,7 +2,7 @@ import accountModel from '../model/account.model.js'
 import bcrypt from 'bcrypt'
 
 function assignRoutes(app) {
-    app.post('/account/login', async(req, res) => {
+    app.post('/account/login', async (req, res) => {
         console.log(req.body.username)
         const account = await accountModel.findByUsername(req.body.username);
         // console.log(account[0])

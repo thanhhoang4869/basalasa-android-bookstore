@@ -4,7 +4,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class MyAPI {
     companion object {
-        private const val BASE_URL = "http://192.168.1.31"
+        private const val BASE_URL = "http://192.168.1.3"
         private const val PORT = "3000"
 
         fun getAPI(): API {
