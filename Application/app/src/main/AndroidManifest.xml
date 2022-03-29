@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Basalasa">
         <activity
+            android:name=".activity.BookDetail"
+            android:exported="false" />
+        <activity
             android:name=".activity.Login"
             android:exported="false" />
         <activity
