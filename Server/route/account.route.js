@@ -59,7 +59,7 @@ function assignRoutes(app) {
             subject: 'Email verification',
             html: `<div style="background-color: #ACD1AF; padding: 2em 2em;">
                     <h1 style="text-align: center;">Thank you for registering</h1>
-                    <h4 style="text-align: center;">Please click <a href="http://${req.headers.host}/account/verify/${emailToken}">here</a> to activate your account</h4>
+                    <h3 style="text-align: center;">Please click <a href="http://${req.headers.host}/account/verify/${emailToken}">here</a> to activate your account</h3>
                 </div>`
         }
 
@@ -84,25 +84,50 @@ function assignRoutes(app) {
         })
     });
 
-    app.get('/account/verify', async (req, res) => {
-        const { token } = req.params;
-
-        const account = await accountModel.findByEmail(email);
-
-        await accountModel.activateAccount(token);
-
-        res.send({
-            "exitcode": 0
-        })
-    });
-
     app.get('/account/verify/:token', async (req, res) => {
         const { token } = req.params;
 
         await accountModel.activateAccount(token);
 
-        res.end()
+        res.send("Activate successfully")
     });
+
+    app.post('/account/forget', async (req, res) => {
+        const { email } = req.body;
+
+        const account = await accountModel.findByEmail(email)
+
+        if (account) {
+            const newPass = (Math.random() + 1).toString(36).substring(2);
+            account.password = await bcrypt.hash(newPass, salt);
+
+            const mailOption = {
+                from: process.env.SHOP_GMAIL_USERNAME,
+                to: email,
+                subject: 'Forget password',
+                html: `<div style="background-color: #ACD1AF; padding: 2em 2em;">
+                        <h1 style="text-align: center;">This is your new password</h1>
+                        <h3 style="text-align: center;">${newPass}</h3>
+                    </div>`
+            }
+
+            transporter.sendMail(mailOption, function (err, info) {
+                if (err) console.log(err);
+            })
+
+            await accountModel.generateNewPassword(email, account.password)
+
+            res.send({
+                "exitcode": 0
+            })
+
+            return;
+        }
+
+        res.send({
+            "exitcode": 500
+        })
+    })
 }
 
 export default {

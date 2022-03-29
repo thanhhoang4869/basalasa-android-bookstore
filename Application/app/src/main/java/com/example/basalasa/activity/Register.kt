@@ -36,11 +36,11 @@ class Register : AppCompatActivity() {
         }
 
         registerSignUpButton!!.setOnClickListener {
-            checkAccount(this)
+            registerAccount(this)
         }
     }
 
-    private fun checkAccount(context: Context) {
+    private fun registerAccount(context: Context) {
         val email = findViewById<EditText>(R.id.registerEmailEditText).text.toString()
         val password = findViewById<EditText>(R.id.registerPasswordEditText).text.toString()
         val rePassword = findViewById<EditText>(R.id.registerRetypePasswordEditText).text.toString()

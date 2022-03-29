@@ -26,7 +26,6 @@ connect().then(() => {
     UserSchema = new mongoose.Schema({
         password: { type: String, require: true },
         email: { type: String, require: true, unique: true },
-        otp: Number,
         address: String,
         phone: String,
         role: Number,

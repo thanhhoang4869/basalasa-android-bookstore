@@ -12,7 +12,6 @@ mongoose.connect(url, {
 const UserSchema = new mongoose.Schema({
     password: { type: String, require: true },
     email: { type: String, require: true, unique: true },
-    otp: Number,
     address: String,
     phone: String,
     role: Number,
@@ -48,8 +47,17 @@ export default {
             })
             return true
         } catch (err) {
+            console.log(err)
             return false
         }
+    },
+    async generateNewPassword(email, newPass) {
+        try {
+            await Account.findOneAndUpdate({ email: email }, {
+                $set: { password: newPass }
+            })
+        } catch (err) {
+            console.log(err)
+        }
     }
-
 }
