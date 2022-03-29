@@ -1,5 +1,4 @@
 [{
-        "username": "thanhhoang",
         "password": "$2a$12$lTVajNr5Rv53eRpbRBbexuadAKA2XO2KsKKjXoKj827PNm1hkrcWK",
         "email": "thanhhoang4869@gmail.com",
         "otp": null,
@@ -10,7 +9,6 @@
     },
 
     {
-        "username": "nhanhoang",
         "password": "$2a$12$lTVajNr5Rv53eRpbRBbexuadAKA2XO2KsKKjXoKj827PNm1hkrcWK",
         "email": "19127489@student.hcmus.edu.vn",
         "otp": null,
@@ -21,7 +19,6 @@
     },
 
     {
-        "username": "khoile",
         "password": "$2a$12$lTVajNr5Rv53eRpbRBbexuadAKA2XO2KsKKjXoKj827PNm1hkrcWK",
         "email": "19127186@student.hcmus.edu.vn",
         "otp": null,
@@ -32,7 +29,6 @@
     },
 
     {
-        "username": "huyvu",
         "password": "$2a$12$lTVajNr5Rv53eRpbRBbexuadAKA2XO2KsKKjXoKj827PNm1hkrcWK",
         "email": "19127426@student.hcmus.edu.vn",
         "otp": null,

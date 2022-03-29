@@ -1,35 +1,35 @@
 [{
-        "username": "khoile",
+        "email": "19127186@student.hcmus.edu.vn",
         "book_id": 1,
         "quantity": 1
     },
 
     {
-        "username": "khoile",
+        "email": "19127186@student.hcmus.edu.vn",
         "book_id": 8,
         "quantity": 2
     },
 
     {
-        "username": "thanhhoang",
+        "email": "thanhhoang4869@gmail.com",
         "book_id": 6,
         "quantity": 2
     },
 
     {
-        "username": "huyvu",
+        "email": "19127426@student.hcmus.edu.vn",
         "book_id": 7,
         "quantity": 3
     },
 
     {
-        "username": "huyvu",
+        "email": "19127426@student.hcmus.edu.vn",
         "book_id": 1,
         "quantity": 2
     },
 
     {
-        "username": "huyvu",
+        "email": "19127426@student.hcmus.edu.vn",
         "book_id": 3,
         "quantity": 2
     }
