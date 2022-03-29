@@ -10,15 +10,15 @@ mongoose.connect(url, {
 })
 
 const UserSchema = new mongoose.Schema({
-    email: { type: String, require: true, unique: true },
     password: { type: String, require: true },
+    email: { type: String, require: true, unique: true },
     otp: Number,
-    dob: Date,
-    fullName: String,
     address: String,
     phone: String,
     role: Number,
-    status: Boolean
+    fullName: String,
+    status: Boolean,
+    emailToken: String,
 })
 
 const Account = mongoose.model('user', UserSchema, 'user')
@@ -30,5 +30,26 @@ export default {
         }).lean();
 
         return ret || null
+    },
+    async checkEmail(email) {
+        const r = await Account.findOne({
+            email: email
+        }).lean();
+        return r === null ? false : true
+    },
+    async create(user) {
+        const ret = await Account.create(user);
+        return ret
+    },
+    async activateAccount(token) {
+        try {
+            await Account.findOneAndUpdate({ emailToken: token }, {
+                $set: { emailToken: null }
+            })
+            return true
+        } catch (err) {
+            return false
+        }
     }
+
 }

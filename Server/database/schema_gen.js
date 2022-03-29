@@ -27,12 +27,12 @@ connect().then(() => {
         password: { type: String, require: true },
         email: { type: String, require: true, unique: true },
         otp: Number,
-        dob: Date,
         address: String,
         phone: String,
         role: Number,
         fullName: String,
-        status: Boolean
+        status: Boolean,
+        emailToken: String,
     })
 
     User = mongoose.model('user', UserSchema, 'user')

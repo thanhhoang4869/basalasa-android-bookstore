@@ -14,6 +14,7 @@ interface API {
         @Body loginBody: LoginBody
     ): Call<LoginResponse>
 
+    @POST("/account/register")
     fun postRegister(
         @Body registerBody: RegisterBody
     ): Call<RegisterResponse>

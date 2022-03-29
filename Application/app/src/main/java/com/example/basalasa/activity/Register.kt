@@ -36,7 +36,7 @@ class Register : AppCompatActivity() {
         }
 
         registerSignUpButton!!.setOnClickListener {
-
+            checkAccount(this)
         }
     }
 
@@ -48,28 +48,33 @@ class Register : AppCompatActivity() {
         val phone = findViewById<EditText>(R.id.registerPhoneEditText).text.toString()
         val address = findViewById<EditText>(R.id.registerAddressEditText).text.toString()
 
-        val response = MyAPI.getAPI().postRegister(RegisterBody(email, password, rePassword, fullName, phone, address))
+        if(!password.equals(rePassword)) {
+            Toast.makeText(context, "Retype password does not match", Toast.LENGTH_LONG).show()
+        } else {
+            val response = MyAPI.getAPI().postRegister(RegisterBody(email, password, fullName, phone, address))
 
-        response.enqueue(object : Callback<RegisterResponse> {
-            override fun onResponse(call: Call<RegisterResponse>, response: Response<RegisterResponse>) {
-                if (response.isSuccessful) {
-                    val data = response.body()
-                    if (data?.exitcode == 0) {
-                        Intent(context, Login::class.java).also {
-                            startActivity(it)
-                            finish()
+            response.enqueue(object : Callback<RegisterResponse> {
+                override fun onResponse(call: Call<RegisterResponse>, response: Response<RegisterResponse>) {
+                    if (response.isSuccessful) {
+                        val data = response.body()
+                        if (data?.exitcode == 0) {
+                            Intent(context, Login::class.java).also {
+                                Toast.makeText(context, "Please activate your account", Toast.LENGTH_LONG).show()
+                                startActivity(it)
+                                finish()
+                            }
+
+                        } else if (data?.exitcode == 701 ) {
+                            Toast.makeText(context, "Email has been already used", Toast.LENGTH_LONG).show()
                         }
-
-                    } else if (data?.exitcode == 701 ) {
-                        Toast.makeText(context, "Incorrect username or password", Toast.LENGTH_LONG).show()
                     }
                 }
-            }
 
-            override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
-                Toast.makeText(context, "Fail connection to server", Toast.LENGTH_LONG).show()
-                t.printStackTrace();
-            }
-        })
+                override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
+                    Toast.makeText(context, "Fail connection to server", Toast.LENGTH_LONG).show()
+                    t.printStackTrace();
+                }
+            })
+        }
     }
 }

@@ -57,8 +57,6 @@ class Login : AppCompatActivity() {
 
                     } else if (data?.exitcode == 104) {
                         Toast.makeText(context, "Incorrect username or password", Toast.LENGTH_LONG).show()
-                    } else if (data?.exitcode == 708) {
-                    Toast.makeText(context, "User is banned", Toast.LENGTH_LONG).show()
                     }
                 }
             }
