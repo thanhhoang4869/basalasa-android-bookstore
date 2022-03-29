@@ -7,7 +7,8 @@
         "address": "125 D1, P.25, Binh Thanh, HCM",
         "name": "Hoang Nhu Thanh",
         "phone": "0933442607",
-        "role": 1
+        "role": 1,
+        "status": 0
     },
     {
         "password": "$2a$12$lTVajNr5Rv53eRpbRBbexuadAKA2XO2KsKKjXoKj827PNm1hkrcWK",
@@ -17,7 +18,8 @@
         "name": "Hoang Thien Nhan",
         "address": "125 D1, P.25, Binh Thanh, HCM",
         "phone": "0933442607",
-        "role": 1
+        "role": 1,
+        "status": 1
     },
     {
         "password": "$2a$12$lTVajNr5Rv53eRpbRBbexuadAKA2XO2KsKKjXoKj827PNm1hkrcWK",
@@ -27,7 +29,8 @@
         "dob": "2001-07-26",
         "address": "125 D1, P.25, Binh Thanh, HCM",
         "phone": "0933442607",
-        "role": 0
+        "role": 0,
+        "status": 0
     },
     {
         "password": "$2a$12$lTVajNr5Rv53eRpbRBbexuadAKA2XO2KsKKjXoKj827PNm1hkrcWK",
@@ -37,6 +40,7 @@
         "dob": "2001-07-26",
         "address": "125 D1, P.25, Binh Thanh, HCM",
         "phone": "0933442607",
-        "role": 0
+        "role": 0,
+        "status": 0
     }
 ]

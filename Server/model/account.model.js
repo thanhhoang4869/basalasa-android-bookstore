@@ -17,20 +17,18 @@ const UserSchema = new mongoose.Schema({
     fullName: String,
     address: String,
     phone: String,
-    role: Number
+    role: Number,
+    status: Boolean
 })
 
 const Account = mongoose.model('user', UserSchema, 'user')
 
 export default {
     async findByEmail(email) {
-        console.log(email)
-        const ret = await Account.find({
+        const ret = await Account.findOne({
             email: email
-        })
+        }).lean();
 
-        console.log(ret[0])
-
-        return ret[0] || null
+        return ret || null
     }
 }

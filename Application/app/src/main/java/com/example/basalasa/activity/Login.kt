@@ -40,7 +40,7 @@ class Login : AppCompatActivity() {
     }
 
     private fun checkAccount(context: Context) {
-        val usernameStr = binding.usernameEntry.text.toString()
+        val usernameStr = binding.emailEntry.text.toString()
         val passwordStr = binding.passEntry.text.toString()
 
         val response = MyAPI.getAPI().postLogin(LoginBody(usernameStr, passwordStr))
@@ -57,6 +57,8 @@ class Login : AppCompatActivity() {
 
                     } else if (data?.exitcode == 104) {
                         Toast.makeText(context, "Incorrect username or password", Toast.LENGTH_LONG).show()
+                    } else if (data?.exitcode == 708) {
+                    Toast.makeText(context, "User is banned", Toast.LENGTH_LONG).show()
                     }
                 }
             }

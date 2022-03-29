@@ -3,14 +3,20 @@ import bcrypt from 'bcrypt'
 
 function assignRoutes(app) {
     app.post('/account/login', async (req, res) => {
-        console.log(req.body.email)
         const account = await accountModel.findByEmail(req.body.email);
-        // console.log(account[0])
 
         if (account === null) {
             res.send({
                 "exitcode": 104
             });
+            return;
+        }
+
+        if (account.status) {
+            res.send({
+                "exitcode": 708 //blocked
+            });
+            console.log('exit r')
             return;
         }
 

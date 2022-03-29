@@ -51,7 +51,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <EditText
-        android:id="@+id/usernameEntry"
+        android:id="@+id/emailEntry"
         android:layout_width="370dp"
         android:layout_height="wrap_content"
         android:padding="12dp"
@@ -60,7 +60,7 @@
         android:drawableStart="@drawable/ic_baseline_email"
         android:drawablePadding="10dp"
         android:ems="10"
-        android:hint="Username"
+        android:hint="Email"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         app:layout_constraintBottom_toTopOf="@+id/passEntry"
@@ -86,7 +86,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usernameEntry" />
+        app:layout_constraintTop_toBottomOf="@+id/emailEntry" />
 
     <Button
         android:id="@+id/loginBtn"

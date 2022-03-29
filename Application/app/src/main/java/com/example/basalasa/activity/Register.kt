@@ -11,6 +11,8 @@ import android.widget.Toast
 import com.example.basalasa.R
 import com.example.basalasa.model.LoginBody
 import com.example.basalasa.model.LoginResponse
+import com.example.basalasa.model.RegisterBody
+import com.example.basalasa.model.RegisterResponse
 import com.example.basalasa.utils.MyAPI
 import retrofit2.Call
 import retrofit2.Callback
@@ -38,32 +40,36 @@ class Register : AppCompatActivity() {
         }
     }
 
-//    private fun checkAccount(context: Context) {
-//        val usernameStr = findViewById<EditText>(R.id.register)
-//        val passwordStr =
-//
-//        val response = MyAPI.getAPI().postLogin(LoginBody(usernameStr, passwordStr))
-//
-//        response.enqueue(object : Callback<LoginResponse> {
-//            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
-//                if (response.isSuccessful) {
-//                    val data = response.body()
-//                    if (data?.exitcode == 0) {
-//                        Intent(context, MainActivity::class.java).also {
-//                            startActivity(it)
-//                            finish()
-//                        }
-//
-//                    } else if (data?.exitcode == 104) {
-//                        Toast.makeText(context, "Incorrect username or password", Toast.LENGTH_LONG).show()
-//                    }
-//                }
-//            }
-//
-//            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-//                Toast.makeText(context, "Fail connection to server", Toast.LENGTH_LONG).show()
-//                t.printStackTrace();
-//            }
-//        })
-//    }
+    private fun checkAccount(context: Context) {
+        val email = findViewById<EditText>(R.id.registerEmailEditText).text.toString()
+        val password = findViewById<EditText>(R.id.registerPasswordEditText).text.toString()
+        val rePassword = findViewById<EditText>(R.id.registerRetypePasswordEditText).text.toString()
+        val fullName = findViewById<EditText>(R.id.registerFullNameEditText).text.toString()
+        val phone = findViewById<EditText>(R.id.registerPhoneEditText).text.toString()
+        val address = findViewById<EditText>(R.id.registerAddressEditText).text.toString()
+
+        val response = MyAPI.getAPI().postRegister(RegisterBody(email, password, rePassword, fullName, phone, address))
+
+        response.enqueue(object : Callback<RegisterResponse> {
+            override fun onResponse(call: Call<RegisterResponse>, response: Response<RegisterResponse>) {
+                if (response.isSuccessful) {
+                    val data = response.body()
+                    if (data?.exitcode == 0) {
+                        Intent(context, Login::class.java).also {
+                            startActivity(it)
+                            finish()
+                        }
+
+                    } else if (data?.exitcode == 701 ) {
+                        Toast.makeText(context, "Incorrect username or password", Toast.LENGTH_LONG).show()
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
+                Toast.makeText(context, "Fail connection to server", Toast.LENGTH_LONG).show()
+                t.printStackTrace();
+            }
+        })
+    }
 }

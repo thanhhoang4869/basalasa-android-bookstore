@@ -24,14 +24,15 @@ function connect() {
 connect().then(() => {
     // conn.db.listCollections().toArray(dropTable)
     UserSchema = new mongoose.Schema({
-        username: { type: String, require: true, unique: true },
         password: { type: String, require: true },
         email: { type: String, require: true, unique: true },
         otp: Number,
         dob: Date,
         address: String,
         phone: String,
-        role: Number
+        role: Number,
+        fullName: String,
+        status: Boolean
     })
 
     User = mongoose.model('user', UserSchema, 'user')
@@ -55,14 +56,14 @@ connect().then(() => {
     Book = mongoose.model('book', BookSchema, 'book')
 
     CartSchema = new mongoose.Schema({
-        username: { type: String, required: true },
+        email: { type: String, required: true },
         book_id: { type: mongoose.Types.ObjectId, required: true },
         release_year: Number,
     })
     Cart = mongoose.model('cart', CartSchema, 'cart')
 
     OrderSchema = new mongoose.Schema({
-        username: { type: String, required: true },
+        email: { type: String, required: true },
         product: { type: Object, required: true }
     })
     Order = mongoose.model('order', OrderSchema, 'order')
