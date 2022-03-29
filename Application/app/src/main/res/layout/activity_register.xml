@@ -22,7 +22,7 @@
         android:layout_centerHorizontal="true"
         android:background="#aa000000"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:layout_editor_absoluteY="-67dp" />
 
     <TextView
         android:id="@+id/textView"
@@ -53,24 +53,26 @@
     <EditText
         android:id="@+id/registerEmailEditText"
         android:layout_width="370dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="32dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:background="@drawable/custom_input"
         android:drawableStart="@drawable/ic_baseline_email"
         android:drawablePadding="10dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textPersonName"
+        android:padding="12dp"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView1" />
 
     <EditText
         android:id="@+id/registerPasswordEditText"
         android:layout_width="370dp"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/custom_input"
         android:drawableStart="@drawable/ic_baseline_lock"
@@ -78,6 +80,7 @@
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
+        android:padding="12dp"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -88,7 +91,7 @@
     <EditText
         android:id="@+id/registerRetypePasswordEditText"
         android:layout_width="370dp"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/custom_input"
         android:drawableStart="@drawable/ic_baseline_lock"
@@ -96,17 +99,18 @@
         android:ems="10"
         android:hint="Retype password"
         android:inputType="textPassword"
+        android:padding="12dp"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registerPasswordEditText" />
 
     <EditText
         android:id="@+id/registerFullNameEditText"
         android:layout_width="370dp"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/custom_input"
         android:drawableStart="@drawable/ic_baseline_person"
@@ -114,17 +118,18 @@
         android:ems="10"
         android:hint="Full name"
         android:inputType="textPersonName"
+        android:padding="12dp"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registerRetypePasswordEditText" />
 
     <EditText
         android:id="@+id/registerPhoneEditText"
         android:layout_width="370dp"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/custom_input"
         android:drawableStart="@drawable/ic_baseline_phone"
@@ -132,6 +137,7 @@
         android:ems="10"
         android:hint="Phone number"
         android:inputType="phone"
+        android:padding="12dp"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -142,7 +148,7 @@
     <EditText
         android:id="@+id/registerAddressEditText"
         android:layout_width="370dp"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/custom_input"
         android:drawableStart="@drawable/ic_baseline_home"
@@ -150,6 +156,7 @@
         android:ems="10"
         android:hint="Address"
         android:inputType="textPersonName"
+        android:padding="12dp"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -184,7 +191,8 @@
     <Button
         android:id="@+id/registerSignUpBtn"
         android:layout_width="370dp"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
         android:layout_marginTop="24dp"
         android:text="Sign Up"
         android:backgroundTint="@color/primary_green"

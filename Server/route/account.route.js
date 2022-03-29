@@ -3,8 +3,8 @@ import bcrypt from 'bcrypt'
 
 function assignRoutes(app) {
     app.post('/account/login', async (req, res) => {
-        console.log(req.body.username)
-        const account = await accountModel.findByUsername(req.body.username);
+        console.log(req.body.email)
+        const account = await accountModel.findByEmail(req.body.email);
         // console.log(account[0])
 
         if (account === null) {
