@@ -4,12 +4,14 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.Toast
 import com.example.basalasa.model.LoginBody
 import com.example.basalasa.R
 import com.example.basalasa.databinding.ActivityLoginBinding
 import com.example.basalasa.model.LoginResponse
+import com.example.basalasa.utils.Cache
 import com.example.basalasa.utils.MyAPI
 import retrofit2.Call
 import retrofit2.Callback
@@ -51,6 +53,7 @@ class Login : AppCompatActivity() {
                     val data = response.body()
                     if (data?.exitcode == 0) {
                         Intent(context, MainActivity::class.java).also {
+                            Log.d("Token saved", Cache.saveToken(context, data.token).toString())
                             startActivity(it)
                             finish()
                         }

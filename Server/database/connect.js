@@ -1,13 +1,10 @@
 import mongoose from 'mongoose'
-// import config from '../config/config.js'
-// const url = config.url
-
-import dotenv from 'dotenv'
-dotenv.config()
+import config from '../config/config.js'
+const url = config.url
 
 function connect() {
     return new Promise((resolve, reject) => {
-        mongoose.connect(process.env.DB_URL, {
+        mongoose.connect(url, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         }).then(() => {

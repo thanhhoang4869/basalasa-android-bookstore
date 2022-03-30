@@ -1,20 +1,22 @@
 package com.example.basalasa.activity
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import androidx.core.view.isVisible
-import retrofit2.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.basalasa.fragment.CategoryFragment
 import com.example.basalasa.fragment.HomeFragment
 import com.example.basalasa.fragment.ProfileFragment
 import com.example.basalasa.fragment.SettingsFragment
 import com.example.basalasa.R
-import com.example.basalasa.model.LoginResponse
+import com.example.basalasa.model.GetAccountResponse
+import com.example.basalasa.utils.Cache
 import com.example.basalasa.utils.MyAPI
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import retrofit2.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,46 +32,54 @@ class MainActivity : AppCompatActivity() {
 
         val bottomBar: BottomNavigationView = findViewById(R.id.bottom_bar)
         bottomBar.setOnItemSelectedListener {
-            when(it.itemId){
-                R.id.menu_settings->setCurrentFragment(settingsFragment)
-//                R.id.menu_settings->{
-//                    val intent = Intent(this, Login::class.java)
-//                    startActivity(intent)
-//                    finish()
-//                }
-                R.id.menu_profile->setCurrentFragment(profileFragment)
-                R.id.menu_home->setCurrentFragment(homeFragment)
-                R.id.menu_category->setCurrentFragment(categoryFragment)
+            when (it.itemId) {
+                R.id.menu_settings -> processSettings(this, settingsFragment)
+                R.id.menu_profile -> setCurrentFragment(profileFragment)
+                R.id.menu_home -> setCurrentFragment(homeFragment)
+                R.id.menu_category -> setCurrentFragment(categoryFragment)
             }
             true
         }
-
-
-//        val response = MyAPI.getAPI().getLogin()
-//        response.enqueue(object: Callback<LoginResponse> {
-//            override fun onResponse(
-//                call: Call<LoginResponse>,
-//                response: Response<LoginResponse>
-//            ) {
-//
-//                if (response.isSuccessful) {
-//                    val data = response.body()
-//                    if (data != null) {
-//                        Log.d("log",data.data)
-//                    }
-//
-//                }
-//            }
-//
-//            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-//                Log.d("log","Teo")
-//            }
-//        })
     }
 
-    private fun setCurrentFragment(fragment: Fragment)=
+    private fun processSettings(context: Context, fragment: Fragment) {
+        val token = Cache.getToken(context)
+        if (token===null) {
+            val intent = Intent(context, Login::class.java)
+            startActivity(intent)
+            finish()
+        }
+        Log.d("token",token.toString())
+
+
+        val response = MyAPI.getAPI().getAccount(token.toString())
+
+        response.enqueue(object : Callback<GetAccountResponse> {
+            override fun onResponse(
+                call: Call<GetAccountResponse>,
+                response: Response<GetAccountResponse>
+            ) {
+                if (response.isSuccessful) {
+                    val data = response.body()
+                    Log.d("alo","dm")
+                    Log.d("alo",data?.exitcode.toString())
+
+                    if (data?.exitcode == 0) {
+                        setCurrentFragment(fragment)
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<GetAccountResponse>, t: Throwable) {
+                Toast.makeText(context, "Fail connection to server", Toast.LENGTH_LONG).show()
+                t.printStackTrace()
+            }
+        })
+    }
+
+    private fun setCurrentFragment(fragment: Fragment) =
         supportFragmentManager.beginTransaction().apply {
-            replace(R.id.flFragment,fragment)
+            replace(R.id.flFragment, fragment)
             commit()
         }
 }

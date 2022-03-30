@@ -1,4 +1,11 @@
 export default {
+    server: {
+        port: 3000,
+        noTokenUrl: ['/account/login', '/', '/account/signup'],
+        expTime: 60 * 60 * 24,
+        secret: 'SHIZUKA'
+    },
+
     BOOK_STATUS: {
         AVAILABLE: 1,
         OUT_OF_STOCK: 0,

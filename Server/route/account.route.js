@@ -3,13 +3,60 @@ import crypto from 'crypto';
 import accountModel from '../model/account.model.js';
 import transporter from '../utils/nodemailer..js';
 import dotenv from 'dotenv';
+import config from '../config/config.js'
+import jwt from 'jsonwebtoken'
 const salt = 10;
 
 dotenv.config()
 
 function assignRoutes(app) {
-    app.post('/account/login', async (req, res) => {
+    app.post('/account/login', async(req, res) => {
         const account = await accountModel.findByEmail(req.body.email);
+
+        if (account === null) {
+            res.send({
+                "exitcode": 104,
+                token: '',
+            });
+            return;
+        }
+
+        if (account.status) {
+            res.send({
+                "exitcode": 708, //blocked
+                token: '',
+            });
+            return;
+        }
+
+        const ret = bcrypt.compareSync(req.body.password, account.password);
+        if (ret === false || account.emailToken !== null) {
+            res.send({
+                "exitcode": 104,
+                token: '',
+            });
+            return;
+        }
+
+        const payload = {
+            email: account.email,
+        }
+
+        res.send({
+            "exitcode": 0,
+            token: jwt.sign(payload, config.server.secret, {
+                expiresIn: config.server.expTime
+            }),
+            message: "Login successfully"
+        });
+    });
+
+    app.post('/account/getAccount', async(req, res) => {
+        const data = {
+            email: req.payload.email
+        }
+
+        const account = await accountModel.findByEmail([data.email]);
 
         if (account === null) {
             res.send({
@@ -25,20 +72,17 @@ function assignRoutes(app) {
             return;
         }
 
-        const ret = bcrypt.compareSync(req.body.password, account.password);
-        if (ret === false || account.emailToken !== null) {
-            res.send({
-                "exitcode": 104
-            });
-            return;
-        }
-
         res.send({
             "exitcode": 0,
+            "email": account.email,
+            "name": account.name,
+            "phone": account.phone,
+            "address": account.address,
+            "role": account.role
         });
     });
 
-    app.post('/account/register', async (req, res) => {
+    app.post('/account/register', async(req, res) => {
         const { email, password, fullName, phone, address } = req.body;
 
         const usedEmail = await accountModel.checkEmail(email);
@@ -63,7 +107,7 @@ function assignRoutes(app) {
                 </div>`
         }
 
-        transporter.sendMail(mailOption, function (err, info) {
+        transporter.sendMail(mailOption, function(err, info) {
             if (err) console.log(err);
         })
 
@@ -84,7 +128,7 @@ function assignRoutes(app) {
         })
     });
 
-    app.get('/account/verify/:token', async (req, res) => {
+    app.get('/account/verify/:token', async(req, res) => {
         const { token } = req.params;
 
         await accountModel.activateAccount(token);
@@ -92,7 +136,7 @@ function assignRoutes(app) {
         res.send("Activate successfully")
     });
 
-    app.post('/account/forget', async (req, res) => {
+    app.post('/account/forget', async(req, res) => {
         const { email } = req.body;
 
         const account = await accountModel.findByEmail(email)
@@ -111,7 +155,7 @@ function assignRoutes(app) {
                     </div>`
             }
 
-            transporter.sendMail(mailOption, function (err, info) {
+            transporter.sendMail(mailOption, function(err, info) {
                 if (err) console.log(err);
             })
 
