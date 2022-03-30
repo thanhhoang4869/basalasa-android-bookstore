@@ -3,7 +3,7 @@ const app = express()
 import route from './route/route.js'
 import cors from 'cors'
 import db from './database/connect.js'
-import logger from './log.js'
+import logger from './utils/log.js'
 //==================== Library =======================
 
 app.use(cors())
@@ -22,6 +22,6 @@ app.use(logger.logger)
 route.assignRoutes(app)
 
 //Start listen
-app.listen(3000, function() {
+app.listen(3000, function () {
     console.log("Begin listen on port %s...", 3000);
 })

@@ -40,7 +40,7 @@ class Login : AppCompatActivity() {
     }
 
     private fun checkAccount(context: Context) {
-        val usernameStr = binding.usernameEntry.text.toString()
+        val usernameStr = binding.emailEntry.text.toString()
         val passwordStr = binding.passEntry.text.toString()
 
         val response = MyAPI.getAPI().postLogin(LoginBody(usernameStr, passwordStr))

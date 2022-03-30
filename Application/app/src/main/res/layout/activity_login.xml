@@ -14,12 +14,23 @@
         android:layout_centerHorizontal="true"
         tools:ignore="ContentDescription" />
 
+    <View
+        android:id="@+id/overlay_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="#aa000000"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="Basalasa"
+        android:textColor="@color/white"
         android:textSize="50dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,21 +44,23 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Your treasure of knowledge"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <EditText
-        android:id="@+id/usernameEntry"
+        android:id="@+id/emailEntry"
         android:layout_width="370dp"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
         android:layout_marginTop="128dp"
         android:background="@drawable/custom_input"
         android:drawableStart="@drawable/ic_baseline_email"
         android:drawablePadding="10dp"
         android:ems="10"
-        android:hint="Username"
+        android:hint="Email"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         app:layout_constraintBottom_toTopOf="@+id/passEntry"
@@ -59,7 +72,8 @@
     <EditText
         android:id="@+id/passEntry"
         android:layout_width="370dp"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/custom_input"
         android:drawableStart="@drawable/ic_baseline_lock"
@@ -72,12 +86,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usernameEntry" />
+        app:layout_constraintTop_toBottomOf="@+id/emailEntry" />
 
     <Button
         android:id="@+id/loginBtn"
         android:layout_width="370dp"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
         android:layout_marginTop="24dp"
         android:backgroundTint="@color/primary_green"
         android:text="Sign in"
@@ -94,6 +109,7 @@
         android:layout_marginStart="85dp"
         android:layout_marginTop="8dp"
         android:text="Did not have any account?"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/loginNavRegister"
         app:layout_constraintHorizontal_bias="0.5"
@@ -116,6 +132,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Forgest Password"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
