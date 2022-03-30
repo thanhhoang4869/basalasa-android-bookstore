@@ -19,6 +19,9 @@
             android:exported="false"
             android:parentActivityName=".activity.MainActivity" />
         <activity
+            android:name=".activity.BookDetail"
+            android:exported="false" />
+        <activity
             android:name=".activity.Login"
             android:exported="false" />
         <activity
