@@ -31,13 +31,12 @@ class MainActivity : AppCompatActivity() {
         val bottomBar: BottomNavigationView = findViewById(R.id.bottom_bar)
         bottomBar.setOnItemSelectedListener {
             when(it.itemId){
-//                R.id.menu_settings->setCurrentFragment(settingsFragment)
-
-                R.id.menu_settings->{
-                    val intent = Intent(this, Login::class.java)
-                    startActivity(intent)
-                    finish()
-                }
+                R.id.menu_settings->setCurrentFragment(settingsFragment)
+//                R.id.menu_settings->{
+//                    val intent = Intent(this, Login::class.java)
+//                    startActivity(intent)
+//                    finish()
+//                }
                 R.id.menu_profile->setCurrentFragment(profileFragment)
                 R.id.menu_home->setCurrentFragment(homeFragment)
                 R.id.menu_category->setCurrentFragment(categoryFragment)

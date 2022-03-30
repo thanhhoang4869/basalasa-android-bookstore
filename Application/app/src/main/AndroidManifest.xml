@@ -12,6 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Basalasa">
         <activity
+            android:name=".activity.SettingChangePassword"
+            android:exported="false" />
+        <activity
+            android:name=".activity.SettingChangeInformation"
+            android:exported="false"
+            android:parentActivityName=".activity.MainActivity" />
+        <activity
             android:name=".activity.Login"
             android:exported="false" />
         <activity
