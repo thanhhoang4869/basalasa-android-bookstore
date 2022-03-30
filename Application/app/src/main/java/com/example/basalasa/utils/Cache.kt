@@ -1,4 +1,5 @@
 package com.example.basalasa.utils
+
 import android.content.Context
 
 class Cache {

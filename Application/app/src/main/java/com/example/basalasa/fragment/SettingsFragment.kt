@@ -1,17 +1,29 @@
 package com.example.basalasa.fragment
+
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.basalasa.R
+import com.example.basalasa.activity.Login
+import com.example.basalasa.activity.MainActivity
 import com.example.basalasa.databinding.FragmentSettingsBinding
 import com.example.basalasa.activity.SettingChangeInformation
 import com.example.basalasa.activity.SettingChangePassword
+import com.example.basalasa.model.GetAccountResponse
+import com.example.basalasa.model.entity.Account
+import com.example.basalasa.utils.Cache
+import com.example.basalasa.utils.MyAPI
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-class SettingsFragment: Fragment(R.layout.fragment_settings) {
+class SettingsFragment : Fragment(R.layout.fragment_settings) {
     private var _binding: FragmentSettingsBinding? = null
+    lateinit var account: Account
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -37,55 +49,63 @@ class SettingsFragment: Fragment(R.layout.fragment_settings) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding.settingChangeInfo.setOnClickListener {
+        binding.changeInfo.setOnClickListener {
             activity?.let {
                 val intent = Intent(context, SettingChangeInformation::class.java)
                 it.startActivity(intent)
             }
         }
 
-        binding.settingChangePassword.setOnClickListener {
+        binding.changePass.setOnClickListener {
             activity?.let {
                 val intent = Intent(context, SettingChangePassword::class.java)
                 it.startActivity(intent)
             }
         }
+
+        binding.logoutBtn.setOnClickListener {
+            logout()
+        }
+
+        getInfo()
     }
 
+    private fun loadInfo(account: Account) {
+        binding.email.text = account.email
+        binding.name.text = account.name
+    }
 
-//        binding.layoutPassword.setOnClickListener { clickChangePassword() }
-//        binding.layoutTopUp.setOnClickListener { clickTopUp() }
-//        binding.layoutReport.setOnClickListener { clickReport() }
-//        binding.logoutButton.setOnClickListener { clickLogout() }
-//    }
-//
-//    private fun clickPersonal() {
-//        activity?.let {
-//            val intent = Intent(context, ChangeInformationActivity::class.java)
-//            it.startActivity(intent)
-//        }
-//    }
+    private fun getInfo(){
+        val token = context?.let { Cache.getToken(it) }
+        val response = token?.let { MyAPI.getAPI().getAccount(it) }
 
-//    private fun clickChangePassword() {
-//        activity?.let {
-//            val intent = Intent(it, ChangePasswordActivity::class.java)
-//            it.startActivity(intent)
-//        }
-//    }
-//
-//    private fun clickReport() {
-//        activity?.let {
-//            val intent = Intent(it, ReportActivity::class.java)
-//            it.startActivity(intent)
-//        }
-//    }
-//
-//    private fun clickLogout() {
-//        activity?.let {
-//            Cache.clear(it)
-//            val intent = Intent(it, LoginActivity::class.java)
-//            it.startActivity(intent)
-//            it.finish()
-//        }
-//    }
+        response?.enqueue(object : Callback<GetAccountResponse> {
+            override fun onResponse(
+                call: Call<GetAccountResponse>,
+                response: Response<GetAccountResponse>
+            ) {
+                if (response.isSuccessful) {
+                    val data = response.body()
+                    if (data?.exitcode == 0) {
+                        account= Account(data)
+                        loadInfo(account)
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<GetAccountResponse>, t: Throwable) {
+                Toast.makeText(context, "Fail connection to server", Toast.LENGTH_LONG).show()
+                t.printStackTrace()
+            }
+        })
+    }
+
+    private fun logout() {
+        activity?.let {
+            Cache.clear(it)
+            val intent = Intent(it, MainActivity::class.java)
+            it.startActivity(intent)
+            it.finish()
+        }
+    }
 }

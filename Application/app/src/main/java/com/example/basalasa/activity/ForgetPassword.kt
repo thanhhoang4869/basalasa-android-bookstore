@@ -43,17 +43,28 @@ class ForgetPassword : AppCompatActivity() {
         val response = MyAPI.getAPI().postForgetPassword(ForgetBody(email))
 
         response.enqueue(object : Callback<ForgetResponse> {
-            override fun onResponse(call: Call<ForgetResponse>, response: Response<ForgetResponse>) {
+            override fun onResponse(
+                call: Call<ForgetResponse>,
+                response: Response<ForgetResponse>
+            ) {
                 if (response.isSuccessful) {
                     val data = response.body()
                     if (data?.exitcode == 0) {
                         Intent(context, Login::class.java).also {
-                            Toast.makeText(context, "Please check your email for new password", Toast.LENGTH_LONG).show()
+                            Toast.makeText(
+                                context,
+                                "Please check your email for new password",
+                                Toast.LENGTH_LONG
+                            ).show()
                             startActivity(it)
                             finish()
                         }
                     } else if (data?.exitcode == 500) {
-                        Toast.makeText(context, "Fail to send mail, please try again", Toast.LENGTH_LONG).show()
+                        Toast.makeText(
+                            context,
+                            "Fail to send mail, please try again",
+                            Toast.LENGTH_LONG
+                        ).show()
                     }
                 }
             }

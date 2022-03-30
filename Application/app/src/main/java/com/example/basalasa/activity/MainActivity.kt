@@ -13,6 +13,7 @@ import com.example.basalasa.fragment.ProfileFragment
 import com.example.basalasa.fragment.SettingsFragment
 import com.example.basalasa.R
 import com.example.basalasa.model.GetAccountResponse
+import com.example.basalasa.model.entity.Account
 import com.example.basalasa.utils.Cache
 import com.example.basalasa.utils.MyAPI
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -44,13 +45,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun processSettings(context: Context, fragment: Fragment) {
         val token = Cache.getToken(context)
-        if (token===null) {
+        if (token === null) {
             val intent = Intent(context, Login::class.java)
             startActivity(intent)
             finish()
         }
-        Log.d("token",token.toString())
-
 
         val response = MyAPI.getAPI().getAccount(token.toString())
 
@@ -61,9 +60,6 @@ class MainActivity : AppCompatActivity() {
             ) {
                 if (response.isSuccessful) {
                     val data = response.body()
-                    Log.d("alo","dm")
-                    Log.d("alo",data?.exitcode.toString())
-
                     if (data?.exitcode == 0) {
                         setCurrentFragment(fragment)
                     }

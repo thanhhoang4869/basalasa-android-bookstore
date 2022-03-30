@@ -1,12 +1,22 @@
 package com.example.basalasa.model.entity
 
-class Account (
+import com.example.basalasa.model.GetAccountResponse
+
+class Account(
     val email: String,
     val name: String,
     val phone: String,
     val address: String,
-    val role:Int,
+    val role: Int,
 ) {
+    constructor(response: GetAccountResponse) : this(
+        response.email,
+        response.name,
+        response.phone,
+        response.address,
+        response.role
+    )
+
     override fun toString(): String {
         return "${email},${name},${phone},${address},${role}"
     }
