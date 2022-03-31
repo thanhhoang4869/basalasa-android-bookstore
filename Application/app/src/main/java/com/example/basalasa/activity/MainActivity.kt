@@ -4,40 +4,52 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
+import androidx.annotation.ColorInt
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.example.basalasa.fragment.CategoryFragment
 import com.example.basalasa.fragment.HomeFragment
-import com.example.basalasa.fragment.ProfileFragment
 import com.example.basalasa.fragment.SettingsFragment
 import com.example.basalasa.R
+import com.example.basalasa.databinding.ActivityMainBinding
 import com.example.basalasa.model.GetAccountResponse
-import com.example.basalasa.model.entity.Account
 import com.example.basalasa.utils.Cache
 import com.example.basalasa.utils.MyAPI
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import retrofit2.*
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
         val homeFragment = HomeFragment()
-        val profileFragment = ProfileFragment()
         val categoryFragment = CategoryFragment()
         val settingsFragment = SettingsFragment()
 
+        binding.topNavBar.isVisible=true
         setCurrentFragment(homeFragment)
 
         val bottomBar: BottomNavigationView = findViewById(R.id.bottom_bar)
         bottomBar.setOnItemSelectedListener {
             when (it.itemId) {
-                R.id.menu_settings -> processSettings(this, settingsFragment)
-                R.id.menu_profile -> setCurrentFragment(profileFragment)
-                R.id.menu_home -> setCurrentFragment(homeFragment)
-                R.id.menu_category -> setCurrentFragment(categoryFragment)
+                R.id.menu_settings -> {
+                    binding.topNavBar.isVisible=false
+                    processSettings(this, settingsFragment)
+                }
+                R.id.menu_home -> {
+                    binding.topNavBar.isVisible=true
+                    setCurrentFragment(homeFragment)
+                }
+                R.id.menu_category -> {
+                    binding.topNavBar.isVisible=true
+                    setCurrentFragment(categoryFragment)
+                }
             }
             true
         }

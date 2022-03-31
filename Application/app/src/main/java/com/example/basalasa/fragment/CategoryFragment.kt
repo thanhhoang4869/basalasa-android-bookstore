@@ -44,16 +44,6 @@ class CategoryFragment : Fragment(R.layout.fragment_category) {
     ): View? {
         val rootView = inflater.inflate(R.layout.fragment_category, container, false)
 
-        btnFilter = rootView.findViewById(R.id.btnCategoryFilter)
-        rv = rootView.findViewById(R.id.rv_category_list_item)
-
-        rv!!.layoutManager = GridLayoutManager(activity, 2)
-        rv!!.adapter = rvAdapter()
-
-        btnFilter!!.setOnClickListener {
-            BottomSheetFilter().show(requireActivity().supportFragmentManager, "bs")
-        }
-
         return rootView
     }
 
