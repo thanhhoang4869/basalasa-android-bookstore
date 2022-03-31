@@ -1,6 +1,6 @@
 package com.example.basalasa.model.entity
 
-import com.example.basalasa.model.GetAccountResponse
+import com.example.basalasa.model.reponse.GetAccountResponse
 
 class Account(
     val email: String,

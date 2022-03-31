@@ -1,7 +1,7 @@
-package com.example.basalasa.model
+package com.example.basalasa.model.reponse
 
 import com.google.gson.annotations.SerializedName
 
-class RegisterResponse (
+class ForgetResponse (
     @SerializedName("exitcode")  val exitcode: Int
 )

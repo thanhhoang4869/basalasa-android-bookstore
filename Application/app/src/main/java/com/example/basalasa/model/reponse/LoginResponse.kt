@@ -1,4 +1,4 @@
-package com.example.basalasa.model
+package com.example.basalasa.model.reponse
 
 import com.google.gson.annotations.SerializedName
 

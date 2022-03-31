@@ -8,12 +8,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.basalasa.R
-import com.example.basalasa.activity.Login
 import com.example.basalasa.activity.MainActivity
 import com.example.basalasa.databinding.FragmentSettingsBinding
 import com.example.basalasa.activity.SettingChangeInformation
 import com.example.basalasa.activity.SettingChangePassword
-import com.example.basalasa.model.GetAccountResponse
+import com.example.basalasa.model.reponse.GetAccountResponse
 import com.example.basalasa.model.entity.Account
 import com.example.basalasa.utils.Cache
 import com.example.basalasa.utils.MyAPI

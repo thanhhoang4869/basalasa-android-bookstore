@@ -1,4 +1,4 @@
-package com.example.basalasa.model
+package com.example.basalasa.model.body
 
 import android.widget.EditText
 import com.google.gson.annotations.SerializedName
