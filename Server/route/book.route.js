@@ -6,7 +6,7 @@ import express from 'express'
 const router = express.Router();
 router.use(bodyParser.urlencoded({ extended: false }))
 
-router.get('/book', async(req, res) => {
+router.get('/', async(req, res) => {
     try {
         const ret = await categoryModel.getCategory();
         res.send(ret);

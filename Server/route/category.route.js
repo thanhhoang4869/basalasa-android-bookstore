@@ -5,7 +5,7 @@ import express from 'express'
 const router = express.Router();
 router.use(bodyParser.urlencoded({ extended: false }))
 
-router.post('/category', async(req, res) => {
+router.post('/', async(req, res) => {
     console.log("dag o category")
     try {
         const ret = await categoryModel.getCategory();
