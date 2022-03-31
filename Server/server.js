@@ -1,6 +1,6 @@
 import express from 'express';
 const app = express()
-import route from './route/route.js'
+import bindRoute from './route/route.js'
 import cors from 'cors'
 import db from './database/connect.js'
 import logger from './utils/log.js'
@@ -48,8 +48,7 @@ app.use(function(req, res, next) {
 })
 
 //Bind route
-route.assignRoutes(app)
-
+bindRoute(app);
 //Start listen
 app.listen(3000, function() {
     console.log("Begin listen on port %s...", 3000);
