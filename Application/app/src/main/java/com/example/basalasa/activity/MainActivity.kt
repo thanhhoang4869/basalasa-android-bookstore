@@ -5,7 +5,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import androidx.annotation.ColorInt
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.example.basalasa.fragment.CategoryFragment
@@ -32,22 +31,22 @@ class MainActivity : AppCompatActivity() {
         val categoryFragment = CategoryFragment()
         val settingsFragment = SettingsFragment()
 
-        binding.topNavBar.isVisible=true
+        binding.topNavBar.isVisible = true
         setCurrentFragment(homeFragment)
 
         val bottomBar: BottomNavigationView = findViewById(R.id.bottom_bar)
         bottomBar.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.menu_settings -> {
-                    binding.topNavBar.isVisible=false
+                    binding.topNavBar.isVisible = false
                     processSettings(this, settingsFragment)
                 }
                 R.id.menu_home -> {
-                    binding.topNavBar.isVisible=true
+                    binding.topNavBar.isVisible = true
                     setCurrentFragment(homeFragment)
                 }
                 R.id.menu_category -> {
-                    binding.topNavBar.isVisible=true
+                    binding.topNavBar.isVisible = true
                     setCurrentFragment(categoryFragment)
                 }
             }
