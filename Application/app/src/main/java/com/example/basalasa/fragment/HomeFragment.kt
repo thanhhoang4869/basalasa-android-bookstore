@@ -25,7 +25,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val rootView = inflater.inflate(R.layout.fragment_category, container, false)
+        val rootView = inflater.inflate(R.layout.fragment_home, container, false)
 
         var arrCategory = loadCategoryList()
         Log.i("arrCategory", arrCategory.toString())

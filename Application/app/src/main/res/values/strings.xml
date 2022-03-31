@@ -14,4 +14,5 @@
     <string name="phone">Phone</string>
     <string name="address">Address</string>
     <string name="confirm">Confirm</string>
+    <string name="filter">Filter</string>
 </resources>

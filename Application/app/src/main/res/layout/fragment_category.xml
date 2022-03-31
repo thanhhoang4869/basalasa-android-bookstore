@@ -7,11 +7,25 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/grey"
         android:orientation="vertical">
+        <Button
+            android:id="@+id/filterBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/white"
+            android:drawableStart="@drawable/ic_filter"
+            android:text="@string/filter"
+            android:textColor="@color/black"/>
+
         <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="30dp"
             android:id="@+id/rv_category_list_item"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#EDEDED" />
+            android:background="@color/grey" />
     </LinearLayout>
 </FrameLayout>
