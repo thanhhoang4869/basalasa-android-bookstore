@@ -10,7 +10,8 @@ const salt = 10;
 dotenv.config()
 
 function assignRoutes(app) {
-    app.post('/account/login', async(req, res) => {
+    app.post('/account/login', async (req, res) => {
+        console.log('dag login')
         const account = await accountModel.findByEmail(req.body.email);
 
         if (account === null) {
@@ -51,7 +52,7 @@ function assignRoutes(app) {
         });
     });
 
-    app.post('/account/getAccount', async(req, res) => {
+    app.post('/account/getAccount', async (req, res) => {
         const data = {
             email: req.payload.email
         }
@@ -82,7 +83,7 @@ function assignRoutes(app) {
         });
     });
 
-    app.post('/account/register', async(req, res) => {
+    app.post('/account/register', async (req, res) => {
         const { email, password, fullName, phone, address } = req.body;
 
         const usedEmail = await accountModel.checkEmail(email);
@@ -107,7 +108,7 @@ function assignRoutes(app) {
                 </div>`
         }
 
-        transporter.sendMail(mailOption, function(err, info) {
+        transporter.sendMail(mailOption, function (err, info) {
             if (err) console.log(err);
         })
 
@@ -128,7 +129,7 @@ function assignRoutes(app) {
         })
     });
 
-    app.get('/account/verify/:token', async(req, res) => {
+    app.get('/account/verify/:token', async (req, res) => {
         const { token } = req.params;
 
         await accountModel.activateAccount(token);
@@ -136,7 +137,7 @@ function assignRoutes(app) {
         res.send("Activate successfully")
     });
 
-    app.post('/account/forget', async(req, res) => {
+    app.post('/account/forget', async (req, res) => {
         const { email } = req.body;
 
         const account = await accountModel.findByEmail(email)
@@ -155,7 +156,7 @@ function assignRoutes(app) {
                     </div>`
             }
 
-            transporter.sendMail(mailOption, function(err, info) {
+            transporter.sendMail(mailOption, function (err, info) {
                 if (err) console.log(err);
             })
 

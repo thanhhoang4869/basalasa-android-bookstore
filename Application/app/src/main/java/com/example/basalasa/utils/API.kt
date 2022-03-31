@@ -27,4 +27,7 @@ interface API {
     fun getAccount(
         @Header("x-access-token") tokenHeader: String
     ): Call<GetAccountResponse>
+
+    @POST("/category/hello")
+    fun getCategory(): Call<GetCategoryResponse>
 }

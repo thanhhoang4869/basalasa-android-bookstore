@@ -68,7 +68,8 @@ connect().then(() => {
     Order = mongoose.model('order', OrderSchema, 'order')
 
     CategorySchema = new mongoose.Schema({
-        name: { type: String, required: true }
+        name: { type: String, required: true },
+        image: { type: String },
     })
     Category = mongoose.model('category', CategorySchema, 'category')
 

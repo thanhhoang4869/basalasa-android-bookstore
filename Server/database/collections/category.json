@@ -1,16 +1,22 @@
-[{
-        "name": "Manga - Comic"
+[
+    {
+        "name": "Manga - Comic",
+        "image": "https://i.imgur.com/038n5zK.jpeg"
     },
     {
-        "name": "Foreign books"
+        "name": "Foreign books",
+        "image": "https://i.imgur.com/X4cX7Aq.jpeg"
     },
     {
-        "name": "Detective"
+        "name": "Detective",
+        "image": "https://almabooks.com/wp-content/uploads/2016/10/adventures-of-Sherlock-Holmes.jpg"
     },
     {
-        "name": "Language"
+        "name": "Language",
+        "image": "https://www.jeremytaylor.eu/wp-content/uploads/2021/04/IELTS-book.jpg"
     },
     {
-        "name": "Economics"
+        "name": "Economics",
+        "image": "https://d29xot63vimef3.cloudfront.net/image/economics-books/269-4.jpg"
     }
 ]
