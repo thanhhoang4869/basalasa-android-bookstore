@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Basalasa">
         <activity
+            android:name=".activity.ReviewBooks"
+            android:exported="false" />
+        <activity
             android:name=".activity.SettingChangePassword"
             android:exported="false" />
         <activity

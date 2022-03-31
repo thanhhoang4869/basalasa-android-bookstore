@@ -71,21 +71,31 @@
 
                     <Button
                         android:id="@+id/addCartButton"
-                        android:layout_marginTop="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
+                        android:layout_marginTop="5dp"
                         android:backgroundTint="#0ACF83"
                         android:text="ADD TO CART"
                         android:textColor="@color/white"
-                        android:textSize="36dp" />
+                        android:textSize="20dp" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/addCartButton"
+                        android:layout_centerHorizontal="true"
+                        android:text="ADD REVIEWS"
+                        android:backgroundTint="#0ACF83"
+                        android:textColor="@color/white"
+                        android:textSize="20dp"/>
                 </RelativeLayout>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/comments"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/comments"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
 
                 </androidx.recyclerview.widget.RecyclerView>
                 <TextView
