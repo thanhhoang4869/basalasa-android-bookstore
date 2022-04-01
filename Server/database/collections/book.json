@@ -1,5 +1,4 @@
-[
-    {
+[{
         "id": 1,
         "name": "English Grammar in Use Book w Ans",
         "author": "Raymond Murphy",
@@ -12,15 +11,13 @@
         "release_year": 2019,
         "description": "The world's best-selling grammar series for learners of English. English Grammar in Use Fourth edition is an updated version of the world's best-selling grammar title. It has a fresh, appealing new design and clear layout, with revised and updated examples, but retains all the key features of clarity and accessibility that have made the book popular with millions of learners and teachers around the world. This 'with answers' version is ideal for self-study.",
         "quantity": 100,
-        "state": true,
+        "state": 1,
         "star": null,
-        "comments":[
-            {
-                "userEmail":"19127186@student.hcmus.edu.vn",
-                "rating": 4,
-                "review":"Sach hay vcl"
-            }
-        ]
+        "comments": [{
+            "userEmail": "19127186@student.hcmus.edu.vn",
+            "rating": 4,
+            "review": "Sach hay vcl"
+        }]
     },
     {
         "id": 2,
@@ -35,15 +32,13 @@
         "release_year": 2016,
         "description": "The world's best-selling grammar series for learners of English. English Grammar in Use Fourth edition is an updated version of the world's best-selling grammar title. It has a fresh, appealing new design and clear layout, with revised and updated examples, but retains all the key features of clarity and accessibility that have made the book popular with millions of learners and teachers around the world. This 'with answers' version is ideal for self-study.",
         "quantity": 50,
-        "state": true,
+        "state": 1,
         "star": null,
-        "comments":[
-            {
-                "userEmail":"19127186@student.hcmus.edu.vn",
-                "rating": 4,
-                "review":"Sach hay vcl"
-            }
-        ]
+        "comments": [{
+            "userEmail": "19127186@student.hcmus.edu.vn",
+            "rating": 4,
+            "review": "Sach hay vcl"
+        }]
     },
     {
         "id": 3,
@@ -58,15 +53,13 @@
         "release_year": 2019,
         "description": "The world's best-selling grammar series for learners of English. English Grammar in Use Fourth edition is an updated version of the world's best-selling grammar title. It has a fresh, appealing new design and clear layout, with revised and updated examples, but retains all the key features of clarity and accessibility that have made the book popular with millions of learners and teachers around the world. This 'with answers' version is ideal for self-study.",
         "quantity": 50,
-        "state": true,
+        "state": 1,
         "star": null,
-        "comments":[
-            {
-                "userEmail":"19127186@student.hcmus.edu.vn",
-                "rating": 4,
-                "review":"Sach hay vcl"
-            }
-        ]
+        "comments": [{
+            "userEmail": "19127186@student.hcmus.edu.vn",
+            "rating": 4,
+            "review": "Sach hay vcl"
+        }]
     },
     {
         "id": 4,
@@ -81,15 +74,13 @@
         "release_year": 2019,
         "description": "The world's best-selling grammar series for learners of English. English Grammar in Use Fourth edition is an updated version of the world's best-selling grammar title. It has a fresh, appealing new design and clear layout, with revised and updated examples, but retains all the key features of clarity and accessibility that have made the book popular with millions of learners and teachers around the world. This 'with answers' version is ideal for self-study.",
         "quantity": 100,
-        "state": true,
+        "state": 1,
         "star": null,
-        "comments":[
-            {
-                "userEmail":"19127186@student.hcmus.edu.vn",
-                "rating": 4,
-                "review":"Sach hay vcl"
-            }
-        ]
+        "comments": [{
+            "userEmail": "19127186@student.hcmus.edu.vn",
+            "rating": 4,
+            "review": "Sach hay vcl"
+        }]
     },
     {
         "id": 5,
@@ -104,15 +95,13 @@
         "release_year": 2022,
         "description": null,
         "quantity": 50,
-        "state": true,
+        "state": 1,
         "star": null,
-        "comments":[
-            {
-                "userEmail":"19127186@student.hcmus.edu.vn",
-                "rating": 4,
-                "review":"Sach hay vcl"
-            }
-        ]
+        "comments": [{
+            "userEmail": "19127186@student.hcmus.edu.vn",
+            "rating": 4,
+            "review": "Sach hay vcl"
+        }]
     },
     {
         "id": 6,
@@ -127,15 +116,13 @@
         "release_year": 2022,
         "description": null,
         "quantity": 50,
-        "state": true,
+        "state": 1,
         "star": null,
-        "comments":[
-            {
-                "userEmail":"19127186@student.hcmus.edu.vn",
-                "rating": 4,
-                "review":"Sach hay vcl"
-            }
-        ]
+        "comments": [{
+            "userEmail": "19127186@student.hcmus.edu.vn",
+            "rating": 4,
+            "review": "Sach hay vcl"
+        }]
     },
     {
         "id": 7,
@@ -150,15 +137,13 @@
         "release_year": 2022,
         "description": null,
         "quantity": 50,
-        "state": true,
+        "state": 1,
         "star": null,
-        "comments":[
-            {
-                "userEmail":"19127186@student.hcmus.edu.vn",
-                "rating": 4,
-                "review":"Sach hay vcl"
-            }
-        ]
+        "comments": [{
+            "userEmail": "19127186@student.hcmus.edu.vn",
+            "rating": 4,
+            "review": "Sach hay vcl"
+        }]
     },
     {
         "id": 8,
@@ -173,15 +158,13 @@
         "release_year": 2021,
         "description": null,
         "quantity": 50,
-        "state": true,
+        "state": 1,
         "star": null,
-        "comments":[
-            {
-                "userEmail":"19127186@student.hcmus.edu.vn",
-                "rating": 4,
-                "review":"Sach hay vcl"
-            }
-        ]
+        "comments": [{
+            "userEmail": "19127186@student.hcmus.edu.vn",
+            "rating": 4,
+            "review": "Sach hay vcl"
+        }]
     },
     {
         "id": 9,
@@ -196,15 +179,13 @@
         "release_year": 2021,
         "description": null,
         "quantity": 50,
-        "state": true,
+        "state": 1,
         "star": null,
-        "comments":[
-            {
-                "userEmail":"19127186@student.hcmus.edu.vn",
-                "rating": 4,
-                "review":"Sach hay vcl"
-            }
-        ]
+        "comments": [{
+            "userEmail": "19127186@student.hcmus.edu.vn",
+            "rating": 4,
+            "review": "Sach hay vcl"
+        }]
     },
     {
         "id": 10,
@@ -219,14 +200,12 @@
         "release_year": 2019,
         "description": null,
         "quantity": 50,
-        "state": true,
+        "state": 1,
         "star": null,
-        "comments":[
-            {
-                "userEmail":"19127186@student.hcmus.edu.vn",
-                "rating": 4,
-                "review":"Sach hay vcl"
-            }
-        ]
+        "comments": [{
+            "userEmail": "19127186@student.hcmus.edu.vn",
+            "rating": 4,
+            "review": "Sach hay vcl"
+        }]
     }
 ]
