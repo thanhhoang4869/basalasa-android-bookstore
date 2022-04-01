@@ -3,10 +3,7 @@ package com.example.basalasa.utils
 import com.example.basalasa.model.body.*
 import com.example.basalasa.model.reponse.*
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface API {
     @POST("/account/login")
@@ -52,7 +49,7 @@ interface API {
 
     @GET("/book")
     fun getBooks():Call<GetBooksResponse>
-    @GET("/book:bookID")
-    fun getBookDetail():Call<GetBookDetailResponse>
+    @GET("/book/{id}")
+    fun getBookDetail(@Path("id") id:String):Call<GetBookDetailResponse>
 
 }

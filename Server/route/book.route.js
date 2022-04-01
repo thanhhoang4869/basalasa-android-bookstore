@@ -1,10 +1,11 @@
 import bookModel from '../model/book.model.js';
-import bodyParser from "body-parser";
-import express from 'express'
+import bodyParser from 'body-parser';
+import express from 'express';
 
 const router = express.Router();
-router.use(bodyParser.urlencoded({ extended: false }))
+router.use(bodyParser.urlencoded({ extended: false }));
 
+<<<<<<< Updated upstream
 router.get('/onsale', async (req, res) => {
 
     try {
@@ -21,32 +22,29 @@ router.get('/onsale', async (req, res) => {
 
 });
 router.get('/:bookdID', async (req, res) => {
-    try {
-        const ret = await bookModel.getBook(req.params.bookdID);
-        res.send({
-            "id": ret.id,
-            "name": ret.name,
-            "author": ret.author,
-            "distributor": ret.distributor,
-            "seller": ret.seller,
-            "price": ret.price,
-            "saleprice": ret.saleprice,
-            "category": ret.category,
-            "picture": ret.picture,
-            "release_year": ret.release_year,
-            "description": ret.description,
-            "quantity": ret.quantity,
-            "state": ret.state,
-            "star": ret.star,
-            "comments": ret.comments
-        });
-    } catch (err) {
-        console.log(err)
-        res.send({
-            "exitcode": 500,
-        });
-    }
+=======
+router.get('/123', async (req, res) => {
+  console.log(123);
+});
 
+router.get('/onsale', async (req, res) => {
+  const ret = await bookModel.getBookOnSale();
+  console.log(ret);
+  res.send({ arrBookOnSale: ret || null });
+
+  router.get('/', async (req, res) => {
+>>>>>>> Stashed changes
+    try {
+      console.log('TEST');
+      const ret = await bookModel.findAll();
+      res.send({ arrBook: ret });
+    } catch (error) {
+      console.log(error);
+      res.send({
+        exitcode: 500,
+      });
+    }
+  });
 });
 router.get('/', async (req, res) => {
     try {
@@ -61,5 +59,4 @@ router.get('/', async (req, res) => {
 
 });
 
-
-export default router
+export default router;
