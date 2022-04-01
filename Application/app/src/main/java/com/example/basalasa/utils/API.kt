@@ -28,6 +28,6 @@ interface API {
         @Header("x-access-token") tokenHeader: String
     ): Call<GetAccountResponse>
 
-    @POST("/category/hello")
+    @POST("/category")
     fun getCategory(): Call<GetCategoryResponse>
 }
