@@ -1,6 +1,5 @@
-[
-    {
-        "password": "$2a$12$lTVajNr5Rv53eRpbRBbexuadAKA2XO2KsKKjXoKj827PNm1hkrcWK",
+[{
+        "password": "3ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
         "email": "thanhhoang4869@gmail.com",
         "address": "125 D1, P.25, Binh Thanh, HCM",
         "fullName": "Hoang Nhu Thanh",
@@ -10,7 +9,7 @@
         "emailToken": null
     },
     {
-        "password": "$2a$12$lTVajNr5Rv53eRpbRBbexuadAKA2XO2KsKKjXoKj827PNm1hkrcWK",
+        "password": "3ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
         "email": "19127489@student.hcmus.edu.vn",
         "fullName": "Hoang Thien Nhan",
         "address": "125 D1, P.25, Binh Thanh, HCM",
@@ -20,7 +19,7 @@
         "emailToken": null
     },
     {
-        "password": "$2a$12$lTVajNr5Rv53eRpbRBbexuadAKA2XO2KsKKjXoKj827PNm1hkrcWK",
+        "password": "3ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
         "email": "19127186@student.hcmus.edu.vn",
         "fullName": "Le Thanh Khoi",
         "address": "125 D1, P.25, Binh Thanh, HCM",
@@ -30,7 +29,7 @@
         "emailToken": null
     },
     {
-        "password": "$2a$12$lTVajNr5Rv53eRpbRBbexuadAKA2XO2KsKKjXoKj827PNm1hkrcWK",
+        "password": "3ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
         "email": "19127426@student.hcmus.edu.vn",
         "fullName": "Hoang Huu Giap",
         "address": "125 D1, P.25, Binh Thanh, HCM",

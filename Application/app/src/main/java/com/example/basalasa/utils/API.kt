@@ -36,7 +36,7 @@ interface API {
     ): Call<ChangeInformationResponse>
 
     @POST("/account/changePass")
-    fun ChangePass(
+    fun changePass(
         @Header("x-access-token") tokenHeader: String,
         @Body changePasswordBody: ChangePasswordBody
     ): Call<ChangePasswordResponse>
