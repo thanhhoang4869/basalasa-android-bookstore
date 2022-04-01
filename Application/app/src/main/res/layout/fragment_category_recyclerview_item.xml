@@ -62,10 +62,10 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_category_rv_price" />
 
     <TextView
-        android:id="@+id/tv_category_rv_review"
+        android:id="@+id/author"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="86 reviews"
+        android:text="Author"
         android:textColor="#000000"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/tv_category_rv_rate"

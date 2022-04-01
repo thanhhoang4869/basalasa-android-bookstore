@@ -13,7 +13,14 @@
         "description": "The world's best-selling grammar series for learners of English. English Grammar in Use Fourth edition is an updated version of the world's best-selling grammar title. It has a fresh, appealing new design and clear layout, with revised and updated examples, but retains all the key features of clarity and accessibility that have made the book popular with millions of learners and teachers around the world. This 'with answers' version is ideal for self-study.",
         "quantity": 100,
         "state": true,
-        "star": null
+        "star": null,
+        "comments":[
+            {
+                "userEmail":"19127186@student.hcmus.edu.vn",
+                "rating": 4,
+                "review":"Sach hay vcl"
+            }
+        ]
     },
     {
         "id": 2,
@@ -29,7 +36,14 @@
         "description": "The world's best-selling grammar series for learners of English. English Grammar in Use Fourth edition is an updated version of the world's best-selling grammar title. It has a fresh, appealing new design and clear layout, with revised and updated examples, but retains all the key features of clarity and accessibility that have made the book popular with millions of learners and teachers around the world. This 'with answers' version is ideal for self-study.",
         "quantity": 50,
         "state": true,
-        "star": null
+        "star": null,
+        "comments":[
+            {
+                "userEmail":"19127186@student.hcmus.edu.vn",
+                "rating": 4,
+                "review":"Sach hay vcl"
+            }
+        ]
     },
     {
         "id": 3,
@@ -45,7 +59,14 @@
         "description": "The world's best-selling grammar series for learners of English. English Grammar in Use Fourth edition is an updated version of the world's best-selling grammar title. It has a fresh, appealing new design and clear layout, with revised and updated examples, but retains all the key features of clarity and accessibility that have made the book popular with millions of learners and teachers around the world. This 'with answers' version is ideal for self-study.",
         "quantity": 50,
         "state": true,
-        "star": null
+        "star": null,
+        "comments":[
+            {
+                "userEmail":"19127186@student.hcmus.edu.vn",
+                "rating": 4,
+                "review":"Sach hay vcl"
+            }
+        ]
     },
     {
         "id": 4,
@@ -61,7 +82,14 @@
         "description": "The world's best-selling grammar series for learners of English. English Grammar in Use Fourth edition is an updated version of the world's best-selling grammar title. It has a fresh, appealing new design and clear layout, with revised and updated examples, but retains all the key features of clarity and accessibility that have made the book popular with millions of learners and teachers around the world. This 'with answers' version is ideal for self-study.",
         "quantity": 100,
         "state": true,
-        "star": null
+        "star": null,
+        "comments":[
+            {
+                "userEmail":"19127186@student.hcmus.edu.vn",
+                "rating": 4,
+                "review":"Sach hay vcl"
+            }
+        ]
     },
     {
         "id": 5,
@@ -77,7 +105,14 @@
         "description": null,
         "quantity": 50,
         "state": true,
-        "star": null
+        "star": null,
+        "comments":[
+            {
+                "userEmail":"19127186@student.hcmus.edu.vn",
+                "rating": 4,
+                "review":"Sach hay vcl"
+            }
+        ]
     },
     {
         "id": 6,
@@ -93,7 +128,14 @@
         "description": null,
         "quantity": 50,
         "state": true,
-        "star": null
+        "star": null,
+        "comments":[
+            {
+                "userEmail":"19127186@student.hcmus.edu.vn",
+                "rating": 4,
+                "review":"Sach hay vcl"
+            }
+        ]
     },
     {
         "id": 7,
@@ -109,7 +151,14 @@
         "description": null,
         "quantity": 50,
         "state": true,
-        "star": null
+        "star": null,
+        "comments":[
+            {
+                "userEmail":"19127186@student.hcmus.edu.vn",
+                "rating": 4,
+                "review":"Sach hay vcl"
+            }
+        ]
     },
     {
         "id": 8,
@@ -125,7 +174,14 @@
         "description": null,
         "quantity": 50,
         "state": true,
-        "star": null
+        "star": null,
+        "comments":[
+            {
+                "userEmail":"19127186@student.hcmus.edu.vn",
+                "rating": 4,
+                "review":"Sach hay vcl"
+            }
+        ]
     },
     {
         "id": 9,
@@ -141,7 +197,14 @@
         "description": null,
         "quantity": 50,
         "state": true,
-        "star": null
+        "star": null,
+        "comments":[
+            {
+                "userEmail":"19127186@student.hcmus.edu.vn",
+                "rating": 4,
+                "review":"Sach hay vcl"
+            }
+        ]
     },
     {
         "id": 10,
@@ -157,6 +220,13 @@
         "description": null,
         "quantity": 50,
         "state": true,
-        "star": null
+        "star": null,
+        "comments":[
+            {
+                "userEmail":"19127186@student.hcmus.edu.vn",
+                "rating": 4,
+                "review":"Sach hay vcl"
+            }
+        ]
     }
 ]

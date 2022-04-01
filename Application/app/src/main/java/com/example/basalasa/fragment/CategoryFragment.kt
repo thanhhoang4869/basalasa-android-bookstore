@@ -5,12 +5,23 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import android.widget.ToggleButton
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.basalasa.R
 import com.example.basalasa.adapter.CategoryAdapter
+import com.example.basalasa.adapter.HomeCategoryAdapter
 import com.example.basalasa.databinding.FragmentCategoryBinding
+import com.example.basalasa.model.entity.BookDetail
+import com.example.basalasa.model.entity.Category
+import com.example.basalasa.model.reponse.GetBooksResponse
+import com.example.basalasa.model.reponse.GetCategoryResponse
+import com.example.basalasa.utils.MyAPI
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class CategoryFragment : Fragment(R.layout.fragment_category) {
     private var _binding: FragmentCategoryBinding? = null
@@ -18,7 +29,7 @@ class CategoryFragment : Fragment(R.layout.fragment_category) {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-
+    lateinit var arrBooks:ArrayList<BookDetail>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
@@ -33,12 +44,38 @@ class CategoryFragment : Fragment(R.layout.fragment_category) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding.rvCategoryListItem.layoutManager = GridLayoutManager(activity, 2)
-        binding.rvCategoryListItem.adapter = CategoryAdapter()
+        loadListBook()
 
-        binding.filterBtn.setOnClickListener {
-            BottomSheetFilter().show(requireActivity().supportFragmentManager, "bs")
-        }
+    }
+    fun loadListBook(){
+        val response = MyAPI.getAPI().getBooks()
+        arrBooks = ArrayList()
+
+        response.enqueue(object : Callback<GetBooksResponse> {
+            override fun onResponse(call: Call<GetBooksResponse>, response: Response<GetBooksResponse>) {
+                System.out.println("ALOOOO")
+                if (response.isSuccessful) {
+                    val data = response.body()
+
+                    for(item: BookDetail in data!!.arrBook!!) {
+                        arrBooks.add(item)
+                        System.out.println("ON "+item.toString())
+                    }
+
+                    //bind to adapter
+                    binding.rvCategoryListItem!!.adapter = CategoryAdapter(arrBooks)
+                    binding.rvCategoryListItem!!.layoutManager = LinearLayoutManager(context)
+                }
+            }
+            override fun onFailure(call: Call<GetBooksResponse>, t: Throwable) {
+                Toast.makeText(context, "Fail connection to server", Toast.LENGTH_LONG).show()
+                t.printStackTrace();
+            }
+
+
+
+
+        })
     }
 }
 
