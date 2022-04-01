@@ -14,7 +14,7 @@ dotenv.config()
 const router = express.Router();
 router.use(bodyParser.urlencoded({ extended: false }))
 
-router.post('/login', async(req, res) => {
+router.post('/login', async (req, res) => {
     console.log('dag login')
     const account = await accountModel.findByEmail(req.body.email);
 
@@ -56,7 +56,7 @@ router.post('/login', async(req, res) => {
     });
 });
 
-router.post('/getAccount', async(req, res) => {
+router.post('/getAccount', async (req, res) => {
     const data = {
         email: req.payload.email
     }
@@ -80,14 +80,14 @@ router.post('/getAccount', async(req, res) => {
     res.send({
         "exitcode": 0,
         "email": account.email,
-        "name": account.name,
+        "fullName": account.fullName,
         "phone": account.phone,
         "address": account.address,
         "role": account.role
     });
 });
 
-router.post('/register', async(req, res) => {
+router.post('/register', async (req, res) => {
     const { email, password, fullName, phone, address } = req.body;
 
     const usedEmail = await accountModel.checkEmail(email);
@@ -112,7 +112,7 @@ router.post('/register', async(req, res) => {
                 </div>`
     }
 
-    transporter.sendMail(mailOption, function(err, info) {
+    transporter.sendMail(mailOption, function (err, info) {
         if (err) console.log(err);
     })
 
@@ -133,7 +133,7 @@ router.post('/register', async(req, res) => {
     })
 });
 
-router.get('/verify/:token', async(req, res) => {
+router.get('/verify/:token', async (req, res) => {
     const { token } = req.params;
 
     await accountModel.activateAccount(token);
@@ -141,7 +141,7 @@ router.get('/verify/:token', async(req, res) => {
     res.send("Activate successfully")
 });
 
-router.post('/forget', async(req, res) => {
+router.post('/forget', async (req, res) => {
     const { email } = req.body;
 
     const account = await accountModel.findByEmail(email)
@@ -160,7 +160,7 @@ router.post('/forget', async(req, res) => {
                     </div>`
         }
 
-        transporter.sendMail(mailOption, function(err, info) {
+        transporter.sendMail(mailOption, function (err, info) {
             if (err) console.log(err);
         })
 
@@ -177,5 +177,47 @@ router.post('/forget', async(req, res) => {
         "exitcode": 500
     })
 });
+
+router.post('/changeInfo', async (req, res) => {
+    const { email, fullName, phone, address } = req.body;
+
+    console.log(fullName)
+
+    const user = await accountModel.findByEmail(email)
+
+    user.fullName = fullName.trim();
+    user.phone = phone.trim();
+    user.address = address.trim();
+
+    await accountModel.updateAccount(email, user)
+
+    res.send({
+        "exitcode": 0
+    })
+});
+
+router.post('/changePass', async (req, res) => {
+    const { email, oldPassword, newPassword } = req.body;
+    console.log('change ne')
+    const account = await accountModel.findByEmail(email)
+
+    const ret = bcrypt.compareSync(oldPassword, account.password);
+
+    if (ret === false) {
+        res.send({
+            "exitcode": 400
+        });
+        return;
+    }
+
+    account.password = await bcrypt.hash(newPassword, salt);
+
+    await accountModel.updateAccount(email, account)
+
+    res.send({
+        "exitcode": 0
+    })
+});
+
 
 export default router;

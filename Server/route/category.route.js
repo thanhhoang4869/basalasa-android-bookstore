@@ -8,7 +8,7 @@ router.use(bodyParser.urlencoded({ extended: false }))
 router.get('/', async (req, res) => {
     try {
         const ret = await categoryModel.getCategory();
-        console.log(ret);
+        // console.log(ret);
         res.send({ arrCategory: ret });
     } catch (err) {
         console.log(err)

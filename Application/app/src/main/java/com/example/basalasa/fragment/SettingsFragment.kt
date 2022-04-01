@@ -59,6 +59,30 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
         binding.changePass.setOnClickListener {
             activity?.let {
                 val intent = Intent(context, SettingChangePassword::class.java)
+                intent.putExtra("email", account.email)
+                it.startActivity(intent)
+            }
+        }
+
+        binding.logoutBtn.setOnClickListener {
+            logout()
+        }
+
+        getInfo()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        binding.changeInfo.setOnClickListener {
+            activity?.let {
+                val intent = Intent(context, SettingChangeInformation::class.java)
+                it.startActivity(intent)
+            }
+        }
+
+        binding.changePass.setOnClickListener {
+            activity?.let {
+                val intent = Intent(context, SettingChangePassword::class.java)
                 it.startActivity(intent)
             }
         }
@@ -72,7 +96,7 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
 
     private fun loadInfo(account: Account) {
         binding.email.text = account.email
-        binding.name.text = account.name
+        binding.name.text = account.fullName
     }
 
     private fun getInfo(){

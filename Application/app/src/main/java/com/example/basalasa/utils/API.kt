@@ -1,8 +1,6 @@
 package com.example.basalasa.utils
 
-import com.example.basalasa.model.body.ForgetBody
-import com.example.basalasa.model.body.LoginBody
-import com.example.basalasa.model.body.RegisterBody
+import com.example.basalasa.model.body.*
 import com.example.basalasa.model.reponse.*
 import retrofit2.Call
 import retrofit2.http.Body
@@ -31,6 +29,19 @@ interface API {
         @Header("x-access-token") tokenHeader: String
     ): Call<GetAccountResponse>
 
+    @POST("/account/changeInfo")
+    fun changeInfo(
+        @Header("x-access-token") tokenHeader: String,
+        @Body changeInformationBody: ChangeInformationBody
+    ): Call<ChangeInformationResponse>
+
+    @POST("/account/changePass")
+    fun ChangePass(
+        @Header("x-access-token") tokenHeader: String,
+        @Body changePasswordBody: ChangePasswordBody
+    ): Call<ChangePasswordResponse>
+
+    //category
     @GET("/category")
     fun getCategory(): Call<GetCategoryResponse>
 }

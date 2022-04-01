@@ -27,14 +27,17 @@ class HomeCategoryAdapter(private val arrCategory: ArrayList<Category>): Recycle
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeCategoryAdapter.ViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.home_catergory_list_items,parent,false)
-        return ViewHolder(v)
+        val context = parent.context
+        val inflater = LayoutInflater.from(context)
+
+        val homeCategoryView = inflater.inflate(R.layout.home_catergory_list_items, parent, false)
+        return ViewHolder(homeCategoryView)
     }
 
     override fun onBindViewHolder(holder: HomeCategoryAdapter.ViewHolder, position: Int) {
         var category = arrCategory[position]
 
-//        holder.homeImage.setImage(category.image)
+        holder.homeImage.setImageResource(R.drawable.authenbackground)
         holder.homeTopic.text = category.name
     }
 

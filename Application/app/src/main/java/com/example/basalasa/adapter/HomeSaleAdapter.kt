@@ -7,38 +7,44 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.basalasa.R
-import com.example.basalasa.model.entity.Category
+import com.example.basalasa.model.entity.Book
 
-//class HomeSaleAdapter(private val arrBookOnSale: ArrayList<Category>): RecyclerView.Adapter<HomeCategoryAdapter.ViewHolder>() {
-////    var onItemClick:((Category) -> Unit)? = null
-////
-////    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-////        var homeImage: ImageView
-////        var homeTopic: TextView
-////
-////        init{
-////            homeImage = itemView.findViewById(R.id.homeCategoryImage)
-////            homeTopic = itemView.findViewById(R.id.homeCategoryTopic)
-////
-////            itemView.setOnClickListener {
-////                onItemClick?.invoke(arrCategory[adapterPosition])
-////            }
-////        }
-////    }
-////
-////    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeCategoryAdapter.ViewHolder {
-////        val v = LayoutInflater.from(parent.context).inflate(R.layout.home_catergory_list_items,parent,false)
-////        return ViewHolder(v)
-////    }
-////
-////    override fun onBindViewHolder(holder: HomeCategoryAdapter.ViewHolder, position: Int) {
-////        var category = arrCategory.get(position)
-////
-//////        holder.homeImage.setImage(category.image)
-////        holder.homeTopic.text = category.name
-////    }
-////
-////    override fun getItemCount(): Int {
-////        return arrCategory.size
-////    }
-//}
+class HomeSaleAdapter(private val arrBookOnSale: ArrayList<Book>): RecyclerView.Adapter<HomeSaleAdapter.ViewHolder>() {
+    var onItemClick:((Book) -> Unit)? = null
+
+    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+        var homeSaleImage: ImageView
+        var homeSaleName: TextView
+        var homeSaleRootPrice: TextView
+        var homeSaleSalePrice: TextView
+
+        init{
+            homeSaleImage = itemView.findViewById(R.id.homeSaleImage)
+            homeSaleName = itemView.findViewById(R.id.homeSaleBookName)
+            homeSaleRootPrice = itemView.findViewById(R.id.homeSaleRootPrice)
+            homeSaleSalePrice = itemView.findViewById(R.id.homeSaleSalePrice)
+
+            itemView.setOnClickListener {
+                onItemClick?.invoke(arrBookOnSale[adapterPosition])
+            }
+        }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeSaleAdapter.ViewHolder {
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.home_sale_list_items,parent,false)
+        return ViewHolder(v)
+    }
+
+    override fun onBindViewHolder(holder: HomeSaleAdapter.ViewHolder, position: Int) {
+        var book = arrBookOnSale.get(position)
+
+//        holder.homeSaleImage = book.picture
+        holder.homeSaleName.text = book.name
+        holder.homeSaleRootPrice.text = book.price.toString()
+        holder.homeSaleSalePrice.text = book.salePrice.toString()
+    }
+
+    override fun getItemCount(): Int {
+        return arrBookOnSale.size
+    }
+}

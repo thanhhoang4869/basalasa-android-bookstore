@@ -1,8 +1,9 @@
-[{
+[
+    {
         "password": "$2a$12$lTVajNr5Rv53eRpbRBbexuadAKA2XO2KsKKjXoKj827PNm1hkrcWK",
         "email": "thanhhoang4869@gmail.com",
         "address": "125 D1, P.25, Binh Thanh, HCM",
-        "name": "Hoang Nhu Thanh",
+        "fullName": "Hoang Nhu Thanh",
         "phone": "0933442607",
         "role": 1,
         "status": false,
@@ -11,7 +12,7 @@
     {
         "password": "$2a$12$lTVajNr5Rv53eRpbRBbexuadAKA2XO2KsKKjXoKj827PNm1hkrcWK",
         "email": "19127489@student.hcmus.edu.vn",
-        "name": "Hoang Thien Nhan",
+        "fullName": "Hoang Thien Nhan",
         "address": "125 D1, P.25, Binh Thanh, HCM",
         "phone": "0933442607",
         "role": 1,
@@ -21,7 +22,7 @@
     {
         "password": "$2a$12$lTVajNr5Rv53eRpbRBbexuadAKA2XO2KsKKjXoKj827PNm1hkrcWK",
         "email": "19127186@student.hcmus.edu.vn",
-        "name": "Le Thanh Khoi",
+        "fullName": "Le Thanh Khoi",
         "address": "125 D1, P.25, Binh Thanh, HCM",
         "phone": "0933442607",
         "role": 0,
@@ -31,7 +32,7 @@
     {
         "password": "$2a$12$lTVajNr5Rv53eRpbRBbexuadAKA2XO2KsKKjXoKj827PNm1hkrcWK",
         "email": "19127426@student.hcmus.edu.vn",
-        "name": "Hoang Huu Giap",
+        "fullName": "Hoang Huu Giap",
         "address": "125 D1, P.25, Binh Thanh, HCM",
         "phone": "0933442607",
         "role": 0,
