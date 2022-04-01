@@ -50,7 +50,12 @@ connect().then(() => {
         description: { type: String, required: true },
         quantity: { type: Number, required: true, min: 1 },
         state: Boolean,
-        star: Number
+        star: Number,
+        comments:[{
+            userEmail: {type: String},
+            rating: {type: Number},
+            review: {type: String}
+        },]
     })
     Book = mongoose.model('book', BookSchema, 'book')
 

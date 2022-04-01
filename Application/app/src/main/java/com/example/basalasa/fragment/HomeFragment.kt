@@ -51,8 +51,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        loadCategoryList()
         loadBookOnSaleList()
+        loadCategoryList()
     }
 
     private fun loadCategoryList() {
@@ -70,7 +70,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
                     //bind to adapter
                     binding.homeCategoryRC.adapter = HomeCategoryAdapter(arrCategory)
-                    binding.homeCategoryRC.layoutManager = LinearLayoutManager(context)
+                    binding.homeCategoryRC.layoutManager = LinearLayoutManager( context, LinearLayoutManager.HORIZONTAL, false)
                 }
             }
             override fun onFailure(call: Call<GetCategoryResponse>, t: Throwable) {
@@ -90,14 +90,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             override fun onResponse(call: Call<GetBookOnSaleResponse>, response: Response<GetBookOnSaleResponse>) {
                 if (response.isSuccessful) {
                     val data = response.body()
-                    Log.d("aloalo",data?.arrBookOnSale.toString())
 
                     for(item: Book in data?.arrBookOnSale!!) {
                         arrBookOnSale.add(item)
                     }
 
                     //bind to adapter
-
                     binding.homeSaleRC.adapter = HomeSaleAdapter(arrBookOnSale)
                     binding.homeSaleRC.layoutManager = LinearLayoutManager( context, LinearLayoutManager.HORIZONTAL, false)
                 }

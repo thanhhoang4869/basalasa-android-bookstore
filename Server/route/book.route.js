@@ -6,9 +6,58 @@ const router = express.Router();
 router.use(bodyParser.urlencoded({ extended: false }))
 
 router.get('/onsale', async (req, res) => {
-    const ret = await bookModel.getBookOnSale();
-    console.log(ret)
-    res.send({ arrBookOnSale: ret || null });
+    try {
+        const ret = await bookModel.getBookOnSale();
+        console.log(ret)
+        res.send({ arrBookOnSale: ret });
+    } catch (err) {
+        console.log(err)
+        res.send({
+            "exitcode": 500,
+        });
+    }
+
 });
+router.get('/:bookdID', async (req, res) => {
+    try {
+        const ret = await bookModel.getBook(req.params.bookdID);
+        res.send({
+            "id": ret.id,
+            "name": ret.name,
+            "author": ret.author,
+            "distributor": ret.distributor,
+            "seller": ret.seller,
+            "price": ret.price,
+            "saleprice": ret.saleprice,
+            "category": ret.category,
+            "picture": ret.picture,
+            "release_year": ret.release_year,
+            "description": ret.description,
+            "quantity": ret.quantity,
+            "state": ret.state,
+            "star": ret.star,
+            "comments": ret.comments
+        });
+    } catch (err) {
+        console.log(err)
+        res.send({
+            "exitcode": 500,
+        });
+    }
+
+});
+router.get('/', async (req, res) => {
+    try {
+        const ret = await bookModel.findAll();
+        res.send({ arrBook: ret });
+    } catch (error) {
+        console.log(error)
+        res.send({
+            "exitcode": 500,
+        });
+    }
+
+});
+
 
 export default router

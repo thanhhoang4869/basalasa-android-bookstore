@@ -1,5 +1,6 @@
 package com.example.basalasa.adapter
 
+import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.basalasa.R
 import com.example.basalasa.model.entity.Category
+import com.squareup.picasso.Picasso
+import java.net.URL
+
 
 class HomeCategoryAdapter(private val arrCategory: ArrayList<Category>): RecyclerView.Adapter<HomeCategoryAdapter.ViewHolder>() {
     var onItemClick:((Category) -> Unit)? = null
@@ -37,7 +41,7 @@ class HomeCategoryAdapter(private val arrCategory: ArrayList<Category>): Recycle
     override fun onBindViewHolder(holder: HomeCategoryAdapter.ViewHolder, position: Int) {
         var category = arrCategory[position]
 
-        holder.homeImage.setImageResource(R.drawable.bookcover)
+        Picasso.get().load(category.image).into(holder.homeImage);
         holder.homeTopic.text = category.name
     }
 
