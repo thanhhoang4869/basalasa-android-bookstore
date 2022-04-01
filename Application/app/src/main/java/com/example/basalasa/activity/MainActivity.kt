@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -78,6 +79,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<GetAccountResponse>, t: Throwable) {
+                Log.d("Err","Fail 1")
                 Toast.makeText(context, "Fail connection to server", Toast.LENGTH_LONG).show()
                 t.printStackTrace()
             }

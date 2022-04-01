@@ -1,20 +1,17 @@
 package com.example.basalasa.fragment
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.basalasa.R
-import com.example.basalasa.adapter.CategoryAdapter
 import com.example.basalasa.adapter.HomeCategoryAdapter
 import com.example.basalasa.databinding.FragmentHomeBinding
-import com.example.basalasa.model.reponse.GetCategoryResponse
 import com.example.basalasa.model.entity.Category
+import com.example.basalasa.model.reponse.GetCategoryResponse
 import com.example.basalasa.utils.MyAPI
 import retrofit2.Call
 import retrofit2.Callback
@@ -56,22 +53,28 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         arrCategory = ArrayList()
 
         response.enqueue(object : Callback<GetCategoryResponse> {
-            override fun onResponse(call: Call<GetCategoryResponse>, response: Response<GetCategoryResponse>) {
+            override fun onResponse(
+                call: Call<GetCategoryResponse>,
+                response: Response<GetCategoryResponse>
+            ) {
                 if (response.isSuccessful) {
                     val data = response.body()
 
-                    for(item: Category in data!!.arrCategory!!) {
+                    for (item: Category in data!!.arrCategory!!) {
                         arrCategory.add(item)
                     }
 
                     //bind to adapter
-                    binding.homeCategoryRC!!.adapter = HomeCategoryAdapter(arrCategory)
-                    binding.homeCategoryRC!!.layoutManager = LinearLayoutManager(context)
+                    binding.homeCategoryRC.adapter = HomeCategoryAdapter(arrCategory)
+                    binding.homeCategoryRC.layoutManager = LinearLayoutManager(context)
                 }
             }
+
             override fun onFailure(call: Call<GetCategoryResponse>, t: Throwable) {
-                Toast.makeText(context, "Fail connection to server", Toast.LENGTH_LONG).show()
-                t.printStackTrace();
+                if (isAdded) {
+                    Toast.makeText(context, "Fail connection to server", Toast.LENGTH_LONG).show()
+                }
+                t.printStackTrace()
             }
         })
 
