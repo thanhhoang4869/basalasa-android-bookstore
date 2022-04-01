@@ -1,5 +1,4 @@
 import bookModel from '../model/book.model.js';
-import dotenv from 'dotenv';
 import bodyParser from "body-parser";
 import express from 'express'
 
@@ -8,7 +7,7 @@ router.use(bodyParser.urlencoded({ extended: false }))
 
 router.get('/', async (req, res) => {
     try {
-        const ret = await categoryModel.getCategory();
+        const ret = await bookModel.getBook();
         res.send(ret);
     } catch (err) {
         console.log(err)

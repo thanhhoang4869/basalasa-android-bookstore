@@ -29,5 +29,7 @@ const BookSchema = new mongoose.Schema({
 const Book = mongoose.model('book', BookSchema, 'book')
 
 export default {
-
+    getBook: async () => {
+        return await Book.find({})
+    }
 }

@@ -6,6 +6,7 @@ import com.example.basalasa.model.body.RegisterBody
 import com.example.basalasa.model.reponse.*
 import retrofit2.Call
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
 
@@ -30,6 +31,6 @@ interface API {
         @Header("x-access-token") tokenHeader: String
     ): Call<GetAccountResponse>
 
-    @POST("/category")
+    @GET("/category")
     fun getCategory(): Call<GetCategoryResponse>
 }

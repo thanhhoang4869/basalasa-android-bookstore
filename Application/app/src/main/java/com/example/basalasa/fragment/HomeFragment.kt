@@ -1,12 +1,15 @@
 package com.example.basalasa.fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.basalasa.R
+import com.example.basalasa.adapter.CategoryAdapter
+import com.example.basalasa.adapter.HomeCategoryAdapter
 import com.example.basalasa.databinding.FragmentHomeBinding
 import com.example.basalasa.model.reponse.GetCategoryResponse
 import com.example.basalasa.model.entity.Category
@@ -58,6 +61,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                     for(item: Category in data!!.arrCategory!!) {
                         arrCategory.add(item)
                     }
+
+                    //bind to adapter
+                    binding.homeCategoryRC.adapter = HomeCategoryAdapter(arrCategory)
                 }
             }
             override fun onFailure(call: Call<GetCategoryResponse>, t: Throwable) {

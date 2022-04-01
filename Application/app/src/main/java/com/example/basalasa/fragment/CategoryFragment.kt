@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.ToggleButton
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.basalasa.R
-import com.example.basalasa.adapter.rvAdapter
+import com.example.basalasa.adapter.CategoryAdapter
 import com.example.basalasa.databinding.FragmentCategoryBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
@@ -34,7 +34,7 @@ class CategoryFragment : Fragment(R.layout.fragment_category) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.rvCategoryListItem.layoutManager = GridLayoutManager(activity, 2)
-        binding.rvCategoryListItem.adapter = rvAdapter()
+        binding.rvCategoryListItem.adapter = CategoryAdapter()
 
         binding.filterBtn.setOnClickListener {
             BottomSheetFilter().show(requireActivity().supportFragmentManager, "bs")
