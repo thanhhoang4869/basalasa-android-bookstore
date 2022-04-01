@@ -12,4 +12,8 @@
         <item name="android:scaleType">centerCrop</item>
         <item name="android:src">@drawable/authenbackground</item>
     </style>
+
+    <style name="BottomBar">
+        <item name="android:navigationBarColor">@color/primary_green</item>
+    </style>
 </resources>

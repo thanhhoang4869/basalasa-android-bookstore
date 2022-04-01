@@ -11,11 +11,11 @@ import com.example.basalasa.R
 data class item_book(val img:Int,val title:String,val price:String,val rate:String,val review:String)
 
 class rvAdapter:RecyclerView.Adapter<rvAdapter.ViewHolder>() {
-    var img= arrayListOf<Int>(R.drawable.bookcover,R.drawable.bookcover,R.drawable.bookcover)
-    var title= arrayListOf<String>("The silence of the lambs","Hannibal Lecter","123")
-    var price= arrayListOf<String>("25","20","11")
-    var rate= arrayListOf<String>("4.5","3.4","1.0")
-    var review= arrayListOf<String>("123","432","324")
+    var img= arrayListOf(R.drawable.bookcover,R.drawable.bookcover,R.drawable.bookcover)
+    var title= arrayListOf("The silence of the lambs","Hannibal Lecter","123")
+    var price= arrayListOf("25","20","11")
+    var rate= arrayListOf("4.5","3.4","1.0")
+    var review= arrayListOf("123","432","324")
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
