@@ -43,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="$25"
-        android:textColor="#000000"
+        android:textColor="#0ACF83"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tv_category_rv_title"
         app:layout_constraintTop_toBottomOf="@+id/tv_category_rv_title" />
@@ -62,10 +62,10 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_category_rv_price" />
 
     <TextView
-        android:id="@+id/author"
+        android:id="@+id/review"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Author"
+        android:text="1 reviews"
         android:textColor="#000000"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/tv_category_rv_rate"

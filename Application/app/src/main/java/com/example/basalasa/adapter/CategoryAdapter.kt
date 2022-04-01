@@ -20,11 +20,11 @@ class CategoryAdapter(private val arrBook: ArrayList<Book>): RecyclerView.Adapte
     }
 
     override fun onBindViewHolder(holder: CategoryAdapter.ViewHolder, position: Int) {
-//        holder.itemImg.setImageResource(img[position])
+        holder.itemImg.setImageResource(R.drawable.bookcover)
         holder.itemTitle.text=arrBook[position].name
         holder.itemPrice.text=arrBook[position].price.toString()+"$"
         holder.itemRate.text=arrBook[position].star.toString()
-        holder.itemReview.text=arrBook[position].author
+        holder.itemReview.text=arrBook[position].comments?.size.toString()+ " Reviews"
     }
 
     override fun getItemCount(): Int {
@@ -43,7 +43,7 @@ class CategoryAdapter(private val arrBook: ArrayList<Book>): RecyclerView.Adapte
             itemTitle=itemView.findViewById(R.id.tv_category_rv_title)
             itemPrice=itemView.findViewById(R.id.tv_category_rv_price)
             itemRate=itemView.findViewById(R.id.tv_category_rv_rate)
-            itemReview=itemView.findViewById(R.id.author)
+            itemReview=itemView.findViewById(R.id.review)
         }
     }
 }

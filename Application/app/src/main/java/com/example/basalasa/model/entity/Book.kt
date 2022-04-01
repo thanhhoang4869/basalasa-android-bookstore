@@ -16,7 +16,7 @@ class Book (
     val release_year: String,
     val description: String,
     val quantity: Int,
-    val state: Boolean,
+    val state: Int,
     val star: Int,
     var comments:ArrayList<Comments>?=null
 ) {
