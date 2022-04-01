@@ -7,6 +7,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.basalasa.R
+import com.example.basalasa.model.entity.Book
+
 
 class HomeSaleAdapter(private val arrBookOnSale: ArrayList<Book>): RecyclerView.Adapter<HomeSaleAdapter.ViewHolder>() {
     var onItemClick:((Book) -> Unit)? = null
@@ -40,7 +42,7 @@ class HomeSaleAdapter(private val arrBookOnSale: ArrayList<Book>): RecyclerView.
 //        holder.homeSaleImage = book.picture
         holder.homeSaleName.text = book.name
         holder.homeSaleRootPrice.text = book.price.toString()
-        holder.homeSaleSalePrice.text = book.salePrice.toString()
+        holder.homeSaleSalePrice.text = book.saleprice.toString()
     }
 
     override fun getItemCount(): Int {

@@ -1,7 +1,6 @@
 import bookModel from '../model/book.model.js';
 import bodyParser from "body-parser";
 import express from 'express'
-import route from './route.js';
 
 const router = express.Router();
 router.use(bodyParser.urlencoded({ extended: false }))
@@ -11,19 +10,20 @@ router.get('/onsale', async (req, res) => {
     console.log(ret)
     res.send({ arrBookOnSale: ret || null });
 
-router.get('/',async(req,res)=>{
-    try{
-        console.log("TEST")
-        const ret = await bookModel.findAll();
-        console.log(ret);
-        res.send({arrBook:ret});
-    }catch(error){
-        console.log(error)
-        res.send({
-            "exitcode":500,
-        });
-    }
-    
+    router.get('/', async (req, res) => {
+        try {
+            console.log("TEST")
+            const ret = await bookModel.findAll();
+            console.log(ret);
+            res.send({ arrBook: ret });
+        } catch (error) {
+            console.log(error)
+            res.send({
+                "exitcode": 500,
+            });
+        }
+
+    });
 });
 router.get('/:bookdID', async (req, res) => {
     try {
@@ -43,7 +43,7 @@ router.get('/:bookdID', async (req, res) => {
             "quantity": ret.quantity,
             "state": ret.state,
             "star": ret.star,
-            "comments":ret.comments
+            "comments": ret.comments
         });
     } catch (err) {
         console.log(err)

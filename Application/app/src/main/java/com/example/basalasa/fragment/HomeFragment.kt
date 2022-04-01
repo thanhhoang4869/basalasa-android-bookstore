@@ -12,6 +12,7 @@ import com.example.basalasa.R
 import com.example.basalasa.adapter.HomeCategoryAdapter
 import com.example.basalasa.adapter.HomeSaleAdapter
 import com.example.basalasa.databinding.FragmentHomeBinding
+import com.example.basalasa.model.entity.Book
 import com.example.basalasa.model.entity.Category
 import com.example.basalasa.model.reponse.GetBookOnSaleResponse
 import com.example.basalasa.model.reponse.GetCategoryResponse
