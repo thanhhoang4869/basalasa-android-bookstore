@@ -8,11 +8,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.basalasa.R
 import com.example.basalasa.model.entity.Book
-<<<<<<< HEAD
-import com.squareup.picasso.Picasso
-=======
 
->>>>>>> d05aa3bcf0c8681a0f3b9853e60eb281f487c712
+import com.squareup.picasso.Picasso
+
 
 class HomeSaleAdapter(private val arrBookOnSale: ArrayList<Book>): RecyclerView.Adapter<HomeSaleAdapter.ViewHolder>() {
     var onItemClick:((Book) -> Unit)? = null

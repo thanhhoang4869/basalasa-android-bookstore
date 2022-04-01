@@ -51,13 +51,13 @@ class CategoryFragment : Fragment(R.layout.fragment_category) {
 
         response.enqueue(object : Callback<GetBooksResponse> {
             override fun onResponse(call: Call<GetBooksResponse>, response: Response<GetBooksResponse>) {
-                System.out.println("ALOOOO")
+
                 if (response.isSuccessful) {
                     val data = response.body()
 
                     for(item: Book in data!!.arrBook!!) {
                         arrBooks.add(item)
-                        System.out.println("ON "+item.toString())
+
                     }
 
                     //bind to adapter
