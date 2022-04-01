@@ -44,4 +44,8 @@ interface API {
     //category
     @GET("/category")
     fun getCategory(): Call<GetCategoryResponse>
+
+    //book
+    @GET("/book/onsale")
+    fun getBookOnSale(): Call<GetBookOnSaleResponse>
 }

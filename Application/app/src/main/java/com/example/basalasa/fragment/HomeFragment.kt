@@ -2,28 +2,31 @@ package com.example.basalasa.fragment
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.basalasa.R
-import com.example.basalasa.adapter.CategoryAdapter
 import com.example.basalasa.adapter.HomeCategoryAdapter
+import com.example.basalasa.adapter.HomeSaleAdapter
 import com.example.basalasa.databinding.FragmentHomeBinding
-import com.example.basalasa.model.reponse.GetCategoryResponse
+import com.example.basalasa.model.entity.Book
 import com.example.basalasa.model.entity.Category
+import com.example.basalasa.model.reponse.GetBookOnSaleResponse
+import com.example.basalasa.model.reponse.GetCategoryResponse
 import com.example.basalasa.utils.MyAPI
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+
 class HomeFragment : Fragment(R.layout.fragment_home) {
     private var _binding: FragmentHomeBinding? = null
 
     lateinit var arrCategory: ArrayList<Category>
+    lateinit var arrBookOnSale: ArrayList<Book>
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -49,6 +52,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         loadCategoryList()
+        loadBookOnSaleList()
     }
 
     private fun loadCategoryList() {
@@ -66,7 +70,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
                     //bind to adapter
                     binding.homeCategoryRC!!.adapter = HomeCategoryAdapter(arrCategory)
-                    binding.homeCategoryRC!!.layoutManager = LinearLayoutManager(context)
+                    binding.homeCategoryRC!!.layoutManager = LinearLayoutManager( context, LinearLayoutManager.HORIZONTAL, false)
                 }
             }
             override fun onFailure(call: Call<GetCategoryResponse>, t: Throwable) {
@@ -74,7 +78,33 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 t.printStackTrace();
             }
         })
+    }
 
+    private fun loadBookOnSaleList() {
+        val response = MyAPI.getAPI().getBookOnSale()
+        arrBookOnSale = ArrayList()
+
+        response.enqueue(object : Callback<GetBookOnSaleResponse> {
+            override fun onResponse(call: Call<GetBookOnSaleResponse>, response: Response<GetBookOnSaleResponse>) {
+                if (response.isSuccessful) {
+                    val data = response.body()
+                    Log.d("aloalo",data?.arrBookOnSale.toString())
+
+                    for(item: Book in data?.arrBookOnSale!!) {
+                        arrBookOnSale.add(item)
+                    }
+
+                    //bind to adapter
+
+                    binding.homeSaleRC.adapter = HomeSaleAdapter(arrBookOnSale)
+                    binding.homeSaleRC.layoutManager = LinearLayoutManager( context, LinearLayoutManager.HORIZONTAL, false)
+                }
+            }
+            override fun onFailure(call: Call<GetBookOnSaleResponse>, t: Throwable) {
+                Toast.makeText(context, "Fail connection to server", Toast.LENGTH_LONG).show()
+                t.printStackTrace();
+            }
+        })
     }
 
 }

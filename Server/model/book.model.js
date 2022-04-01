@@ -31,5 +31,14 @@ const Book = mongoose.model('book', BookSchema, 'book')
 export default {
     getBook: async () => {
         return await Book.find({})
+    },
+    getBookOnSale: async () => {
+        try {
+            const books = await Book.find({ saleprice: { $ne: 0 } }).lean()
+            return books.splice(1, 5)
+        } catch (err) {
+            console.log(err)
+            return null
+        }
     }
 }

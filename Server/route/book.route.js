@@ -5,16 +5,10 @@ import express from 'express'
 const router = express.Router();
 router.use(bodyParser.urlencoded({ extended: false }))
 
-router.get('/', async (req, res) => {
-    try {
-        const ret = await bookModel.getBook();
-        res.send(ret);
-    } catch (err) {
-        console.log(err)
-        res.send({
-            "exitcode": 500,
-        });
-    }
+router.get('/onsale', async (req, res) => {
+    const ret = await bookModel.getBookOnSale();
+    console.log(ret)
+    res.send({ arrBookOnSale: ret || null });
 });
 
 export default router

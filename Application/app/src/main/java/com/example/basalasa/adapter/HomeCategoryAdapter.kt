@@ -37,7 +37,7 @@ class HomeCategoryAdapter(private val arrCategory: ArrayList<Category>): Recycle
     override fun onBindViewHolder(holder: HomeCategoryAdapter.ViewHolder, position: Int) {
         var category = arrCategory[position]
 
-        holder.homeImage.setImageResource(R.drawable.authenbackground)
+        holder.homeImage.setImageResource(R.drawable.bookcover)
         holder.homeTopic.text = category.name
     }
 

@@ -1,7 +1,7 @@
 package com.example.basalasa.model.entity
 
-import com.example.basalasa.model.reponse.GetAccountResponse
 import java.util.*
+import kotlin.collections.ArrayList
 
 class Book (
     val id: Int,
@@ -16,18 +16,9 @@ class Book (
     val releaseDay: Date,
     val description: String,
     val quantity: Int,
-    val state: Boolean,
-    val star: Int
+    val state: Int,
+    val star: Int,
+    var comments: ArrayList<Comments>? = ArrayList()
 ) {
-//    constructor(response: GetAccountResponse) : this(
-//        response.email,
-//        response.name,
-//        response.phone,
-//        response.address,
-//        response.role
-//    )
-//
-//    override fun toString(): String {
-//        return "${email},${name},${phone},${address},${role}"
-//    }
+
 }
