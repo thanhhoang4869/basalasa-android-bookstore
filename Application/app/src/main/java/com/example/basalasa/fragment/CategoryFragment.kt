@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.GridLayout
 import android.widget.Toast
 import android.widget.ToggleButton
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.basalasa.R
 import com.example.basalasa.adapter.CategoryAdapter
@@ -60,7 +62,7 @@ class CategoryFragment : Fragment(R.layout.fragment_category) {
 
                     //bind to adapter
                     binding.rvCategoryListItem!!.adapter = CategoryAdapter(arrBooks)
-                    binding.rvCategoryListItem!!.layoutManager = LinearLayoutManager(context)
+                    binding.rvCategoryListItem!!.layoutManager = GridLayoutManager(context,2)
                 }
             }
             override fun onFailure(call: Call<GetBooksResponse>, t: Throwable) {

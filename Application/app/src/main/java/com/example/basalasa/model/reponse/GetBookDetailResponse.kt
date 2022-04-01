@@ -9,8 +9,8 @@ class GetBookDetailResponse {
     @SerializedName("author") val author:String=""
     @SerializedName("distributor") val distributor:String=""
     @SerializedName("seller") val seller:String=""
-    @SerializedName("price") val price:Double=0.0
-    @SerializedName("saleprice") val saleprice:Double=0.0
+    @SerializedName("price") val price:Int=0
+    @SerializedName("saleprice") val saleprice:Int=0
     @SerializedName("category") val category:String=""
     @SerializedName("picture") val picture:String=""
     @SerializedName("release_year") val release_year:String=""
