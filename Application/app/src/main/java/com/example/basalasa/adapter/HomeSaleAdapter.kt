@@ -1,5 +1,6 @@
 package com.example.basalasa.adapter
 
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,11 +9,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.basalasa.R
 import com.example.basalasa.model.entity.Book
-<<<<<<< HEAD
 import com.squareup.picasso.Picasso
-=======
 
->>>>>>> d05aa3bcf0c8681a0f3b9853e60eb281f487c712
 
 class HomeSaleAdapter(private val arrBookOnSale: ArrayList<Book>): RecyclerView.Adapter<HomeSaleAdapter.ViewHolder>() {
     var onItemClick:((Book) -> Unit)? = null
@@ -45,8 +43,10 @@ class HomeSaleAdapter(private val arrBookOnSale: ArrayList<Book>): RecyclerView.
 
         Picasso.get().load(book.picture).into(holder.homeSaleImage);
         holder.homeSaleName.text = book.name
-        holder.homeSaleRootPrice.text = book.price.toString()
-        holder.homeSaleSalePrice.text = book.saleprice.toString()
+        holder.homeSaleRootPrice.text = "$" + book.price.toString()
+        holder.homeSaleSalePrice.text = "$" + book.saleprice.toString()
+
+        holder.homeSaleRootPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
     }
 
     override fun getItemCount(): Int {

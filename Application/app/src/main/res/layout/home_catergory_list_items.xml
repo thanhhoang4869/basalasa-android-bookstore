@@ -17,6 +17,7 @@
         android:layout_width="128dp"
         android:layout_height="175dp"
         android:layout_marginStart="64dp"
+        android:scaleType="centerCrop"
         app:layout_constraintStart_toEndOf="@+id/homeCategoryShopNow"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
@@ -28,6 +29,7 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="8dp"
         android:text="TextView"
+        android:textStyle="bold"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/homeCategoryImage"

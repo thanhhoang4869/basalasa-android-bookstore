@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.basalasa.R
 import com.example.basalasa.adapter.HomeCategoryAdapter
+import com.example.basalasa.adapter.HomePageViewerAdapter
 import com.example.basalasa.adapter.HomeSaleAdapter
 import com.example.basalasa.databinding.FragmentHomeBinding
 import com.example.basalasa.model.entity.Book
@@ -51,6 +52,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.homeViewPager.adapter = context?.let { HomePageViewerAdapter(it) }
+
         loadBookOnSaleList()
         loadCategoryList()
     }

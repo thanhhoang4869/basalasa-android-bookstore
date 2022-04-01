@@ -6,7 +6,6 @@ const router = express.Router();
 router.use(bodyParser.urlencoded({ extended: false }))
 
 router.get('/onsale', async (req, res) => {
-<<<<<<< HEAD
     try {
         const ret = await bookModel.getBookOnSale();
         console.log(ret)
@@ -18,26 +17,6 @@ router.get('/onsale', async (req, res) => {
         });
     }
 
-=======
-    const ret = await bookModel.getBookOnSale();
-    console.log(ret)
-    res.send({ arrBookOnSale: ret || null });
-
-    router.get('/', async (req, res) => {
-        try {
-            console.log("TEST")
-            const ret = await bookModel.findAll();
-            console.log(ret);
-            res.send({ arrBook: ret });
-        } catch (error) {
-            console.log(error)
-            res.send({
-                "exitcode": 500,
-            });
-        }
-
-    });
->>>>>>> d05aa3bcf0c8681a0f3b9853e60eb281f487c712
 });
 router.get('/:bookdID', async (req, res) => {
     try {
