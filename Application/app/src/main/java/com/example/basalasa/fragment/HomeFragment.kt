@@ -65,13 +65,15 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                     }
 
                     //bind to adapter
-                    binding.homeCategoryRC!!.adapter = HomeCategoryAdapter(arrCategory)
-                    binding.homeCategoryRC!!.layoutManager = LinearLayoutManager(context)
+                    binding.homeCategoryRC.adapter = HomeCategoryAdapter(arrCategory)
+                    binding.homeCategoryRC.layoutManager = LinearLayoutManager(context)
                 }
             }
             override fun onFailure(call: Call<GetCategoryResponse>, t: Throwable) {
-                Toast.makeText(context, "Fail connection to server", Toast.LENGTH_LONG).show()
-                t.printStackTrace();
+                if(isAdded){
+                    Toast.makeText(context, "Fail connection to server", Toast.LENGTH_LONG).show()
+                    t.printStackTrace();
+                }
             }
         })
 

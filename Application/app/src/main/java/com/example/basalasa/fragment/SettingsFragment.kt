@@ -100,8 +100,10 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
             }
 
             override fun onFailure(call: Call<GetAccountResponse>, t: Throwable) {
-                Toast.makeText(context, "Fail connection to server", Toast.LENGTH_LONG).show()
-                t.printStackTrace()
+                if(isAdded){
+                    Toast.makeText(context, "Fail connection to server", Toast.LENGTH_LONG).show()
+                    t.printStackTrace();
+                }
             }
         })
     }
