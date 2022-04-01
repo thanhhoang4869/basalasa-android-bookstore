@@ -53,7 +53,4 @@ class Book(
         item.state,
         item.star,
         item.comments)
-    override fun toString(): String {
-        return "${name},${price}"
-    }
 }
