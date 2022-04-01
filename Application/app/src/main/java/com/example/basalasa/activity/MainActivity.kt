@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.basalasa.fragment.CategoryFragment
@@ -12,8 +11,7 @@ import com.example.basalasa.fragment.HomeFragment
 import com.example.basalasa.fragment.ProfileFragment
 import com.example.basalasa.fragment.SettingsFragment
 import com.example.basalasa.R
-import com.example.basalasa.model.GetAccountResponse
-import com.example.basalasa.model.entity.Account
+import com.example.basalasa.model.reponse.GetAccountResponse
 import com.example.basalasa.utils.Cache
 import com.example.basalasa.utils.MyAPI
 import com.google.android.material.bottomnavigation.BottomNavigationView

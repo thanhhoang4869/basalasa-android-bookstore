@@ -1,4 +1,5 @@
 package com.example.basalasa.fragment
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.example.basalasa.R
 import com.example.basalasa.databinding.FragmentHomeBinding
-import com.example.basalasa.model.GetCategoryResponse
+import com.example.basalasa.model.reponse.GetCategoryResponse
 import com.example.basalasa.model.entity.Category
 import com.example.basalasa.utils.MyAPI
 import retrofit2.Call

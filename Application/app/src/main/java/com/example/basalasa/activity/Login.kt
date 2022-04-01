@@ -7,10 +7,10 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.Toast
-import com.example.basalasa.model.LoginBody
+import com.example.basalasa.model.body.LoginBody
 import com.example.basalasa.R
 import com.example.basalasa.databinding.ActivityLoginBinding
-import com.example.basalasa.model.LoginResponse
+import com.example.basalasa.model.reponse.LoginResponse
 import com.example.basalasa.utils.Cache
 import com.example.basalasa.utils.MyAPI
 import retrofit2.Call

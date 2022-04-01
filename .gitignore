@@ -38,4 +38,4 @@ output.json
     
 #NDK
 obj/
-.externalNativeBuild
+.externalNativeBuildnode_modules/

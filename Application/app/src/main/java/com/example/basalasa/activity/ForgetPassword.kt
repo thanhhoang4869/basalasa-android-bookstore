@@ -8,9 +8,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.example.basalasa.R
-import com.example.basalasa.model.ForgetBody
-import com.example.basalasa.model.ForgetResponse
-import com.example.basalasa.model.LoginResponse
+import com.example.basalasa.model.body.ForgetBody
+import com.example.basalasa.model.reponse.ForgetResponse
 import com.example.basalasa.utils.MyAPI
 import retrofit2.Call
 import retrofit2.Callback

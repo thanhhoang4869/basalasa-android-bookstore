@@ -1,9 +1,11 @@
 package com.example.basalasa.utils
 
-import com.example.basalasa.model.*
+import com.example.basalasa.model.body.ForgetBody
+import com.example.basalasa.model.body.LoginBody
+import com.example.basalasa.model.body.RegisterBody
+import com.example.basalasa.model.reponse.*
 import retrofit2.Call
 import retrofit2.http.Body
-import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
 

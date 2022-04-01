@@ -9,10 +9,8 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.example.basalasa.R
-import com.example.basalasa.model.LoginBody
-import com.example.basalasa.model.LoginResponse
-import com.example.basalasa.model.RegisterBody
-import com.example.basalasa.model.RegisterResponse
+import com.example.basalasa.model.body.RegisterBody
+import com.example.basalasa.model.reponse.RegisterResponse
 import com.example.basalasa.utils.MyAPI
 import retrofit2.Call
 import retrofit2.Callback
