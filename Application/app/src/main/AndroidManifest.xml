@@ -10,7 +10,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Basalasa">
+        android:theme="@style/Theme.Basalasa"
+        android:usesCleartextTraffic="true">
         <activity
             android:name=".activity.ReviewBooks"
             android:exported="false" />
