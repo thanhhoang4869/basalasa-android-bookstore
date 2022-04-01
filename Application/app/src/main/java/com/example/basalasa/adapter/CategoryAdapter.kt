@@ -7,10 +7,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.basalasa.R
-import com.example.basalasa.model.entity.BookDetail
-import com.example.basalasa.model.entity.Category
+import com.example.basalasa.model.entity.Book
 
-class CategoryAdapter(private val arrBook: ArrayList<BookDetail>): RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
+class CategoryAdapter(private val arrBook: ArrayList<Book>): RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,

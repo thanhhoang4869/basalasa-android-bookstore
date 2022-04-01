@@ -7,16 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import android.widget.ToggleButton
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.basalasa.R
 import com.example.basalasa.adapter.CategoryAdapter
-import com.example.basalasa.adapter.HomeCategoryAdapter
 import com.example.basalasa.databinding.FragmentCategoryBinding
-import com.example.basalasa.model.entity.BookDetail
-import com.example.basalasa.model.entity.Category
+import com.example.basalasa.model.entity.Book
 import com.example.basalasa.model.reponse.GetBooksResponse
-import com.example.basalasa.model.reponse.GetCategoryResponse
 import com.example.basalasa.utils.MyAPI
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import retrofit2.Call
@@ -29,7 +25,7 @@ class CategoryFragment : Fragment(R.layout.fragment_category) {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-    lateinit var arrBooks:ArrayList<BookDetail>
+    lateinit var arrBooks:ArrayList<Book>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
@@ -57,7 +53,7 @@ class CategoryFragment : Fragment(R.layout.fragment_category) {
                 if (response.isSuccessful) {
                     val data = response.body()
 
-                    for(item: BookDetail in data!!.arrBook!!) {
+                    for(item: Book in data!!.arrBook!!) {
                         arrBooks.add(item)
                         System.out.println("ON "+item.toString())
                     }

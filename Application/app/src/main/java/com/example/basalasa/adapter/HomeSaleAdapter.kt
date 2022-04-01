@@ -7,7 +7,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.basalasa.R
-import com.example.basalasa.model.entity.Book
 
 class HomeSaleAdapter(private val arrBookOnSale: ArrayList<Book>): RecyclerView.Adapter<HomeSaleAdapter.ViewHolder>() {
     var onItemClick:((Book) -> Unit)? = null

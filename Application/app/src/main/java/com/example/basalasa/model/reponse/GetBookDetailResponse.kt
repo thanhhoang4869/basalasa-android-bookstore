@@ -1,6 +1,5 @@
 package com.example.basalasa.model.reponse
 
-import com.example.basalasa.model.entity.BookDetail
 import com.example.basalasa.model.entity.Comments
 import com.google.gson.annotations.SerializedName
 
