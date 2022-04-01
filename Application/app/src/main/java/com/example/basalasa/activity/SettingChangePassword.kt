@@ -10,6 +10,7 @@ import com.example.basalasa.model.body.ChangePasswordBody
 import com.example.basalasa.model.reponse.ChangePasswordResponse
 import com.example.basalasa.utils.Cache
 import com.example.basalasa.utils.MyAPI
+import com.example.basalasa.utils.SHA256.Companion.sha256
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -31,15 +32,14 @@ class SettingChangePassword : AppCompatActivity() {
     }
 
     private fun changePassword(context: Context) {
-        val oldPass = binding.changePasswordOldPass.text.toString()
-        val newPass = binding.changePasswordNewPass.text.toString()
-        val rePass = binding.changePasswordRePass.text.toString()
+        val oldPass = binding.changePasswordOldPass.text.toString().sha256()
+        val newPass = binding.changePasswordNewPass.text.toString().sha256()
+        val rePass = binding.changePasswordRePass.text.toString().sha256()
 
-        if(!newPass.equals(rePass)) {
-            val email = intent.getStringExtra("email").toString()
+
+        if(newPass == rePass) {
             val token = context.let { Cache.getToken(it) }
-            val response = token?.let { MyAPI.getAPI().ChangePass(it, ChangePasswordBody(email, oldPass, newPass))}
-
+            val response = token?.let { MyAPI.getAPI().changePass(it, ChangePasswordBody(oldPass, newPass))}
 
             response?.enqueue(object : Callback<ChangePasswordResponse> {
                 override fun onResponse(call: Call<ChangePasswordResponse>, response: Response<ChangePasswordResponse>) {

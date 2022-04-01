@@ -40,15 +40,7 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
-        return binding.root
-    }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.changeInfo.setOnClickListener {
             activity?.let {
                 val intent = Intent(context, SettingChangeInformation::class.java)
@@ -68,30 +60,20 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
             logout()
         }
 
+        return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         getInfo()
     }
 
     override fun onResume() {
         super.onResume()
-        binding.changeInfo.setOnClickListener {
-            activity?.let {
-                val intent = Intent(context, SettingChangeInformation::class.java)
-                it.startActivity(intent)
-            }
-        }
-
-        binding.changePass.setOnClickListener {
-            activity?.let {
-                val intent = Intent(context, SettingChangePassword::class.java)
-                it.startActivity(intent)
-            }
-        }
-
-        binding.logoutBtn.setOnClickListener {
-            logout()
-        }
-
-        getInfo()
     }
 
     private fun loadInfo(account: Account) {

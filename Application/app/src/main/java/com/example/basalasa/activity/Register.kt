@@ -12,6 +12,7 @@ import com.example.basalasa.R
 import com.example.basalasa.model.body.RegisterBody
 import com.example.basalasa.model.reponse.RegisterResponse
 import com.example.basalasa.utils.MyAPI
+import com.example.basalasa.utils.SHA256.Companion.sha256
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -49,7 +50,7 @@ class Register : AppCompatActivity() {
         if(!password.equals(rePassword)) {
             Toast.makeText(context, "Retype password does not match", Toast.LENGTH_LONG).show()
         } else {
-            val response = MyAPI.getAPI().postRegister(RegisterBody(email, password, fullName, phone, address))
+            val response = MyAPI.getAPI().postRegister(RegisterBody(email, password.sha256(), fullName, phone, address))
 
             response.enqueue(object : Callback<RegisterResponse> {
                 override fun onResponse(call: Call<RegisterResponse>, response: Response<RegisterResponse>) {

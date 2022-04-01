@@ -13,6 +13,7 @@ import com.example.basalasa.databinding.ActivityLoginBinding
 import com.example.basalasa.model.reponse.LoginResponse
 import com.example.basalasa.utils.Cache
 import com.example.basalasa.utils.MyAPI
+import com.example.basalasa.utils.SHA256.Companion.sha256
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -43,7 +44,7 @@ class Login : AppCompatActivity() {
 
     private fun checkAccount(context: Context) {
         val usernameStr = binding.emailEntry.text.toString()
-        val passwordStr = binding.passEntry.text.toString()
+        val passwordStr = binding.passEntry.text.toString().sha256()
 
         val response = MyAPI.getAPI().postLogin(LoginBody(usernameStr, passwordStr))
 

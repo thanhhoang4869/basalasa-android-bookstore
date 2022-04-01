@@ -14,8 +14,7 @@ dotenv.config()
 const router = express.Router();
 router.use(bodyParser.urlencoded({ extended: false }))
 
-router.post('/login', async (req, res) => {
-    console.log('dag login')
+router.post('/login', async(req, res) => {
     const account = await accountModel.findByEmail(req.body.email);
 
     if (account === null) {
@@ -34,7 +33,7 @@ router.post('/login', async (req, res) => {
         return;
     }
 
-    const ret = bcrypt.compareSync(req.body.password, account.password);
+    const ret = req.body.password === account.password;
     if (ret === false || account.emailToken !== null) {
         res.send({
             "exitcode": 104,
@@ -56,12 +55,12 @@ router.post('/login', async (req, res) => {
     });
 });
 
-router.post('/getAccount', async (req, res) => {
+router.post('/getAccount', async(req, res) => {
     const data = {
         email: req.payload.email
     }
 
-    const account = await accountModel.findByEmail([data.email]);
+    const account = await accountModel.findByEmail(data.email);
 
     if (account === null) {
         res.send({
@@ -87,7 +86,7 @@ router.post('/getAccount', async (req, res) => {
     });
 });
 
-router.post('/register', async (req, res) => {
+router.post('/register', async(req, res) => {
     const { email, password, fullName, phone, address } = req.body;
 
     const usedEmail = await accountModel.checkEmail(email);
@@ -99,7 +98,6 @@ router.post('/register', async (req, res) => {
         return;
     }
 
-    const hashPassword = await bcrypt.hash(password, salt);
     const emailToken = crypto.randomBytes(20).toString('hex');;
 
     const mailOption = {
@@ -112,13 +110,13 @@ router.post('/register', async (req, res) => {
                 </div>`
     }
 
-    transporter.sendMail(mailOption, function (err, info) {
+    transporter.sendMail(mailOption, function(err, info) {
         if (err) console.log(err);
     })
 
     await accountModel.create({
         email: email,
-        password: hashPassword,
+        password: password,
         fullName: fullName.trim(),
         phone: phone.trim(),
         address: address.trim(),
@@ -133,7 +131,7 @@ router.post('/register', async (req, res) => {
     })
 });
 
-router.get('/verify/:token', async (req, res) => {
+router.get('/verify/:token', async(req, res) => {
     const { token } = req.params;
 
     await accountModel.activateAccount(token);
@@ -141,7 +139,7 @@ router.get('/verify/:token', async (req, res) => {
     res.send("Activate successfully")
 });
 
-router.post('/forget', async (req, res) => {
+router.post('/forget', async(req, res) => {
     const { email } = req.body;
 
     const account = await accountModel.findByEmail(email)
@@ -160,7 +158,7 @@ router.post('/forget', async (req, res) => {
                     </div>`
         }
 
-        transporter.sendMail(mailOption, function (err, info) {
+        transporter.sendMail(mailOption, function(err, info) {
             if (err) console.log(err);
         })
 
@@ -178,7 +176,7 @@ router.post('/forget', async (req, res) => {
     })
 });
 
-router.post('/changeInfo', async (req, res) => {
+router.post('/changeInfo', async(req, res) => {
     const { email, fullName, phone, address } = req.body;
 
     console.log(fullName)
@@ -196,12 +194,16 @@ router.post('/changeInfo', async (req, res) => {
     })
 });
 
-router.post('/changePass', async (req, res) => {
-    const { email, oldPassword, newPassword } = req.body;
-    console.log('change ne')
-    const account = await accountModel.findByEmail(email)
+router.post('/changePass', async(req, res) => {
+    const { oldPassword, newPassword } = req.body;
 
-    const ret = bcrypt.compareSync(oldPassword, account.password);
+    const data = {
+        email: req.payload.email
+    }
+
+    const account = await accountModel.findByEmail(data.email);
+
+    const ret = oldPassword == account.password
 
     if (ret === false) {
         res.send({
@@ -210,9 +212,9 @@ router.post('/changePass', async (req, res) => {
         return;
     }
 
-    account.password = await bcrypt.hash(newPassword, salt);
+    account.password = newPassword;
 
-    await accountModel.updateAccount(email, account)
+    await accountModel.updateAccount(data.email, account)
 
     res.send({
         "exitcode": 0
