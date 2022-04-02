@@ -71,7 +71,7 @@ class CategoryFragment : Fragment(R.layout.fragment_category) {
                     adapter.setOnItemClickListener(object :CategoryAdapter.onItemClickListener{
                         override fun onItemClick(position: Int) {
                             val intent=Intent(activity,BookDetail::class.java)
-                            intent.putExtra("id",arrBooks[position].id.toString())
+                            intent.putExtra("id",arrBooks[position]._id)
                             startActivity(intent)
                         }
                     })

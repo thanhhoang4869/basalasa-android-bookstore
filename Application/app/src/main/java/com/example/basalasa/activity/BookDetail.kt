@@ -4,25 +4,31 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import com.example.basalasa.R
+import com.example.basalasa.databinding.ActivityBookDetailBinding
+import com.example.basalasa.model.body.GetDetailsBody
 import com.example.basalasa.model.reponse.GetBookDetailResponse
 import com.example.basalasa.utils.MyAPI
+import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 
 class BookDetail : AppCompatActivity() {
+    private lateinit var binding:ActivityBookDetailBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_book_detail)
+        binding = ActivityBookDetailBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
         val id=intent.getStringExtra("id")
-        loadDetail("123")
+        loadDetail(id!!)
     }
 
     private fun loadDetail(id: String){
-        val response = MyAPI.getAPI().getBookDetail(id)
+        val response = MyAPI.getAPI().getBookDetail(GetDetailsBody(id))
 
         response.enqueue(object : Callback<GetBookDetailResponse>{
             override fun onResponse(
@@ -30,8 +36,23 @@ class BookDetail : AppCompatActivity() {
                 response: Response<GetBookDetailResponse>
             ) {
                 if (response.isSuccessful){
-                    val data=response.body()
-                    Log.i("?",data.toString())
+                    val data=response.body()!!
+
+                    binding.bookPrice.text=data.price.toString()
+                    binding.bookTitle.text=data.name
+                    Picasso.get().load(data.picture).into(binding.bookImage)
+                    binding.bookDescription.text=data.description
+                    binding.bookAuthor.text=data.author
+                    binding.bookSalePrice.text=data.saleprice.toString()
+                    binding.bookRelease.text=data.release_year
+                    binding.bookQuantity.text=data.quantity.toString()
+                    binding.bookState.text=if(data.state==0){
+                        "Stocking"
+                    }else{
+                        "Out of stock"
+                    }
+                    binding.bookSeller.text=data.seller
+                    binding.bookCate.text=data.category
                 }else{
                     Log.i("?","fail")
                 }

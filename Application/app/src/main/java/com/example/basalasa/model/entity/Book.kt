@@ -4,6 +4,7 @@ import com.example.basalasa.model.reponse.GetBookDetailResponse
 import kotlin.collections.ArrayList
 
 class Book(
+    val _id:String,
     val id: Int,
     val name: String,
     val author: String,
@@ -21,6 +22,7 @@ class Book(
     var comments:ArrayList<Comments>?=null
 ) {
     constructor(response: GetBookDetailResponse) : this(
+        response._id,
         response.id,
         response.name,
         response.author,
@@ -38,6 +40,7 @@ class Book(
         response.comments
     )
     constructor(item:Book) : this(
+        item._id,
         item.id,
         item.name,
         item.author,

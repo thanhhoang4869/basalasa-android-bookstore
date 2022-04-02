@@ -22,13 +22,11 @@ class CategoryAdapter(private val arrBook: ArrayList<Book>): RecyclerView.Adapte
     }
 
     override fun onBindViewHolder(holder: CategoryAdapter.ViewHolder, position: Int) {
-        Picasso.get().load(arrBook[position].picture).into(holder.itemImg);
+        Picasso.get().load(arrBook[position].picture).into(holder.itemImg)
         holder.itemTitle.text=arrBook[position].name
-        holder.itemPrice.text=arrBook[position].price.toString()+" $"
         holder.itemPrice.text=arrBook[position].price.toString()
         holder.itemRate.text=arrBook[position].star.toString()
         holder.itemReview.text=arrBook[position].comments?.size.toString()+ " Reviews"
-
     }
 
     override fun getItemCount(): Int {

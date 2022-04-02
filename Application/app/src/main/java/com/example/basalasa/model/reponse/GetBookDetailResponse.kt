@@ -4,6 +4,7 @@ import com.example.basalasa.model.entity.Comments
 import com.google.gson.annotations.SerializedName
 
 class GetBookDetailResponse {
+    @SerializedName("_id") val _id:String=""
     @SerializedName("id") val id:Int=0
     @SerializedName("name") val name:String=""
     @SerializedName("author") val author:String=""

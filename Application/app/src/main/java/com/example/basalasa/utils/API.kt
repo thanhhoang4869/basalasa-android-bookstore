@@ -2,6 +2,7 @@ package com.example.basalasa.utils
 
 import com.example.basalasa.model.body.*
 import com.example.basalasa.model.reponse.*
+import com.google.gson.annotations.SerializedName
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -49,7 +50,9 @@ interface API {
 
     @GET("/book")
     fun getBooks():Call<GetBooksResponse>
-    @GET("/book/{id}")
-    fun getBookDetail(@Path("id") id:String):Call<GetBookDetailResponse>
+    @POST("/book/getDetails")
+    fun getBookDetail(
+        @Body getDetailsBody: GetDetailsBody
+    ):Call<GetBookDetailResponse>
 
 }
