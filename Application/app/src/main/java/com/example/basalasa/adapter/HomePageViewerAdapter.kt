@@ -10,7 +10,7 @@ import androidx.viewpager.widget.PagerAdapter
 import com.example.basalasa.R
 
 class HomePageViewerAdapter(context: Context): PagerAdapter() {
-    var images = intArrayOf(R.drawable.slider_1, R.drawable.slider_2, R.drawable.slider_3, R.drawable.slider_4)
+    var images = intArrayOf(R.drawable.slider_1,R.drawable.slider_2)
     var layoutInflater: LayoutInflater? = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater?
 
     override fun getCount(): Int {

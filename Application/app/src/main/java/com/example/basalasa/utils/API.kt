@@ -22,7 +22,7 @@ interface API {
         @Body forgetBody: ForgetBody
     ): Call<ForgetResponse>
 
-    @POST("/account/getAccount")
+    @GET("/account/getAccount")
     fun getAccount(
         @Header("x-access-token") tokenHeader: String
     ): Call<GetAccountResponse>

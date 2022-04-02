@@ -46,11 +46,10 @@ class BookDetail : AppCompatActivity() {
                     binding.bookSalePrice.text=data.saleprice.toString()
                     binding.bookRelease.text=data.release_year
                     binding.bookQuantity.text=data.quantity.toString()
-                    binding.bookState.text=if(data.state==0){
-                        "Stocking"
-                    }else{
-                        "Out of stock"
+                    if(data.state==0){
+                        binding.bookState.text= "Out of stock"
                     }
+
                     binding.bookSeller.text=data.seller
                     binding.bookCate.text=data.category
                 }else{

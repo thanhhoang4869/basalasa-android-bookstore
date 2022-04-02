@@ -41,6 +41,7 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
     ): View? {
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
 
+        getInfo()
         binding.changeInfo.setOnClickListener {
             activity?.let {
                 val intent = Intent(context, SettingChangeInformation::class.java)
@@ -69,7 +70,7 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        getInfo()
+        Log.d("alo","1234 create")
     }
 
     override fun onResume() {
@@ -95,11 +96,14 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
                     if (data?.exitcode == 0) {
                         account= Account(data)
                         loadInfo(account)
+                    } else{
+                        Log.d("alo","1234")
                     }
                 }
             }
 
             override fun onFailure(call: Call<GetAccountResponse>, t: Throwable) {
+                Log.d("Alo","fail")
                 if(isAdded){
                     Toast.makeText(context, "Fail connection to server", Toast.LENGTH_LONG).show()
                     t.printStackTrace();
