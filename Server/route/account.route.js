@@ -17,6 +17,8 @@ router.use(bodyParser.urlencoded({ extended: false }))
 router.post('/login', async(req, res) => {
     const account = await accountModel.findByEmail(req.body.email);
 
+    console.log(account)
+
     if (account === null) {
         res.send({
             "exitcode": 104,
