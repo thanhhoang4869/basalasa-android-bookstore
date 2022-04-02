@@ -55,7 +55,7 @@ router.post('/login', async(req, res) => {
     });
 });
 
-router.post('/getAccount', async(req, res) => {
+router.get('/getAccount', async(req, res) => {
     const data = {
         email: req.payload.email
     }
