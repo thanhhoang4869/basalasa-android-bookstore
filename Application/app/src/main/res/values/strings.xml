@@ -14,4 +14,9 @@
     <string name="phone">Phone</string>
     <string name="address">Address</string>
     <string name="confirm">Confirm</string>
+    <string name="addToCard">ADD TO CART</string>
+    <string name="description">Description</string>
+    <string name="relatedBook">Related books</string>
+    <string name="oldPrice"><strike>500.000</strike></string>
+    <string name="detail">Details</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.example.basalasa.activity
 
+import android.graphics.Paint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -39,6 +40,7 @@ class BookDetail : AppCompatActivity() {
                     val data=response.body()!!
 
                     binding.bookPrice.text=data.price.toString()
+                    binding.bookPrice.paintFlags=Paint.STRIKE_THRU_TEXT_FLAG
                     binding.bookTitle.text=data.name
                     Picasso.get().load(data.picture).into(binding.bookImage)
                     binding.bookDescription.text=data.description
@@ -46,10 +48,6 @@ class BookDetail : AppCompatActivity() {
                     binding.bookSalePrice.text=data.saleprice.toString()
                     binding.bookRelease.text=data.release_year
                     binding.bookQuantity.text=data.quantity.toString()
-                    if(data.state==0){
-                        binding.bookState.text= "Out of stock"
-                    }
-
                     binding.bookSeller.text=data.seller
                     binding.bookCate.text=data.category
                 }else{
