@@ -60,4 +60,7 @@ dependencies {
 
     //load imageview url
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+    //toggle button group
+    implementation 'nl.bryanderidder:themed-toggle-button-group:1.4.1'
 }

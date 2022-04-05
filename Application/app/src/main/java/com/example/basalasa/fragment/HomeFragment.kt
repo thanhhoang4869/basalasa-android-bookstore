@@ -40,7 +40,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -66,7 +66,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 if (response.isSuccessful) {
                     val data = response.body()
 
-                    for(item: Category in data!!.arrCategory!!) {
+                    for(item: Category in data!!.arrCategory) {
                         arrCategory.add(item)
                     }
 
@@ -78,7 +78,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             override fun onFailure(call: Call<GetCategoryResponse>, t: Throwable) {
                 if(isAdded){
                     Toast.makeText(context, "Fail connection to server", Toast.LENGTH_LONG).show()
-                    t.printStackTrace();
+                    t.printStackTrace()
                 }
             }
         })
@@ -104,7 +104,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             }
             override fun onFailure(call: Call<GetBookOnSaleResponse>, t: Throwable) {
                 Toast.makeText(context, "Fail connection to server", Toast.LENGTH_LONG).show()
-                t.printStackTrace();
+                t.printStackTrace()
             }
         })
     }

@@ -1,5 +1,6 @@
 package com.example.basalasa.utils
 
+import com.example.basalasa.activity.SearchResults
 import com.example.basalasa.model.body.*
 import com.example.basalasa.model.reponse.*
 import com.google.gson.annotations.SerializedName
@@ -43,7 +44,6 @@ interface API {
     @GET("/category")
     fun getCategory(): Call<GetCategoryResponse>
 
-
     //book
     @GET("/book/onsale")
     fun getBookOnSale(): Call<GetBookOnSaleResponse>
@@ -55,4 +55,14 @@ interface API {
         @Body getDetailsBody: GetDetailsBody
     ):Call<GetBookDetailResponse>
 
+    //search
+    @POST("/search")
+    fun getSearchResults(
+        @Body getSearchResultsBody: SearchResultsBody
+    ):Call<GetSearchResultsResponse>
+
+    @POST ("/search/filter")
+    fun getFilterResults(
+        @Body getFilterResultsBody: FilterResultsBody
+    ):Call<GetFilterResultsResponse>
 }

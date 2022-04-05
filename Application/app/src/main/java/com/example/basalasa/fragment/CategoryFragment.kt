@@ -23,8 +23,6 @@ import retrofit2.Response
 
 class CategoryFragment : Fragment(R.layout.fragment_category) {
     private var _binding: FragmentCategoryBinding? = null
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
     lateinit var arrBooks:ArrayList<Book>
 
@@ -38,11 +36,6 @@ class CategoryFragment : Fragment(R.layout.fragment_category) {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentCategoryBinding.inflate(inflater, container, false)
-
-        binding.filterBtn.setOnClickListener {
-            BottomSheetFilter().show(requireActivity().supportFragmentManager,"bs")
-        }
-
         return binding.root
     }
 
@@ -82,28 +75,5 @@ class CategoryFragment : Fragment(R.layout.fragment_category) {
                 t.printStackTrace()
             }
         })
-    }
-}
-
-class BottomSheetFilter : BottomSheetDialogFragment() {
-    private var btnCable: ToggleButton? = null
-    private var btnNovel: ToggleButton? = null
-    private var btnEdu: ToggleButton? = null
-    private var btnForeign: ToggleButton? = null
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val rootView =
-            inflater.inflate(R.layout.fragment_category_bottom_sheet_filter, container, false)
-
-        btnCable = rootView.findViewById(R.id.togbtnCable)
-        btnNovel = rootView.findViewById(R.id.togbtnNovel)
-        btnEdu = rootView.findViewById(R.id.togbtnEdu)
-        btnForeign = rootView.findViewById(R.id.togbtnForeign)
-
-        return rootView
     }
 }
