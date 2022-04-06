@@ -14,6 +14,7 @@ import com.squareup.picasso.Picasso
 
 class CartAdapter(private val arrCartBook: ArrayList<BooksInCart>): RecyclerView.Adapter<CartAdapter.ViewHolder>() {
     var onItemClick:((BooksInCart, Int) -> Unit)? = null
+
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         var bookImage: ImageView
         var bookName: TextView
@@ -25,7 +26,6 @@ class CartAdapter(private val arrCartBook: ArrayList<BooksInCart>): RecyclerView
             bookName = itemView.findViewById(R.id.bookName)
             Price = itemView.findViewById(R.id.bookPrice)
             quantity = itemView.findViewById(R.id.quantity)
-
             itemView.setOnClickListener {
                 onItemClick?.invoke(arrCartBook[adapterPosition], adapterPosition)
             }
@@ -34,6 +34,7 @@ class CartAdapter(private val arrCartBook: ArrayList<BooksInCart>): RecyclerView
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartAdapter.ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.activity_cart_recyclerview_item,parent,false)
+
         return ViewHolder(v)
     }
 
@@ -42,7 +43,8 @@ class CartAdapter(private val arrCartBook: ArrayList<BooksInCart>): RecyclerView
 
         Picasso.get().load(book.img).into(holder.bookImage);
         holder.bookName.text = book.name
-        holder.Price.text = "$" + book.price.toString()
+        holder.Price.text = "$" + (book.price*book.quantity).toString()
+        holder.quantity.text=book.quantity.toString()
 
     }
 

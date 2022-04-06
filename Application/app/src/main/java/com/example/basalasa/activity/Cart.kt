@@ -3,6 +3,7 @@ package com.example.basalasa.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.basalasa.R
 import com.example.basalasa.adapter.CartAdapter
 import com.example.basalasa.databinding.ActivityCartBinding
+import com.example.basalasa.databinding.ActivityMainBinding
 import com.example.basalasa.model.entity.BooksInCart
 import com.example.basalasa.model.reponse.GetCartResponse
 import com.example.basalasa.utils.Cache
@@ -20,15 +22,15 @@ import retrofit2.Response
 
 
 class Cart : AppCompatActivity() {
-//    private var _binding: ActivityCartBinding? = null
+    private var binding: ActivityCartBinding? = null
     lateinit var arrBooks: ArrayList<BooksInCart>
-//    private val binding get() = _binding!!
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cart)
         loadListCart()
-
+        binding = ActivityCartBinding.inflate(layoutInflater)
     }
     fun loadListCart(){
         val token = Cache.getToken(this)
@@ -39,6 +41,7 @@ class Cart : AppCompatActivity() {
         }
         val response = MyAPI.getAPI().getCart(token.toString())
         arrBooks = ArrayList()
+        var total:Int=0
 
         response.enqueue(object : Callback<GetCartResponse> {
             override fun onResponse(call: Call<GetCartResponse>, response: Response<GetCartResponse>) {
@@ -46,7 +49,7 @@ class Cart : AppCompatActivity() {
                     val data = response.body()
                     for(item: BooksInCart in data!!.arrBooks!!) {
                         arrBooks.add(item)
-                        System.out.println("TEST"+item)
+                        total+=item.price*item.quantity
                     }
 ////
 ////                    //bind to adapter
@@ -54,6 +57,7 @@ class Cart : AppCompatActivity() {
                     var listCartitem:RecyclerView = findViewById<RecyclerView>(R.id.listCartitem)
                     listCartitem.adapter = adapter
                     listCartitem.layoutManager = LinearLayoutManager(this@Cart)
+                    findViewById<TextView>(R.id.total)!!.text=total.toString()
                 }
             }
             override fun onFailure(call: Call<GetCartResponse>, t: Throwable) {
