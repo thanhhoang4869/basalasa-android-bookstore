@@ -70,4 +70,16 @@ interface API {
     fun getCart(
         @Header("x-access-token") tokenHeader: String,
     ):Call<GetCartResponse>
+
+    @POST("/cart/update")
+    fun updateCart(
+        @Header("x-access-token")tokenHeader: String,
+        @Body getUpdateResultsBody:UpdateCartBody
+    ):Call<GetUpdateResponse>
+
+    @POST("/cart/delete")
+    fun deleteCart(
+        @Header("x-access-token")tokenHeader: String,
+        @Body deleteCartBody:DeleteCartBody
+    ):Call<DeleteResponse>
 }

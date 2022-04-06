@@ -63,4 +63,5 @@ dependencies {
 
     //toggle button group
     implementation 'nl.bryanderidder:themed-toggle-button-group:1.4.1'
+    implementation  'com.cepheuen.elegant-number-button:lib:1.0.2'
 }
