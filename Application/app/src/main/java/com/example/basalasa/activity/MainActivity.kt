@@ -4,9 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.TextView.OnEditorActionListener
@@ -16,18 +14,13 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.example.basalasa.R
 import com.example.basalasa.databinding.ActivityMainBinding
-import com.example.basalasa.databinding.FragmentBottomSheetFilterBinding
 import com.example.basalasa.fragment.CategoryFragment
 import com.example.basalasa.fragment.HomeFragment
 import com.example.basalasa.fragment.SettingsFragment
-import com.example.basalasa.model.entity.Category
 import com.example.basalasa.model.reponse.GetAccountResponse
-import com.example.basalasa.model.reponse.GetCategoryResponse
 import com.example.basalasa.utils.Cache
 import com.example.basalasa.utils.MyAPI
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import nl.bryanderidder.themedtogglebuttongroup.ThemedButton
 import retrofit2.*
 
 
@@ -76,6 +69,20 @@ class MainActivity : AppCompatActivity() {
             }
             return@OnEditorActionListener false
         })
+        binding.cartBtn.setOnClickListener{
+            val token = Cache.getToken(this)
+            System.out.println(token)
+            if (token == null) {
+                val intent = Intent(this, Login::class.java)
+                startActivity(intent)
+                finish()
+            }
+            else{
+                val intent = Intent(this,Cart::class.java)
+                startActivity(intent)
+            }
+
+        }
     }
 
     private fun processSettings(context: Context, fragment: Fragment) {

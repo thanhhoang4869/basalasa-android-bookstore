@@ -65,4 +65,9 @@ interface API {
     fun getFilterResults(
         @Body getFilterResultsBody: FilterResultsBody
     ):Call<GetFilterResultsResponse>
+
+    @GET("/cart")
+    fun getCart(
+        @Header("x-access-token") tokenHeader: String,
+    ):Call<GetCartResponse>
 }
