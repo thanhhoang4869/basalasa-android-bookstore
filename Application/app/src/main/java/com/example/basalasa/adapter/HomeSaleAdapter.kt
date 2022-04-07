@@ -13,7 +13,7 @@ import com.squareup.picasso.Picasso
 
 
 class HomeSaleAdapter(private val arrBookOnSale: ArrayList<Book>): RecyclerView.Adapter<HomeSaleAdapter.ViewHolder>() {
-    var onItemClick:((Book) -> Unit)? = null
+    var onItemClick:((Book,Int) -> Unit)? = null
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         var homeSaleImage: ImageView
@@ -28,7 +28,7 @@ class HomeSaleAdapter(private val arrBookOnSale: ArrayList<Book>): RecyclerView.
             homeSaleSalePrice = itemView.findViewById(R.id.homeSaleSalePrice)
 
             itemView.setOnClickListener {
-                onItemClick?.invoke(arrBookOnSale[adapterPosition])
+                onItemClick?.invoke(arrBookOnSale[adapterPosition],adapterPosition)
             }
         }
     }
@@ -52,4 +52,5 @@ class HomeSaleAdapter(private val arrBookOnSale: ArrayList<Book>): RecyclerView.
     override fun getItemCount(): Int {
         return arrBookOnSale.size
     }
+
 }

@@ -1,7 +1,17 @@
 export default {
   server: {
     port: 3000,
-    noTokenUrl: ['/account/login', '/', '/account/signup', '/category', '/book', '/book/onsale', '/book/getDetails'],
+    noTokenUrl: [
+      '/account/login',
+      '/',
+      '/account/signup',
+      '/category',
+      '/book',
+      '/book/onsale',
+      '/book/getDetails',
+      '/search',
+      '/search/filter',
+    ],
 
     expTime: 60 * 60 * 24,
     secret: 'SHIZUKA',

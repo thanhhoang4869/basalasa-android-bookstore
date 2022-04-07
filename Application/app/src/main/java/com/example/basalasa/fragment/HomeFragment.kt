@@ -1,5 +1,6 @@
 package com.example.basalasa.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.basalasa.R
+import com.example.basalasa.activity.BookDetail
+import com.example.basalasa.adapter.CategoryAdapter
 import com.example.basalasa.adapter.HomeCategoryAdapter
 import com.example.basalasa.adapter.HomePageViewerAdapter
 import com.example.basalasa.adapter.HomeSaleAdapter
@@ -40,7 +43,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -66,7 +69,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 if (response.isSuccessful) {
                     val data = response.body()
 
-                    for(item: Category in data!!.arrCategory!!) {
+                    for(item: Category in data!!.arrCategory) {
                         arrCategory.add(item)
                     }
 
@@ -78,7 +81,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             override fun onFailure(call: Call<GetCategoryResponse>, t: Throwable) {
                 if(isAdded){
                     Toast.makeText(context, "Fail connection to server", Toast.LENGTH_LONG).show()
-                    t.printStackTrace();
+                    t.printStackTrace()
                 }
             }
         })
@@ -97,14 +100,21 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                         arrBookOnSale.add(item)
                     }
 
+
                     //bind to adapter
-                    binding.homeSaleRC.adapter = HomeSaleAdapter(arrBookOnSale)
+                    val adapter=HomeSaleAdapter(arrBookOnSale)
+                    binding.homeSaleRC.adapter = adapter
                     binding.homeSaleRC.layoutManager = LinearLayoutManager( context, LinearLayoutManager.HORIZONTAL, false)
+                    adapter.onItemClick={s,position->
+                        val intent= Intent(activity, BookDetail::class.java)
+                        intent.putExtra("id",arrBookOnSale[position]._id)
+                        startActivity(intent)
+                    }
                 }
             }
             override fun onFailure(call: Call<GetBookOnSaleResponse>, t: Throwable) {
                 Toast.makeText(context, "Fail connection to server", Toast.LENGTH_LONG).show()
-                t.printStackTrace();
+                t.printStackTrace()
             }
         })
     }

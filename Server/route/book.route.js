@@ -49,6 +49,7 @@ router.post('/getDetails', async (req, res) => {
 
 router.get('/', async (req, res) => {
   try {
+    
     const ret = await bookModel.findAll();
     res.send({ arrBook: ret });
   } catch (error) {

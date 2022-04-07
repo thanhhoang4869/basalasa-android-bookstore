@@ -1,36 +1,28 @@
-[{
-        "email": "19127186@student.hcmus.edu.vn",
-        "book_id": 1,
-        "quantity": 1
-    },
-
+[
     {
         "email": "19127186@student.hcmus.edu.vn",
-        "book_id": 8,
-        "quantity": 2
+        "books":[{
+            "name":"English Grammar in Use Book w Ans",
+            "price":158000,
+            "img":"https://cdn0.fahasa.com/media/catalog/product/i/m/img_7523.jpg",
+            "quantity":2
+        },
+        {
+            "name":"Life BRE A2-B1: Student Book With Web App Code And Online Workbook 2nd Edition",
+            "price":247000,
+            "img":"https://newshop.vn/public/uploads/products/23079/lifea2.jpg",
+            "quantity":2
+        }
+        ]
     },
 
     {
-        "email": "thanhhoang4869@gmail.com",
-        "book_id": 6,
-        "quantity": 2
-    },
-
-    {
-        "email": "19127426@student.hcmus.edu.vn",
-        "book_id": 7,
-        "quantity": 3
-    },
-
-    {
-        "email": "19127426@student.hcmus.edu.vn",
-        "book_id": 1,
-        "quantity": 2
-    },
-
-    {
-        "email": "19127426@student.hcmus.edu.vn",
-        "book_id": 3,
-        "quantity": 2
+        "email": "19127489@student.hcmus.edu.vn",
+        "books":[{
+            "name":"Life BRE A2-B1: Student Book With Web App Code And Online Workbook 2nd Edition",
+            "price":247000,
+            "img":"https://newshop.vn/public/uploads/products/23079/lifea2.jpg",
+            "quantity":2
+        }]
     }
 ]

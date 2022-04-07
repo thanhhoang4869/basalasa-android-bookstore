@@ -2,7 +2,6 @@ package com.example.basalasa.utils
 
 import com.example.basalasa.model.body.*
 import com.example.basalasa.model.reponse.*
-import com.google.gson.annotations.SerializedName
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -43,7 +42,6 @@ interface API {
     @GET("/category")
     fun getCategory(): Call<GetCategoryResponse>
 
-
     //book
     @GET("/book/onsale")
     fun getBookOnSale(): Call<GetBookOnSaleResponse>
@@ -55,4 +53,37 @@ interface API {
         @Body getDetailsBody: GetDetailsBody
     ):Call<GetBookDetailResponse>
 
+    //search
+    @POST("/search")
+    fun getSearchResults(
+        @Body getSearchResultsBody: SearchResultsBody
+    ):Call<GetSearchResultsResponse>
+
+    @POST ("/search/filter")
+    fun getFilterResults(
+        @Body getFilterResultsBody: FilterResultsBody
+    ):Call<GetFilterResultsResponse>
+
+    @GET("/cart")
+    fun getCart(
+        @Header("x-access-token") tokenHeader: String,
+    ):Call<GetCartResponse>
+
+    @POST("/cart/update")
+    fun updateCart(
+        @Header("x-access-token")tokenHeader: String,
+        @Body getUpdateResultsBody:UpdateCartBody
+    ):Call<GetUpdateResponse>
+
+    @POST("/cart/delete")
+    fun deleteCart(
+        @Header("x-access-token")tokenHeader: String,
+        @Body deleteCartBody:DeleteCartBody
+    ):Call<GetUpdateResponse>
+
+    @POST("/cart/add")
+    fun addCart(
+        @Header("x-access-token")tokenHeader: String,
+        @Body getAddCartBodyResult:AddCartBody
+    ):Call<GetUpdateResponse>
 }
