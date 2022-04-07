@@ -4,20 +4,20 @@ import com.example.basalasa.model.reponse.GetAccountResponse
 
 class Account(
     val email: String,
-    val name: String,
+    val fullName: String,
     val phone: String,
     val address: String,
     val role: Int,
 ) {
     constructor(response: GetAccountResponse) : this(
         response.email,
-        response.name,
+        response.fullName,
         response.phone,
         response.address,
         response.role
     )
 
     override fun toString(): String {
-        return "${email},${name},${phone},${address},${role}"
+        return "${email},${fullName},${phone},${address},${role}"
     }
 }

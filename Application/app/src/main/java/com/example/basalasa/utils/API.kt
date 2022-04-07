@@ -1,14 +1,9 @@
 package com.example.basalasa.utils
 
-import com.example.basalasa.model.body.ForgetBody
-import com.example.basalasa.model.body.LoginBody
-import com.example.basalasa.model.body.RegisterBody
+import com.example.basalasa.model.body.*
 import com.example.basalasa.model.reponse.*
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface API {
     @POST("/account/login")
@@ -26,11 +21,69 @@ interface API {
         @Body forgetBody: ForgetBody
     ): Call<ForgetResponse>
 
-    @POST("/account/getAccount")
+    @GET("/account/getAccount")
     fun getAccount(
         @Header("x-access-token") tokenHeader: String
     ): Call<GetAccountResponse>
 
+    @POST("/account/changeInfo")
+    fun changeInfo(
+        @Header("x-access-token") tokenHeader: String,
+        @Body changeInformationBody: ChangeInformationBody
+    ): Call<ChangeInformationResponse>
+
+    @POST("/account/changePass")
+    fun changePass(
+        @Header("x-access-token") tokenHeader: String,
+        @Body changePasswordBody: ChangePasswordBody
+    ): Call<ChangePasswordResponse>
+
+    //category
     @GET("/category")
     fun getCategory(): Call<GetCategoryResponse>
+
+    //book
+    @GET("/book/onsale")
+    fun getBookOnSale(): Call<GetBookOnSaleResponse>
+
+    @GET("/book")
+    fun getBooks():Call<GetBooksResponse>
+    @POST("/book/getDetails")
+    fun getBookDetail(
+        @Body getDetailsBody: GetDetailsBody
+    ):Call<GetBookDetailResponse>
+
+    //search
+    @POST("/search")
+    fun getSearchResults(
+        @Body getSearchResultsBody: SearchResultsBody
+    ):Call<GetSearchResultsResponse>
+
+    @POST ("/search/filter")
+    fun getFilterResults(
+        @Body getFilterResultsBody: FilterResultsBody
+    ):Call<GetFilterResultsResponse>
+
+    @GET("/cart")
+    fun getCart(
+        @Header("x-access-token") tokenHeader: String,
+    ):Call<GetCartResponse>
+
+    @POST("/cart/update")
+    fun updateCart(
+        @Header("x-access-token")tokenHeader: String,
+        @Body getUpdateResultsBody:UpdateCartBody
+    ):Call<GetUpdateResponse>
+
+    @POST("/cart/delete")
+    fun deleteCart(
+        @Header("x-access-token")tokenHeader: String,
+        @Body deleteCartBody:DeleteCartBody
+    ):Call<GetUpdateResponse>
+
+    @POST("/cart/add")
+    fun addCart(
+        @Header("x-access-token")tokenHeader: String,
+        @Body getAddCartBodyResult:AddCartBody
+    ):Call<GetUpdateResponse>
 }

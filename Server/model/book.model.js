@@ -22,14 +22,35 @@ const BookSchema = new mongoose.Schema({
     release_year: Date,
     description: { type: String, required: true },
     quantity: { type: Number, required: true, min: 1 },
-    state: Boolean,
-    star: Number
+    state: Number,
+    star: Number,
+    comments: [{
+        userEmail: { type: String },
+        rating: { type: Number },
+        review: { type: String }
+    },]
 })
 
 const Book = mongoose.model('book', BookSchema, 'book')
 
 export default {
-    getBook: async () => {
-        return await Book.find({})
+
+    getBookOnSale: async () => {
+        try {
+            const books = await Book.find({ saleprice: { $ne: 0 } }).lean()
+            return books.splice(0, 5)
+        } catch (err) {
+            console.log(err)
+            return null
+        }
+    },
+    getBook: async (bookID) => {
+        return await Book.findOne({ _id: bookID })
+    },
+
+    findAll: async () => {
+        return await Book.find({}).lean() || null;
+
     }
+
 }

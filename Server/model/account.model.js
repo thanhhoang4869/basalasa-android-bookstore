@@ -59,5 +59,14 @@ export default {
         } catch (err) {
             console.log(err)
         }
+    },
+    async updateAccount(email, user) {
+        try {
+            await Account.findOneAndUpdate({ email: email }, {
+                $set: user
+            })
+        } catch (err) {
+            console.log(err)
+        }
     }
 }

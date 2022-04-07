@@ -39,16 +39,9 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        getInfo()
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
-        return binding.root
-    }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.changeInfo.setOnClickListener {
             activity?.let {
                 val intent = Intent(context, SettingChangeInformation::class.java)
@@ -59,6 +52,7 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
         binding.changePass.setOnClickListener {
             activity?.let {
                 val intent = Intent(context, SettingChangePassword::class.java)
+                intent.putExtra("email", account.email)
                 it.startActivity(intent)
             }
         }
@@ -67,12 +61,25 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
             logout()
         }
 
-        getInfo()
+        return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        Log.d("alo","1234 create")
+    }
+
+    override fun onResume() {
+        super.onResume()
     }
 
     private fun loadInfo(account: Account) {
         binding.email.text = account.email
-        binding.name.text = account.name
+        binding.name.text = account.fullName
     }
 
     private fun getInfo(){
@@ -89,14 +96,17 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
                     if (data?.exitcode == 0) {
                         account= Account(data)
                         loadInfo(account)
+                    } else{
+                        Log.d("alo","1234")
                     }
                 }
             }
 
             override fun onFailure(call: Call<GetAccountResponse>, t: Throwable) {
-                if(isAdded) {
+                Log.d("Alo","fail")
+                if(isAdded){
                     Toast.makeText(context, "Fail connection to server", Toast.LENGTH_LONG).show()
-                    t.printStackTrace()
+                    t.printStackTrace();
                 }
             }
         })

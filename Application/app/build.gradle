@@ -36,7 +36,6 @@ android {
 }
 
 dependencies {
-
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
@@ -49,6 +48,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     def nav_version = "2.1.0-alpha02"
+    implementation 'com.squareup.picasso:picasso:2.71828'
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version" // For Kotlin use navigation-fragment-ktx
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version" // For Kotlin use navigation-ui-ktx
 
@@ -57,4 +57,11 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.0.0'
     implementation "com.squareup.retrofit2:converter-scalars:2.9.0"
+
+    //load imageview url
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+    //toggle button group
+    implementation 'nl.bryanderidder:themed-toggle-button-group:1.4.1'
+    implementation  'com.cepheuen.elegant-number-button:lib:1.0.2'
 }

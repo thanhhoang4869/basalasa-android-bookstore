@@ -8,7 +8,7 @@
 
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="SHOPPING CART"
@@ -24,17 +24,17 @@
             app:layout_constraintVertical_bias="0.032" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView2"
+        android:id="@+id/listCartitem"
         android:layout_width="match_parent"
         android:layout_height="515dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="5dp"
         android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/title"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
@@ -49,32 +49,32 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView2"
+        app:layout_constraintTop_toBottomOf="@+id/listCartitem"
         app:layout_constraintVertical_bias="0.824" />
 
     <TextView
         android:id="@+id/settingEmailTV"
-        android:layout_width="55dp"
-        android:layout_height="19dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Total"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.008"
-        app:layout_constraintStart_toStartOf="@+id/recyclerView2"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView2"
+        app:layout_constraintStart_toStartOf="@+id/listCartitem"
+        app:layout_constraintTop_toBottomOf="@+id/listCartitem"
         app:layout_constraintVertical_bias="0.119" />
 
     <TextView
-        android:id="@+id/settingFullNameTV"
+        android:id="@+id/total"
         android:layout_width="wrap_content"
-        android:layout_height="23dp"
+        android:layout_height="wrap_content"
         android:text="USD 210"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/settingEmailTV"
-        app:layout_constraintEnd_toEndOf="@+id/recyclerView2"
+        app:layout_constraintEnd_toEndOf="@+id/listCartitem"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/settingEmailTV"
         app:layout_constraintTop_toTopOf="@+id/settingEmailTV"

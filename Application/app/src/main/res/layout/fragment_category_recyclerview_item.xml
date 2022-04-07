@@ -5,8 +5,8 @@
     android:layout_width="180dp"
     android:layout_height="270dp"
     android:layout_marginStart="10dp"
-    android:layout_marginTop="10dp"
     android:layout_marginBottom="10dp"
+    android:layout_marginLeft="5dp"
     android:background="@drawable/custom_category_recyclerview_item">
 
     <ImageView
@@ -20,6 +20,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="Image"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
@@ -43,7 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="$25"
-        android:textColor="#000000"
+        android:textColor="#0ACF83"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tv_category_rv_title"
         app:layout_constraintTop_toBottomOf="@+id/tv_category_rv_title" />
@@ -53,7 +54,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:drawableStart="@drawable/ic_star"
+        app:drawableStartCompat="@drawable/ic_star"
         android:gravity="center"
         android:text="1.2"
         android:textColor="#000000"
@@ -62,10 +63,10 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_category_rv_price" />
 
     <TextView
-        android:id="@+id/tv_category_rv_review"
+        android:id="@+id/review"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="86 reviews"
+        android:text="1 reviews"
         android:textColor="#000000"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/tv_category_rv_rate"

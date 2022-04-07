@@ -1,19 +1,23 @@
-[
-    {
+[{
         "id": 1,
         "name": "English Grammar in Use Book w Ans",
         "author": "Raymond Murphy",
         "distributor": "Cambridge University",
         "seller": "thanhhoang4869@gmail.com",
         "price": 158000,
-        "saleprice": null,
+        "saleprice": 0,
         "category": "Foreign books",
-        "picture": "https://imgur.com/a/Sw9gUQE",
+        "picture": "https://cdn0.fahasa.com/media/catalog/product/i/m/img_7523.jpg",
         "release_year": 2019,
         "description": "The world's best-selling grammar series for learners of English. English Grammar in Use Fourth edition is an updated version of the world's best-selling grammar title. It has a fresh, appealing new design and clear layout, with revised and updated examples, but retains all the key features of clarity and accessibility that have made the book popular with millions of learners and teachers around the world. This 'with answers' version is ideal for self-study.",
         "quantity": 100,
-        "state": true,
-        "star": null
+        "state": 1,
+        "star": 4,
+        "comments": [{
+            "userEmail": "19127186@student.hcmus.edu.vn",
+            "rating": 4,
+            "review": "Sach hay vcl"
+        }]
     },
     {
         "id": 2,
@@ -22,14 +26,24 @@
         "distributor": "Cengage",
         "seller": "19127489@student.hcmus.edu.vn",
         "price": 247000,
-        "saleprice": null,
+        "saleprice": 0,
         "category": "Foreign books",
-        "picture": "https://imgur.com/a/Sw9gUQE",
+        "picture": "https://newshop.vn/public/uploads/products/23079/lifea2.jpg",
         "release_year": 2016,
         "description": "The world's best-selling grammar series for learners of English. English Grammar in Use Fourth edition is an updated version of the world's best-selling grammar title. It has a fresh, appealing new design and clear layout, with revised and updated examples, but retains all the key features of clarity and accessibility that have made the book popular with millions of learners and teachers around the world. This 'with answers' version is ideal for self-study.",
         "quantity": 50,
-        "state": true,
-        "star": null
+        "state": 1,
+        "star": 3,
+        "comments": [{
+            "userEmail": "19127186@student.hcmus.edu.vn",
+            "rating": 4,
+            "review": "Sach hay vcl"
+        },
+        {
+            "userEmail": "19127186@student.hcmus.edu.vn",
+            "rating": 5,
+            "review": "Sach hay vai cac luon"
+        }]
     },
     {
         "id": 3,
@@ -38,14 +52,19 @@
         "distributor": "Grantham Book Services",
         "seller": "19127489@student.hcmus.edu.vn",
         "price": 311400,
-        "saleprice": null,
+        "saleprice": 0,
         "category": "Foreign books",
-        "picture": "https://imgur.com/a/Sw9gUQE",
+        "picture": "https://images-na.ssl-images-amazon.com/images/I/51S7KOWir7L._SX526_BO1,204,203,200_.jpg",
         "release_year": 2019,
         "description": "The world's best-selling grammar series for learners of English. English Grammar in Use Fourth edition is an updated version of the world's best-selling grammar title. It has a fresh, appealing new design and clear layout, with revised and updated examples, but retains all the key features of clarity and accessibility that have made the book popular with millions of learners and teachers around the world. This 'with answers' version is ideal for self-study.",
         "quantity": 50,
-        "state": true,
-        "star": null
+        "state": 1,
+        "star": 4,
+        "comments": [{
+            "userEmail": "19127186@student.hcmus.edu.vn",
+            "rating": 4,
+            "review": "Sach hay vcl"
+        }]
     },
     {
         "id": 4,
@@ -54,14 +73,19 @@
         "distributor": "Cambridge",
         "seller": "thanhhoang4869@gmail.com",
         "price": 260400,
-        "saleprice": null,
+        "saleprice": 600,
         "category": "Foreign books",
-        "picture": "https://imgur.com/a/Sw9gUQE",
+        "picture": "https://cdn0.fahasa.com/media/catalog/product/c/o/complete_ielts_b1_students_book_with_answer_with_cd_rom_1_2018_08_23_15_46_46.jpg",
         "release_year": 2019,
         "description": "The world's best-selling grammar series for learners of English. English Grammar in Use Fourth edition is an updated version of the world's best-selling grammar title. It has a fresh, appealing new design and clear layout, with revised and updated examples, but retains all the key features of clarity and accessibility that have made the book popular with millions of learners and teachers around the world. This 'with answers' version is ideal for self-study.",
         "quantity": 100,
-        "state": true,
-        "star": null
+        "state": 1,
+        "star": 5,
+        "comments": [{
+            "userEmail": "19127186@student.hcmus.edu.vn",
+            "rating": 4,
+            "review": "Sach hay vcl"
+        }]
     },
     {
         "id": 5,
@@ -70,14 +94,19 @@
         "distributor": "NXB Kim Đồng",
         "seller": "thanhhoang4869@gmail.com",
         "price": 21250,
-        "saleprice": null,
+        "saleprice": 0,
         "category": "Manga - Comic",
-        "picture": "https://imgur.com/a/Sw9gUQE",
+        "picture": "https://pibook.vn/upload/products/dr-stone-tap-4.jpg",
         "release_year": 2022,
-        "description": null,
+        "description": "",
         "quantity": 50,
-        "state": true,
-        "star": null
+        "state": 1,
+        "star": 0,
+        "comments": [{
+            "userEmail": "19127186@student.hcmus.edu.vn",
+            "rating": 4,
+            "review": "Sach hay vcl"
+        }]
     },
     {
         "id": 6,
@@ -86,14 +115,19 @@
         "distributor": "NXB Kim Đồng",
         "seller": "thanhhoang4869@gmail.com",
         "price": 21250,
-        "saleprice": null,
+        "saleprice": 0,
         "category": "Manga - Comic",
-        "picture": "https://imgur.com/a/Sw9gUQE",
+        "picture": "https://cdn0.fahasa.com/media/catalog/product/d/r/dr.stoneee-tap_5_cau_chuyen_ngan_nam.jpg",
         "release_year": 2022,
-        "description": null,
+        "description": "",
         "quantity": 50,
-        "state": true,
-        "star": null
+        "state": 1,
+        "star": 4,
+        "comments": [{
+            "userEmail": "19127186@student.hcmus.edu.vn",
+            "rating": 4,
+            "review": "Sach hay vcl"
+        }]
     },
     {
         "id": 7,
@@ -102,14 +136,19 @@
         "distributor": "NXB Trẻ",
         "seller": "19127489@student.hcmus.edu.vn",
         "price": 25000,
-        "saleprice": null,
+        "saleprice": 0,
         "category": "Manga - Comic",
-        "picture": "https://imgur.com/a/Sw9gUQE",
+        "picture": "https://salt.tikicdn.com/cache/w1200/ts/product/28/7b/39/b9105c49c16c731d197473fd7c2401c8.jpg",
         "release_year": 2022,
-        "description": null,
+        "description": "",
         "quantity": 50,
-        "state": true,
-        "star": null
+        "state": 1,
+        "star": 0,
+        "comments": [{
+            "userEmail": "19127186@student.hcmus.edu.vn",
+            "rating": 4,
+            "review": "Sach hay vcl"
+        }]
     },
     {
         "id": 8,
@@ -118,30 +157,40 @@
         "distributor": "NXB Hà Nội",
         "seller": "thanhhoang4869@gmail.com",
         "price": 152000,
-        "saleprice": null,
+        "saleprice": 0,
         "category": "Detective",
-        "picture": "https://imgur.com/a/Sw9gUQE",
+        "picture": "https://www.netabooks.vn/Data/Sites/1/Product/44318/khach-san-mat-na-tap-1.jpg",
         "release_year": 2021,
-        "description": null,
+        "description": "",
         "quantity": 50,
-        "state": true,
-        "star": null
+        "state": 1,
+        "star": 0,
+        "comments": [{
+            "userEmail": "19127186@student.hcmus.edu.vn",
+            "rating": 4,
+            "review": "Sach hay vcl"
+        }]
     },
     {
         "id": 9,
-        "name": "Khách Sạn Mặt Nạ - Tập 1",
+        "name": "Khách Sạn Mặt Nạ - Tập 2",
         "author": "Higashino Keigo",
         "distributor": "NXB Hà Nội",
         "seller": "19127489@student.hcmus.edu.vn",
         "price": 150000,
-        "saleprice": null,
+        "saleprice": 0,
         "category": "Detective",
-        "picture": "https://imgur.com/a/Sw9gUQE",
+        "picture": "https://sach86.com/wp-content/uploads/2022/03/Khach-San-Mat-Na-Tap-2.jpg",
         "release_year": 2021,
-        "description": null,
+        "description": "",
         "quantity": 50,
-        "state": true,
-        "star": null
+        "state": 1,
+        "star": 5,
+        "comments": [{
+            "userEmail": "19127186@student.hcmus.edu.vn",
+            "rating": 4,
+            "review": "Sach hay vcl"
+        }]
     },
     {
         "id": 10,
@@ -150,13 +199,18 @@
         "distributor": "NXB Hà Nội",
         "seller": "thanhhoang4869@gmail.com",
         "price": 117000,
-        "saleprice": null,
+        "saleprice": 0,
         "category": "Detective",
-        "picture": "https://imgur.com/a/Sw9gUQE",
+        "picture": "https://salt.tikicdn.com/cache/400x400/ts/product/a4/e4/fe/4d9a4d7f7ef61418698c1126858a0403.jpg",
         "release_year": 2019,
-        "description": null,
+        "description": "",
         "quantity": 50,
-        "state": true,
-        "star": null
+        "state": 1,
+        "star": 0,
+        "comments": [{
+            "userEmail": "19127186@student.hcmus.edu.vn",
+            "rating": 4,
+            "review": "Sach hay vcl"
+        }]
     }
 ]

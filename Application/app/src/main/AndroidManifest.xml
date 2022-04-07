@@ -10,8 +10,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:replace="android:theme"
         android:theme="@style/Theme.Basalasa"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".activity.SearchResults"
+            android:exported="false" />
         <activity
             android:name=".activity.ReviewBooks"
             android:exported="false" />
@@ -42,11 +47,12 @@
             android:exported="false" />
         <activity
             android:name=".activity.MainActivity"
-            android:windowSoftInputMode="adjustPan"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:exported="true">
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

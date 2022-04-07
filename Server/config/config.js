@@ -1,23 +1,34 @@
 export default {
-    server: {
-        port: 3000,
-        noTokenUrl: ['/account/login', '/', '/account/signup', '/category'],
-        expTime: 60 * 60 * 24,
-        secret: 'SHIZUKA'
-    },
+  server: {
+    port: 3000,
+    noTokenUrl: [
+      '/account/login',
+      '/',
+      '/account/signup',
+      '/category',
+      '/book',
+      '/book/onsale',
+      '/book/getDetails',
+      '/search',
+      '/search/filter',
+    ],
 
-    BOOK_STATUS: {
-        AVAILABLE: 1,
-        OUT_OF_STOCK: 0,
-        ON_SALE: 2
-    },
+    expTime: 60 * 60 * 24,
+    secret: 'SHIZUKA',
+  },
 
-    ORDER_STATUS: {
-        PENDING: 1,
-        PREPARING: 2,
-        SHIPPING: 3,
-        DONE: 0
-    },
+  BOOK_STATUS: {
+    AVAILABLE: 1,
+    OUT_OF_STOCK: 0,
+    ON_SALE: 2,
+  },
 
-    url: 'mongodb+srv://basalasa:mobiledev@basalasa.wcann.mongodb.net/basalasa?retryWrites=true&w=majority'
-}
+  ORDER_STATUS: {
+    PENDING: 1,
+    PREPARING: 2,
+    SHIPPING: 3,
+    DONE: 0,
+  },
+
+  url: 'mongodb+srv://basalasa:mobiledev@basalasa.wcann.mongodb.net/basalasa?retryWrites=true&w=majority',
+};
