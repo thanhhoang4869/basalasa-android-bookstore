@@ -4,7 +4,9 @@ export default {
     noTokenUrl: [
       '/account/login',
       '/',
-      '/account/signup',
+      '/account/register',
+      '/account/forget',
+      '/account/verify/:token',
       '/category',
       '/book',
       '/book/onsale',

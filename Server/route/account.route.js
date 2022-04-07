@@ -7,6 +7,7 @@ import bodyParser from "body-parser";
 import express from 'express'
 import config from '../config/config.js'
 import jwt from 'jsonwebtoken'
+import { sha256 } from 'js-sha256';
 const salt = 10;
 
 dotenv.config()
@@ -14,10 +15,8 @@ dotenv.config()
 const router = express.Router();
 router.use(bodyParser.urlencoded({ extended: false }))
 
-router.post('/login', async(req, res) => {
+router.post('/login', async (req, res) => {
     const account = await accountModel.findByEmail(req.body.email);
-
-    console.log(account)
 
     if (account === null) {
         res.send({
@@ -57,7 +56,7 @@ router.post('/login', async(req, res) => {
     });
 });
 
-router.get('/getAccount', async(req, res) => {
+router.get('/getAccount', async (req, res) => {
     const data = {
         email: req.payload.email
     }
@@ -88,7 +87,7 @@ router.get('/getAccount', async(req, res) => {
     });
 });
 
-router.post('/register', async(req, res) => {
+router.post('/register', async (req, res) => {
     const { email, password, fullName, phone, address } = req.body;
 
     const usedEmail = await accountModel.checkEmail(email);
@@ -112,7 +111,7 @@ router.post('/register', async(req, res) => {
                 </div>`
     }
 
-    transporter.sendMail(mailOption, function(err, info) {
+    transporter.sendMail(mailOption, function (err, info) {
         if (err) console.log(err);
     })
 
@@ -133,7 +132,7 @@ router.post('/register', async(req, res) => {
     })
 });
 
-router.get('/verify/:token', async(req, res) => {
+router.get('/verify/:token', async (req, res) => {
     const { token } = req.params;
 
     await accountModel.activateAccount(token);
@@ -141,14 +140,14 @@ router.get('/verify/:token', async(req, res) => {
     res.send("Activate successfully")
 });
 
-router.post('/forget', async(req, res) => {
+router.post('/forget', async (req, res) => {
     const { email } = req.body;
 
     const account = await accountModel.findByEmail(email)
 
     if (account) {
         const newPass = (Math.random() + 1).toString(36).substring(2);
-        account.password = await bcrypt.hash(newPass, salt);
+        account.password = await sha256(newPass);
 
         const mailOption = {
             from: process.env.SHOP_GMAIL_USERNAME,
@@ -160,7 +159,7 @@ router.post('/forget', async(req, res) => {
                     </div>`
         }
 
-        transporter.sendMail(mailOption, function(err, info) {
+        transporter.sendMail(mailOption, function (err, info) {
             if (err) console.log(err);
         })
 
@@ -178,7 +177,7 @@ router.post('/forget', async(req, res) => {
     })
 });
 
-router.post('/changeInfo', async(req, res) => {
+router.post('/changeInfo', async (req, res) => {
     const { email, fullName, phone, address } = req.body;
 
     console.log(fullName)
@@ -196,7 +195,7 @@ router.post('/changeInfo', async(req, res) => {
     })
 });
 
-router.post('/changePass', async(req, res) => {
+router.post('/changePass', async (req, res) => {
     const { oldPassword, newPassword } = req.body;
 
     const data = {
