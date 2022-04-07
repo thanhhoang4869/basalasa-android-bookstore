@@ -39,7 +39,6 @@ class MainActivity : AppCompatActivity() {
         bottomBar.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.menu_settings -> {
-                    binding.topNavBar.isVisible = false
                     processSettings(this, settingsFragment)
                 }
                 R.id.menu_home -> {
@@ -61,29 +60,32 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(context, Login::class.java)
             startActivity(intent)
             finish()
+        } else{
+            setCurrentFragment(fragment)
+            binding.topNavBar.isVisible = false
         }
 
         val response = MyAPI.getAPI().getAccount(token.toString())
 
-        response.enqueue(object : Callback<GetAccountResponse> {
-            override fun onResponse(
-                call: Call<GetAccountResponse>,
-                response: Response<GetAccountResponse>
-            ) {
-                if (response.isSuccessful) {
-                    val data = response.body()
-                    if (data?.exitcode == 0) {
-                        Log.d("alo","succes")
-                        setCurrentFragment(fragment)
-                    }
-                }
-            }
 
-            override fun onFailure(call: Call<GetAccountResponse>, t: Throwable) {
-                Toast.makeText(context, "Fail connection to server", Toast.LENGTH_LONG).show()
-                t.printStackTrace()
-            }
-        })
+//        response.enqueue(object : Callback<GetAccountResponse> {
+//            override fun onResponse(
+//                call: Call<GetAccountResponse>,
+//                response: Response<GetAccountResponse>
+//            ) {
+//                if (response.isSuccessful) {
+//                    val data = response.body()
+//                    if (data?.exitcode == 0) {
+//                        setCurrentFragment(fragment)
+//                    }
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<GetAccountResponse>, t: Throwable) {
+//                Toast.makeText(context, "Fail connection to server", Toast.LENGTH_LONG).show()
+//                t.printStackTrace()
+//            }
+//        })
     }
 
     private fun setCurrentFragment(fragment: Fragment) =

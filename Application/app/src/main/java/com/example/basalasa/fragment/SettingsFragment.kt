@@ -39,9 +39,9 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        getInfo()
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
 
-        getInfo()
         binding.changeInfo.setOnClickListener {
             activity?.let {
                 val intent = Intent(context, SettingChangeInformation::class.java)
