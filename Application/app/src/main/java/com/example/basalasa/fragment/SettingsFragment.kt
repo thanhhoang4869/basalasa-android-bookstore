@@ -96,6 +96,29 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
                     if (data?.exitcode == 0) {
                         account= Account(data)
                         loadInfo(account)
+
+                        if(account.role == 0) {
+                            binding.accountListBtn.visibility = View.GONE
+                            binding.accountListBtnDivider.visibility = View.GONE
+                            binding.orderListBtn.visibility = View.GONE
+                            binding.orderListBtnDivider.visibility = View.GONE
+                            binding.productBtn.visibility = View.GONE
+                            binding.productBtnDivider.visibility = View.GONE
+                            binding.requestBtn.visibility = View.GONE
+                            binding.requestBtnDivider.visibility = View.GONE
+                        } else if (account.role == 1) {
+                            binding.accountListBtn.visibility = View.GONE
+                            binding.accountListBtnDivider.visibility = View.GONE
+                            binding.requestBtn.visibility = View.GONE
+                            binding.requestBtnDivider.visibility = View.GONE
+                        } else {
+                            binding.orderBtn.visibility = View.GONE
+                            binding.orderBtnDivider.visibility = View.GONE
+                            binding.orderListBtn.visibility = View.GONE
+                            binding.orderListBtnDivider.visibility = View.GONE
+                            binding.productBtn.visibility = View.GONE
+                            binding.productBtnDivider.visibility = View.GONE
+                        }
                     } else{
                         Log.d("alo","1234")
                     }

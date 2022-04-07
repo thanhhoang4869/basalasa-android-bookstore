@@ -19,4 +19,9 @@
     <string name="relatedBook">Related books</string>
     <string name="oldPrice"><strike>500.000</strike></string>
     <string name="detail">Details</string>
+    <string name="order">ORDERS</string>
+    <string name="accountList">ACCOUNT LIST</string>
+    <string name="request">REQUESTS</string>
+    <string name="orderList">ORDER LIST</string>
+    <string name="product">PRODUCTS</string>
 </resources>
