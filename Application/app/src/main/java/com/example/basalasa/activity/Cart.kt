@@ -11,9 +11,7 @@ import com.example.basalasa.R
 import com.example.basalasa.adapter.CartAdapter
 import com.example.basalasa.databinding.ActivityCartBinding
 import com.example.basalasa.model.body.DeleteCartBody
-import com.example.basalasa.model.body.UpdateCartBody
 import com.example.basalasa.model.entity.BooksInCart
-import com.example.basalasa.model.reponse.DeleteResponse
 import com.example.basalasa.model.reponse.GetCartResponse
 import com.example.basalasa.model.reponse.GetUpdateResponse
 import com.example.basalasa.utils.Cache
@@ -66,6 +64,7 @@ class Cart : AppCompatActivity() {
                     listCartitem.layoutManager = LinearLayoutManager(this@Cart)
                     adapter.onItemClick={
                         s,position->Deletedata(s,position)
+                        TotalView.text = (Integer.parseInt(TotalView.text.toString())-s.price).toString()
                     }
                 }
             }
@@ -81,17 +80,17 @@ class Cart : AppCompatActivity() {
     fun Deletedata(book:BooksInCart,position:Int){
         val token = Cache.getToken(this)
         val response = MyAPI.getAPI().deleteCart(token.toString(), DeleteCartBody(book.name))
-        response.enqueue(object : Callback<DeleteResponse> {
-            override fun onResponse(call: Call<DeleteResponse>, response: Response<DeleteResponse>) {
+        response.enqueue(object : Callback<GetUpdateResponse> {
+            override fun onResponse(call: Call<GetUpdateResponse>, response: Response<GetUpdateResponse>) {
                 if (response.isSuccessful) {
-                    Toast.makeText(this@Cart, "Success", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@Cart, "Delete Successfully", Toast.LENGTH_LONG).show()
                     arrBooks.removeAt(position)
                     adapter.notifyItemRemoved(position)
                 }
 
             }
 
-            override fun onFailure(call: Call<DeleteResponse>, t: Throwable) {
+            override fun onFailure(call: Call<GetUpdateResponse>, t: Throwable) {
                 Toast.makeText(this@Cart, "Fail connection to server", Toast.LENGTH_LONG).show()
                 t.printStackTrace()
             }

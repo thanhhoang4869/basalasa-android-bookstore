@@ -66,5 +66,14 @@ export default {
             console.log(error)
             return null
         }
+    },
+    AddCart:async(email,book)=>{
+        try{
+            let cart = await Cart.findOneAndUpdate({email:email},{$push:{books:book}})
+            return cart
+        }catch(error){
+            console.log(error)
+            return null
+        }
     }
 }

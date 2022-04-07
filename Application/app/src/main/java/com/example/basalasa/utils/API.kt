@@ -1,9 +1,7 @@
 package com.example.basalasa.utils
 
-import com.example.basalasa.activity.SearchResults
 import com.example.basalasa.model.body.*
 import com.example.basalasa.model.reponse.*
-import com.google.gson.annotations.SerializedName
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -81,5 +79,11 @@ interface API {
     fun deleteCart(
         @Header("x-access-token")tokenHeader: String,
         @Body deleteCartBody:DeleteCartBody
-    ):Call<DeleteResponse>
+    ):Call<GetUpdateResponse>
+
+    @POST("/cart/add")
+    fun addCart(
+        @Header("x-access-token")tokenHeader: String,
+        @Body getAddCartBodyResult:AddCartBody
+    ):Call<GetUpdateResponse>
 }

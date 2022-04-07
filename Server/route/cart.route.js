@@ -60,4 +60,28 @@ router.post('/delete',async (req,res)=>{
         });
     }
 })
+router.post('/add',async (req,res)=>{
+    try{
+        const data={
+            email:req.payload.email
+        }
+        const {name,price,img,quantity} = req.body
+        const book = {
+            name: name,
+            price: price,
+            img: img,
+            quantity: quantity
+        }
+        const cart = await cartModel.AddCart(data.email,book)
+        res.send({
+            
+        })
+
+    }catch(error){
+        console.log(error)
+        res.send({
+            "exitcode":500
+        })
+    }
+})
 export default router
