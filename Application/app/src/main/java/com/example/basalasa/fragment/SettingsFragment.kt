@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.basalasa.R
+import com.example.basalasa.activity.CustomerOrder
 import com.example.basalasa.activity.MainActivity
 import com.example.basalasa.databinding.FragmentSettingsBinding
 import com.example.basalasa.activity.SettingChangeInformation
@@ -53,6 +54,13 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
             activity?.let {
                 val intent = Intent(context, SettingChangePassword::class.java)
                 intent.putExtra("email", account.email)
+                it.startActivity(intent)
+            }
+        }
+
+        binding.orderBtn.setOnClickListener {
+            activity?.let {
+                val intent = Intent(context, CustomerOrder::class.java)
                 it.startActivity(intent)
             }
         }

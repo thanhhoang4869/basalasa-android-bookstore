@@ -58,138 +58,148 @@
             app:layout_constraintStart_toEndOf="@+id/profile_image"
             app:layout_constraintTop_toTopOf="@+id/profile_image" />
 
-        <LinearLayout
-            android:layout_marginTop="50dp"
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/profile_image">
 
-            <Button
-                android:id="@+id/changeInfo"
-                style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_marginTop="50dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="15dp"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
-                android:text="Change information"
-                android:textAlignment="viewStart"
-                android:textColor="@color/black"/>
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/profile_image">
 
-            <View
-                android:id="@+id/changeInfoDivider"
-                style="@style/Divider"/>
+                <Button
+                    android:id="@+id/changeInfo"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:text="Change information"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"/>
 
-            <Button
-                android:id="@+id/changePass"
-                style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="15dp"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
-                android:text="@string/change_password"
-                android:textAlignment="viewStart"
-                android:textColor="@color/black"/>
+                <View
+                    android:id="@+id/changeInfoDivider"
+                    style="@style/Divider"/>
 
-            <View
-                android:id="@+id/changePasswordDivider"
-                style="@style/Divider"/>
+                <Button
+                    android:id="@+id/changePass"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:text="@string/change_password"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"/>
 
-            <Button
-                android:id="@+id/productBtn"
-                style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="15dp"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
-                android:text="@string/product"
-                android:textAlignment="viewStart"
-                android:textColor="@color/black" />
+                <View
+                    android:id="@+id/changePasswordDivider"
+                    style="@style/Divider"/>
 
-            <View
-                android:id="@+id/productBtnDivider"
-                style="@style/Divider"/>
+                <Button
+                    android:id="@+id/productBtn"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:text="@string/product"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black" />
 
-            <Button
-                android:id="@+id/orderListBtn"
-                style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="15dp"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
-                android:text="@string/orderList"
-                android:textAlignment="viewStart"
-                android:textColor="@color/black" />
-            <View
-                android:id="@+id/orderListBtnDivider"
-                style="@style/Divider"/>
+                <View
+                    android:id="@+id/productBtnDivider"
+                    style="@style/Divider"/>
 
-            <Button
-                android:id="@+id/accountListBtn"
-                style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="15dp"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
-                android:text="@string/accountList"
-                android:textAlignment="viewStart"
-                android:textColor="@color/black" />
+                <Button
+                    android:id="@+id/orderListBtn"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:text="@string/orderList"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black" />
+                <View
+                    android:id="@+id/orderListBtnDivider"
+                    style="@style/Divider"/>
 
-            <View
-                android:id="@+id/accountListBtnDivider"
-                style="@style/Divider"/>
+                <Button
+                    android:id="@+id/accountListBtn"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:text="@string/accountList"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black" />
 
-            <Button
-                android:id="@+id/requestBtn"
-                style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="15dp"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
-                android:text="@string/request"
-                android:textAlignment="viewStart"
-                android:textColor="@color/black" />
+                <View
+                    android:id="@+id/accountListBtnDivider"
+                    style="@style/Divider"/>
 
-            <View
-                android:id="@+id/requestBtnDivider"
-                style="@style/Divider"/>
+                <Button
+                    android:id="@+id/requestBtn"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:text="@string/request"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black" />
 
-            <Button
-                android:id="@+id/orderBtn"
-                style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="15dp"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
-                android:text="@string/order"
-                android:textAlignment="viewStart"
-                android:textColor="@color/black"/>
+                <View
+                    android:id="@+id/requestBtnDivider"
+                    style="@style/Divider"/>
 
-            <View
-                android:id="@+id/orderBtnDivider"
-                style="@style/Divider"/>
+                <Button
+                    android:id="@+id/orderBtn"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:text="@string/order"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"/>
 
-            <Button
-                android:id="@+id/logoutBtn"
-                style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="15dp"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
-                android:text="@string/logout"
-                android:textAlignment="viewStart"
-                android:textColor="@color/black" />
+                <View
+                    android:id="@+id/orderBtnDivider"
+                    style="@style/Divider"/>
 
-        </LinearLayout>
+                <Button
+                    android:id="@+id/logoutBtn"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:text="@string/logout"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+        </ScrollView>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
