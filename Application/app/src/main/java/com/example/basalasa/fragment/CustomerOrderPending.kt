@@ -5,10 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.basalasa.databinding.FragmentCustomerOrderWaitingBinding
+import com.example.basalasa.databinding.FragmentCustomerOrderPendingBinding
 
-class CustomerOrderWaiting : Fragment() {
-    private var _binding: FragmentCustomerOrderWaitingBinding? = null
+class CustomerOrderPending : Fragment() {
+    private var _binding: FragmentCustomerOrderPendingBinding? = null
 
 
     // This property is only valid between onCreateView and
@@ -29,7 +29,7 @@ class CustomerOrderWaiting : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentCustomerOrderWaitingBinding.inflate(inflater, container, false)
+        _binding = FragmentCustomerOrderPendingBinding.inflate(inflater, container, false)
         return binding.root
     }
 

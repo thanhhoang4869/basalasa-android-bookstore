@@ -5,15 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.basalasa.databinding.FragmentCategoryBinding
-import com.example.basalasa.databinding.FragmentCustomerOrderArrivedBinding
-import com.example.basalasa.databinding.FragmentCustomerOrderWaitingBinding
-import com.example.basalasa.databinding.FragmentHomeBinding
-import com.example.basalasa.model.entity.Book
-import com.example.basalasa.model.entity.Category
+import com.example.basalasa.databinding.FragmentCustomerOrderArrivingBinding
 
-class CustomerOrderArrived : Fragment() {
-    private var _binding: FragmentCustomerOrderArrivedBinding? = null
+class CustomerOrderArriving : Fragment() {
+    private var _binding: FragmentCustomerOrderArrivingBinding? = null
 
 
     // This property is only valid between onCreateView and
@@ -34,12 +29,11 @@ class CustomerOrderArrived : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentCustomerOrderArrivedBinding.inflate(inflater, container, false)
+        _binding = FragmentCustomerOrderArrivingBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
     }
-
 }

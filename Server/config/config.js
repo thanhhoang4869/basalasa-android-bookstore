@@ -28,8 +28,9 @@ export default {
     ORDER_STATUS: {
         PENDING: 1,
         PREPARING: 2,
-        SHIPPING: 3,
-        DONE: 0,
+        ARRIVING: 3,
+        COMPLETED: 4,
+        CANCELED: 5,
     },
 
     url: 'mongodb+srv://basalasa:mobiledev@basalasa.wcann.mongodb.net/basalasa?retryWrites=true&w=majority',

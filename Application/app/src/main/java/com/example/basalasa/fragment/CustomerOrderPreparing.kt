@@ -5,11 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.basalasa.databinding.FragmentCustomerOrderProcessBinding
-import com.example.basalasa.databinding.FragmentCustomerOrderWaitingBinding
+import com.example.basalasa.databinding.FragmentCustomerOrderPendingBinding
+import com.example.basalasa.databinding.FragmentCustomerOrderPreparingBinding
 
-class CustomerOrderProcess : Fragment() {
-    private var _binding: FragmentCustomerOrderProcessBinding? = null
+class CustomerOrderPreparing : Fragment() {
+    private var _binding: FragmentCustomerOrderPreparingBinding? = null
 
 
     // This property is only valid between onCreateView and
@@ -30,7 +30,7 @@ class CustomerOrderProcess : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentCustomerOrderProcessBinding.inflate(inflater, container, false)
+        _binding = FragmentCustomerOrderPreparingBinding.inflate(inflater, container, false)
         return binding.root
     }
 

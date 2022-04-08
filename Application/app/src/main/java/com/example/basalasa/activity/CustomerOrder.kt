@@ -22,13 +22,12 @@ class CustomerOrder : AppCompatActivity() {
         TabLayoutMediator(binding.customerOrderTabLayout, binding.customerOrderViewPager2,
                 TabLayoutMediator.TabConfigurationStrategy { tab, position ->
                     when (position) {
-                        0 -> tab.text = "Waiting"
-                        1 -> tab.text = "Process"
-                        2 -> tab.text = "Arrived"
-                        3 -> tab.text = "Canceled"
+                        0 -> tab.text = "Pending"
+                        1 -> tab.text = "Preparing"
+                        2 -> tab.text = "Arriving"
+                        3 -> tab.text = "Completed"
+                        4 -> tab.text = "Canceled"
                     }
                 }).attach()
-
-
     }
 }

@@ -51,10 +51,10 @@ connect().then(() => {
         quantity: { type: Number, required: true, min: 1 },
         state: Boolean,
         star: Number,
-        comments:[{
-            userEmail: {type: String},
-            rating: {type: Number},
-            review: {type: String}
+        comments: [{
+            userEmail: { type: String },
+            rating: { type: Number },
+            review: { type: String }
         },]
     })
     Book = mongoose.model('book', BookSchema, 'book')
@@ -68,7 +68,9 @@ connect().then(() => {
 
     OrderSchema = new mongoose.Schema({
         email: { type: String, required: true },
-        product: { type: Object, required: true }
+        product: { type: Array, required: true },
+        status: { type: String, required: true },
+        date: { type: Date, required: true },
     })
     Order = mongoose.model('order', OrderSchema, 'order')
 
