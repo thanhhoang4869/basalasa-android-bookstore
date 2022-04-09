@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.basalasa" >
+    package="com.example.basalasa">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        xmlns:tools="http://schemas.android.com/tools"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -14,12 +13,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Basalasa"
         android:usesCleartextTraffic="true"
-        tools:replace="android:theme" >
+        tools:replace="android:theme">
         <activity
-            android:name=".activity.CustomerOrder"
+            android:name=".activity.SellerOrderList"
             android:exported="false" />
         <activity
-            android:name=".activity.CustomerOrderActivity"
+            android:name=".activity.SellerProductList"
+            android:exported="false" />
+        <activity
+            android:name=".activity.CustomerOrder"
             android:exported="false" />
         <activity
             android:name=".activity.SearchResults"
@@ -56,7 +58,7 @@
             android:name=".activity.MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
-            android:windowSoftInputMode="adjustPan" >
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

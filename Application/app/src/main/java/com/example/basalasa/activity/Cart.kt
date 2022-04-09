@@ -34,7 +34,7 @@ class Cart : AppCompatActivity() {
         binding = ActivityCartBinding.inflate(layoutInflater)
 
     }
-    fun loadListCart(){
+    private fun loadListCart(){
         val token = Cache.getToken(this)
         if (token === null) {
             val intent = Intent(this, Login::class.java)
@@ -43,7 +43,7 @@ class Cart : AppCompatActivity() {
         }
         val response = MyAPI.getAPI().getCart(token.toString())
         arrBooks = ArrayList()
-        var total:Int=0
+        var total=0
 
         response.enqueue(object : Callback<GetCartResponse> {
             override fun onResponse(call: Call<GetCartResponse>, response: Response<GetCartResponse>) {
@@ -56,10 +56,10 @@ class Cart : AppCompatActivity() {
 ////
 ////                    //bind to adapter
 
-                    var TotalView:TextView=findViewById(R.id.total)
-                    TotalView!!.text=total.toString()
+                    val TotalView:TextView=findViewById(R.id.total)
+                    TotalView.text=total.toString()
                     adapter= CartAdapter(arrBooks,TotalView)
-                    var listCartitem:RecyclerView = findViewById<RecyclerView>(R.id.listCartitem)
+                    val listCartitem:RecyclerView = findViewById(R.id.listCartitem)
                     listCartitem.adapter = adapter
                     listCartitem.layoutManager = LinearLayoutManager(this@Cart)
                     adapter.onItemClick={

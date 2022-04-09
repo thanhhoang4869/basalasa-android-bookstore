@@ -11,9 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
 import com.example.basalasa.R
 import com.example.basalasa.model.body.UpdateCartBody
-import com.example.basalasa.model.entity.Book
 import com.example.basalasa.model.entity.BooksInCart
-import com.example.basalasa.model.reponse.GetCartResponse
 import com.example.basalasa.model.reponse.GetUpdateResponse
 import com.example.basalasa.utils.Cache
 import com.example.basalasa.utils.MyAPI
@@ -22,7 +20,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class CartAdapter(private val arrCartBook: ArrayList<BooksInCart>,var Total:TextView): RecyclerView.Adapter<CartAdapter.ViewHolder>() {
+class CartAdapter(private val arrCartBook: ArrayList<BooksInCart>, private var Total:TextView): RecyclerView.Adapter<CartAdapter.ViewHolder>() {
     var onItemClick:((BooksInCart, Int) -> Unit)? = null
     lateinit var context: Context
 
@@ -30,8 +28,8 @@ class CartAdapter(private val arrCartBook: ArrayList<BooksInCart>,var Total:Text
         var bookImage: ImageView
         var bookName: TextView
         var Price: TextView
-        lateinit var number_button:ElegantNumberButton
-        var del_btn:ImageView
+        var number_button:ElegantNumberButton
+        private var del_btn:ImageView
 
         init {
             bookImage = itemView.findViewById(R.id.CartimageView)
@@ -51,29 +49,29 @@ class CartAdapter(private val arrCartBook: ArrayList<BooksInCart>,var Total:Text
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        var book = arrCartBook.get(position)
+        val book = arrCartBook[position]
 
-        Picasso.get().load(book.img).into(holder.bookImage);
+        Picasso.get().load(book.img).into(holder.bookImage)
         holder.bookName.text = book.name
         holder.Price.text = "$" + (book.price*book.quantity).toString()
-        holder.number_button.setNumber(book.quantity.toString())
+        holder.number_button.number = book.quantity.toString()
 
-        holder.number_button.setOnValueChangeListener { view, oldValue, newValue ->
+        holder.number_button.setOnValueChangeListener { _, oldValue, newValue ->
             arrCartBook[position].quantity = newValue
             holder.Price.text = "$" + (arrCartBook[position].price*arrCartBook[position].quantity).toString()
             Total.text= (Integer.parseInt(Total.text.toString())+ (newValue-oldValue)* arrCartBook[position].price).toString()
-            updateData(arrCartBook[position].name,arrCartBook[position].price,arrCartBook[position].img,arrCartBook[position].quantity);
+            updateData(arrCartBook[position].name,arrCartBook[position].price,arrCartBook[position].img,arrCartBook[position].quantity)
         }
     }
 
 
-    fun updateData(name:String,price:Int,img:String,quantity:Int){
+    private fun updateData(name:String, price:Int, img:String, quantity:Int){
         val token = Cache.getToken(context)
         val response = MyAPI.getAPI().updateCart(token.toString(),UpdateCartBody(name,price,img,quantity))
         response.enqueue(object : Callback<GetUpdateResponse> {
             override fun onResponse(call: Call<GetUpdateResponse>, response: Response<GetUpdateResponse>) {
                 if (response.isSuccessful) {
-                    System.out.println("SUCCESS")
+                    println("SUCCESS")
                 }
             }
 
@@ -85,7 +83,7 @@ class CartAdapter(private val arrCartBook: ArrayList<BooksInCart>,var Total:Text
     }
 
     override fun getItemCount(): Int {
-        return arrCartBook.size;
+        return arrCartBook.size
     }
 
 }

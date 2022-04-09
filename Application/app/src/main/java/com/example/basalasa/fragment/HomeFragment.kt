@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.basalasa.R
 import com.example.basalasa.activity.BookDetail
-import com.example.basalasa.adapter.CategoryAdapter
 import com.example.basalasa.adapter.HomeCategoryAdapter
 import com.example.basalasa.adapter.HomePageViewerAdapter
 import com.example.basalasa.adapter.HomeSaleAdapter
@@ -105,7 +104,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                     val adapter=HomeSaleAdapter(arrBookOnSale)
                     binding.homeSaleRC.adapter = adapter
                     binding.homeSaleRC.layoutManager = LinearLayoutManager( context, LinearLayoutManager.HORIZONTAL, false)
-                    adapter.onItemClick={s,position->
+                    adapter.onItemClick={ _, position->
                         val intent= Intent(activity, BookDetail::class.java)
                         intent.putExtra("id",arrBookOnSale[position]._id)
                         startActivity(intent)

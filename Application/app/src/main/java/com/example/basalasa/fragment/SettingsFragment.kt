@@ -9,11 +9,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.basalasa.R
-import com.example.basalasa.activity.CustomerOrder
-import com.example.basalasa.activity.MainActivity
+import com.example.basalasa.activity.*
 import com.example.basalasa.databinding.FragmentSettingsBinding
-import com.example.basalasa.activity.SettingChangeInformation
-import com.example.basalasa.activity.SettingChangePassword
 import com.example.basalasa.model.reponse.GetAccountResponse
 import com.example.basalasa.model.entity.Account
 import com.example.basalasa.utils.Cache
@@ -25,9 +22,6 @@ import retrofit2.Response
 class SettingsFragment : Fragment(R.layout.fragment_settings) {
     private var _binding: FragmentSettingsBinding? = null
     lateinit var account: Account
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +33,7 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         getInfo()
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
 
@@ -56,6 +50,18 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
                 intent.putExtra("email", account.email)
                 it.startActivity(intent)
             }
+        }
+
+        binding.productBtn.setOnClickListener {
+            val intent=Intent(context,SellerProductList::class.java)
+            intent.putExtra("user",account.email)
+            startActivity(intent)
+        }
+
+        binding.orderListBtn.setOnClickListener {
+            val intent=Intent(context,SellerOrderList::class.java)
+            intent.putExtra("user",account.email)
+            startActivity(intent)
         }
 
         binding.orderBtn.setOnClickListener {
@@ -81,10 +87,6 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
         Log.d("alo","1234 create")
     }
 
-    override fun onResume() {
-        super.onResume()
-    }
-
     private fun loadInfo(account: Account) {
         binding.email.text = account.email
         binding.name.text = account.fullName
@@ -105,27 +107,31 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
                         account= Account(data)
                         loadInfo(account)
 
-                        if(account.role == 0) {
-                            binding.accountListBtn.visibility = View.GONE
-                            binding.accountListBtnDivider.visibility = View.GONE
-                            binding.orderListBtn.visibility = View.GONE
-                            binding.orderListBtnDivider.visibility = View.GONE
-                            binding.productBtn.visibility = View.GONE
-                            binding.productBtnDivider.visibility = View.GONE
-                            binding.requestBtn.visibility = View.GONE
-                            binding.requestBtnDivider.visibility = View.GONE
-                        } else if (account.role == 1) {
-                            binding.accountListBtn.visibility = View.GONE
-                            binding.accountListBtnDivider.visibility = View.GONE
-                            binding.requestBtn.visibility = View.GONE
-                            binding.requestBtnDivider.visibility = View.GONE
-                        } else {
-                            binding.orderBtn.visibility = View.GONE
-                            binding.orderBtnDivider.visibility = View.GONE
-                            binding.orderListBtn.visibility = View.GONE
-                            binding.orderListBtnDivider.visibility = View.GONE
-                            binding.productBtn.visibility = View.GONE
-                            binding.productBtnDivider.visibility = View.GONE
+                        when (account.role) {
+                            0 -> {
+                                binding.accountListBtn.visibility = View.GONE
+                                binding.accountListBtnDivider.visibility = View.GONE
+                                binding.orderListBtn.visibility = View.GONE
+                                binding.orderListBtnDivider.visibility = View.GONE
+                                binding.productBtn.visibility = View.GONE
+                                binding.productBtnDivider.visibility = View.GONE
+                                binding.requestBtn.visibility = View.GONE
+                                binding.requestBtnDivider.visibility = View.GONE
+                            }
+                            1 -> {
+                                binding.accountListBtn.visibility = View.GONE
+                                binding.accountListBtnDivider.visibility = View.GONE
+                                binding.requestBtn.visibility = View.GONE
+                                binding.requestBtnDivider.visibility = View.GONE
+                            }
+                            else -> {
+                                binding.orderBtn.visibility = View.GONE
+                                binding.orderBtnDivider.visibility = View.GONE
+                                binding.orderListBtn.visibility = View.GONE
+                                binding.orderListBtnDivider.visibility = View.GONE
+                                binding.productBtn.visibility = View.GONE
+                                binding.productBtnDivider.visibility = View.GONE
+                            }
                         }
                     } else{
                         Log.d("alo","1234")
@@ -137,7 +143,7 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
                 Log.d("Alo","fail")
                 if(isAdded){
                     Toast.makeText(context, "Fail connection to server", Toast.LENGTH_LONG).show()
-                    t.printStackTrace();
+                    t.printStackTrace()
                 }
             }
         })
