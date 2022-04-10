@@ -10,7 +10,7 @@ import com.example.basalasa.R
 import com.example.basalasa.model.entity.CustomerHistory
 import com.squareup.picasso.Picasso
 
-class CustomerOrderTabRCAdapter (private val arrHistory: ArrayList<CustomerHistory>): RecyclerView.Adapter<CustomerOrderTabRCAdapter.ViewHolder>() {
+class CustomerOrderTabRCAdapter (private val arrHistory: ArrayList<CustomerHistory>, private val pending: Boolean): RecyclerView.Adapter<CustomerOrderTabRCAdapter.ViewHolder>() {
     var onItemClick: ((CustomerHistory) -> Unit)? = null
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -19,6 +19,7 @@ class CustomerOrderTabRCAdapter (private val arrHistory: ArrayList<CustomerHisto
         var name: TextView
         var quantity: TextView
         var total: TextView
+        var cancel: TextView
 
         init {
             image = itemView.findViewById(R.id.customerOrderImage)
@@ -26,6 +27,7 @@ class CustomerOrderTabRCAdapter (private val arrHistory: ArrayList<CustomerHisto
             name = itemView.findViewById(R.id.customerOrderName)
             quantity = itemView.findViewById(R.id.customerOrderQuantity)
             total = itemView.findViewById(R.id.customerOrderTotalMoney)
+            cancel = itemView.findViewById(R.id.customerOrderCancelBtn)
 
             itemView.setOnClickListener {
                 onItemClick?.invoke(arrHistory[adapterPosition])
@@ -53,6 +55,10 @@ class CustomerOrderTabRCAdapter (private val arrHistory: ArrayList<CustomerHisto
         holder.name.text = order.product?.get(0)?.name
         holder.quantity.text = "x" + order.product?.get(0)?.quantity.toString()
         holder.total.text = order.total.toString()
+
+        if(!pending) {
+            holder.cancel.visibility = View.GONE
+        }
     }
 
     override fun getItemCount(): Int {

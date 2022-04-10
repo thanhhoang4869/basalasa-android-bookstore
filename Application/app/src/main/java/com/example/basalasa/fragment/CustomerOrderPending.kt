@@ -1,7 +1,6 @@
 package com.example.basalasa.fragment
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.basalasa.adapter.CustomerOrderTabRCAdapter
-import com.example.basalasa.adapter.CustomerOrderTabRCCancelAdapter
 import com.example.basalasa.databinding.FragmentCustomerOrderPendingBinding
 import com.example.basalasa.model.body.GetHistoryBody
 import com.example.basalasa.model.entity.CustomerHistory
@@ -62,7 +60,7 @@ class CustomerOrderPending : Fragment() {
                 if (response.isSuccessful) {
                     val data = response.body()
                     val arrHistory: ArrayList<CustomerHistory>? = data?.arrHistory
-                    binding.customerOrderPendingRC.adapter = CustomerOrderTabRCCancelAdapter(arrHistory!!)
+                    binding.customerOrderPendingRC.adapter = CustomerOrderTabRCAdapter(arrHistory!!, true)
                     binding.customerOrderPendingRC.layoutManager = LinearLayoutManager( context, LinearLayoutManager.VERTICAL, false)
                 }
             }

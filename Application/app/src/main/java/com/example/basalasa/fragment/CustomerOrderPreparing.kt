@@ -65,7 +65,7 @@ class CustomerOrderPreparing : Fragment() {
                 if (response.isSuccessful) {
                     val data = response.body()
                     val arrHistory: ArrayList<CustomerHistory>? = data?.arrHistory
-                    binding.customerOrderPreparingRC.adapter = CustomerOrderTabRCAdapter(arrHistory!!)
+                    binding.customerOrderPreparingRC.adapter = CustomerOrderTabRCAdapter(arrHistory!!, false)
                     binding.customerOrderPreparingRC.layoutManager = LinearLayoutManager( context, LinearLayoutManager.VERTICAL, false)
                 }
             }
