@@ -6,6 +6,7 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface API {
+    //user
     @POST("/account/login")
     fun postLogin(
         @Body loginBody: LoginBody
@@ -37,6 +38,13 @@ interface API {
         @Header("x-access-token") tokenHeader: String,
         @Body changePasswordBody: ChangePasswordBody
     ): Call<ChangePasswordResponse>
+
+    //role customer
+    @POST("/account/history")
+    fun getHistory(
+        @Header("x-access-token") tokenHeader: String,
+        @Body getHistoryBody: GetHistoryBody
+    ): Call<GetCustomerHistoryResponse>
 
     //category
     @GET("/category")

@@ -47,7 +47,9 @@ export default {
     getBook: async (bookID) => {
         return await Book.findOne({ _id: bookID })
     },
-
+    getHistoryBook: async (bookID) => {
+        return await Book.findOne({ id: bookID })
+    },
     findAll: async () => {
         return await Book.find({}).lean() || null;
 

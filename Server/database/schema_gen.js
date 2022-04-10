@@ -71,6 +71,7 @@ connect().then(() => {
         product: { type: Array, required: true },
         status: { type: String, required: true },
         date: { type: Date, required: true },
+        total: { type: Number, required: true },
     })
     Order = mongoose.model('order', OrderSchema, 'order')
 

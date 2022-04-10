@@ -9,35 +9,24 @@
     android:padding="10dp">
 
     <TextView
-        android:id="@+id/customerOrderStatus"
+        android:id="@+id/customerOrderDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="10dp"
-        android:text="Status"
-        android:textColor="@color/primary_green"
+        android:text="Order date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <TextView
-        android:id="@+id/customerOrderRate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:textColor="@color/purple_700"
-        android:text="rate"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/customerOrderStatus" />
-
     <View
         android:id="@+id/firstDivider"
         style="@style/Divider"
         android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="@+id/customerOrderStatus"
-        app:layout_constraintTop_toBottomOf="@+id/customerOrderStatus" />
+        app:layout_constraintStart_toStartOf="@+id/customerOrderDate"
+        app:layout_constraintTop_toBottomOf="@+id/customerOrderDate" />
 
     <ImageView
         android:id="@+id/customerOrderImage"

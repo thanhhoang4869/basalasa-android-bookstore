@@ -58,17 +58,18 @@
             app:layout_constraintStart_toEndOf="@+id/profile_image"
             app:layout_constraintTop_toTopOf="@+id/profile_image" />
 
-        <ScrollView
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="500dp"
+            android:paddingBottom="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/profile_image">
 
             <LinearLayout
-                android:layout_marginTop="50dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -84,11 +85,11 @@
                     android:paddingEnd="20dp"
                     android:text="Change information"
                     android:textAlignment="viewStart"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black" />
 
                 <View
                     android:id="@+id/changeInfoDivider"
-                    style="@style/Divider"/>
+                    style="@style/Divider" />
 
                 <Button
                     android:id="@+id/changePass"
@@ -100,11 +101,11 @@
                     android:paddingEnd="20dp"
                     android:text="@string/change_password"
                     android:textAlignment="viewStart"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black" />
 
                 <View
                     android:id="@+id/changePasswordDivider"
-                    style="@style/Divider"/>
+                    style="@style/Divider" />
 
                 <Button
                     android:id="@+id/productBtn"
@@ -120,7 +121,7 @@
 
                 <View
                     android:id="@+id/productBtnDivider"
-                    style="@style/Divider"/>
+                    style="@style/Divider" />
 
                 <Button
                     android:id="@+id/orderListBtn"
@@ -133,9 +134,10 @@
                     android:text="@string/orderList"
                     android:textAlignment="viewStart"
                     android:textColor="@color/black" />
+
                 <View
                     android:id="@+id/orderListBtnDivider"
-                    style="@style/Divider"/>
+                    style="@style/Divider" />
 
                 <Button
                     android:id="@+id/accountListBtn"
@@ -151,7 +153,7 @@
 
                 <View
                     android:id="@+id/accountListBtnDivider"
-                    style="@style/Divider"/>
+                    style="@style/Divider" />
 
                 <Button
                     android:id="@+id/requestBtn"
@@ -167,7 +169,7 @@
 
                 <View
                     android:id="@+id/requestBtnDivider"
-                    style="@style/Divider"/>
+                    style="@style/Divider" />
 
                 <Button
                     android:id="@+id/orderBtn"
@@ -179,11 +181,11 @@
                     android:paddingEnd="20dp"
                     android:text="@string/order"
                     android:textAlignment="viewStart"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black" />
 
                 <View
                     android:id="@+id/orderBtnDivider"
-                    style="@style/Divider"/>
+                    style="@style/Divider" />
 
                 <Button
                     android:id="@+id/logoutBtn"
@@ -198,8 +200,6 @@
                     android:textColor="@color/black" />
 
             </LinearLayout>
-        </ScrollView>
-
-
+        </androidx.core.widget.NestedScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

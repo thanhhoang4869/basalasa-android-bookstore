@@ -8,7 +8,6 @@ router.use(bodyParser.urlencoded({ extended: false }));
 router.get('/onsale', async (req, res) => {
   try {
     const ret = await bookModel.getBookOnSale();
-    console.log(ret);
     res.send({ arrBookOnSale: ret });
   } catch (err) {
     console.log(err);
@@ -49,7 +48,7 @@ router.post('/getDetails', async (req, res) => {
 
 router.get('/', async (req, res) => {
   try {
-    
+
     const ret = await bookModel.findAll();
     res.send({ arrBook: ret });
   } catch (error) {
