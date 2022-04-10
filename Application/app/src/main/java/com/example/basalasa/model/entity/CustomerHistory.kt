@@ -5,9 +5,9 @@ import com.example.basalasa.model.reponse.GetCustomerHistoryResponse
 
 class CustomerHistory(
     val email: String,
-    val arrProduct: ArrayList<CustomerBookHistory>?,
-    val status: String,
+    val product: ArrayList<CustomerBookHistory>?,
     val date: String,
+    val status: String,
     val total: Int
 ) {
 }

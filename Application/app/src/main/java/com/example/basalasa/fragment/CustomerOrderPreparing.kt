@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.basalasa.adapter.CustomerOrderTabRCAdapter
 import com.example.basalasa.databinding.FragmentCustomerOrderPendingBinding
 import com.example.basalasa.databinding.FragmentCustomerOrderPreparingBinding
 import com.example.basalasa.model.body.GetHistoryBody
@@ -62,15 +64,13 @@ class CustomerOrderPreparing : Fragment() {
             ) {
                 if (response.isSuccessful) {
                     val data = response.body()
-                    val arrHistory: ArrayList<CustomerHistory>? = ArrayList()
-                    for(item: CustomerHistory in data!!.arrHistory!!) {
-                        Log.i("SOS", item.email)
-                    }
+                    val arrHistory: ArrayList<CustomerHistory>? = data?.arrHistory
+                    binding.customerOrderPreparingRC.adapter = CustomerOrderTabRCAdapter(arrHistory!!)
+                    binding.customerOrderPreparingRC.layoutManager = LinearLayoutManager( context, LinearLayoutManager.VERTICAL, false)
                 }
             }
 
             override fun onFailure(call: Call<GetCustomerHistoryResponse>, t: Throwable) {
-                Log.d("Alo","fail")
                 if(isAdded){
                     Toast.makeText(context, "Fail connection to server", Toast.LENGTH_LONG).show()
                     t.printStackTrace()

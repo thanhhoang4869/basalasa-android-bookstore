@@ -6,4 +6,5 @@ class CustomerBookHistory {
     @SerializedName("book_id") val book_id: String = ""
     @SerializedName("quantity") val quantity: Int = 0
     @SerializedName("name") val name: String = ""
+    @SerializedName("picture") val picture: String = ""
 }

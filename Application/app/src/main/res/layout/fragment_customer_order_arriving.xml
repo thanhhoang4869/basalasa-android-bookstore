@@ -5,10 +5,8 @@
     android:layout_height="match_parent"
     tools:context="fragment.CustomerOrderArriving">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/customerOrderArrivingRC"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="framgnet process" />
-
+        android:layout_height="match_parent" />
 </LinearLayout>
