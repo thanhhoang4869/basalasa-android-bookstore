@@ -12,6 +12,7 @@ import com.squareup.picasso.Picasso
 
 class CustomerOrderTabRCAdapter (private val arrHistory: ArrayList<CustomerHistory>, private val pending: Boolean): RecyclerView.Adapter<CustomerOrderTabRCAdapter.ViewHolder>() {
     var onItemClick: ((CustomerHistory) -> Unit)? = null
+    var onCancelClick: ((CustomerHistory) -> Unit)? = null
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var image: ImageView
@@ -31,6 +32,10 @@ class CustomerOrderTabRCAdapter (private val arrHistory: ArrayList<CustomerHisto
 
             itemView.setOnClickListener {
                 onItemClick?.invoke(arrHistory[adapterPosition])
+            }
+
+            cancel.setOnClickListener {
+                onCancelClick?.invoke(arrHistory[adapterPosition])
             }
         }
     }

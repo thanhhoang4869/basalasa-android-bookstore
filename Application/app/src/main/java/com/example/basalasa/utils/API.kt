@@ -39,12 +39,18 @@ interface API {
         @Body changePasswordBody: ChangePasswordBody
     ): Call<ChangePasswordResponse>
 
-    //role customer
+    //customer order
     @POST("/account/history")
     fun getHistory(
         @Header("x-access-token") tokenHeader: String,
         @Body getHistoryBody: GetHistoryBody
     ): Call<GetCustomerHistoryResponse>
+
+    @POST("account/history/delete")
+    fun cancelOrder(
+        @Header("x-access-token") tokenHeader: String,
+        @Body cancelOrderBody: CancelOrderBody
+    ): Call<CancelOrderResponse>
 
     //category
     @GET("/category")

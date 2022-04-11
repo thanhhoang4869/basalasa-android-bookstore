@@ -238,4 +238,20 @@ router.post('/history', async (req, res) => {
     res.send({ orders })
 });
 
+router.post('/history/delete', async (req, res) => {
+    const { orderId } = req.body;
+
+    try {
+        await orderModel.cancelOrder(orderId);
+        res.send({
+            "exitcode": 0
+        })
+    } catch (err) {
+        console.log(err)
+        res.send({
+            "exitcode": 500
+        })
+    }
+});
+
 export default router;

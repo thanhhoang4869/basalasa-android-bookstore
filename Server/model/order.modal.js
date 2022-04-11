@@ -24,5 +24,14 @@ export default {
         } catch (err) {
             console.log(err)
         }
+    },
+    async cancelOrder(orderId) {
+        try {
+            await Order.findOneAndUpdate({ _id: orderId }, {
+                $set: { status: "Canceled" }
+            })
+        } catch (err) {
+            console.log(err)
+        }
     }
 }

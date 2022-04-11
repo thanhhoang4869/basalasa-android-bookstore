@@ -49,6 +49,11 @@ class CustomerOrderCanceled : Fragment() {
         loadHistory()
     }
 
+    override fun onResume() {
+        super.onResume()
+        loadHistory()
+    }
+
     private fun loadHistory(){
         val token = context?.let { Cache.getToken(it) }
         val response = token?.let { MyAPI.getAPI().getHistory(it, GetHistoryBody("Canceled")) }

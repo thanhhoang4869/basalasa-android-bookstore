@@ -4,6 +4,7 @@ import com.example.basalasa.model.reponse.GetBookDetailResponse
 import com.example.basalasa.model.reponse.GetCustomerHistoryResponse
 
 class CustomerHistory(
+    val _id: String,
     val email: String,
     val product: ArrayList<CustomerBookHistory>?,
     val date: String,
