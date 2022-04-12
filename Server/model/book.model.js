@@ -52,7 +52,8 @@ export default {
     },
     findAll: async () => {
         return await Book.find({}).lean() || null;
-
-    }
-
+    },
+    getBookByID: async (bookID) => {
+        return await Book.findOne({ id: bookID })
+    },
 }

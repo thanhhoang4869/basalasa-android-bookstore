@@ -1,5 +1,6 @@
 import mongoose from 'mongoose'
 import config from '../config/config.js'
+
 const url = config.url
 
 mongoose.connect(url, {
@@ -12,9 +13,7 @@ const CartSchema = mongoose.Schema({
         type:String
     },
     books:[{
-        name:{type:String},
-        price:{type:Number},
-        img:{type:String},
+        id:{type:Number},       
         quantity:{type:Number}
     },]
 })
@@ -23,10 +22,8 @@ const Cart = mongoose.model('cart', CartSchema, 'cart')
 
 export default {
     getCartByEmail:async (email)=>{
-
         try{
             const  cart = await Cart.findOne({email:email}).lean()
-
             return cart
         }catch(error){
             console.log(error)
@@ -69,7 +66,25 @@ export default {
     },
     AddCart:async(email,book)=>{
         try{
-            let cart = await Cart.findOneAndUpdate({email:email},{$push:{books:book}})
+            let check = await Cart.findOne({email:email}).lean()
+            let temp = false
+            for(let i =0;i<check.books.length;i++){
+
+                console.log(check.books[i].id)
+                console.log(book.id)
+                if(check.books[i].id==book.id){
+                    console.log("HI")
+                    check.books[i].quantity+=book.quantity
+                    temp =true
+                }
+                
+            }
+            console.log(temp)
+            let cart= null
+            if(temp===false)
+                {cart = await Cart.findOneAndUpdate({email:email},{$push:{books:book}})
+                return cart}
+            cart = await Cart.findOneAndUpdate({email:email},{books:check.books})
             return cart
         }catch(error){
             console.log(error)

@@ -3,6 +3,7 @@ package com.example.basalasa.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.CheckBox
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -43,15 +44,15 @@ class Cart : AppCompatActivity() {
         }
         val response = MyAPI.getAPI().getCart(token.toString())
         arrBooks = ArrayList()
+        var choosen:HashMap<Int,BooksInCart>  = HashMap<Int,BooksInCart>()
         var total=0
-
+        var seller:String=""
         response.enqueue(object : Callback<GetCartResponse> {
             override fun onResponse(call: Call<GetCartResponse>, response: Response<GetCartResponse>) {
                 if (response.isSuccessful) {
                     val data = response.body()
                     for(item: BooksInCart in data!!.arrBooks!!) {
                         arrBooks.add(item)
-                        total+=item.price*item.quantity
                     }
 ////
 ////                    //bind to adapter
@@ -65,6 +66,40 @@ class Cart : AppCompatActivity() {
                     adapter.onItemClick={
                         s,position->Deletedata(s,position)
                         TotalView.text = (Integer.parseInt(TotalView.text.toString())-s.price).toString()
+                    }
+                    adapter.onCheckClick={
+                        s,position,check_btn->
+                        if(choosen.size==0){
+                            System.out.println("ALO")
+                            choosen.put(s.id,s)
+                            seller=s.seller
+                            TotalView.text =(Integer.parseInt(TotalView.text.toString())+s.price*s.quantity).toString()
+                        }
+                        else{
+                            System.out.println(s.seller)
+                            System.out.println(seller)
+                            if(s.seller==seller){
+                                choosen.put(s.id,s)
+                                TotalView.text =(Integer.parseInt(TotalView.text.toString())+s.price*s.quantity).toString()
+                            }
+                            else{
+                                check_btn.isChecked=false
+                                Toast.makeText(this@Cart, "Different Seller, choose again", Toast.LENGTH_LONG).show()
+                            }
+                        }
+
+                    }
+                    adapter.removeCheck={
+                            s,position->
+                        if(choosen.get(s.id)?.seller==seller){
+                            System.out.println(choosen.get(s.id)?.seller)
+                            System.out.println(seller)
+                            choosen.remove(s.id)
+                            if(choosen.size==0)
+                                seller=""
+                            TotalView.text =(Integer.parseInt(TotalView.text.toString())-s.price*s.quantity).toString()
+                        }
+                        Toast.makeText(this@Cart, "Dit me may", Toast.LENGTH_LONG).show()
                     }
                 }
             }

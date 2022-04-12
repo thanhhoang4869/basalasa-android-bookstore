@@ -68,7 +68,7 @@ class BookDetail : AppCompatActivity() {
                             startActivity(intent)
                             finish()
                         }
-                        addCart(token.toString(),data.name,data.saleprice,data.picture)
+                        addCart(token.toString(),data.id)
                     }
                 }else{
                     Log.i("?","fail")
@@ -82,8 +82,8 @@ class BookDetail : AppCompatActivity() {
 
         })
     }
-    fun addCart(token:String,name:String,price:Int,img:String){
-        val response1 = MyAPI.getAPI().addCart(token, AddCartBody(name,price,img,1))
+    fun addCart(token:String,id:Int){
+        val response1 = MyAPI.getAPI().addCart(token, AddCartBody(id,1))
         response1.enqueue(object : Callback<GetUpdateResponse> {
             override fun onResponse(call: Call<GetUpdateResponse>, response: Response<GetUpdateResponse>) {
                 if (response.isSuccessful) {

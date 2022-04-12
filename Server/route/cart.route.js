@@ -2,6 +2,7 @@
 import bodyParser from 'body-parser';
 import express from 'express';
 import cartModel from '../model/cart.model.js';
+import bookModel from '../model/book.model.js';
 
 const router = express.Router();
 router.use(bodyParser.urlencoded({ extended: false }))
@@ -13,6 +14,18 @@ router.get('/',async (req,res)=>{
             email: req.payload.email
         }
         const carts = await cartModel.getCartByEmail(data.email)
+        for (let i = 0;i<carts.books.length;i++){
+            console.log(carts.books[i]);    
+            const book =await bookModel.getBookByID(carts.books[i].id)
+            carts.books[i].name=book.name
+            if(book.saleprice!=null)
+                carts.books[i].price=book.saleprice
+            else
+                carts.books[i].price=book.price
+            carts.books[i].img=book.picture
+            carts.books[i].seller=book.seller
+        }
+        console.log(carts)
         res.send({
             email:carts.email,
             arrBooks:carts.books
@@ -65,11 +78,9 @@ router.post('/add',async (req,res)=>{
         const data={
             email:req.payload.email
         }
-        const {name,price,img,quantity} = req.body
+        const {id,quantity} = req.body
         const book = {
-            name: name,
-            price: price,
-            img: img,
+            id:id,
             quantity: quantity
         }
         const cart = await cartModel.AddCart(data.email,book)

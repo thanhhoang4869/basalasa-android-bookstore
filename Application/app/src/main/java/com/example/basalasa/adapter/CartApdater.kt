@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -22,6 +23,9 @@ import retrofit2.Response
 
 class CartAdapter(private val arrCartBook: ArrayList<BooksInCart>, private var Total:TextView): RecyclerView.Adapter<CartAdapter.ViewHolder>() {
     var onItemClick:((BooksInCart, Int) -> Unit)? = null
+    var onCheckClick:((BooksInCart,Int,CheckBox)->Unit)?=null
+    var removeCheck:((BooksInCart,Int)->Unit)?=null
+    var onChange:((BooksInCart,Int,CheckBox)->Unit)?=null
     lateinit var context: Context
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
@@ -29,7 +33,8 @@ class CartAdapter(private val arrCartBook: ArrayList<BooksInCart>, private var T
         var bookName: TextView
         var Price: TextView
         var number_button:ElegantNumberButton
-        private var del_btn:ImageView
+        var del_btn:ImageView
+        var check_btn:CheckBox
 
         init {
             bookImage = itemView.findViewById(R.id.CartimageView)
@@ -37,8 +42,16 @@ class CartAdapter(private val arrCartBook: ArrayList<BooksInCart>, private var T
             Price = itemView.findViewById(R.id.bookPrice)
             number_button=itemView.findViewById(R.id.numberButton)
             del_btn=itemView.findViewById(R.id.delete)
+            check_btn = itemView.findViewById(R.id.CartcheckBox)
             del_btn.setOnClickListener {
                 onItemClick?.invoke(arrCartBook[adapterPosition],adapterPosition) }
+            check_btn.setOnClickListener{
+                if(check_btn.isChecked)
+                    onCheckClick?.invoke(arrCartBook[adapterPosition],adapterPosition,check_btn)
+                else
+                    removeCheck?.invoke(arrCartBook[adapterPosition],adapterPosition)
+            }
+
         }
     }
 
@@ -59,10 +72,12 @@ class CartAdapter(private val arrCartBook: ArrayList<BooksInCart>, private var T
         holder.number_button.setOnValueChangeListener { _, oldValue, newValue ->
             arrCartBook[position].quantity = newValue
             holder.Price.text = "$" + (arrCartBook[position].price*arrCartBook[position].quantity).toString()
-            Total.text= (Integer.parseInt(Total.text.toString())+ (newValue-oldValue)* arrCartBook[position].price).toString()
+            if(holder.check_btn.isChecked==true) {
+                Total.text =
+                    (Integer.parseInt(Total.text.toString()) + (newValue - oldValue) * arrCartBook[position].price).toString()
+            }
             updateData(arrCartBook[position].name,arrCartBook[position].price,arrCartBook[position].img,arrCartBook[position].quantity)
-        }
-    }
+    }}
 
 
     private fun updateData(name:String, price:Int, img:String, quantity:Int){

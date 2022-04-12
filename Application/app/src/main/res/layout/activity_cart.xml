@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".activity.Cart">
 
-
-        <TextView
+    <TextView
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -25,14 +24,12 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listCartitem"
-        android:layout_width="match_parent"
-        android:layout_height="515dp"
+        android:layout_width="415dp"
+        android:layout_height="511dp"
         android:layout_marginTop="5dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginLeft="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title"
         app:layout_constraintVertical_bias="0.0" />
@@ -75,9 +72,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/settingEmailTV"
         app:layout_constraintEnd_toEndOf="@+id/listCartitem"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.93"
         app:layout_constraintStart_toEndOf="@+id/settingEmailTV"
         app:layout_constraintTop_toTopOf="@+id/settingEmailTV"
         app:layout_constraintVertical_bias="0.0" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
