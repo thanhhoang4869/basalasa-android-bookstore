@@ -6,36 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".activity.SellerOrderList">
 
-    <ScrollView
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tl_sellerOrderList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+            android:text="Pending" />
 
-            <Button
-                android:id="@+id/btn_orderPending"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Pending" />
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Processing" />
 
-            <Button
-                android:id="@+id/btn_orderProcessing"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Processing" />
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Complete" />
 
-            <Button
-                android:id="@+id/btn_orderComplete"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Complete" />
-        </LinearLayout>
-    </ScrollView>
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/vp_sellerOrderList"/>
 
 </LinearLayout>

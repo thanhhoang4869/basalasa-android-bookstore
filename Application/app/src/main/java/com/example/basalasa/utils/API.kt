@@ -100,4 +100,11 @@ interface API {
         @Header("x-access-token")tokenHeader: String,
         @Body getAddCartBodyResult:AddCartBody
     ):Call<GetUpdateResponse>
+
+    //seller: order list
+    @GET("/seller/pending")
+    fun getSellerPendingOrder(
+        @Header("x-access-token")tokenHeader: String,
+        @Query("seller")seller:String
+    ):Call<GetSellerPendingOrderResponse>
 }

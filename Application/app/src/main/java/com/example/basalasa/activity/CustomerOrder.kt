@@ -2,10 +2,8 @@ package com.example.basalasa.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.basalasa.R
 import com.example.basalasa.adapter.CustomerOrderAdapter
 import com.example.basalasa.databinding.ActivityCustomerOrderBinding
-import com.example.basalasa.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
 class CustomerOrder : AppCompatActivity() {
