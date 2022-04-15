@@ -41,7 +41,6 @@ class CategoryFragment : Fragment(R.layout.fragment_category) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         loadListBook()
-
     }
 
     private fun loadListBook(){

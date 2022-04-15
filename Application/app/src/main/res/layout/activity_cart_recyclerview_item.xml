@@ -1,16 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:background="@drawable/custom_home_radius_background"
     android:paddingBottom="10dp"
     android:paddingTop="10dp"
     >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginRight="-20dp">
 
-    <ImageView
+
+        <CheckBox
+            android:id="@+id/CartcheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            style="@style/Widget.Material3.CompoundButton.CheckBox"
+            />
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/custom_home_radius_background">
+
+
+
+        <ImageView
         android:id="@+id/CartimageView"
         android:layout_width="140dp"
         android:layout_height="123dp"
@@ -47,7 +68,7 @@
         android:textStyle="bold" />
 
     <LinearLayout
-        android:layout_width="230dp"
+        android:layout_width="210dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
@@ -75,6 +96,7 @@
         </RelativeLayout>
 
 
+    </LinearLayout>
     </LinearLayout>
     </LinearLayout>
 

@@ -2,15 +2,11 @@
     {
         "email": "19127186@student.hcmus.edu.vn",
         "books":[{
-            "name":"English Grammar in Use Book w Ans",
-            "price":158000,
-            "img":"https://cdn0.fahasa.com/media/catalog/product/i/m/img_7523.jpg",
+            "id":1,
             "quantity":2
         },
         {
-            "name":"Life BRE A2-B1: Student Book With Web App Code And Online Workbook 2nd Edition",
-            "price":247000,
-            "img":"https://newshop.vn/public/uploads/products/23079/lifea2.jpg",
+            "id":3,
             "quantity":2
         }
         ]
@@ -19,9 +15,15 @@
     {
         "email": "19127489@student.hcmus.edu.vn",
         "books":[{
-            "name":"Life BRE A2-B1: Student Book With Web App Code And Online Workbook 2nd Edition",
-            "price":247000,
-            "img":"https://newshop.vn/public/uploads/products/23079/lifea2.jpg",
+            "id":3,
+            "quantity":2
+        }]
+        
+    },
+    {
+        "email": "quanghuy.1334@gmail.com",
+        "books":[{
+            "id":3,
             "quantity":2
         }]
     }

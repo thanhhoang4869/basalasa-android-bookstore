@@ -92,7 +92,7 @@ class MainActivity : AppCompatActivity() {
         }
 
 //        val response = MyAPI.getAPI().getAccount(token.toString())
-
+//
 //        response.enqueue(object : Callback<GetAccountResponse> {
 //            override fun onResponse(
 //                call: Call<GetAccountResponse>,

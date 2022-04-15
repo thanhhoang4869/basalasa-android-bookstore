@@ -6,6 +6,7 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface API {
+    //user
     @POST("/account/login")
     fun postLogin(
         @Body loginBody: LoginBody
@@ -37,6 +38,19 @@ interface API {
         @Header("x-access-token") tokenHeader: String,
         @Body changePasswordBody: ChangePasswordBody
     ): Call<ChangePasswordResponse>
+
+    //customer order
+    @POST("/account/history")
+    fun getHistory(
+        @Header("x-access-token") tokenHeader: String,
+        @Body getHistoryBody: GetHistoryBody
+    ): Call<GetCustomerHistoryResponse>
+
+    @POST("account/history/delete")
+    fun cancelOrder(
+        @Header("x-access-token") tokenHeader: String,
+        @Body cancelOrderBody: CancelOrderBody
+    ): Call<CancelOrderResponse>
 
     //category
     @GET("/category")
@@ -86,4 +100,11 @@ interface API {
         @Header("x-access-token")tokenHeader: String,
         @Body getAddCartBodyResult:AddCartBody
     ):Call<GetUpdateResponse>
+
+    //seller: order list
+    @GET("/seller/pending")
+    fun getSellerPendingOrder(
+        @Header("x-access-token")tokenHeader: String,
+        @Query("seller")seller:String
+    ):Call<GetSellerPendingOrderResponse>
 }
