@@ -8,16 +8,18 @@ class Account(
     val phone: String,
     val address: String,
     val role: Int,
+    val status: Int
 ) {
     constructor(response: GetAccountResponse) : this(
         response.email,
         response.fullName,
         response.phone,
         response.address,
-        response.role
+        response.role,
+        response.status
     )
 
     override fun toString(): String {
-        return "${email},${fullName},${phone},${address},${role}"
+        return "${email},${fullName},${phone},${address},${role},${status}"
     }
 }

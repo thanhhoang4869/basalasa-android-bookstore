@@ -28,14 +28,14 @@ const BookSchema = new mongoose.Schema({
         userEmail: { type: String },
         rating: { type: Number },
         review: { type: String }
-    },]
+    }, ]
 })
 
 const Book = mongoose.model('book', BookSchema, 'book')
 
 export default {
 
-    getBookOnSale: async () => {
+    getBookOnSale: async() => {
         try {
             const books = await Book.find({ saleprice: { $ne: 0 } }).lean()
             return books.splice(0, 5)
@@ -44,16 +44,17 @@ export default {
             return null
         }
     },
-    getBook: async (bookID) => {
+
+    getBook: async(bookID) => {
         return await Book.findOne({ _id: bookID })
     },
-    getHistoryBook: async (bookID) => {
+    getHistoryBook: async(bookID) => {
         return await Book.findOne({ id: bookID })
     },
-    findAll: async () => {
+    findAll: async() => {
         return await Book.find({}).lean() || null;
     },
-    getBookByID: async (bookID) => {
+    getBookByID: async(bookID) => {
         return await Book.findOne({ id: bookID })
     },
 }

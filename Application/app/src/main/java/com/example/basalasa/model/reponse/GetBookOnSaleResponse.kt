@@ -5,5 +5,4 @@ import com.google.gson.annotations.SerializedName
 
 class GetBookOnSaleResponse {
     @SerializedName("arrBookOnSale") val arrBookOnSale: ArrayList<Book> = ArrayList()
-
 }

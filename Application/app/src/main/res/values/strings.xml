@@ -24,4 +24,5 @@
     <string name="request">REQUESTS</string>
     <string name="orderList">ORDER LIST</string>
     <string name="product">PRODUCTS</string>
+    <string name="account_list">Account list</string>
 </resources>

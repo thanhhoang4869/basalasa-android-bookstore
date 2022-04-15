@@ -5,7 +5,7 @@
         "fullName": "Hoang Nhu Thanh",
         "phone": "0933442607",
         "role": 1,
-        "status": false,
+        "status": 1,
         "emailToken": null
     },
     {
@@ -15,7 +15,7 @@
         "address": "125 D1, P.25, Binh Thanh, HCM",
         "phone": "0933442607",
         "role": 1,
-        "status": false,
+        "status": 1,
         "emailToken": null
     },
     {
@@ -25,7 +25,7 @@
         "address": "125 D1, P.25, Binh Thanh, HCM",
         "phone": "0933442607",
         "role": 0,
-        "status": false,
+        "status": 1,
         "emailToken": null
     },
     {
@@ -35,7 +35,7 @@
         "address": "125 D1, P.25, Binh Thanh, HCM",
         "phone": "0933442607",
         "role": 0,
-        "status": true,
+        "status": 0,
         "emailToken": null
     }
 ]

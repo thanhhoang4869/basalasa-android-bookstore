@@ -71,6 +71,13 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
             }
         }
 
+        binding.accountListBtn.setOnClickListener{
+            activity?.let {
+                val intent = Intent(context, AccountList::class.java)
+                it.startActivity(intent)
+            }
+        }
+
         binding.logoutBtn.setOnClickListener {
             logout()
         }
@@ -84,7 +91,6 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        Log.d("alo","1234 create")
     }
 
     private fun loadInfo(account: Account) {

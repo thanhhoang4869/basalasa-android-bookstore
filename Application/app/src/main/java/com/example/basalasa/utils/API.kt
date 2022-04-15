@@ -27,6 +27,11 @@ interface API {
         @Header("x-access-token") tokenHeader: String
     ): Call<GetAccountResponse>
 
+    @GET("/admin/getAccountList")
+    fun getAccountList(
+        @Header("x-access-token") tokenHeader: String
+    ): Call<GetAccountListResponse>
+
     @POST("/account/changeInfo")
     fun changeInfo(
         @Header("x-access-token") tokenHeader: String,
