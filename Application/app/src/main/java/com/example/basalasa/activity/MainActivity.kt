@@ -3,11 +3,10 @@ package com.example.basalasa.activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.TextView.OnEditorActionListener
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -16,9 +15,13 @@ import com.example.basalasa.databinding.ActivityMainBinding
 import com.example.basalasa.fragment.CategoryFragment
 import com.example.basalasa.fragment.HomeFragment
 import com.example.basalasa.fragment.SettingsFragment
+import com.example.basalasa.model.reponse.GetAccountResponse
 import com.example.basalasa.utils.Cache
 import com.example.basalasa.utils.MyAPI
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class MainActivity : AppCompatActivity() {
@@ -82,35 +85,34 @@ class MainActivity : AppCompatActivity() {
 
     private fun processSettings(context: Context, fragment: Fragment) {
         val token = Cache.getToken(context)
+
         if (token === null) {
             val intent = Intent(context, Login::class.java)
             startActivity(intent)
             finish()
         } else {
-            setCurrentFragment(fragment)
-            binding.topNavBar.isVisible = false
-        }
+            val response = MyAPI.getAPI().getAccount(token.toString())
 
-//        val response = MyAPI.getAPI().getAccount(token.toString())
-//
-//        response.enqueue(object : Callback<GetAccountResponse> {
-//            override fun onResponse(
-//                call: Call<GetAccountResponse>,
-//                response: Response<GetAccountResponse>
-//            ) {
-//                if (response.isSuccessful) {
-//                    val data = response.body()
-//                    if (data?.exitcode == 0) {
-//                        setCurrentFragment(fragment)
-//                    }
-//                }
-//            }
-//
-//            override fun onFailure(call: Call<GetAccountResponse>, t: Throwable) {
-//                Toast.makeText(context, "Fail connection to server", Toast.LENGTH_LONG).show()
-//                t.printStackTrace()
-//            }
-//        })
+            response.enqueue(object : Callback<GetAccountResponse> {
+                override fun onResponse(
+                    call: Call<GetAccountResponse>,
+                    response: Response<GetAccountResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        val data = response.body()
+                        if (data?.exitcode == 0) {
+                            setCurrentFragment(fragment)
+                            binding.topNavBar.isVisible = false
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<GetAccountResponse>, t: Throwable) {
+                    Toast.makeText(context, "Fail connection to server", Toast.LENGTH_LONG).show()
+                    t.printStackTrace()
+                }
+            })
+        }
     }
 
     private fun setCurrentFragment(fragment: Fragment) =
