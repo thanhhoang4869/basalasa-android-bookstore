@@ -84,8 +84,11 @@ class CustomerOrderPending : Fragment() {
                         alertDialog!!.show()
                     }
 
-                    binding.customerOrderPendingRC.adapter = adapter
-                    binding.customerOrderPendingRC.layoutManager = LinearLayoutManager( context, LinearLayoutManager.VERTICAL, false)
+                    if(!arrHistory!!.isEmpty()) {
+                        binding.customerOrderPendingRC.adapter = adapter
+                        binding.customerOrderPendingRC.layoutManager = LinearLayoutManager( context, LinearLayoutManager.VERTICAL, false)
+                        binding.customerOrderPendingNoInfo.visibility = View.GONE
+                    }
                 }
             }
 

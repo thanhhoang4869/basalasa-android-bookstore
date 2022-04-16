@@ -43,8 +43,8 @@ class HomeSaleAdapter(private val arrBookOnSale: ArrayList<Book>): RecyclerView.
 
         Picasso.get().load(book.picture).into(holder.homeSaleImage);
         holder.homeSaleName.text = book.name
-        holder.homeSaleRootPrice.text = "$" + book.price.toString()
-        holder.homeSaleSalePrice.text = "$" + book.saleprice.toString()
+        holder.homeSaleRootPrice.text = book.price.toString()
+        holder.homeSaleSalePrice.text = book.saleprice.toString()
 
         holder.homeSaleRootPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
     }

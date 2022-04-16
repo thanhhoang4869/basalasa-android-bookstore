@@ -37,7 +37,7 @@ export default {
 
     getBookOnSale: async () => {
         try {
-            const books = await Book.find({ saleprice: { $ne: 0 } }).lean()
+            const books = await Book.find({ saleprice: { $ne: null } }).lean()
             return books.splice(0, 5)
         } catch (err) {
             console.log(err)

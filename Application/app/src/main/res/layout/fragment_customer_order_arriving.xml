@@ -3,7 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fragment.CustomerOrderArriving">
+    tools:context="fragment.CustomerOrderArriving"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:id="@+id/customerOrderArrivingNoInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No information yet"
+        android:gravity="center"
+        android:padding="30dp"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/customerOrderArrivingRC"

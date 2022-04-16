@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="TextView"
-        android:textStyle="bold"
+        android:textColor="@color/primary_green"
         app:layout_constraintStart_toEndOf="@+id/homeSaleRootPrice"
         app:layout_constraintTop_toTopOf="@+id/homeSaleRootPrice" />
 </androidx.constraintlayout.widget.ConstraintLayout>

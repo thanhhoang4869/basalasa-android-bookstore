@@ -66,8 +66,11 @@ class CustomerOrderCanceled : Fragment() {
                 if (response.isSuccessful) {
                     val data = response.body()
                     val arrHistory: ArrayList<CustomerHistory>? = data?.arrHistory
-                    binding.customerOrderCanceledRC.adapter = CustomerOrderTabRCAdapter(arrHistory!!, false)
-                    binding.customerOrderCanceledRC.layoutManager = LinearLayoutManager( context, LinearLayoutManager.VERTICAL, false)
+                    if(!arrHistory!!.isEmpty()) {
+                        binding.customerOrderCanceledRC.adapter = CustomerOrderTabRCAdapter(arrHistory!!, false)
+                        binding.customerOrderCanceledRC.layoutManager = LinearLayoutManager( context, LinearLayoutManager.VERTICAL, false)
+                        binding.customerOrderCanceledNoInfo.visibility = View.GONE
+                    }
                 }
             }
 
