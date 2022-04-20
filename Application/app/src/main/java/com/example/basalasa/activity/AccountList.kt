@@ -44,7 +44,7 @@ class AccountList : AppCompatActivity() {
                     val data = response.body()
                     if (data?.exitcode == 0) {
                         accList= data.accList
-                        Log.d("accLs",accList.toString())
+//                        Log.d("accLs",accList.toString())
                         binding.lsAcc.adapter=AccountListAdapter(accList)
                         binding.lsAcc.layoutManager = LinearLayoutManager(this@AccountList)
 

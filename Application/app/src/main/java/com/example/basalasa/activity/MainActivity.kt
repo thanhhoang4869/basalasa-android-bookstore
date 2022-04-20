@@ -3,6 +3,7 @@ package com.example.basalasa.activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.TextView.OnEditorActionListener
@@ -100,10 +101,15 @@ class MainActivity : AppCompatActivity() {
                 ) {
                     if (response.isSuccessful) {
                         val data = response.body()
+                        Log.d("data", data?.exitcode.toString())
                         if (data?.exitcode == 0) {
                             setCurrentFragment(fragment)
                             binding.topNavBar.isVisible = false
                         }
+                    } else {
+                        val intent = Intent(context, Login::class.java)
+                        startActivity(intent)
+                        finish()
                     }
                 }
 

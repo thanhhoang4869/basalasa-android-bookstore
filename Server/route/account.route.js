@@ -27,7 +27,7 @@ router.post('/login', async(req, res) => {
         return;
     }
 
-    if (account.status) {
+    if (!account.status) {
         res.send({
             "exitcode": 708, //blocked
             token: '',

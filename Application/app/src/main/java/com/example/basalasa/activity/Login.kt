@@ -50,8 +50,10 @@ class Login : AppCompatActivity() {
 
         response.enqueue(object : Callback<LoginResponse> {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+                Log.d("alo",response.toString())
                 if (response.isSuccessful) {
                     val data = response.body()
+                    Log.d("alo",data?.exitcode.toString())
                     if (data?.exitcode == 0) {
                         Intent(context, MainActivity::class.java).also {
                             Log.d("Token saved", Cache.saveToken(context, data.token).toString())
@@ -61,6 +63,10 @@ class Login : AppCompatActivity() {
 
                     } else if (data?.exitcode == 104) {
                         Toast.makeText(context, "Incorrect username or password", Toast.LENGTH_LONG)
+                            .show()
+                    }
+                    else if (data?.exitcode == 708) {
+                        Toast.makeText(context, "You cannot login now!", Toast.LENGTH_LONG)
                             .show()
                     }
                 }
