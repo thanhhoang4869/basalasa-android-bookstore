@@ -9,4 +9,5 @@ class GetAccountResponse {
     @SerializedName("address") val address: String=""
     @SerializedName("role") val role: Int=1
     @SerializedName("status") val status: Int=1
+    @SerializedName("request") val request: Int=0
 }

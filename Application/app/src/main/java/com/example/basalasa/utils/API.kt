@@ -12,6 +12,11 @@ interface API {
         @Body loginBody: LoginBody
     ): Call<LoginResponse>
 
+    @POST("/account/request")
+    fun postSendRequest(
+        @Header("x-access-token") tokenHeader: String,
+    ): Call<SendRequestResponse>
+
     @POST("/account/register")
     fun postRegister(
         @Body registerBody: RegisterBody

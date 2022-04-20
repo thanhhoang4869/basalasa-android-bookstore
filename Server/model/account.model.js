@@ -18,6 +18,7 @@ const UserSchema = new mongoose.Schema({
     fullName: String,
     status: Number,
     emailToken: String,
+    request: Number
 })
 
 const Account = mongoose.model('user', UserSchema, 'user')
@@ -67,6 +68,7 @@ export default {
         }
     },
     async updateAccount(email, user) {
+        // console.log(user)
         try {
             await Account.findOneAndUpdate({ email: email }, {
                 $set: user
@@ -74,5 +76,16 @@ export default {
         } catch (err) {
             console.log(err)
         }
-    }
+    },
+
+    // async updateRequest(email, reqState) {
+    //     console.log(user)
+    //     try {
+    //         await Account.findOneAndUpdate({ email: email }, {
+    //             $set: { request: reqState }
+    //         })
+    //     } catch (err) {
+    //         console.log(err)
+    //     }
+    // }
 }

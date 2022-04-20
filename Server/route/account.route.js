@@ -85,8 +85,29 @@ router.get('/getAccount', async(req, res) => {
         "phone": account.phone,
         "address": account.address,
         "role": account.role,
-        "status": account.status
+        "status": account.status,
+        "request": account.request
     });
+});
+
+router.post('/request', async(req, res) => {
+    try {
+        const email = req.payload.email;
+        const user = await accountModel.findByEmail(email)
+        user.request = 1;
+
+        await accountModel.updateAccount(email, user);
+
+        res.send({
+            "exitcode": 0,
+            message: "Request sent successfully"
+        });
+    } catch (err) {
+        console.log(err);
+        res.send({
+            exitcode: 500,
+        });
+    }
 });
 
 router.post('/register', async(req, res) => {
