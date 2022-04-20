@@ -43,18 +43,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Role"
-                    android:textColor="@color/black" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=" - "
+                    android:layout_weight="1"
                     android:textColor="@color/black" />
                 <TextView
                     android:id="@+id/status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Status"
+                    android:gravity="right"
                     android:textColor="@color/black" />
 
             </LinearLayout>

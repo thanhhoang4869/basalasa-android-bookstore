@@ -32,8 +32,8 @@
 
         <Button
             android:id="@+id/cartBtn"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_marginEnd="10dp"
             android:background="@drawable/ic_cart"
             android:contentDescription="btnCart"
