@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.basalasa.R
@@ -12,17 +13,17 @@ import com.example.basalasa.model.entity.Account
 class AccountListAdapter(
     private val listAccount: ArrayList<Account>
 ) : RecyclerView.Adapter<AccountListAdapter.ViewHolder>() {
-    var onItemClick: ((Int) -> Unit)? = null
+    var onButtonClick: ((Int) -> Unit)? = null
 
     inner class ViewHolder(listItemView: View) : RecyclerView.ViewHolder(listItemView) {
-        val txtEmail = listItemView.findViewById<TextView>(R.id.email)
-        val txtRole = listItemView.findViewById<TextView>(R.id.role)
-        val txtStatus = listItemView.findViewById<TextView>(R.id.status)
-        val banBtn = listItemView.findViewById<TextView>(R.id.banBtn)
+        val txtEmail: TextView = listItemView.findViewById(R.id.email)
+        val txtRole: TextView = listItemView.findViewById(R.id.role)
+        val txtStatus: TextView = listItemView.findViewById(R.id.status)
+        val banBtn: Button = listItemView.findViewById(R.id.banBtn)
 
         init {
-            listItemView.setOnClickListener {
-                onItemClick?.invoke(adapterPosition)
+            banBtn.setOnClickListener {
+                onButtonClick?.invoke(adapterPosition)
             }
         }
     }

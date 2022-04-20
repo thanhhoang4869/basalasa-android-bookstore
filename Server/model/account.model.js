@@ -35,6 +35,7 @@ export default {
 
         return ret || null
     },
+
     async checkEmail(email) {
         const r = await Account.findOne({
             email: email
