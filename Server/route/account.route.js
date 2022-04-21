@@ -9,6 +9,7 @@ import express from 'express'
 import config from '../config/config.js'
 import jwt from 'jsonwebtoken'
 import { sha256 } from 'js-sha256';
+import cartModel from '../model/cart.model.js';
 const salt = 10;
 
 dotenv.config()
@@ -127,6 +128,8 @@ router.post('/register', async (req, res) => {
         role: 0,
         status: false
     })
+
+    await cartModel.CreateCart(email);
 
     res.send({
         "exitcode": 0
