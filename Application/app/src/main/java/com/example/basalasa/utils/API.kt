@@ -125,4 +125,10 @@ interface API {
         @Header("x-access-token") tokenHeader: String,
         @Body changeAccStateBody: ChangeAccStateBody
     ): Call<ChangeAccStateResponse>
+
+    @POST("/cart/checkout")
+    fun postItemCheckout(
+        @Header("x-access-token") tokenHeader: String,
+        @Body CheckoutBody:CheckoutBody
+    ):Call<CheckoutResponse>
 }

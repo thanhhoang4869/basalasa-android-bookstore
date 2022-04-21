@@ -1,11 +1,30 @@
 import mongoose from 'mongoose'
 import config from '../config/config.js'
+import accountModel from './account.model.js'
+import bookModel from './book.model.js'
+import cartModel from '/users/pc/desktop/basalasa/server/model/cart.model.js'
 
 const url = config.url
 
 mongoose.connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+})
+
+const CheckoutSchema = mongoose.Schema({
+    email: {
+        type: String
+    },
+    books: [{
+        id: { type: Number },
+        quantity: { type: Number }
+    },],
+    total:{
+        type:Number
+    },
+    phone:{type:Number},
+    address:{type:String},
+    receiver:{type:String}
 })
 
 const CartSchema = mongoose.Schema({
@@ -19,6 +38,7 @@ const CartSchema = mongoose.Schema({
 })
 
 const Cart = mongoose.model('cart', CartSchema, 'cart')
+const Checkout = mongoose.model('checkout',CheckoutSchema,'checkout')
 
 export default {
     getCartByEmail: async (email) => {
@@ -63,15 +83,17 @@ export default {
             return null;
         }
     },
-    DeleteCart: async (email, name) => {
+    DeleteCart: async (email, id) => {
         try {
-            let cart = await Cart.findOne({ email: email }).lean()
+            let cart = await Cart.findOne({email:email }).lean()
             let arrayCart = []
             for (let i = 0; i < cart.books.length; i++) {
-                if (cart.books[i].name !== name) {
+                if (cart.books[i].id != id) {
                     arrayCart.push(cart.books[i])
                 }
             }
+            console.log("CART")
+            console.log(arrayCart)
             return await Cart.findOneAndUpdate({ email, email }, { books: arrayCart })
         } catch (error) {
             console.log(error)
@@ -83,17 +105,12 @@ export default {
             let check = await Cart.findOne({ email: email }).lean()
             let temp = false
             for (let i = 0; i < check.books.length; i++) {
-
-                console.log(check.books[i].id)
-                console.log(book.id)
                 if (check.books[i].id == book.id) {
-                    console.log("HI")
                     check.books[i].quantity += book.quantity
                     temp = true
                 }
 
             }
-            console.log(temp)
             let cart = null
             if (temp === false) {
                 cart = await Cart.findOneAndUpdate({ email: email }, { $push: { books: book } })
@@ -105,5 +122,61 @@ export default {
             console.log(error)
             return null
         }
-    }
+    },
+    DeleteItem:async(email,id)=>{
+        try{
+            let check = await Cart.findOne({ email: email }).lean()
+            let result = []
+            for (let i = 0;i< check.books.length;i++){
+                if (check.books[i].id!==id){
+                    result.push(check.books[i])
+                }
+            }
+            await Cart.findOneAndUpdate({email:email},{books:result})
+        }catch(error){
+            console.log(error)
+            return null
+        }
+    },
+    createOrder:async (email,data,phone,address,receiver)=>{
+        try{
+
+            if(phone===""&&address===""&&receiver===""){
+                const user = await accountModel.findByEmail(email)
+                phone = user.phone
+                address=user.address
+                receiver=email
+            }
+            let total =0;
+            let result =[]
+            for(let i = 0 ;i<data.length;i++){
+                total+=data[i].price*data[i].quantity
+                let book = await bookModel.getBookByID(data[i].id)
+                if(data[i].quantity<book.quantity)
+                {
+                    result.push(data[i])
+                    //await bookModel.updateQuantity(data[i].id,(book.quantity-data[i].quantity))
+                    //await cartModel.DeleteItem(email,data[i].id)
+                }
+            }
+            total+=30000
+            const newCheckout ={
+                email:email,
+                books:result,
+                total:total,
+                phone:phone,
+                address:address,
+                receiver:receiver
+            }
+            console.log("TEMP")
+            console.log(newCheckout)
+            //await Checkout.create(newCheckout)
+            
+
+        }catch(error){
+            console.log(error)
+            return null
+        }
+    },
+    
 }

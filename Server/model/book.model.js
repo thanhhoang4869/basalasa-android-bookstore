@@ -44,7 +44,14 @@ export default {
             return null
         }
     },
-
+    updateQuantity:async(bookID,quantity)=>{
+        try {
+            const books = await Book.findOneAndUpdate({id:bookID},{quantity:quantity}).lean()
+        } catch (err) {
+            console.log(err)
+            return null
+        }
+    },
     getBook: async(bookID) => {
         return await Book.findOne({ _id: bookID })
     },

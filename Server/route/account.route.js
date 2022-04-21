@@ -62,7 +62,7 @@ router.get('/getAccount', async(req, res) => {
     const data = {
         email: req.payload.email
     }
-
+    
     const account = await accountModel.findByEmail(data.email);
 
     if (account === null) {

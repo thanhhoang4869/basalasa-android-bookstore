@@ -3,14 +3,23 @@ package com.example.basalasa.model.entity
 import com.example.basalasa.model.reponse.GetAccountResponse
 
 class Account(
-    val email: String,
-    val fullName: String,
-    val phone: String,
-    val address: String,
-    val role: Int,
-    val status: Int,
-    val request: Int
+    var email: String,
+    var fullName: String,
+    var phone: String,
+    var address: String,
+    var role: Int,
+    var status: Int,
+    var request: Int
 ) {
+    constructor():this(
+        "",
+        "",
+        "",
+        "",
+        1,
+        1,
+        0
+    )
     constructor(response: GetAccountResponse) : this(
         response.email,
         response.fullName,
