@@ -112,6 +112,11 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
         binding.reqBtn.setOnClickListener { sendRequest() }
     }
 
+    override fun onResume() {
+        super.onResume()
+        getInfo()
+    }
+
     private fun loadInfo(account: Account) {
         binding.email.text=account.email
         binding.name.text = account.fullName
