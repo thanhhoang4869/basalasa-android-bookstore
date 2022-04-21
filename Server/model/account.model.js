@@ -16,13 +16,19 @@ const UserSchema = new mongoose.Schema({
     phone: String,
     role: Number,
     fullName: String,
-    status: Boolean,
+    status: Number,
     emailToken: String,
+    request: Number
 })
 
 const Account = mongoose.model('user', UserSchema, 'user')
 
 export default {
+    async findAll() {
+        const ret = await Account.find({}).sort({ role: "desc" }).lean();
+        return ret || null
+    },
+
     async findByEmail(email) {
         const ret = await Account.findOne({
             email: email
@@ -30,6 +36,7 @@ export default {
 
         return ret || null
     },
+
     async checkEmail(email) {
         const r = await Account.findOne({
             email: email
@@ -61,6 +68,7 @@ export default {
         }
     },
     async updateAccount(email, user) {
+        // console.log(user)
         try {
             await Account.findOneAndUpdate({ email: email }, {
                 $set: user
@@ -68,5 +76,16 @@ export default {
         } catch (err) {
             console.log(err)
         }
-    }
+    },
+
+    // async updateRequest(email, reqState) {
+    //     console.log(user)
+    //     try {
+    //         await Account.findOneAndUpdate({ email: email }, {
+    //             $set: { request: reqState }
+    //         })
+    //     } catch (err) {
+    //         console.log(err)
+    //     }
+    // }
 }

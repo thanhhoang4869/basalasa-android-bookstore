@@ -52,16 +52,23 @@ class Login : AppCompatActivity() {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 if (response.isSuccessful) {
                     val data = response.body()
-                    if (data?.exitcode == 0) {
-                        Intent(context, MainActivity::class.java).also {
-                            Log.d("Token saved", Cache.saveToken(context, data.token).toString())
-                            startActivity(it)
-                            finish()
-                        }
+                    when (data?.exitcode) {
+                        0 -> {
+                            Intent(context, MainActivity::class.java).also {
+                                Log.d("Token saved", Cache.saveToken(context, data.token).toString())
+                                startActivity(it)
+                                finish()
+                            }
 
-                    } else if (data?.exitcode == 104) {
-                        Toast.makeText(context, "Incorrect username or password", Toast.LENGTH_LONG)
-                            .show()
+                        }
+                        104 -> {
+                            Toast.makeText(context, "Incorrect username or password", Toast.LENGTH_LONG)
+                                .show()
+                        }
+                        708 -> {
+                            Toast.makeText(context, "You cannot login now!", Toast.LENGTH_LONG)
+                                .show()
+                        }
                     }
                 }
             }

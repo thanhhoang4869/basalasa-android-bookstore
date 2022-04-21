@@ -15,6 +15,9 @@
         android:usesCleartextTraffic="true"
         tools:replace="android:theme">
         <activity
+            android:name=".activity.AccountList"
+            android:exported="false" />
+        <activity
             android:name=".activity.SellerOrderList"
             android:exported="false" />
         <activity

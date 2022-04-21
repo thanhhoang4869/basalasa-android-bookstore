@@ -25,6 +25,7 @@ tokenAuth(app)
 //Bind route
 bindRoute(app);
 //Start listen
+
 app.listen(3000, function() {
     console.log("Begin listen on port %s...", 3000);
 })

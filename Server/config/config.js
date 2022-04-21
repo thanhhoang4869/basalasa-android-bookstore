@@ -33,5 +33,16 @@ export default {
         CANCELED: 5,
     },
 
+    ROLE: {
+        CUSTOMER: 0,
+        SELLER: 1,
+        ADMIN: 2
+    },
+
+    ACC_STATUS: {
+        ACTIVE: 1,
+        BANNED: 0
+    },
+
     url: 'mongodb+srv://basalasa:mobiledev@basalasa.wcann.mongodb.net/basalasa?retryWrites=true&w=majority',
 };

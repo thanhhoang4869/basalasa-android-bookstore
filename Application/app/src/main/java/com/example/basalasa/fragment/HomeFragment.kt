@@ -64,7 +64,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         arrCategory = ArrayList()
 
         response.enqueue(object : Callback<GetCategoryResponse> {
-            override fun onResponse(call: Call<GetCategoryResponse>, response: Response<GetCategoryResponse>) {
+            override fun onResponse(
+                call: Call<GetCategoryResponse>,
+                response: Response<GetCategoryResponse>
+            ) {
                 if (response.isSuccessful) {
                     val data = response.body()
 
@@ -77,6 +80,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                     binding.homeCategoryRC.layoutManager = LinearLayoutManager( context, LinearLayoutManager.HORIZONTAL, false)
                 }
             }
+
             override fun onFailure(call: Call<GetCategoryResponse>, t: Throwable) {
                 if(isAdded){
                     Toast.makeText(context, "Fail connection to server", Toast.LENGTH_LONG).show()

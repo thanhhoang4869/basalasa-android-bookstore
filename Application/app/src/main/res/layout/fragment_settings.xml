@@ -15,11 +15,11 @@
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:background="@color/white"
+            android:paddingStart="20dp"
             android:paddingTop="20dp"
-            android:text="@string/settings"
+            android:text="Account"
             android:textAlignment="textStart"
             android:textColor="#000000"
-            android:paddingStart="20dp"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -32,6 +32,8 @@
             android:layout_height="100dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
+            android:clickable="false"
+            android:focusable="false"
             android:src="@drawable/user_ava"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -58,18 +60,49 @@
             app:layout_constraintStart_toEndOf="@+id/profile_image"
             app:layout_constraintTop_toTopOf="@+id/profile_image" />
 
+        <LinearLayout
+            android:id="@+id/reqLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:descendantFocusability="blocksDescendants"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_image">
+            <TextView
+                android:id="@+id/reqBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:paddingStart="20dp"
+                android:text="Upgrade to seller"
+                android:textColor="@color/primary_green_thick"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/roleTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="20dp"
+                android:text="Account type: Seller"
+                android:textColor="@color/primary_green_thick"
+                android:textStyle="bold" />
+        </LinearLayout>
+
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="500dp"
             android:paddingBottom="20dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/profile_image">
+            app:layout_constraintTop_toBottomOf="@+id/reqLayout">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -115,7 +148,7 @@
                     android:padding="15dp"
                     android:paddingStart="20dp"
                     android:paddingEnd="20dp"
-                    android:text="@string/product"
+                    android:text="MY BOOKS"
                     android:textAlignment="viewStart"
                     android:textColor="@color/black" />
 
@@ -131,7 +164,7 @@
                     android:padding="15dp"
                     android:paddingStart="20dp"
                     android:paddingEnd="20dp"
-                    android:text="@string/orderList"
+                    android:text="Order management"
                     android:textAlignment="viewStart"
                     android:textColor="@color/black" />
 
@@ -147,7 +180,7 @@
                     android:padding="15dp"
                     android:paddingStart="20dp"
                     android:paddingEnd="20dp"
-                    android:text="@string/accountList"
+                    android:text="@string/account_management"
                     android:textAlignment="viewStart"
                     android:textColor="@color/black" />
 
@@ -163,7 +196,7 @@
                     android:padding="15dp"
                     android:paddingStart="20dp"
                     android:paddingEnd="20dp"
-                    android:text="@string/request"
+                    android:text="Request Management"
                     android:textAlignment="viewStart"
                     android:textColor="@color/black" />
 
@@ -179,7 +212,7 @@
                     android:padding="15dp"
                     android:paddingStart="20dp"
                     android:paddingEnd="20dp"
-                    android:text="@string/order"
+                    android:text="MY ORDERS"
                     android:textAlignment="viewStart"
                     android:textColor="@color/black" />
 

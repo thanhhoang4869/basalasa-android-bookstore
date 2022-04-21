@@ -5,8 +5,9 @@
         "fullName": "Hoang Nhu Thanh",
         "phone": "0933442607",
         "role": 1,
-        "status": false,
-        "emailToken": null
+        "status": 1,
+        "emailToken": null,
+        "request": 0
     },
     {
         "password": "3ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
@@ -15,8 +16,9 @@
         "address": "125 D1, P.25, Binh Thanh, HCM",
         "phone": "0933442607",
         "role": 1,
-        "status": false,
-        "emailToken": null
+        "status": 1,
+        "emailToken": null,
+        "request": 1
     },
     {
         "password": "3ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
@@ -25,8 +27,9 @@
         "address": "125 D1, P.25, Binh Thanh, HCM",
         "phone": "0933442607",
         "role": 0,
-        "status": false,
-        "emailToken": null
+        "status": 1,
+        "emailToken": null,
+        "request": 0
     },
     {
         "password": "3ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
@@ -35,7 +38,8 @@
         "address": "125 D1, P.25, Binh Thanh, HCM",
         "phone": "0933442607",
         "role": 0,
-        "status": true,
-        "emailToken": null
+        "status": 0,
+        "emailToken": null,
+        "request": 1
     }
 ]

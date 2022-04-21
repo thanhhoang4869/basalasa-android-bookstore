@@ -24,4 +24,9 @@
     <string name="request">REQUESTS</string>
     <string name="orderList">ORDER LIST</string>
     <string name="product">PRODUCTS</string>
+    <string name="account_list">Account list</string>
+    <string name="account_management">Account Management</string>
+    <string name="home">Home</string>
+    <string name="category">Category</string>
+    <string name="account">Account</string>
 </resources>

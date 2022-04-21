@@ -16,6 +16,7 @@ export default function(app) {
         const token = req.headers['x-access-token']
 
         jwt.verify(token, config.server.secret, (err, decoded) => {
+
             if (err) {
                 res.status(403);
                 res.send({

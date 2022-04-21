@@ -12,6 +12,11 @@ interface API {
         @Body loginBody: LoginBody
     ): Call<LoginResponse>
 
+    @POST("/account/request")
+    fun postSendRequest(
+        @Header("x-access-token") tokenHeader: String,
+    ): Call<SendRequestResponse>
+
     @POST("/account/register")
     fun postRegister(
         @Body registerBody: RegisterBody
@@ -61,50 +66,63 @@ interface API {
     fun getBookOnSale(): Call<GetBookOnSaleResponse>
 
     @GET("/book")
-    fun getBooks():Call<GetBooksResponse>
+    fun getBooks(): Call<GetBooksResponse>
+
     @POST("/book/getDetails")
     fun getBookDetail(
         @Body getDetailsBody: GetDetailsBody
-    ):Call<GetBookDetailResponse>
+    ): Call<GetBookDetailResponse>
 
     //search
     @POST("/search")
     fun getSearchResults(
         @Body getSearchResultsBody: SearchResultsBody
-    ):Call<GetSearchResultsResponse>
+    ): Call<GetSearchResultsResponse>
 
-    @POST ("/search/filter")
+    @POST("/search/filter")
     fun getFilterResults(
         @Body getFilterResultsBody: FilterResultsBody
-    ):Call<GetFilterResultsResponse>
+    ): Call<GetFilterResultsResponse>
 
     @GET("/cart")
     fun getCart(
         @Header("x-access-token") tokenHeader: String,
-    ):Call<GetCartResponse>
+    ): Call<GetCartResponse>
 
     @POST("/cart/update")
     fun updateCart(
-        @Header("x-access-token")tokenHeader: String,
-        @Body getUpdateResultsBody:UpdateCartBody
-    ):Call<GetUpdateResponse>
+        @Header("x-access-token") tokenHeader: String,
+        @Body getUpdateResultsBody: UpdateCartBody
+    ): Call<GetUpdateResponse>
 
     @POST("/cart/delete")
     fun deleteCart(
-        @Header("x-access-token")tokenHeader: String,
-        @Body deleteCartBody:DeleteCartBody
-    ):Call<GetUpdateResponse>
+        @Header("x-access-token") tokenHeader: String,
+        @Body deleteCartBody: DeleteCartBody
+    ): Call<GetUpdateResponse>
 
     @POST("/cart/add")
     fun addCart(
-        @Header("x-access-token")tokenHeader: String,
-        @Body getAddCartBodyResult:AddCartBody
-    ):Call<GetUpdateResponse>
+        @Header("x-access-token") tokenHeader: String,
+        @Body getAddCartBodyResult: AddCartBody
+    ): Call<GetUpdateResponse>
 
     //seller: order list
     @GET("/seller/pending")
     fun getSellerPendingOrder(
-        @Header("x-access-token")tokenHeader: String,
-        @Query("seller")seller:String
-    ):Call<GetSellerPendingOrderResponse>
+        @Header("x-access-token") tokenHeader: String,
+        @Query("seller") seller: String
+    ): Call<GetSellerPendingOrderResponse>
+
+    //admin
+    @GET("/admin/getAccountList")
+    fun getAccountList(
+        @Header("x-access-token") tokenHeader: String
+    ): Call<GetAccountListResponse>
+
+    @POST("/admin/changeAccState")
+    fun postChangeAccState(
+        @Header("x-access-token") tokenHeader: String,
+        @Body changeAccStateBody: ChangeAccStateBody
+    ): Call<ChangeAccStateResponse>
 }
