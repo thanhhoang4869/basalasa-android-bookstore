@@ -53,6 +53,11 @@ class CustomerOrderPending : Fragment() {
         loadHistory()
     }
 
+    override fun onResume() {
+        super.onResume()
+        loadHistory()
+    }
+
     private fun loadHistory(){
         val token = context?.let { Cache.getToken(it) }
         val response = token?.let { MyAPI.getAPI().getHistory(it, GetHistoryBody("Pending")) }
@@ -84,10 +89,16 @@ class CustomerOrderPending : Fragment() {
                         alertDialog!!.show()
                     }
 
+
+
                     if(!arrHistory!!.isEmpty()) {
                         binding.customerOrderPendingRC.adapter = adapter
                         binding.customerOrderPendingRC.layoutManager = LinearLayoutManager( context, LinearLayoutManager.VERTICAL, false)
                         binding.customerOrderPendingNoInfo.visibility = View.GONE
+                    } else {
+                        binding.customerOrderPendingRC.adapter = adapter
+                        binding.customerOrderPendingRC.layoutManager = LinearLayoutManager( context, LinearLayoutManager.VERTICAL, false)
+                        binding.customerOrderPendingNoInfo.visibility = View.VISIBLE
                     }
                 }
             }
@@ -113,8 +124,8 @@ class CustomerOrderPending : Fragment() {
                 if (response.isSuccessful) {
                     val data = response.body()
                     if(data?.exitcode == 0) {
-                        Toast.makeText(context, "The order was successfully cancelled", Toast.LENGTH_LONG).show()
                         loadHistory()
+                        Toast.makeText(context, "The order was successfully cancelled", Toast.LENGTH_LONG).show()
                     } else {
                         Toast.makeText(context, "Cannot cancel the order", Toast.LENGTH_LONG).show()
                     }
