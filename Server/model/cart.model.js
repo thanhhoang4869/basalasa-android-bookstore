@@ -91,8 +91,6 @@ export default {
                     arrayCart.push(cart.books[i])
                 }
             }
-            console.log("CART")
-            console.log(arrayCart)
             return await Cart.findOneAndUpdate({ email, email }, { books: arrayCart })
         } catch (error) {
             console.log(error)
@@ -153,8 +151,8 @@ export default {
                 let book = await bookModel.getBookByID(data[i].id)
                 if (data[i].quantity < book.quantity) {
                     result.push(data[i])
-                    //await bookModel.updateQuantity(data[i].id,(book.quantity-data[i].quantity))
-                    //await cartModel.DeleteItem(email,data[i].id)
+                    await bookModel.updateQuantity(data[i].id,(book.quantity-data[i].quantity))
+                    await cartModel.DeleteItem(email,data[i].id)
                 }
             }
             total += 30000
@@ -166,9 +164,8 @@ export default {
                 address: address,
                 receiver: receiver
             }
-            console.log("TEMP")
-            console.log(newCheckout)
-            //await Checkout.create(newCheckout)
+
+            await Checkout.create(newCheckout)
 
 
         } catch (error) {

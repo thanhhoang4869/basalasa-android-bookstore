@@ -25,7 +25,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listCartitem"
-        android:layout_width="415dp"
+        android:layout_width="match_parent"
         android:layout_height="511dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="10dp"/>
