@@ -185,7 +185,7 @@
                     android:id="@+id/tvDetail1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Seller:"
+                    android:text="Seller"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/textView10" />
@@ -205,7 +205,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/tvDetail4"
-                    android:text="Release:"
+                    android:text="Release"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvDetail1" />
@@ -226,7 +226,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/tvDetail2"
-                    android:text="Quantity:"
+                    android:text="Remaining"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvDetail2" />
@@ -246,7 +246,7 @@
                     android:id="@+id/tvDetail5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Mark Xoan"
+                    android:text="Author"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/bookCate" />

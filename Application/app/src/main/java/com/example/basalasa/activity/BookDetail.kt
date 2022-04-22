@@ -2,21 +2,14 @@ package com.example.basalasa.activity
 
 import android.content.Intent
 import android.graphics.Paint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.TextView
 import android.widget.Toast
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.basalasa.R
-import com.example.basalasa.adapter.CartAdapter
+import androidx.appcompat.app.AppCompatActivity
 import com.example.basalasa.databinding.ActivityBookDetailBinding
 import com.example.basalasa.model.body.AddCartBody
 import com.example.basalasa.model.body.GetDetailsBody
-import com.example.basalasa.model.entity.BooksInCart
 import com.example.basalasa.model.reponse.GetBookDetailResponse
-import com.example.basalasa.model.reponse.GetCartResponse
 import com.example.basalasa.model.reponse.GetUpdateResponse
 import com.example.basalasa.utils.Cache
 import com.example.basalasa.utils.MyAPI
@@ -24,8 +17,10 @@ import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.DateFormat
 import java.text.DecimalFormat
 import java.text.NumberFormat
+import java.util.*
 
 
 class BookDetail : AppCompatActivity() {
@@ -63,7 +58,9 @@ class BookDetail : AppCompatActivity() {
                     binding.bookAuthor.text=data.author
 
                     binding.bookSalePrice.text=formatter.format(data.saleprice)
-                    binding.bookRelease.text=data.release_year
+                    val df: DateFormat = DateFormat.getDateInstance(DateFormat.LONG, Locale.FRANCE)
+
+                    binding.bookRelease.text= data.release_year
                     binding.bookQuantity.text=data.quantity.toString()
                     binding.bookSeller.text=data.seller
                     binding.bookCate.text=data.category
