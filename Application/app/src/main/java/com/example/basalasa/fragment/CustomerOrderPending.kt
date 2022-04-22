@@ -50,6 +50,7 @@ class CustomerOrderPending : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.customerOrderPendingNoInfo.visibility = View.GONE
         loadHistory()
     }
 
@@ -88,8 +89,6 @@ class CustomerOrderPending : Fragment() {
                         }
                         alertDialog!!.show()
                     }
-
-
 
                     if(!arrHistory!!.isEmpty()) {
                         binding.customerOrderPendingRC.adapter = adapter

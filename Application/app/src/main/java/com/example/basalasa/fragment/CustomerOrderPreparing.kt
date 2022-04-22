@@ -50,6 +50,7 @@ class CustomerOrderPreparing : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.customerOrderPreparingNoInfo.visibility = View.GONE
         loadHistory()
     }
 

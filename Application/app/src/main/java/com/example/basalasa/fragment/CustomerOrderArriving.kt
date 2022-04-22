@@ -46,6 +46,7 @@ class CustomerOrderArriving : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.customerOrderArrivingNoInfo.visibility = View.GONE
         loadHistory()
     }
 

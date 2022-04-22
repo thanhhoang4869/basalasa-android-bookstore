@@ -46,6 +46,7 @@ class CustomerOrderCanceled : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.customerOrderCanceledNoInfo.visibility = View.GONE
         loadHistory()
     }
 
