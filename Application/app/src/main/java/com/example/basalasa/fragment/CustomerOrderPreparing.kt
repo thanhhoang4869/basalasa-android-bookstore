@@ -70,6 +70,9 @@ class CustomerOrderPreparing : Fragment() {
                         binding.customerOrderPreparingRC.adapter = CustomerOrderTabRCAdapter(arrHistory!!, false)
                         binding.customerOrderPreparingRC.layoutManager = LinearLayoutManager( context, LinearLayoutManager.VERTICAL, false)
                         binding.customerOrderPreparingNoInfo.visibility = View.GONE
+                    } else {
+                        binding.customerOrderPreparingNoInfo.visibility = View.VISIBLE
+
                     }
                 }
             }

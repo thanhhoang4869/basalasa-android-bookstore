@@ -66,6 +66,8 @@ class CustomerOrderCompleted : Fragment() {
                         binding.customerOrderCompletedRC.adapter = CustomerOrderTabRCAdapter(arrHistory!!, false)
                         binding.customerOrderCompletedRC.layoutManager = LinearLayoutManager( context, LinearLayoutManager.VERTICAL, false)
                         binding.customerOrderCompletedNoInfo.visibility = View.GONE
+                    } else {
+                        binding.customerOrderCompletedNoInfo.visibility = View.VISIBLE
                     }
                 }
             }

@@ -66,6 +66,8 @@ class CustomerOrderArriving : Fragment() {
                         binding.customerOrderArrivingRC.adapter = CustomerOrderTabRCAdapter(arrHistory!!, false)
                         binding.customerOrderArrivingRC.layoutManager = LinearLayoutManager( context, LinearLayoutManager.VERTICAL, false)
                         binding.customerOrderArrivingNoInfo.visibility = View.GONE
+                    } else {
+                        binding.customerOrderArrivingNoInfo.visibility = View.VISIBLE
                     }
                 }
             }

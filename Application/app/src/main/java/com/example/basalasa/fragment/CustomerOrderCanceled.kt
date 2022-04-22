@@ -71,6 +71,8 @@ class CustomerOrderCanceled : Fragment() {
                         binding.customerOrderCanceledRC.adapter = CustomerOrderTabRCAdapter(arrHistory!!, false)
                         binding.customerOrderCanceledRC.layoutManager = LinearLayoutManager( context, LinearLayoutManager.VERTICAL, false)
                         binding.customerOrderCanceledNoInfo.visibility = View.GONE
+                    } else {
+                        binding.customerOrderCanceledNoInfo.visibility = View.VISIBLE
                     }
                 }
             }

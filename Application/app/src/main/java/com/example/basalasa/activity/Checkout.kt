@@ -60,9 +60,9 @@ class Checkout : AppCompatActivity() {
         binding.itemsCost.text= total.toString()
         binding.totalCost.text =(total +30000).toString()
         binding.submit.setOnClickListener {
-            var email = ""
-            var phone=""
-            var address=""
+            var email = binding.emailReceiver.text.toString()
+            var phone= binding.phoneReceiver.text.toString()
+            var address= binding.addressReceiver.text.toString()
 
             val response = MyAPI.getAPI().postItemCheckout(token.toString(),
                 CheckoutBody(arrBook,email,address,phone)
@@ -101,9 +101,9 @@ class Checkout : AppCompatActivity() {
                     if (data!!.exitcode == 0) {
                         account=Account(data!!)
                         Log.d("account",account.toString())
-                        binding.emailReceiver.hint=account.email
-                        binding.addressReceiver.hint=account.address
-                        binding.phoneReceiver.hint=account.phone
+                        binding.emailReceiver.setText(account.email)
+                        binding.addressReceiver.setText(account.address)
+                        binding.phoneReceiver.setText(account.phone)
                     }
                 }
             }
