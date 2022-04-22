@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.Cart">
+    tools:context=".activity.Cart"
+    android:orientation="vertical">
 
     <TextView
             android:id="@+id/title"
@@ -27,55 +28,48 @@
         android:layout_width="415dp"
         android:layout_height="511dp"
         android:layout_marginTop="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/checkout"
-        android:layout_width="266dp"
-        android:layout_height="77dp"
-        android:backgroundTint="#0ACF83"
-        android:text="Proceed to Checkout"
-        android:textAlignment="center"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listCartitem"
-        app:layout_constraintVertical_bias="0.824" />
-
-    <TextView
-        android:id="@+id/settingEmailTV"
-        android:layout_width="wrap_content"
+        android:layout_marginBottom="10dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Total"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.008"
-        app:layout_constraintStart_toStartOf="@+id/listCartitem"
-        app:layout_constraintTop_toBottomOf="@+id/listCartitem"
-        app:layout_constraintVertical_bias="0.119" />
+        android:layout_weight="18">
+        <TextView
+            android:id="@+id/settingEmailTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_weight="6"/>
 
-    <TextView
-        android:id="@+id/total"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="USD 210"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/settingEmailTV"
-        app:layout_constraintEnd_toEndOf="@+id/listCartitem"
-        app:layout_constraintHorizontal_bias="0.93"
-        app:layout_constraintStart_toEndOf="@+id/settingEmailTV"
-        app:layout_constraintTop_toTopOf="@+id/settingEmailTV"
-        app:layout_constraintVertical_bias="0.0" />
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="USD 210"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textAlignment="textEnd"
+            android:layout_weight="6" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/checkout"
+            android:layout_width="266dp"
+            android:layout_height="77dp"
+            android:layout_marginTop="27dp"
+            android:backgroundTint="#0ACF83"
+            android:text="Proceed to Checkout"
+            android:textAlignment="center"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

@@ -3,26 +3,29 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:layout_weight="18">
+    android:layout_weight="18"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp">
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/checkoutItemName"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="BOOK NAME"
         android:textSize="16dp"
         android:textColor="#000000"
         android:textStyle="bold"
         android:layout_weight="6"
+        android:ellipsize="end"
+        android:singleLine="true"
         />
-    <Space
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="6"/>
+
     <TextView
+        android:id="@+id/price_quantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="6"
         android:text="USD PRICE x QUANTITY"
-        android:textColor="#000000"
+        android:textColor="#0ACF83"
         android:textSize="16dp"
         android:textAlignment="textEnd"
         />

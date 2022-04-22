@@ -9,7 +9,6 @@ router.use(bodyParser.urlencoded({ extended: false }))
 
 router.get('/',async (req,res)=>{
     try{
-        
         const data = {
             email: req.payload.email
         }
@@ -61,8 +60,8 @@ router.post('/delete',async (req,res)=>{
         const data = {
             email: req.payload.email
         }
-        const {name} = req.body
-        const cart = await cartModel.DeleteCart(data.email,name)
+        const {id} = req.body
+        const cart = await cartModel.DeleteCart(data.email,id)
         res.send({
 
         })
@@ -94,5 +93,31 @@ router.post('/add',async (req,res)=>{
             "exitcode":500
         })
     }
+})
+router.post('/checkout',async(req,res)=>{
+    try{
+        const data = {
+            email: req.payload.email
+        }
+        let {address,arrBooks,email,phone} = req.body
+        const cart = await cartModel.createOrder(data.email,arrBooks,phone,address,email)
+        if(!cart){
+            res.send({
+                "exitcode":500
+            })
+        }
+         else{
+            res.send({
+                "exitcode":1
+            })
+        }
+        
+    }catch(error){
+        console.log(error)
+        res.send({
+            "exitcode":500
+        })
+    }
+    
 })
 export default router

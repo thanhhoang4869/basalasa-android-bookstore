@@ -71,7 +71,6 @@ class MainActivity : AppCompatActivity() {
         })
         binding.cartBtn.setOnClickListener {
             val token = Cache.getToken(this)
-            System.out.println(token)
             if (token == null) {
                 val intent = Intent(this, Login::class.java)
                 startActivity(intent)
