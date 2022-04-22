@@ -32,6 +32,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:gravity="bottom"
         android:layout_weight="18">
         <TextView
             android:id="@+id/settingEmailTV"
@@ -40,19 +41,17 @@
             android:layout_height="wrap_content"
             android:text="Total"
             android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_weight="6"/>
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/total"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="USD 210"
+            android:textAlignment="viewEnd"
             android:textColor="@color/primary_green_thick"
             android:textSize="20sp"
-            android:textStyle="bold"
-            android:textAlignment="textEnd"
-            android:layout_weight="6" />
+            android:textStyle="bold" />
     </LinearLayout>
 
     <RelativeLayout

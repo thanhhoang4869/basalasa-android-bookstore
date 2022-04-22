@@ -66,13 +66,13 @@ class CartAdapter(private val arrCartBook: ArrayList<BooksInCart>, private var T
 
         Picasso.get().load(book.img).into(holder.bookImage)
         holder.bookName.text = book.name
-        holder.Price.text = "$" + (book.price*book.quantity).toString()
+        holder.Price.text = (book.price*book.quantity).toString()
         holder.number_button.number = book.quantity.toString()
 
         holder.number_button.setOnValueChangeListener { _, oldValue, newValue ->
             arrCartBook[position].quantity = newValue
-            holder.Price.text = "$" + (arrCartBook[position].price*arrCartBook[position].quantity).toString()
-            if(holder.check_btn.isChecked==true) {
+            holder.Price.text = (arrCartBook[position].price*arrCartBook[position].quantity).toString()
+            if(holder.check_btn.isChecked) {
                 Total.text =
                     (Integer.parseInt(Total.text.toString()) + (newValue - oldValue) * arrCartBook[position].price).toString()
             }
