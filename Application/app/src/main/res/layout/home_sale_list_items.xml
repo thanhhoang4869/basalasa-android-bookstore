@@ -30,7 +30,7 @@
         android:layout_marginTop="24dp"
         android:ellipsize="end"
         android:singleLine="true"
-        android:text="TextView"
+        android:text=""
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/homeSaleImage" />
@@ -39,7 +39,7 @@
         android:id="@+id/homeSaleSalePrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text=""
         android:layout_marginTop="8dp"
         android:textStyle="bold"
         android:textColor="@color/primary_green"
@@ -52,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="TextView"
+        android:text=""
         app:layout_constraintStart_toEndOf="@+id/homeSaleSalePrice"
         app:layout_constraintTop_toTopOf="@+id/homeSaleSalePrice" />
 </androidx.constraintlayout.widget.ConstraintLayout>

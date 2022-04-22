@@ -74,7 +74,6 @@ class MainActivity : AppCompatActivity() {
             if (token == null) {
                 val intent = Intent(this, Login::class.java)
                 startActivity(intent)
-                finish()
             } else {
                 val intent = Intent(this, Cart::class.java)
                 startActivity(intent)
@@ -89,7 +88,6 @@ class MainActivity : AppCompatActivity() {
         if (token === null) {
             val intent = Intent(context, Login::class.java)
             startActivity(intent)
-            finish()
         } else {
             val response = MyAPI.getAPI().getAccount(token.toString())
 
@@ -108,7 +106,6 @@ class MainActivity : AppCompatActivity() {
                     } else {
                         val intent = Intent(context, Login::class.java)
                         startActivity(intent)
-                        finish()
                     }
                 }
 
