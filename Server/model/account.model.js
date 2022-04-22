@@ -25,7 +25,7 @@ const Account = mongoose.model('user', UserSchema, 'user')
 
 export default {
     async findAll() {
-        const ret = await Account.find({}).sort({ role: "desc" }).lean();
+        const ret = await Account.find({ role: { $ne: 2 } }).sort({ role: "desc" }).lean();
         return ret || null
     },
 
