@@ -24,6 +24,8 @@ import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.DecimalFormat
+import java.text.NumberFormat
 
 
 class BookDetail : AppCompatActivity() {
@@ -51,13 +53,16 @@ class BookDetail : AppCompatActivity() {
                 if (response.isSuccessful){
                     val data=response.body()!!
 
-                    binding.bookPrice.text=data.price.toString()
+                    val formatter: NumberFormat = DecimalFormat("#,###")
+                    binding.bookPrice.text = formatter.format(data.price)
+//                    binding.bookPrice.text=data.price.toString()
                     binding.bookPrice.paintFlags=Paint.STRIKE_THRU_TEXT_FLAG
                     binding.bookTitle.text=data.name
                     Picasso.get().load(data.picture).into(binding.bookImage)
                     binding.bookDescription.text=data.description
                     binding.bookAuthor.text=data.author
-                    binding.bookSalePrice.text=data.saleprice.toString()
+
+                    binding.bookSalePrice.text=formatter.format(data.saleprice)
                     binding.bookRelease.text=data.release_year
                     binding.bookQuantity.text=data.quantity.toString()
                     binding.bookSeller.text=data.seller

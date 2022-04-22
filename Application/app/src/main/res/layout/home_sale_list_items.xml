@@ -36,21 +36,23 @@
         app:layout_constraintTop_toBottomOf="@+id/homeSaleImage" />
 
     <TextView
-        android:id="@+id/homeSaleRootPrice"
+        android:id="@+id/homeSaleSalePrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:text="TextView"
+        android:layout_marginTop="8dp"
+        android:textStyle="bold"
+        android:textColor="@color/primary_green"
         app:layout_constraintStart_toStartOf="@+id/homeSaleBookName"
-        app:layout_constraintTop_toBottomOf="@+id/homeSaleBookName" />
+        app:layout_constraintTop_toBottomOf="@+id/homeSaleBookName"
+         />
 
     <TextView
-        android:id="@+id/homeSaleSalePrice"
+        android:id="@+id/homeSaleRootPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="TextView"
-        android:textColor="@color/primary_green"
-        app:layout_constraintStart_toEndOf="@+id/homeSaleRootPrice"
-        app:layout_constraintTop_toTopOf="@+id/homeSaleRootPrice" />
+        app:layout_constraintStart_toEndOf="@+id/homeSaleSalePrice"
+        app:layout_constraintTop_toTopOf="@+id/homeSaleSalePrice" />
 </androidx.constraintlayout.widget.ConstraintLayout>

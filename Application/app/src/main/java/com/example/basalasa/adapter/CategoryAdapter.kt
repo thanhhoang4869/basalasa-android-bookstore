@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.basalasa.R
 import com.example.basalasa.model.entity.Book
 import com.squareup.picasso.Picasso
+import java.text.DecimalFormat
+import java.text.NumberFormat
 
 class CategoryAdapter(private val arrBook: ArrayList<Book>): RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
     private lateinit var mListener: onItemClickListener
@@ -24,9 +26,11 @@ class CategoryAdapter(private val arrBook: ArrayList<Book>): RecyclerView.Adapte
     override fun onBindViewHolder(holder: CategoryAdapter.ViewHolder, position: Int) {
         Picasso.get().load(arrBook[position].picture).into(holder.itemImg)
         holder.itemTitle.text=arrBook[position].name
-        holder.itemPrice.text=arrBook[position].price.toString()
+//        holder.itemPrice.text=arrBook[position].price.toString()
         holder.itemRate.text=arrBook[position].star.toString()
         holder.itemReview.text=arrBook[position].comments?.size.toString()+ " Reviews"
+        val formatter: NumberFormat = DecimalFormat("#,###")
+        holder.itemPrice.text = formatter.format(arrBook[position].price)
     }
 
     override fun getItemCount(): Int {
