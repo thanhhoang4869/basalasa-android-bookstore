@@ -38,19 +38,13 @@ class CategoryAdapter(private val arrBook: ArrayList<Book>): RecyclerView.Adapte
     }
 
     inner class ViewHolder(itemView: View,listener:onItemClickListener): RecyclerView.ViewHolder(itemView){
-        var itemImg: ImageView
-        var itemTitle: TextView
-        var itemPrice: TextView
-        var itemRate: TextView
-        var itemReview: TextView
+        var itemImg: ImageView = itemView.findViewById(R.id.iv_category_rv_img)
+        var itemTitle: TextView = itemView.findViewById(R.id.tv_category_rv_title)
+        var itemPrice: TextView = itemView.findViewById(R.id.tv_category_rv_price)
+        var itemRate: TextView = itemView.findViewById(R.id.tv_category_rv_rate)
+        var itemReview: TextView = itemView.findViewById(R.id.review)
 
         init{
-            itemImg=itemView.findViewById(R.id.iv_category_rv_img)
-            itemTitle=itemView.findViewById(R.id.tv_category_rv_title)
-            itemPrice=itemView.findViewById(R.id.tv_category_rv_price)
-            itemRate=itemView.findViewById(R.id.tv_category_rv_rate)
-            itemReview=itemView.findViewById(R.id.review)
-
             itemView.setOnClickListener {
                 listener.onItemClick((adapterPosition))
             }
