@@ -10,8 +10,7 @@
         android:id="@+id/checkoutItemName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="BOOK NAME"
-        android:textSize="16dp"
+        android:textSize="20dp"
         android:textColor="#000000"
         android:textStyle="bold"
         android:layout_weight="6"
@@ -24,9 +23,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="6"
-        android:text="USD PRICE x QUANTITY"
         android:textColor="#0ACF83"
-        android:textSize="16dp"
+        android:textSize="20dp"
         android:textAlignment="textEnd"
         />
 

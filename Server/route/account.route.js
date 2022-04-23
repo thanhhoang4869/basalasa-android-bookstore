@@ -1,6 +1,6 @@
 import crypto from 'crypto';
 import accountModel from '../model/account.model.js';
-import orderModel from '../model/order.modal.js';
+import orderModel from '../model/order.model.js';
 import bookModel from '../model/book.model.js';
 import transporter from '../utils/nodemailer..js';
 import dotenv from 'dotenv';

@@ -67,11 +67,23 @@ connect().then(() => {
     Cart = mongoose.model('cart', CartSchema, 'cart')
 
     OrderSchema = new mongoose.Schema({
-        email: { type: String, required: true },
-        product: { type: Array, required: true },
-        status: { type: String, required: true },
-        date: { type: Date, required: true },
-        total: { type: Number, required: true },
+        email: {
+            type: String
+        },
+        books: [{
+            id: { type: Number },
+            quantity: { type: Number },
+            price: {type:Number}
+        },],
+        status:{type:String},
+        date:{type:Date},
+        total: {
+            type: Number
+        },
+        phone: { type: Number },
+        address: { type: String },
+        receiver: { type: String },
+    
     })
     Order = mongoose.model('order', OrderSchema, 'order')
 

@@ -5,6 +5,7 @@ import searchRoutes from '../route/search.route.js'
 import cartRoutes from '../route/cart.route.js'
 import sellerRoutes from '../route/seller.route.js'
 import adminRoutes from '../route/admin.route.js'
+import orderRoutes from '../route/order.route.js'
 
 export default function(app) {
     app.use('/admin', adminRoutes)
@@ -14,4 +15,5 @@ export default function(app) {
     app.use('/search', searchRoutes)
     app.use('/cart', cartRoutes)
     app.use('/seller', sellerRoutes)
+    app.use('/order',orderRoutes)
 }

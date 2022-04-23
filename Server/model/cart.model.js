@@ -11,22 +11,6 @@ mongoose.connect(url, {
     useUnifiedTopology: true,
 })
 
-const CheckoutSchema = mongoose.Schema({
-    email: {
-        type: String
-    },
-    books: [{
-        id: { type: Number },
-        quantity: { type: Number },
-        price: {type:Number}
-    },],
-    total: {
-        type: Number
-    },
-    phone: { type: Number },
-    address: { type: String },
-    receiver: { type: String }
-})
 
 const CartSchema = mongoose.Schema({
     email: {
@@ -39,7 +23,7 @@ const CartSchema = mongoose.Schema({
 })
 
 const Cart = mongoose.model('cart', CartSchema, 'cart')
-const Checkout = mongoose.model('checkout', CheckoutSchema, 'checkout')
+
 
 export default {
     getCartByEmail: async (email) => {
@@ -137,50 +121,6 @@ export default {
             return null
         }
     },
-    createOrder: async (email, data, phone, address, receiver) => {
-        try {
-            const user = await accountModel.findByEmail(email)
-            if (phone === "") {    
-                phone = user.phone
-            }
-            if (address === "") {    
-                address = user.address
-            }
-            if (receiver === "") {    
-                receiver = user.email
-            }
-            let total = 0;
-            let result = []
-            for (let i = 0; i < data.length; i++) {
-                total += data[i].price * data[i].quantity
-                let book = await bookModel.getBookByID(data[i].id)
-                if (data[i].quantity < book.quantity) {
-                    console.log("hople")
-                    result.push(data[i])
-                    await bookModel.updateQuantity(data[i].id,(book.quantity-data[i].quantity))
-                    await cartModel.DeleteItem(email,data[i].id)  
-                }
-                else{
-                    return null
-                }
-            }
-            total += 30000
-            const newCheckout = {
-                email: email,
-                books: result,
-                total: total,
-                phone: phone,
-                address: address,
-                receiver: receiver
-            }
-
-            return await Checkout.create(newCheckout)
-
-
-        } catch (error) {
-            console.log(error)
-            return null
-        }
-    },
+    
 
 }

@@ -1,4 +1,4 @@
-import orderModel from '../model/order.modal.js'
+import orderModel from '../model/order.model.js'
 import bookModel from '../model/book.model.js'
 import bodyParser from 'body-parser'
 import express from 'express'

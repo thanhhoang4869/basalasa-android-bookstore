@@ -93,30 +93,5 @@ router.post('/add',async (req,res)=>{
         })
     }
 })
-router.post('/checkout',async(req,res)=>{
-    try{
-        const data = {
-            email: req.payload.email
-        }
-        let {address,arrBooks,email,phone} = req.body
-        const cart = await cartModel.createOrder(data.email,arrBooks,phone,address,email)
-        if(!cart){
-            res.send({
-                "exitcode":500
-            })
-        }
-         else{
-            res.send({
-                "exitcode":1
-            })
-        }
-        
-    }catch(error){
-        console.log(error)
-        res.send({
-            "exitcode":500
-        })
-    }
-    
-})
+
 export default router

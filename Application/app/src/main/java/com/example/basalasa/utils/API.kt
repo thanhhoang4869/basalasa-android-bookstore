@@ -126,7 +126,7 @@ interface API {
         @Body changeAccStateBody: ChangeAccStateBody
     ): Call<ChangeAccStateResponse>
 
-    @POST("/cart/checkout")
+    @POST("/order/add")
     fun postItemCheckout(
         @Header("x-access-token") tokenHeader: String,
         @Body CheckoutBody:CheckoutBody
