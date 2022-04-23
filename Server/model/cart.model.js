@@ -2,6 +2,7 @@ import mongoose from 'mongoose'
 import config from '../config/config.js'
 import accountModel from './account.model.js'
 import bookModel from './book.model.js'
+import cartModel from './cart.model.js'
 
 const url = config.url
 
@@ -16,7 +17,8 @@ const CheckoutSchema = mongoose.Schema({
     },
     books: [{
         id: { type: Number },
-        quantity: { type: Number }
+        quantity: { type: Number },
+        price: {type:Number}
     },],
     total: {
         type: Number
@@ -63,14 +65,14 @@ export default {
             return null;
         }
     },
-    UpdateCart: async (email, name, quantity) => {
+    UpdateCart: async (email, id, quantity) => {
         try {
             let cart = await Cart.findOne({ email: email }).lean()
             let arrayCart = []
             let oldquantity = 0
             for (let i = 0; i < cart.books.length; i++) {
                 arrayCart.push(cart.books[i])
-                if (cart.books[i].name === name) {
+                if (cart.books[i].id === id) {
                     oldquantity = cart.books[i].quantity
                     arrayCart[i].quantity = quantity
                 }
@@ -137,12 +139,15 @@ export default {
     },
     createOrder: async (email, data, phone, address, receiver) => {
         try {
-
-            if (phone === "" && address === "" && receiver === "") {
-                const user = await accountModel.findByEmail(email)
+            const user = await accountModel.findByEmail(email)
+            if (phone === "") {    
                 phone = user.phone
+            }
+            if (address === "") {    
                 address = user.address
-                receiver = email
+            }
+            if (receiver === "") {    
+                receiver = user.email
             }
             let total = 0;
             let result = []
@@ -150,9 +155,13 @@ export default {
                 total += data[i].price * data[i].quantity
                 let book = await bookModel.getBookByID(data[i].id)
                 if (data[i].quantity < book.quantity) {
+                    console.log("hople")
                     result.push(data[i])
                     await bookModel.updateQuantity(data[i].id,(book.quantity-data[i].quantity))
-                    await cartModel.DeleteItem(email,data[i].id)
+                    await cartModel.DeleteItem(email,data[i].id)  
+                }
+                else{
+                    return null
                 }
             }
             total += 30000
@@ -165,7 +174,7 @@ export default {
                 receiver: receiver
             }
 
-            await Checkout.create(newCheckout)
+            return await Checkout.create(newCheckout)
 
 
         } catch (error) {

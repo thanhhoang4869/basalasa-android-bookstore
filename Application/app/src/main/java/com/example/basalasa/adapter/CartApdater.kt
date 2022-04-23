@@ -21,11 +21,10 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class CartAdapter(private val arrCartBook: ArrayList<BooksInCart>, private var Total:TextView): RecyclerView.Adapter<CartAdapter.ViewHolder>() {
+class CartAdapter(private val arrCartBook: ArrayList<BooksInCart>, private var hiddenView:TextView,private var TotalView:TextView): RecyclerView.Adapter<CartAdapter.ViewHolder>() {
     var onItemClick:((BooksInCart, Int) -> Unit)? = null
     var onCheckClick:((BooksInCart,Int,CheckBox)->Unit)?=null
     var removeCheck:((BooksInCart,Int)->Unit)?=null
-    var onChange:((BooksInCart,Int,CheckBox)->Unit)?=null
     lateinit var context: Context
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
@@ -73,16 +72,18 @@ class CartAdapter(private val arrCartBook: ArrayList<BooksInCart>, private var T
             arrCartBook[position].quantity = newValue
             holder.Price.text = (arrCartBook[position].price*arrCartBook[position].quantity).toString()
             if(holder.check_btn.isChecked) {
-                Total.text =
-                    (Integer.parseInt(Total.text.toString()) + (newValue - oldValue) * arrCartBook[position].price).toString()
+                hiddenView.text =
+                    (Integer.parseInt(hiddenView.text.toString()) + (newValue - oldValue) * arrCartBook[position].price).toString()
+                TotalView.text = hiddenView.text
             }
-            updateData(arrCartBook[position].name,arrCartBook[position].price,arrCartBook[position].img,arrCartBook[position].quantity)
-    }}
+            updateData(arrCartBook[position].id,arrCartBook[position].quantity)
+        }
+    }
 
 
-    private fun updateData(name:String, price:Int, img:String, quantity:Int){
+    private fun updateData(id:Int, quantity:Int){
         val token = Cache.getToken(context)
-        val response = MyAPI.getAPI().updateCart(token.toString(),UpdateCartBody(name,price,img,quantity))
+        val response = MyAPI.getAPI().updateCart(token.toString(),UpdateCartBody(id,quantity))
         response.enqueue(object : Callback<GetUpdateResponse> {
             override fun onResponse(call: Call<GetUpdateResponse>, response: Response<GetUpdateResponse>) {
                 if (response.isSuccessful) {

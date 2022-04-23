@@ -27,6 +27,7 @@ class Cart : AppCompatActivity() {
     lateinit var arrBooks: ArrayList<BooksInCart>
     lateinit var adapter:CartAdapter
     var choosen:HashMap<Int,BooksInCart>  = HashMap()
+    private var total:Int=0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,80 +43,95 @@ class Cart : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
-        val response = MyAPI.getAPI().getCart(token.toString())
-        arrBooks = ArrayList()
+        else{
+            val response = MyAPI.getAPI().getCart(token.toString())
+            arrBooks = ArrayList()
 
-        var total=0
-        var seller:String=""
-        response.enqueue(object : Callback<GetCartResponse> {
-            override fun onResponse(call: Call<GetCartResponse>, response: Response<GetCartResponse>) {
-                if (response.isSuccessful) {
-                    val data = response.body()
-                    for(item: BooksInCart in data!!.arrBooks!!) {
-                        arrBooks.add(item)
-                    }
 
-                    val TotalView:TextView=findViewById(R.id.total)
-                    TotalView.text=total.toString()
-                    adapter= CartAdapter(arrBooks,TotalView)
-                    val listCartitem:RecyclerView = findViewById(R.id.listCartitem)
-                    listCartitem.adapter = adapter
-                    listCartitem.layoutManager = LinearLayoutManager(this@Cart)
-                    adapter.onItemClick={
-                        s,position->
-                        if(choosen.get(s.id)!=null) {
-                            TotalView.text =
+            var seller:String=""
+            response.enqueue(object : Callback<GetCartResponse> {
+                override fun onResponse(call: Call<GetCartResponse>, response: Response<GetCartResponse>) {
+                    if (response.isSuccessful) {
+                        val data = response.body()
+                        for(item: BooksInCart in data!!.arrBooks!!) {
+                            arrBooks.add(item)
+                        }
+
+                        val TotalView:TextView=findViewById(R.id.total)
+                        val hiddenView: TextView=findViewById(R.id.tempTotalView)
+                        TotalView.text=total.toString()
+                        hiddenView.text=total.toString()
+                        adapter= CartAdapter(arrBooks,hiddenView,TotalView)
+                        val listCartitem:RecyclerView = findViewById(R.id.listCartitem)
+                        listCartitem.adapter = adapter
+                        listCartitem.layoutManager = LinearLayoutManager(this@Cart)
+                        adapter.onItemClick={
+                                s,position->
+                            if(choosen.get(s.id)!=null) {
+                                hiddenView.text =
                                 (Integer.parseInt(TotalView.text.toString()) - s.price * s.quantity).toString()
-                            choosen.remove(s.id)
-                            seller = ""
+                                TotalView.text=hiddenView.text
+ //                                   (total- s.price * s.quantity).toString()
+                                choosen.remove(s.id)
+                                seller = ""
+                            }
+                            Deletedata(s,position)
                         }
-                        Deletedata(s,position)
-                    }
-                    adapter.onCheckClick={
-                        s,position,check_btn->
-                        if(choosen.size==0){
-                            choosen.put(s.id,s)
-                            seller=s.seller
-                            TotalView.text =(Integer.parseInt(TotalView.text.toString())+s.price*s.quantity).toString()
-                        }
-                        else{
-                            if(s.seller==seller){
+                        adapter.onCheckClick={
+                                s,position,check_btn->
+                            if(choosen.size==0){
                                 choosen.put(s.id,s)
-                                TotalView.text =(Integer.parseInt(TotalView.text.toString())+s.price*s.quantity).toString()
+                                seller=s.seller
+                                hiddenView.text = (Integer.parseInt(TotalView.text.toString())+s.price*s.quantity).toString()
+                                TotalView.text=hiddenView.text
+                                    //(total+s.price*s.quantity).toString()
                             }
                             else{
-                                check_btn.isChecked=false
-                                Toast.makeText(this@Cart, "Different Seller, choose again", Toast.LENGTH_LONG).show()
+                                if(s.seller==seller){
+                                    choosen.put(s.id,s)
+                                    hiddenView.text = (Integer.parseInt(TotalView.text.toString())+s.price*s.quantity).toString()
+                                     TotalView.text=hiddenView.text
+                                //(total+s.price*s.quantity).toString()
+                                }
+                                else{
+                                    check_btn.isChecked=false
+                                    Toast.makeText(this@Cart, "Different Seller, choose again", Toast.LENGTH_LONG).show()
+                                }
                             }
-                        }
 
-                    }
-                    adapter.removeCheck={
-                            s,position->
-                        if(choosen.get(s.id)?.seller==seller){
-                            choosen.remove(s.id)
-                            if(choosen.size==0)
-                                seller=""
-                            TotalView.text =(Integer.parseInt(TotalView.text.toString())-s.price*s.quantity).toString()
+                        }
+                        adapter.removeCheck={
+                                s,position->
+                            if(choosen.get(s.id)?.seller==seller){
+                                choosen.remove(s.id)
+                                if(choosen.size==0)
+                                    seller=""
+                                hiddenView.text = (Integer.parseInt(TotalView.text.toString())-s.price*s.quantity).toString()
+                                TotalView.text=hiddenView.text
+                            //(total-s.price*s.quantity).toString()
+                            }
                         }
 
                     }
                 }
-            }
-            override fun onFailure(call: Call<GetCartResponse>, t: Throwable) {
-                Toast.makeText(this@Cart, "Fail connection to server", Toast.LENGTH_LONG).show()
-                t.printStackTrace()
-            }
+                override fun onFailure(call: Call<GetCartResponse>, t: Throwable) {
+                    Toast.makeText(this@Cart, "Fail connection to server", Toast.LENGTH_LONG).show()
+                    t.printStackTrace()
+                }
 
 
-        })
-        findViewById<Button>(R.id.checkout).setOnClickListener(){
-            var intent:Intent = Intent(this,Checkout::class.java)
-            if(choosen.size!=0) {
-                intent.putExtra("map", choosen)
-                startActivity(intent)
+            })
+            findViewById<Button>(R.id.checkout).setOnClickListener(){
+                var intent:Intent = Intent(this,Checkout::class.java)
+
+                if(choosen.size!=0) {
+                    intent.putExtra("map", choosen)
+                    startActivity(intent)
+                    finish()
+                }
             }
         }
+
     }
     fun Deletedata(book:BooksInCart,position:Int){
         val token = Cache.getToken(this)

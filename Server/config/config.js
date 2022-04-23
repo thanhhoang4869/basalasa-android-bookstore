@@ -13,6 +13,7 @@ export default {
             // '/book/getDetails',
             '/search',
             // '/search/filter',
+            
         ],
 
         expTime: 60 * 60 * 24,

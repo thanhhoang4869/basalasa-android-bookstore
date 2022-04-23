@@ -29,29 +29,44 @@
         android:layout_height="511dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="10dp"/>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:gravity="bottom"
-        android:layout_weight="18">
+        android:orientation="vertical">
         <TextView
-            android:id="@+id/settingEmailTV"
+            android:id="@+id/tempTotalView"
             android:layout_width="wrap_content"
-            android:textColor="@color/primary_green_thick"
+            android:text="0"
             android:layout_height="wrap_content"
-            android:text="Total"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:visibility="invisible">
 
-        <TextView
-            android:id="@+id/total"
+        </TextView>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="USD 210"
-            android:textAlignment="viewEnd"
-            android:textColor="@color/primary_green_thick"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/settingEmailTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total"
+                android:textColor="@color/primary_green_thick"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/total"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textAlignment="viewEnd"
+                android:textColor="@color/primary_green_thick"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
     </LinearLayout>
 
     <RelativeLayout

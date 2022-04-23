@@ -13,8 +13,7 @@ router.get('/',async (req,res)=>{
             email: req.payload.email
         }
         const carts = await cartModel.getCartByEmail(data.email)
-        for (let i = 0;i<carts.books.length;i++){
-            console.log(carts.books[i]);    
+        for (let i = 0;i<carts.books.length;i++){  
             const book =await bookModel.getBookByID(carts.books[i].id)
             carts.books[i].name=book.name
             if(book.saleprice!=null)
@@ -42,8 +41,8 @@ router.post('/update',async(req,res)=>{
         const data = {
             email: req.payload.email
         }
-        const {name,price,img,quantity} = req.body
-        const cart = await cartModel.UpdateCart(data.email,name,quantity)
+        const {id,quantity} = req.body
+        const cart = await cartModel.UpdateCart(data.email,id,quantity)
         res.send({
 
         })
