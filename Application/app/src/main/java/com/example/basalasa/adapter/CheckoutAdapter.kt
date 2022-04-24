@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.basalasa.R
 import com.example.basalasa.model.entity.BooksInCart
 
-class CheckoutAdapter(private val arrCartBook: HashMap<Int,BooksInCart>): RecyclerView.Adapter<CheckoutAdapter.ViewHolder>() {
+class CheckoutAdapter(private val arrCartBook: HashMap<String,BooksInCart>): RecyclerView.Adapter<CheckoutAdapter.ViewHolder>() {
     lateinit var context: Context
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         var bookName: TextView

@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.basalasa.activity.OrderDetail
 import com.example.basalasa.adapter.CustomerOrderTabRCAdapter
 import com.example.basalasa.databinding.FragmentCustomerOrderPendingBinding
 import com.example.basalasa.databinding.FragmentCustomerOrderPreparingBinding
@@ -67,13 +68,19 @@ class CustomerOrderPreparing : Fragment() {
                     val data = response.body()
                     val arrHistory: ArrayList<CustomerHistory>? = data?.arrHistory
                     if(!arrHistory!!.isEmpty()) {
-                        binding.customerOrderPreparingRC.adapter = CustomerOrderTabRCAdapter(arrHistory!!, false)
+                        var adapter =  CustomerOrderTabRCAdapter(arrHistory!!, false)
+                        binding.customerOrderPreparingRC.adapter = adapter
                         binding.customerOrderPreparingRC.layoutManager = LinearLayoutManager( context, LinearLayoutManager.VERTICAL, false)
                         binding.customerOrderPreparingNoInfo.visibility = View.GONE
+
+                        adapter.onItemClick = { customerHistory->
+                            OrderDetail(customerHistory).show(this@CustomerOrderPreparing.childFragmentManager,"bs")
+                        }
                     } else {
                         binding.customerOrderPreparingNoInfo.visibility = View.VISIBLE
 
                     }
+
                 }
             }
 

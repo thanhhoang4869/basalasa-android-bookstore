@@ -53,15 +53,12 @@ export default {
         }
     },
     getBook: async(bookID) => {
-        return await Book.findOne({ _id: bookID })
-    },
-    getHistoryBook: async(bookID) => {
-        return await Book.findOne({ id: bookID })
+        const book= await Book.findOne({ _id: bookID })
+        console.log(book)
+        return book
     },
     findAll: async() => {
         return await Book.find({}).lean() || null;
     },
-    getBookByID: async(bookID) => {
-        return await Book.findOne({ id: bookID })
-    },
+    
 }

@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.basalasa.activity.OrderDetail
 import com.example.basalasa.adapter.CustomerOrderTabRCAdapter
 import com.example.basalasa.databinding.FragmentCustomerOrderPendingBinding
 import com.example.basalasa.model.body.CancelOrderBody
@@ -71,7 +72,7 @@ class CustomerOrderPending : Fragment() {
                 if (response.isSuccessful) {
                     val data = response.body()
                     val arrHistory: ArrayList<CustomerHistory>? = data?.arrHistory
-                    val adapter = CustomerOrderTabRCAdapter(arrHistory!!, true)
+                    var adapter = CustomerOrderTabRCAdapter(arrHistory!!, true)
                     adapter.onCancelClick = { customerHistory ->
                         val alertDialog: AlertDialog? = this.let {
                             val builder = AlertDialog.Builder(context!!)
@@ -99,7 +100,11 @@ class CustomerOrderPending : Fragment() {
                         binding.customerOrderPendingRC.layoutManager = LinearLayoutManager( context, LinearLayoutManager.VERTICAL, false)
                         binding.customerOrderPendingNoInfo.visibility = View.VISIBLE
                     }
+                    adapter.onItemClick = { customerHistory->
+                        OrderDetail(customerHistory).show(this@CustomerOrderPending.childFragmentManager,"bs")
+                    }
                 }
+
             }
 
             override fun onFailure(call: Call<GetCustomerHistoryResponse>, t: Throwable) {

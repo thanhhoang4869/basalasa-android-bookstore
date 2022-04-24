@@ -66,7 +66,7 @@ router.post('/checkout',async(req,res)=>{
         res.send({
             "exitcode":500
         })
-    }
-    
+    }  
 })
+
 export default router

@@ -76,14 +76,14 @@ class CartAdapter(private val arrCartBook: ArrayList<BooksInCart>, private var h
                     (Integer.parseInt(hiddenView.text.toString()) + (newValue - oldValue) * arrCartBook[position].price).toString()
                 TotalView.text = hiddenView.text
             }
-            updateData(arrCartBook[position].id,arrCartBook[position].quantity)
+            updateData(arrCartBook[position]._id,arrCartBook[position].quantity)
         }
     }
 
 
-    private fun updateData(id:Int, quantity:Int){
+    private fun updateData(_id:String, quantity:Int){
         val token = Cache.getToken(context)
-        val response = MyAPI.getAPI().updateCart(token.toString(),UpdateCartBody(id,quantity))
+        val response = MyAPI.getAPI().updateCart(token.toString(),UpdateCartBody(_id,quantity))
         response.enqueue(object : Callback<GetUpdateResponse> {
             override fun onResponse(call: Call<GetUpdateResponse>, response: Response<GetUpdateResponse>) {
                 if (response.isSuccessful) {

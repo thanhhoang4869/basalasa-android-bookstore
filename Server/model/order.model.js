@@ -16,7 +16,7 @@ const OrderSchema = mongoose.Schema({
         type: String
     },
     product: [{
-        id: { type: Number },
+        _id: { type: String },
         quantity: { type: Number },
         price: {type:Number}
     },],
@@ -25,7 +25,7 @@ const OrderSchema = mongoose.Schema({
     total: {
         type: Number
     },
-    phone: { type: Number },
+    phone: { type:String },
     address: { type: String },
     receiver: { type: String },
 
@@ -51,11 +51,11 @@ export default {
             let result = []
             for (let i = 0; i < data.length; i++) {
                 total += data[i].price * data[i].quantity
-                let book = await bookModel.getBookByID(data[i].id)
+                let book = await bookModel.getBook(data[i]._id)
                 if (data[i].quantity < book.quantity) {
                     result.push(data[i])
-                    await bookModel.updateQuantity(data[i].id,(book.quantity-data[i].quantity))
-                    await cartModel.DeleteItem(email,data[i].id)  
+                    await bookModel.updateQuantity(data[i]._id,(book.quantity-data[i].quantity))
+                    await cartModel.DeleteItem(email,data[i]._id)  
                 }
                 else{
                     return null

@@ -253,13 +253,13 @@ router.post('/history', async (req, res) => {
 
     for (let i = 0; i < orders.length; i++) {
         for (let j = 0; j < orders[i].product.length; j++) {
-            const bookInfo = await bookModel.getHistoryBook(orders[i].product[j].book_id);
+            const bookInfo = await bookModel.getBook(orders[i].product[j]._id);
             orders[i].product[j].name = bookInfo.name;
             orders[i].product[j].picture = bookInfo.picture;
         }
         orders[i].date = orders[i].date.toLocaleDateString("vi-VN")
     }
-
+    console.log(orders)
     res.send({ orders })
 });
 

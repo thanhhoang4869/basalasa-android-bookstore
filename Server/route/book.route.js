@@ -19,7 +19,8 @@ router.get('/onsale', async (req, res) => {
 
 router.post('/getDetails', async (req, res) => {
   try {
-    const ret = await bookModel.getBook(req.body.id);
+    const ret = await bookModel.getBook(req.body._id);
+    console.log(req.body._id)
     res.send({
       _id: ret._id,
       id: ret.id,

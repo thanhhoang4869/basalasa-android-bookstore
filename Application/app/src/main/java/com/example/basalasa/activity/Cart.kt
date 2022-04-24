@@ -26,7 +26,7 @@ class Cart : AppCompatActivity() {
     private var binding: ActivityCartBinding? = null
     lateinit var arrBooks: ArrayList<BooksInCart>
     lateinit var adapter:CartAdapter
-    var choosen:HashMap<Int,BooksInCart>  = HashMap()
+    var choosen:HashMap<String,BooksInCart>  = HashMap()
     private var total:Int=0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -67,12 +67,12 @@ class Cart : AppCompatActivity() {
                         listCartitem.layoutManager = LinearLayoutManager(this@Cart)
                         adapter.onItemClick={
                                 s,position->
-                            if(choosen.get(s.id)!=null) {
+                            if(choosen.get(s._id)!=null) {
                                 hiddenView.text =
                                 (Integer.parseInt(TotalView.text.toString()) - s.price * s.quantity).toString()
                                 TotalView.text=hiddenView.text
  //                                   (total- s.price * s.quantity).toString()
-                                choosen.remove(s.id)
+                                choosen.remove(s._id)
                                 seller = ""
                             }
                             Deletedata(s,position)
@@ -80,7 +80,7 @@ class Cart : AppCompatActivity() {
                         adapter.onCheckClick={
                                 s,position,check_btn->
                             if(choosen.size==0){
-                                choosen.put(s.id,s)
+                                choosen.put(s._id,s)
                                 seller=s.seller
                                 hiddenView.text = (Integer.parseInt(TotalView.text.toString())+s.price*s.quantity).toString()
                                 TotalView.text=hiddenView.text
@@ -88,7 +88,7 @@ class Cart : AppCompatActivity() {
                             }
                             else{
                                 if(s.seller==seller){
-                                    choosen.put(s.id,s)
+                                    choosen.put(s._id,s)
                                     hiddenView.text = (Integer.parseInt(TotalView.text.toString())+s.price*s.quantity).toString()
                                      TotalView.text=hiddenView.text
                                 //(total+s.price*s.quantity).toString()
@@ -102,8 +102,8 @@ class Cart : AppCompatActivity() {
                         }
                         adapter.removeCheck={
                                 s,position->
-                            if(choosen.get(s.id)?.seller==seller){
-                                choosen.remove(s.id)
+                            if(choosen.get(s._id)?.seller==seller){
+                                choosen.remove(s._id)
                                 if(choosen.size==0)
                                     seller=""
                                 hiddenView.text = (Integer.parseInt(TotalView.text.toString())-s.price*s.quantity).toString()
@@ -135,7 +135,7 @@ class Cart : AppCompatActivity() {
     }
     fun Deletedata(book:BooksInCart,position:Int){
         val token = Cache.getToken(this)
-        val response = MyAPI.getAPI().deleteCart(token.toString(), DeleteCartBody(book.id))
+        val response = MyAPI.getAPI().deleteCart(token.toString(), DeleteCartBody(book._id))
         response.enqueue(object : Callback<GetUpdateResponse> {
             override fun onResponse(call: Call<GetUpdateResponse>, response: Response<GetUpdateResponse>) {
                 if (response.isSuccessful) {

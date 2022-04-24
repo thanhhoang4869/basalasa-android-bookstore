@@ -22,7 +22,7 @@ import retrofit2.Response
 
 class Checkout : AppCompatActivity() {
     lateinit private var binding: ActivityCheckoutBinding
-    lateinit private var hashMap:HashMap<Int, BooksInCart>
+    lateinit private var hashMap:HashMap<String, BooksInCart>
     lateinit var adapter: CheckoutAdapter
     private var account: Account =Account()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +31,7 @@ class Checkout : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         var intent: Intent = getIntent();
-        hashMap = intent.getSerializableExtra("map") as (HashMap<Int, BooksInCart>)
+        hashMap = intent.getSerializableExtra("map") as (HashMap<String, BooksInCart>)
         getInfo(this)
         Log.d("account2",account.toString())
 

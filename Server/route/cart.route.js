@@ -14,7 +14,7 @@ router.get('/',async (req,res)=>{
         }
         const carts = await cartModel.getCartByEmail(data.email)
         for (let i = 0;i<carts.books.length;i++){  
-            const book =await bookModel.getBookByID(carts.books[i].id)
+            const book =await bookModel.getBook(carts.books[i]._id)
             carts.books[i].name=book.name
             if(book.saleprice!=null)
                 carts.books[i].price=book.saleprice
@@ -41,8 +41,8 @@ router.post('/update',async(req,res)=>{
         const data = {
             email: req.payload.email
         }
-        const {id,quantity} = req.body
-        const cart = await cartModel.UpdateCart(data.email,id,quantity)
+        const {_id,quantity} = req.body
+        const cart = await cartModel.UpdateCart(data.email,_id,quantity)
         res.send({
 
         })
@@ -59,8 +59,8 @@ router.post('/delete',async (req,res)=>{
         const data = {
             email: req.payload.email
         }
-        const {id} = req.body
-        const cart = await cartModel.DeleteCart(data.email,id)
+        const {_id} = req.body
+        const cart = await cartModel.DeleteCart(data.email,_id)
         res.send({
 
         })
@@ -76,9 +76,10 @@ router.post('/add',async (req,res)=>{
         const data={
             email:req.payload.email
         }
-        const {id,quantity} = req.body
+        const {_id,quantity} = req.body
+        console.log(_id)
         const book = {
-            id:id,
+            _id:_id,
             quantity: quantity
         }
         const cart = await cartModel.AddCart(data.email,book)

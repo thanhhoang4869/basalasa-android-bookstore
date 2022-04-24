@@ -1,8 +1,6 @@
 import mongoose from 'mongoose'
 import config from '../config/config.js'
-import accountModel from './account.model.js'
-import bookModel from './book.model.js'
-import cartModel from './cart.model.js'
+
 
 const url = config.url
 
@@ -17,7 +15,7 @@ const CartSchema = mongoose.Schema({
         type: String
     },
     books: [{
-        id: { type: Number },
+        _id: { type: String },
         quantity: { type: Number }
     },]
 })
@@ -49,14 +47,14 @@ export default {
             return null;
         }
     },
-    UpdateCart: async (email, id, quantity) => {
+    UpdateCart: async (email, _id, quantity) => {
         try {
             let cart = await Cart.findOne({ email: email }).lean()
             let arrayCart = []
             let oldquantity = 0
             for (let i = 0; i < cart.books.length; i++) {
                 arrayCart.push(cart.books[i])
-                if (cart.books[i].id === id) {
+                if (cart.books[i]._id === _id) {
                     oldquantity = cart.books[i].quantity
                     arrayCart[i].quantity = quantity
                 }
@@ -68,12 +66,12 @@ export default {
             return null;
         }
     },
-    DeleteCart: async (email, id) => {
+    DeleteCart: async (email, _id) => {
         try {
             let cart = await Cart.findOne({ email: email }).lean()
             let arrayCart = []
             for (let i = 0; i < cart.books.length; i++) {
-                if (cart.books[i].id != id) {
+                if (cart.books[i]._id != _id) {
                     arrayCart.push(cart.books[i])
                 }
             }
@@ -88,7 +86,7 @@ export default {
             let check = await Cart.findOne({ email: email }).lean()
             let temp = false
             for (let i = 0; i < check.books.length; i++) {
-                if (check.books[i].id == book.id) {
+                if (check.books[i]._id == book._id) {
                     check.books[i].quantity += book.quantity
                     temp = true
                 }
@@ -106,12 +104,12 @@ export default {
             return null
         }
     },
-    DeleteItem: async (email, id) => {
+    DeleteItem: async (email, _id) => {
         try {
             let check = await Cart.findOne({ email: email }).lean()
             let result = []
             for (let i = 0; i < check.books.length; i++) {
-                if (check.books[i].id !== id) {
+                if (check.books[i]._id !== _id) {
                     result.push(check.books[i])
                 }
             }
