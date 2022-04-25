@@ -250,8 +250,8 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
     }
 
     fun setViewAdmin() {
-        binding.orderBtn.isVisible = false
-        binding.orderBtnDivider.isVisible = false
+//        binding.orderBtn.isVisible = false
+//        binding.orderBtnDivider.isVisible = false
         binding.orderListBtn.isVisible = false
         binding.orderListBtnDivider.isVisible = false
         binding.productBtn.isVisible = false
