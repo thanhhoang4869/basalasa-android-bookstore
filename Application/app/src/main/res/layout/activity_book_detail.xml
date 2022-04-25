@@ -84,7 +84,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_toEndOf="@id/bookSalePrice"
-                        android:text="@string/oldPrice"
                         android:textSize="24sp"
                         android:textStyle="bold" />
 
@@ -92,7 +91,6 @@
                         android:id="@+id/bookSalePrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="300.000"
                         android:textColor="@color/primary_green"
                         android:textSize="24sp"
                         android:textStyle="bold" />

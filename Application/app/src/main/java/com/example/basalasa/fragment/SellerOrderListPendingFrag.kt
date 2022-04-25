@@ -8,8 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.basalasa.adapter.CustomerOrderTabRCAdapter
+import com.example.basalasa.adapter.SellerPendingOrderAdapter
 import com.example.basalasa.databinding.FragmentSellerOrderListPendingBinding
-import com.example.basalasa.model.entity.CustomerHistory
+import com.example.basalasa.model.reponse.GetCustomerHistoryResponse
 import com.example.basalasa.model.reponse.GetSellerPendingOrderResponse
 import com.example.basalasa.utils.Cache
 import com.example.basalasa.utils.MyAPI
@@ -49,8 +50,9 @@ class SellerOrderListPendingFrag(private val user: String) : Fragment() {
                 response: Response<GetSellerPendingOrderResponse>
             ) {
                 if(response.isSuccessful){
-                    val res=response.body()!!.results
-                    val adapter=CustomerOrderTabRCAdapter(res,true)
+                    val orders= response.body()!!.orders
+                    val adapter=SellerPendingOrderAdapter(orders)
+                    Log.i("?","orders[0].product[0].picture")
                     binding.rv.adapter=adapter
                     binding.rv.layoutManager=LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
                 }

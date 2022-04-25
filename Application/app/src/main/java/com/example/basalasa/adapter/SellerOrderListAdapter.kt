@@ -7,7 +7,7 @@ import com.example.basalasa.fragment.*
 
 class SellerOrderListAdapter(fragment: FragmentActivity, private val user: String): FragmentStateAdapter(fragment) {
     override fun getItemCount(): Int {
-        return 3
+        return 4
     }
 
     override fun createFragment(position: Int): Fragment {
@@ -15,6 +15,7 @@ class SellerOrderListAdapter(fragment: FragmentActivity, private val user: Strin
             0 -> SellerOrderListPendingFrag(user)
             1 -> SellerOrderListProcessingFrag()
             2 -> SellerOrderListCompleteFrag()
+            3 -> SellerOrderListCanceledFrag()
             else -> {
                 Fragment()
             }

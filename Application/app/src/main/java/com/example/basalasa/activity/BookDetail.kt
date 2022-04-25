@@ -49,7 +49,6 @@ class BookDetail : AppCompatActivity() {
                     val data=response.body()!!
 
                     val formatter: NumberFormat = DecimalFormat("#,###")
-                    binding.bookPrice.text = formatter.format(data.price)
 //                    binding.bookPrice.text=data.price.toString()
                     binding.bookPrice.paintFlags=Paint.STRIKE_THRU_TEXT_FLAG
                     binding.bookTitle.text=data.name
@@ -57,7 +56,13 @@ class BookDetail : AppCompatActivity() {
                     binding.bookDescription.text=data.description
                     binding.bookAuthor.text=data.author
 
-                    binding.bookSalePrice.text=formatter.format(data.saleprice)
+                    if(data.saleprice.toString()=="0"){
+                        binding.bookSalePrice.text=formatter.format(data.price)
+                    }else{
+                        binding.bookPrice.text = formatter.format(data.price)
+                        binding.bookSalePrice.text=formatter.format(data.saleprice)
+
+                    }
                     val df: DateFormat = DateFormat.getDateInstance(DateFormat.LONG, Locale.FRANCE)
 
                     binding.bookRelease.text= data.release_year

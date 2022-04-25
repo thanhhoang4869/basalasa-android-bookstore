@@ -22,7 +22,8 @@ class SellerOrderList : AppCompatActivity() {
             when (position) {
                 0 -> tab.text = "Pending"
                 1 -> tab.text = "Processing"
-                2 -> tab.text = "Complete"
+                2 -> tab.text = "Completed"
+                3 -> tab.text="Canceled"
             }
         }.attach()
     }

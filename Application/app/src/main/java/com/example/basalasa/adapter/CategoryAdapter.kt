@@ -1,5 +1,6 @@
 package com.example.basalasa.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,7 +31,11 @@ class CategoryAdapter(private val arrBook: ArrayList<Book>): RecyclerView.Adapte
         holder.itemRate.text=arrBook[position].star.toString()
         holder.itemReview.text=arrBook[position].comments?.size.toString()+ " Reviews"
         val formatter: NumberFormat = DecimalFormat("#,###")
-        holder.itemPrice.text = formatter.format(arrBook[position].price)
+        if(arrBook[position].saleprice.toString()=="0"){
+            holder.itemPrice.text=formatter.format(arrBook[position].price)
+        }else{
+            holder.itemPrice.text = formatter.format(arrBook[position].saleprice)
+        }
     }
 
     override fun getItemCount(): Int {

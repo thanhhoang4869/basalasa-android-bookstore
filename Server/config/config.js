@@ -1,49 +1,48 @@
 export default {
-    server: {
-        port: 3000,
-        noTokenUrl: [
-            '/account/login',
-            // '/',
-            '/account/register',
-            '/account/forget',
-            '/account/verify',
-            '/category',
-            '/book',
-            // '/book/onsale',
-            // '/book/getDetails',
-            '/search',
-            // '/search/filter',
-            
-        ],
+	server: {
+		port: 3000,
+		noTokenUrl: [
+			'/account/login',
+			// '/',
+			'/account/register',
+			'/account/forget',
+			'/account/verify',
+			'/category',
+			'/book',
+			// '/book/onsale',
+			// '/book/getDetails',
+			'/search',
+			// '/search/filter',
+		],
 
-        expTime: 60 * 60 * 24,
-        secret: 'SHIZUKA',
-    },
+		expTime: 60 * 60 * 24,
+		secret: 'SHIZUKA',
+	},
 
-    BOOK_STATUS: {
-        AVAILABLE: 1,
-        OUT_OF_STOCK: 0,
-        ON_SALE: 2,
-    },
+	BOOK_STATUS: {
+		AVAILABLE: 1,
+		OUT_OF_STOCK: 0,
+		ON_SALE: 2,
+	},
 
-    ORDER_STATUS: {
-        PENDING: 1,
-        PREPARING: 2,
-        ARRIVING: 3,
-        COMPLETED: 4,
-        CANCELED: 5,
-    },
+	ORDER_STATUS: {
+		PENDING: 1,
+		PREPARING: 2,
+		ARRIVING: 3,
+		COMPLETED: 4,
+		CANCELED: 5,
+	},
 
-    ROLE: {
-        CUSTOMER: 0,
-        SELLER: 1,
-        ADMIN: 2
-    },
+	ROLE: {
+		CUSTOMER: 0,
+		SELLER: 1,
+		ADMIN: 2,
+	},
 
-    ACC_STATUS: {
-        ACTIVE: 1,
-        BANNED: 0
-    },
+	ACC_STATUS: {
+		ACTIVE: 1,
+		BANNED: 0,
+	},
 
-    url: 'mongodb+srv://basalasa:mobiledev@basalasa.wcann.mongodb.net/basalasa?retryWrites=true&w=majority',
-};
+	url: 'mongodb+srv://basalasa:mobiledev@basalasa.wcann.mongodb.net/basalasa?retryWrites=true&w=majority',
+}

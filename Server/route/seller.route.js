@@ -7,27 +7,28 @@ const router = express.Router()
 router.use(bodyParser.urlencoded({ extended: false }))
 
 router.get('/pending', async (req, res) => {
-	const seller = '19127489@student.hcmus.edu.vn'
+	const seller = req.query.seller,
+		orders = await orderModel.findByStatus('Pending')
+	let response = []
 
-	const orderList = await orderModel.findAll()
-	const bookList = await bookModel.findAll()
-
-	let results = []
-	for (let order of orderList) {
-		for (let book of bookList) {
-			if (
-				order.product[0].book_id == book.id &&
-				book.seller == seller &&
-				order.status == 'Pending'
-			) {
-				order.date = order.date.toLocaleDateString('vi-VN')
-				order.product[0].picture = book.picture
-				results.push(order)
-			}
+	for (let order of orders) {
+		let products = []
+		for (let product of order.product) {
+			const book = await bookModel.findBookWSeller(seller, product._id)
+			products.push({
+				_id: book._id,
+				name: book.name,
+				picture: book.picture,
+				price: book.saleprice == null ? book.price : book.saleprice,
+				quantity: product.quantity,
+			})
 		}
+		const temp = { ...order }
+		temp._doc.product = products
+		response.push(temp._doc)
 	}
-	console.log(results)
-	res.send({ results: results })
+
+	res.send({ orders: response })
 })
 
 export default router
