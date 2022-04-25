@@ -135,7 +135,10 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
                     val data = response.body()
                     when (data?.exitcode) {
                         0 -> {
-                            reload()
+                            binding.reqBtn.isVisible = false
+                            binding.roleTxt.isVisible = true
+                            binding.roleTxt.text = "Your request is in process..."
+                            binding.roleTxt.setTextColor(Color.parseColor("#808080"))
                         }
                         403 -> {
                             Toast.makeText(
