@@ -14,7 +14,8 @@ class GetBookDetailResponse {
     @SerializedName("saleprice") val saleprice:Int=0
     @SerializedName("category") val category:String=""
     @SerializedName("picture") val picture:String=""
-    @SerializedName("release_year") val release_year:String=""
+    @SerializedName("release_year")
+    var release_year:String=""
     @SerializedName("description") val description:String=""
     @SerializedName("quantity") val quantity:Int = 0
     @SerializedName("state") val state:Int = 1
