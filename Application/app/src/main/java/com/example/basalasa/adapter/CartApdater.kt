@@ -20,12 +20,17 @@ import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.lang.Integer.parseInt
+import java.text.DecimalFormat
+import java.text.NumberFormat
 
 class CartAdapter(private val arrCartBook: ArrayList<BooksInCart>, private var hiddenView:TextView,private var TotalView:TextView): RecyclerView.Adapter<CartAdapter.ViewHolder>() {
     var onItemClick:((BooksInCart, Int) -> Unit)? = null
     var onCheckClick:((BooksInCart,Int,CheckBox)->Unit)?=null
     var removeCheck:((BooksInCart,Int)->Unit)?=null
     lateinit var context: Context
+
+    private val formatter: NumberFormat = DecimalFormat("#,###")
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         var bookImage: ImageView
@@ -65,16 +70,17 @@ class CartAdapter(private val arrCartBook: ArrayList<BooksInCart>, private var h
 
         Picasso.get().load(book.img).into(holder.bookImage)
         holder.bookName.text = book.name
-        holder.Price.text = (book.price*book.quantity).toString()
+        holder.Price.text = formatter.format(book.price*book.quantity)
         holder.number_button.number = book.quantity.toString()
 
         holder.number_button.setOnValueChangeListener { _, oldValue, newValue ->
             arrCartBook[position].quantity = newValue
-            holder.Price.text = (arrCartBook[position].price*arrCartBook[position].quantity).toString()
+            holder.Price.text = formatter.format(arrCartBook[position].price*arrCartBook[position].quantity)
             if(holder.check_btn.isChecked) {
                 hiddenView.text =
-                    (Integer.parseInt(hiddenView.text.toString()) + (newValue - oldValue) * arrCartBook[position].price).toString()
-                TotalView.text = hiddenView.text
+                    (parseInt(hiddenView.text.toString()) + (newValue - oldValue) * arrCartBook[position].price).toString()
+                val tmp = hiddenView.text
+                TotalView.text = formatter.format(parseInt(tmp as String))
             }
             updateData(arrCartBook[position]._id,arrCartBook[position].quantity)
         }

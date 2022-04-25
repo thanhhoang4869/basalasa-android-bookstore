@@ -6,9 +6,11 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import com.example.basalasa.databinding.ActivityBookDetailBinding
 import com.example.basalasa.model.body.AddCartBody
 import com.example.basalasa.model.body.GetDetailsBody
+import com.example.basalasa.model.reponse.GetAccountResponse
 import com.example.basalasa.model.reponse.GetBookDetailResponse
 import com.example.basalasa.model.reponse.GetUpdateResponse
 import com.example.basalasa.utils.Cache
@@ -71,14 +73,43 @@ class BookDetail : AppCompatActivity() {
                     binding.bookCate.text=data.category
 
                     binding.addCartBtn.setOnClickListener {
+//                        if (token === null) {
+//                            startActivity(intent)
+//                            finish()
+//                        }
+//
+//                        addCart(token.toString(),data._id)
+
                         if (token === null) {
                             startActivity(intent)
-                            finish()
+                        } else {
+                            val response_ = MyAPI.getAPI().getAccount(token.toString())
+
+                            response_.enqueue(object : Callback<GetAccountResponse> {
+                                override fun onResponse(
+                                    call: Call<GetAccountResponse>,
+                                    response: Response<GetAccountResponse>
+                                ) {
+                                    if (response.isSuccessful) {
+                                        val data_ = response.body()
+                                        Log.d("data", data_?.exitcode.toString())
+                                        if (data_?.exitcode == 0) {
+                                            addCart(token.toString(),data._id)
+                                        }
+                                    } else {
+                                        startActivity(intent)
+                                    }
+                                }
+
+                                override fun onFailure(call: Call<GetAccountResponse>, t: Throwable) {
+                                    Toast.makeText(this@BookDetail, "Fail connection to server", Toast.LENGTH_LONG).show()
+                                    t.printStackTrace()
+                                }
+                            })
                         }
-                        addCart(token.toString(),data._id)
                     }
                 }else{
-                    Log.i("?","fail")
+                    Log.i("test","fail")
                 }
             }
 
