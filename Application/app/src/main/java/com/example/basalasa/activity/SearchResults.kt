@@ -46,16 +46,21 @@ class SearchResults : AppCompatActivity(),BottomSheetFilter.BottomSheetListener 
                     }
 
                     //bind to adapter
-                    val adapter= CategoryAdapter(arrBooks)
-                    binding.searchList.adapter = adapter
-                    binding.searchList.layoutManager = GridLayoutManager(this@SearchResults,2)
-                    adapter.setOnItemClickListener(object :CategoryAdapter.onItemClickListener{
-                        override fun onItemClick(position: Int) {
-                            val intent= Intent(this@SearchResults,BookDetail::class.java)
-                            intent.putExtra("id",arrBooks[position]._id)
-                            startActivity(intent)
-                        }
-                    })
+                    if(arrBooks.size==0){
+                        binding.tvSearchResults.text="Not found"
+                    }else{
+                        binding.tvSearchResults.text="Search for "+input
+                        val adapter= CategoryAdapter(arrBooks)
+                        binding.searchList.adapter = adapter
+                        binding.searchList.layoutManager = GridLayoutManager(this@SearchResults,2)
+                        adapter.setOnItemClickListener(object :CategoryAdapter.onItemClickListener{
+                            override fun onItemClick(position: Int) {
+                                val intent= Intent(this@SearchResults,BookDetail::class.java)
+                                intent.putExtra("id",arrBooks[position]._id)
+                                startActivity(intent)
+                            }
+                        })
+                    }
                 }
             }
             override fun onFailure(call: Call<GetSearchResultsResponse>, t: Throwable) {
@@ -82,16 +87,20 @@ class SearchResults : AppCompatActivity(),BottomSheetFilter.BottomSheetListener 
                         arrBooks.add(item)
                     }
 
-                    val adapter= CategoryAdapter(arrBooks)
-                    binding.searchList.adapter = adapter
-                    binding.searchList.layoutManager = GridLayoutManager(this@SearchResults,2)
-                    adapter.setOnItemClickListener(object :CategoryAdapter.onItemClickListener{
-                        override fun onItemClick(position: Int) {
-                            val intent= Intent(this@SearchResults,BookDetail::class.java)
-                            intent.putExtra("id",arrBooks[position]._id)
-                            startActivity(intent)
-                        }
-                    })
+                    if(arrBooks.size==0){
+                        binding.tvSearchResults.text="Not found"
+                    }else{
+                        val adapter= CategoryAdapter(arrBooks)
+                        binding.searchList.adapter = adapter
+                        binding.searchList.layoutManager = GridLayoutManager(this@SearchResults,2)
+                        adapter.setOnItemClickListener(object :CategoryAdapter.onItemClickListener{
+                            override fun onItemClick(position: Int) {
+                                val intent= Intent(this@SearchResults,BookDetail::class.java)
+                                intent.putExtra("id",arrBooks[position]._id)
+                                startActivity(intent)
+                            }
+                        })
+                    }
                 }
             }
             override fun onFailure(call: Call<GetFilterResultsResponse>, t: Throwable) {
