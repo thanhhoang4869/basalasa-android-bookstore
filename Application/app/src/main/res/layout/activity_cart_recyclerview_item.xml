@@ -62,7 +62,6 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:singleLine="true"
-                android:text="BOOK NAME"
                 android:textColor="#000000"
                 android:textSize="16sp"
                 app:layout_constraintVertical_bias="0.0" />
@@ -71,8 +70,7 @@
                 android:id="@+id/bookPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="USD 200"
-                android:textColor="#0ACF83"
+                android:textColor="@color/primary_green"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -87,7 +85,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
-                    app:backGroundColor="#0ACF83"
+                    app:backGroundColor="@color/primary_green"
                     app:initialNumber="1"
                     app:textSize="7sp" />
 

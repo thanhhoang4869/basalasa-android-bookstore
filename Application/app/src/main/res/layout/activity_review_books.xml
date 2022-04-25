@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="20dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -62,16 +63,16 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <Button
             android:id="@+id/sendButton"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:backgroundTint="#0ACF83"
-            android:text="SEND COMMENT"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            />
+            android:backgroundTint="@color/primary_green"
+            android:text="@string/send"
+            android:textColor="@color/white" />
     </RelativeLayout>
 
 </LinearLayout>
