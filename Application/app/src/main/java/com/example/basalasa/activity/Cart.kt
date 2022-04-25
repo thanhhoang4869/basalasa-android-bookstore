@@ -77,9 +77,10 @@ class Cart : AppCompatActivity() {
                         listCartitem.layoutManager = LinearLayoutManager(this@Cart)
                         adapter.onItemClick = { s, position ->
                             if (choosen.get(s._id) != null) {
+                                total -= s.price * s.quantity
                                 hiddenView.text =
-                                    (parseInt(TotalView.text.toString()) - s.price * s.quantity).toString()
-                                //                                   (total- s.price * s.quantity).toString()
+                                    (parseInt(hiddenView.text.toString()) - s.price * s.quantity).toString()
+                                //total.toString()
                                 tmp = hiddenView.text as String
                                 TotalView.text = formatter.format(parseInt(tmp))
 
@@ -92,15 +93,18 @@ class Cart : AppCompatActivity() {
                             if (choosen.size == 0) {
                                 choosen.put(s._id, s)
                                 seller = s.seller
+                                total += s.price * s.quantity
                                 hiddenView.text =
-                                    (parseInt(TotalView.text.toString()) + s.price * s.quantity).toString()
+                                    (parseInt(hiddenView.text.toString()) + s.price * s.quantity).toString()
+                                //total.toString()
                                 tmp = hiddenView.text as String
                                 TotalView.text = formatter.format(parseInt(tmp))
                             } else {
                                 if (s.seller == seller) {
                                     choosen.put(s._id, s)
                                     hiddenView.text =
-                                        (parseInt(TotalView.text.toString()) + s.price * s.quantity).toString()
+                                        (parseInt(hiddenView.text.toString()) + s.price * s.quantity).toString()
+                                    //(total+ s.price * s.quantity).toString()
                                     tmp = hiddenView.text as String
                                     TotalView.text = formatter.format(parseInt(tmp))
                                     //(total+s.price*s.quantity).toString()
@@ -120,8 +124,11 @@ class Cart : AppCompatActivity() {
                                 choosen.remove(s._id)
                                 if (choosen.size == 0)
                                     seller = ""
+                                total -= s.price * s.quantity
                                 hiddenView.text =
-                                    (parseInt(TotalView.text.toString()) - s.price * s.quantity).toString()
+                                    (parseInt(hiddenView.text.toString()) - s.price * s.quantity).toString()
+                                //total.toString()
+//                                Log.d("Test",hiddenView.text.toString())
                                 tmp = hiddenView.text as String
                                 TotalView.text = formatter.format(parseInt(tmp))
                                 //(total-s.price*s.quantity).toString()

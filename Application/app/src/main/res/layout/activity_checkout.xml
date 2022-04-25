@@ -8,21 +8,21 @@
     tools:context=".activity.Checkout">
 
     <RelativeLayout
+        android:id="@+id/rev"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="-22dp"
-        tools:layout_editor_absoluteY="445dp">
+        android:layout_height="wrap_content">
+        <!--        tools:layout_editor_absoluteX="-22dp"-->
+        <!--        tools:layout_editor_absoluteY="445dp"-->
 
         <TextView
             android:id="@+id/checkouttitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="15dp"
-            android:layout_weight="18"
-            android:text="CHECKOUT"
-            android:textAlignment="center"
+            android:text="@string/checkout"
             android:textColor="#000000"
-            android:textSize="36dp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <LinearLayout
@@ -35,66 +35,47 @@
             android:layout_marginRight="20dp"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Email"
-                android:textColor="#000000"
-                android:textSize="20dp" />
-
             <EditText
                 android:id="@+id/emailReceiver"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/custom_input"
+                android:clickable="false"
                 android:drawableStart="@drawable/ic_email"
+
                 android:drawablePadding="10dp"
+                android:editable="false"
+                android:ems="10"
+                android:hint="@string/email"
                 android:inputType="textEmailAddress"
 
-                android:editable="false"
-                android:clickable="false"
-                android:ems="10"
-                android:hint="Email"
+                android:paddingLeft="5dp" />
 
-                android:paddingLeft="5dp"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="Address"
-                android:textColor="#000000"
-                android:textSize="20dp" />
 
             <EditText
                 android:id="@+id/addressReceiver"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/custom_input"
                 android:drawableStart="@drawable/ic_location"
                 android:drawablePadding="10dp"
                 android:editable="false"
                 android:ems="10"
-                android:hint="Address"
+                android:hint="@string/address"
                 android:inputType="text"
                 android:paddingLeft="5dp" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="Phone"
-                android:textColor="#000000"
-                android:textSize="20dp" />
 
             <EditText
                 android:id="@+id/phoneReceiver"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/custom_input"
                 android:drawableStart="@drawable/ic_phone"
                 android:drawablePadding="10dp"
@@ -103,7 +84,6 @@
                 android:hint="Phone"
                 android:inputType="phone"
                 android:paddingLeft="5dp" />
-
 
 
         </LinearLayout>
@@ -117,14 +97,6 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
             android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="ORDER DETAIL:"
-                android:textColor="#000000"
-                android:textSize="20dp"
-                android:paddingBottom="10dp"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/list"
@@ -142,10 +114,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_weight="6"
-                    android:text="COST"
+                    android:text="Cost"
                     android:textColor="#000000"
                     android:textSize="16dp" />
-
 
 
                 <TextView
@@ -156,7 +127,7 @@
                     android:layout_weight="6"
                     android:text="USD 320"
                     android:textAlignment="textEnd"
-                    android:textColor="#0ACF83"
+                    android:textColor="@color/primary_green"
                     android:textSize="16dp" />
 
 
@@ -173,10 +144,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_weight="6"
-                    android:text="SHIPPING COST"
+                    android:text="Shipping cost"
                     android:textColor="#000000"
                     android:textSize="16dp" />
-
 
 
                 <TextView
@@ -186,8 +156,9 @@
                     android:layout_marginTop="10dp"
                     android:layout_weight="6"
                     android:text="USD 30"
+                    android:textColor="@color/primary_green"
+
                     android:textAlignment="textEnd"
-                    android:textColor="#0ACF83"
                     android:textSize="16dp" />
 
 
@@ -204,7 +175,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_weight="6"
-                    android:text="TOTAL COST"
+                    android:text="Total"
                     android:textColor="#000000"
                     android:textSize="16dp" />
 
@@ -217,21 +188,20 @@
                     android:layout_weight="6"
                     android:text="USD 350"
                     android:textAlignment="textEnd"
-                    android:textColor="#0ACF83"
+                    android:textColor="@color/primary_green"
                     android:textSize="16dp" />
             </LinearLayout>
         </LinearLayout>
 
-        <Button
-            android:id="@+id/submit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/orderDetail"
-            android:layout_centerHorizontal="true"
-            android:backgroundTint="#0ACF83"
-            android:text="CHECKOUT" />
-
-
     </RelativeLayout>
 
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rev"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/primary_green"
+        android:text="Checkout" />
 </RelativeLayout>
