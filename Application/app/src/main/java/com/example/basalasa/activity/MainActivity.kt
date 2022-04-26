@@ -28,61 +28,6 @@ import retrofit2.Response
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
-
-        val homeFragment = HomeFragment()
-        val categoryFragment = CategoryFragment()
-        val settingsFragment = SettingsFragment()
-
-        binding.topNavBar.isVisible = true
-        setCurrentFragment(homeFragment)
-
-        val bottomBar: BottomNavigationView = findViewById(R.id.bottom_bar)
-        bottomBar.setOnItemSelectedListener {
-            when (it.itemId) {
-                R.id.menu_settings -> {
-                    processSettings(this, settingsFragment)
-                }
-                R.id.menu_home -> {
-                    binding.topNavBar.isVisible = true
-                    setCurrentFragment(homeFragment)
-                }
-                R.id.menu_category -> {
-                    binding.topNavBar.isVisible = true
-                    setCurrentFragment(categoryFragment)
-                }
-            }
-            true
-        }
-
-        val searchBar = findViewById<EditText>(R.id.searchBar)
-        searchBar.setOnEditorActionListener(OnEditorActionListener { _, actionId, _ ->
-            if (actionId == EditorInfo.IME_ACTION_DONE) {
-                val intent = Intent(this, SearchResults::class.java)
-                intent.putExtra("searchInput", searchBar.text.toString())
-                startActivity(intent)
-                return@OnEditorActionListener true
-            }
-            return@OnEditorActionListener false
-        })
-        binding.cartBtn.setOnClickListener {
-            val token = Cache.getToken(this)
-            Log.d("tokenTEST",token.toString())
-            if (token === null) {
-                val intent = Intent(this, Login::class.java)
-                startActivity(intent)
-            } else {
-                val intent = Intent(this, Cart::class.java)
-                startActivity(intent)
-            }
-
-        }
-    }
-
     private fun processSettings(context: Context, fragment: Fragment) {
         val token = Cache.getToken(context)
 
@@ -123,4 +68,88 @@ class MainActivity : AppCompatActivity() {
             replace(R.id.flFragment, fragment)
             commit()
         }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+
+        val intent = Intent(this, Login::class.java)
+
+        val homeFragment = HomeFragment()
+        val categoryFragment = CategoryFragment()
+        val settingsFragment = SettingsFragment()
+
+        binding.topNavBar.isVisible = true
+        setCurrentFragment(homeFragment)
+
+        val bottomBar: BottomNavigationView = findViewById(R.id.bottom_bar)
+        bottomBar.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.menu_settings -> {
+                    processSettings(this, settingsFragment)
+                }
+                R.id.menu_home -> {
+                    binding.topNavBar.isVisible = true
+                    setCurrentFragment(homeFragment)
+                }
+                R.id.menu_category -> {
+                    binding.topNavBar.isVisible = true
+                    setCurrentFragment(categoryFragment)
+                }
+            }
+            true
+        }
+
+        val searchBar = findViewById<EditText>(R.id.searchBar)
+        searchBar.setOnEditorActionListener(OnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                val intent = Intent(this, SearchResults::class.java)
+                intent.putExtra("searchInput", searchBar.text.toString())
+                startActivity(intent)
+                return@OnEditorActionListener true
+            }
+            return@OnEditorActionListener false
+        })
+
+        binding.cartBtn.setOnClickListener {
+            val token = Cache.getToken(this)
+            Log.d("tokenTEST", token.toString())
+
+            if (token === null) {
+                startActivity(intent)
+            } else {
+                val response_ = MyAPI.getAPI().getAccount(token.toString())
+
+                response_.enqueue(object : Callback<GetAccountResponse> {
+                    override fun onResponse(
+                        call: Call<GetAccountResponse>,
+                        response: Response<GetAccountResponse>
+                    ) {
+                        if (response.isSuccessful) {
+                            val data_ = response.body()
+                            Log.d("data", data_?.exitcode.toString())
+                            if (data_?.exitcode == 0) {
+                                val intentCart = Intent(this@MainActivity, Cart::class.java)
+                                startActivity(intentCart)
+                            }
+                        } else {
+                            startActivity(intent)
+                        }
+                    }
+
+                    override fun onFailure(call: Call<GetAccountResponse>, t: Throwable) {
+                        Toast.makeText(
+                            this@MainActivity,
+                            "Fail connection to server",
+                            Toast.LENGTH_LONG
+                        )
+                            .show()
+                        t.printStackTrace()
+                    }
+                })
+            }
+        }
+    }
 }

@@ -70,8 +70,10 @@ class CategoryFragment : Fragment(R.layout.fragment_category) {
                 }
             }
             override fun onFailure(call: Call<GetBooksResponse>, t: Throwable) {
-                Toast.makeText(context, "Fail connection to server", Toast.LENGTH_LONG).show()
-                t.printStackTrace()
+                if (isAdded) {
+                    Toast.makeText(context, "Fail connection to server", Toast.LENGTH_LONG).show()
+                    t.printStackTrace()
+                }
             }
         })
     }

@@ -53,7 +53,7 @@ class CustomerOrderArriving : Fragment() {
 
     private fun loadHistory(){
         val token = context?.let { Cache.getToken(it) }
-        val response = token?.let { MyAPI.getAPI().getHistory(it, GetHistoryBody("Canceled")) }
+        val response = token?.let { MyAPI.getAPI().getHistory(it, GetHistoryBody("Arriving")) }
 
         response?.enqueue(object : Callback<GetCustomerHistoryResponse> {
             override fun onResponse(

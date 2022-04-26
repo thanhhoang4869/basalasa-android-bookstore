@@ -116,8 +116,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 }
             }
             override fun onFailure(call: Call<GetBookOnSaleResponse>, t: Throwable) {
-                Toast.makeText(context, "Fail connection to server", Toast.LENGTH_LONG).show()
-                t.printStackTrace()
+                if (isAdded) {
+                    Toast.makeText(context, "Fail connection to server", Toast.LENGTH_LONG).show()
+                    t.printStackTrace()
+                }
             }
         })
     }

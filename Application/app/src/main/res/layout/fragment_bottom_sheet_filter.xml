@@ -11,11 +11,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:text="Filter"
-        android:textColor="@color/black"
-        android:textSize="30sp"
+        android:text="@string/filter"
+        android:textColor="@color/primary_green"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -94,8 +95,8 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:layout_weight="1"
-        android:backgroundTint="@color/green"
-        android:text="apply filter"
+        android:backgroundTint="@color/primary_green"
+        android:text="@string/apply_filter"
         android:textColor="@color/white"
         tools:ignore="TextContrastCheck" />
 

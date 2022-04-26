@@ -12,8 +12,8 @@
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="My cart"
-            android:textColor="#000000"
+            android:text="@string/my_cart"
+            android:textColor="@color/primary_green"
             android:textSize="20dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -23,10 +23,18 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.032" />
 
+    <View
+        android:id="@+id/changePasswordivider"
+        style="@style/Divider"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintStart_toStartOf="@+id/textView100"
+        app:layout_constraintTop_toBottomOf="@+id/textView100" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listCartitem"
         android:layout_width="match_parent"
-        android:layout_height="511dp"
+        android:layout_height="480dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="10dp"/>
 
@@ -77,15 +85,12 @@
             android:id="@+id/checkout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:layout_centerInParent="true"
-            android:layout_marginTop="27dp"
-            android:backgroundTint="#0ACF83"
-            android:text="Proceed to Checkout"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="@color/primary_green"
+            android:text="@string/proceed_to_checkout"
             android:textAlignment="center"
-            android:textSize="15sp"
             android:textStyle="bold" />
     </RelativeLayout>
-
-
-
 </LinearLayout>

@@ -20,6 +20,9 @@ import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.lang.Integer.parseInt
+import java.text.DecimalFormat
+import java.text.NumberFormat
 
 class CartAdapter(private val arrCartBook: ArrayList<BooksInCart>, private var hiddenView:TextView,private var TotalView:TextView): RecyclerView.Adapter<CartAdapter.ViewHolder>() {
     var onItemClick:((BooksInCart, Int) -> Unit)? = null
@@ -27,21 +30,17 @@ class CartAdapter(private val arrCartBook: ArrayList<BooksInCart>, private var h
     var removeCheck:((BooksInCart,Int)->Unit)?=null
     lateinit var context: Context
 
+    private val formatter: NumberFormat = DecimalFormat("#,###")
+
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        var bookImage: ImageView
-        var bookName: TextView
-        var Price: TextView
-        var number_button:ElegantNumberButton
-        var del_btn:ImageView
-        var check_btn:CheckBox
+        var bookImage: ImageView = itemView.findViewById(R.id.CartimageView)
+        var bookName: TextView = itemView.findViewById(R.id.bookName)
+        var Price: TextView = itemView.findViewById(R.id.bookPrice)
+        var number_button:ElegantNumberButton = itemView.findViewById(R.id.numberButton)
+        private var del_btn:ImageView = itemView.findViewById(R.id.delete)
+        var check_btn:CheckBox = itemView.findViewById(R.id.CartcheckBox)
 
         init {
-            bookImage = itemView.findViewById(R.id.CartimageView)
-            bookName = itemView.findViewById(R.id.bookName)
-            Price = itemView.findViewById(R.id.bookPrice)
-            number_button=itemView.findViewById(R.id.numberButton)
-            del_btn=itemView.findViewById(R.id.delete)
-            check_btn = itemView.findViewById(R.id.CartcheckBox)
             del_btn.setOnClickListener {
                 onItemClick?.invoke(arrCartBook[adapterPosition],adapterPosition) }
             check_btn.setOnClickListener{
@@ -65,16 +64,17 @@ class CartAdapter(private val arrCartBook: ArrayList<BooksInCart>, private var h
 
         Picasso.get().load(book.img).into(holder.bookImage)
         holder.bookName.text = book.name
-        holder.Price.text = (book.price*book.quantity).toString()
+        holder.Price.text = formatter.format(book.price*book.quantity)
         holder.number_button.number = book.quantity.toString()
 
         holder.number_button.setOnValueChangeListener { _, oldValue, newValue ->
             arrCartBook[position].quantity = newValue
-            holder.Price.text = (arrCartBook[position].price*arrCartBook[position].quantity).toString()
+            holder.Price.text = formatter.format(arrCartBook[position].price*arrCartBook[position].quantity)
             if(holder.check_btn.isChecked) {
                 hiddenView.text =
-                    (Integer.parseInt(hiddenView.text.toString()) + (newValue - oldValue) * arrCartBook[position].price).toString()
-                TotalView.text = hiddenView.text
+                    (parseInt(hiddenView.text.toString()) + (newValue - oldValue) * arrCartBook[position].price).toString()
+                val tmp = hiddenView.text
+                TotalView.text = formatter.format(parseInt(tmp as String))
             }
             updateData(arrCartBook[position]._id,arrCartBook[position].quantity)
         }

@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:text="@string/account_list"
             android:textAlignment="textStart"
-            android:textColor="#000000"
+            android:textColor="@color/primary_green"
             android:textSize="20sp"
             android:textStyle="bold"/>
 

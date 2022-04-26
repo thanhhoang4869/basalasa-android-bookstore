@@ -12,7 +12,6 @@
     <string name="save">Save</string>
     <string name="full_name">Full name</string>
     <string name="phone">Phone</string>
-    <string name="address">Address</string>
     <string name="confirm">Confirm</string>
     <string name="addToCard">ADD TO CART</string>
     <string name="description">Description</string>
@@ -29,4 +28,12 @@
     <string name="home">Home</string>
     <string name="category">Category</string>
     <string name="account">Account</string>
+    <string name="checkout">Checkout</string>
+    <string name="email">Email</string>
+    <string name="address">Address</string>
+    <string name="proceed_to_checkout">Proceed to Checkout</string>
+    <string name="my_cart">My cart</string>
+    <string name="send">Send</string>
+    <string name="filter">Filter</string>
+    <string name="apply_filter">apply filter</string>
 </resources>
