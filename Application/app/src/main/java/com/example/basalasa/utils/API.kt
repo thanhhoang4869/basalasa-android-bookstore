@@ -57,6 +57,22 @@ interface API {
         @Body cancelOrderBody: CancelOrderBody
     ): Call<CancelOrderResponse>
 
+    @POST("account/history/confirm")
+    fun confirmOrder(
+        @Header("x-access-token") tokenHeader: String,
+        @Body cancelOrderBody: CancelOrderBody
+    ): Call<CancelOrderResponse>
+    @POST("account/history/deliver")
+    fun deliverOrder(
+        @Header("x-access-token") tokenHeader: String,
+        @Body cancelOrderBody: CancelOrderBody
+    ): Call<CancelOrderResponse>
+    @POST("account/history/done")
+    fun doneOrder(
+        @Header("x-access-token") tokenHeader: String,
+        @Body cancelOrderBody: CancelOrderBody
+    ): Call<CancelOrderResponse>
+
     //category
     @GET("/category")
     fun getCategory(): Call<GetCategoryResponse>
@@ -110,6 +126,24 @@ interface API {
     //seller: order list
     @GET("/seller/pending")
     fun getSellerPendingOrder(
+        @Header("x-access-token") tokenHeader: String,
+        @Query("seller") seller: String
+    ): Call<GetSellerPendingOrderResponse>
+
+    @GET("/seller/processing")
+    fun getSellerProcessingOrder(
+        @Header("x-access-token") tokenHeader: String,
+        @Query("seller") seller: String
+    ): Call<GetSellerPendingOrderResponse>
+
+    @GET("/seller/completed")
+    fun getSellerCompletedOrder(
+        @Header("x-access-token") tokenHeader: String,
+        @Query("seller") seller: String
+    ): Call<GetSellerPendingOrderResponse>
+
+    @GET("/seller/completed")
+    fun getSellerCanceledOrder(
         @Header("x-access-token") tokenHeader: String,
         @Query("seller") seller: String
     ): Call<GetSellerPendingOrderResponse>

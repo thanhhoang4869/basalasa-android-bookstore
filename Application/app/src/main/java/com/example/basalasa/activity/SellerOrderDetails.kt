@@ -6,15 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.basalasa.adapter.OrderDetailAdapter
+import com.example.basalasa.adapter.SellerOrderDetailsAdapter
 import com.example.basalasa.databinding.FragmentOrderDetailBinding
-import com.example.basalasa.model.entity.CustomerHistory
-
-
+import com.example.basalasa.model.entity.SellerPendingOrder
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-
-class OrderDetail(private var arrHistory: CustomerHistory): BottomSheetDialogFragment(){
+class SellerOrderDetails(private var arrHistory: SellerPendingOrder): BottomSheetDialogFragment(){
     private lateinit var _binding: FragmentOrderDetailBinding
     private val binding get() = _binding
 
@@ -24,12 +21,9 @@ class OrderDetail(private var arrHistory: CustomerHistory): BottomSheetDialogFra
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentOrderDetailBinding.inflate(inflater, container, false)
-        _binding.orderDetailItem.adapter=OrderDetailAdapter(arrHistory.product)
-
-
+        _binding.orderDetailItem.adapter=SellerOrderDetailsAdapter(arrHistory.product)
         _binding.orderDetailItem.layoutManager=LinearLayoutManager(container?.context)
         _binding.customerOrderTotalMoney.text=arrHistory.total.toString()
-
         return binding.root
     }
 }

@@ -105,4 +105,46 @@ export default {
 	findByStatus: async (status) => {
 		return await Order.find({ status: status })
 	},
+	async confirmOrder(orderId) {
+		try {
+			await Order.findOneAndUpdate(
+				{ _id: orderId },
+				{
+					$set: { status: 'Preparing' },
+				}
+			)
+		} catch (err) {
+			console.log(err)
+		}
+	},
+	async deliverOrder(orderId) {
+		try {
+			await Order.findOneAndUpdate(
+				{ _id: orderId },
+				{
+					$set: { status: 'Arriving' },
+				}
+			)
+		} catch (err) {
+			console.log(err)
+		}
+	},
+	async doneOrder(orderId) {
+		try {
+			await Order.findOneAndUpdate(
+				{ _id: orderId },
+				{
+					$set: { status: 'Completed' },
+				}
+			)
+		} catch (err) {
+			console.log(err)
+		}
+	},
+	findAll: async () => {
+		return (await Order.find({}).lean()) || null
+	},
+	findByStatus: async (status) => {
+		return await Order.find({ status: status })
+	},
 }

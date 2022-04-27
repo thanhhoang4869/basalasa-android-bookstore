@@ -13,9 +13,9 @@ class SellerOrderListAdapter(fragment: FragmentActivity, private val user: Strin
     override fun createFragment(position: Int): Fragment {
         return when(position) {
             0 -> SellerOrderListPendingFrag(user)
-            1 -> SellerOrderListProcessingFrag()
-            2 -> SellerOrderListCompleteFrag()
-            3 -> SellerOrderListCanceledFrag()
+            1 -> SellerOrderListProcessingFrag(user)
+            2 -> SellerOrderListCompleteFrag(user)
+            3 -> SellerOrderListCanceledFrag(user)
             else -> {
                 Fragment()
             }

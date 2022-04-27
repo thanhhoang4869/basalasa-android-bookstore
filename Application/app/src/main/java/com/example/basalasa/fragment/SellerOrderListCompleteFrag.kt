@@ -5,56 +5,66 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.basalasa.R
+import com.example.basalasa.activity.SellerOrderDetails
+import com.example.basalasa.adapter.SellerCompletedOrderAdapter
+import com.example.basalasa.adapter.SellerProcessingOrderAdapter
+import com.example.basalasa.databinding.FragmentCustomerOrderCompletedBinding
+import com.example.basalasa.databinding.FragmentSellerOrderListCompleteBinding
+import com.example.basalasa.databinding.FragmentSellerOrderListProcessingBinding
+import com.example.basalasa.model.reponse.GetSellerPendingOrderResponse
+import com.example.basalasa.utils.Cache
+import com.example.basalasa.utils.MyAPI
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [SellerOrderListCompleteFrag.newInstance] factory method to
- * create an instance of this fragment.
- */
-class SellerOrderListCompleteFrag : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class SellerOrderListCompleteFrag(private val user: String) : Fragment() {
+    private lateinit var _binding: FragmentSellerOrderListCompleteBinding
+    private val binding get() = _binding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+        setHasOptionsMenu(true)
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_seller_order_list_complete, container, false)
+    ): View {
+        _binding= FragmentSellerOrderListCompleteBinding.inflate(inflater,container,false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SellerOrderListCompleteFrag.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SellerOrderListCompleteFrag().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        loadCompleted(user)
+    }
+
+    private fun loadCompleted(user: String) {
+        val token= Cache.getToken(requireContext())
+        val response= MyAPI.getAPI().getSellerCompletedOrder(token.toString(),user)
+
+        response.enqueue(object : Callback<GetSellerPendingOrderResponse> {
+            override fun onResponse(
+                call: Call<GetSellerPendingOrderResponse>,
+                response: Response<GetSellerPendingOrderResponse>
+            ) {
+                if(response.isSuccessful){
+                    val orders= response.body()!!.orders
+                    val adapter= SellerCompletedOrderAdapter(orders)
+                    binding.rv.adapter=adapter
+                    binding.rv.layoutManager=
+                        LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
+                    adapter.onItemClick = { customerHistory->
+                        SellerOrderDetails(customerHistory).show(this@SellerOrderListCompleteFrag.childFragmentManager,"bs")
+                    }
                 }
             }
+
+            override fun onFailure(call: Call<GetSellerPendingOrderResponse>, t: Throwable) {
+            }
+        })
     }
 }
