@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.basalasa.R
 import com.example.basalasa.model.entity.Account
+import javax.security.auth.callback.Callback
 
 class AccountListAdapter(
     private val listAccount: ArrayList<Account>
@@ -24,6 +25,7 @@ class AccountListAdapter(
         init {
             banBtn.setOnClickListener {
                 onButtonClick?.invoke(adapterPosition)
+                super@AccountListAdapter.notifyItemChanged(adapterPosition);
             }
         }
     }

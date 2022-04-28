@@ -1,6 +1,7 @@
 package com.example.basalasa.activity
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -92,15 +93,21 @@ class AccountList : AppCompatActivity() {
                         val data = response.body()
                         when (data?.exitcode) {
                             0 -> {
-                                reload()
+//                                reload()
+                                adapter.notifyItemChanged(pos)
+                                accList[pos].status = newState
+                                Toast.makeText(
+                                    this@AccountList,
+                                    "Success",
+                                    Toast.LENGTH_LONG
+                                ).show()
                             }
                             403 -> {
                                 Toast.makeText(
                                     this@AccountList,
                                     "Token expired",
                                     Toast.LENGTH_LONG
-                                )
-                                    .show()
+                                ).show()
                             }
                         }
                     }
