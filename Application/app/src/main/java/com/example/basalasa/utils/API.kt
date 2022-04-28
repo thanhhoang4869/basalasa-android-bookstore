@@ -120,11 +120,22 @@ interface API {
         @Header("x-access-token") tokenHeader: String
     ): Call<GetAccountListResponse>
 
+    @GET("/admin/getRequestList")
+    fun getRequestList(
+        @Header("x-access-token") tokenHeader: String
+    ): Call<GetRequestListResponse>
+
     @POST("/admin/changeAccState")
     fun postChangeAccState(
         @Header("x-access-token") tokenHeader: String,
         @Body changeAccStateBody: ChangeAccStateBody
     ): Call<ChangeAccStateResponse>
+
+    @POST("/admin/changeRole")
+    fun postChangeRole(
+        @Header("x-access-token") tokenHeader: String,
+        @Body changeRoleBody: ChangeRoleBody
+    ): Call<ChangeRoleResponse>
 
     @POST("/order/add")
     fun postItemCheckout(

@@ -34,6 +34,16 @@ export default {
             email: email
         }).lean();
 
+        delete ret.password
+
+        return ret || null
+    },
+
+    async findRequest() {
+        const ret = await Account.find({
+            request: 1
+        }).lean();
+
         return ret || null
     },
 

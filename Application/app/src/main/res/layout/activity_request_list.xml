@@ -13,7 +13,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/account_list"
+            android:text="Request management"
             android:textAlignment="textStart"
             android:textColor="@color/primary_green"
             android:textSize="20sp"
@@ -25,17 +25,17 @@
             style="@style/Divider" />
 
         <TextView
-            android:id="@+id/noAccTxt"
+            android:id="@+id/noReqTxt"
             android:layout_marginTop="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="No request."
             android:textSize="18sp"
-            android:text="No user/seller account."
             android:textColor="@color/grey_thick"
             android:layout_gravity="center_horizontal"/>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/lsAcc"
+            android:id="@+id/lsReq"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="30dp"/>

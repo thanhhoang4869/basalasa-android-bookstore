@@ -95,6 +95,13 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
             }
         }
 
+        binding.requestBtn.setOnClickListener {
+            activity?.let {
+                val intent = Intent(context, RequestList::class.java)
+                it.startActivity(intent)
+            }
+        }
+
         binding.logoutBtn.setOnClickListener {
             logout()
         }
@@ -218,11 +225,6 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
         }
     }
 
-    fun reload() {
-        parentFragmentManager.beginTransaction().detach(this).commit();
-        parentFragmentManager.beginTransaction().attach(this).commit();
-    }
-
     fun setViewUser() {
         binding.accountListBtn.isVisible = false
         binding.accountListBtnDivider.isVisible = false
@@ -250,8 +252,6 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
     }
 
     fun setViewAdmin() {
-//        binding.orderBtn.isVisible = false
-//        binding.orderBtnDivider.isVisible = false
         binding.orderListBtn.isVisible = false
         binding.orderListBtnDivider.isVisible = false
         binding.productBtn.isVisible = false

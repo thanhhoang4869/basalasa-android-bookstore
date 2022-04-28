@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -29,6 +30,8 @@ class AccountList : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        binding.noAccTxt.isVisible=false
+
         getAccList()
     }
 
@@ -52,6 +55,10 @@ class AccountList : AppCompatActivity() {
                         403 -> {
                             Toast.makeText(this@AccountList, "Token expired", Toast.LENGTH_LONG)
                                 .show()
+                        }
+                        104 -> {
+                            binding.noAccTxt.isVisible=true
+                            binding.lsAcc.isVisible=false
                         }
                     }
                 }
@@ -94,13 +101,13 @@ class AccountList : AppCompatActivity() {
                         when (data?.exitcode) {
                             0 -> {
 //                                reload()
-                                adapter.notifyItemChanged(pos)
                                 accList[pos].status = newState
-                                Toast.makeText(
-                                    this@AccountList,
-                                    "Success",
-                                    Toast.LENGTH_LONG
-                                ).show()
+                                adapter.notifyItemChanged(pos)
+//                                Toast.makeText(
+//                                    this@AccountList,
+//                                    "Success",
+//                                    Toast.LENGTH_LONG
+//                                ).show()
                             }
                             403 -> {
                                 Toast.makeText(
