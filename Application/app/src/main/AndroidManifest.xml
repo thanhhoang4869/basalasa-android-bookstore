@@ -21,7 +21,7 @@
             android:name=".activity.SellerOrderList"
             android:exported="false" />
         <activity
-            android:name=".activity.SellerProductList"
+            android:name=".activity.SellerBookManagement"
             android:exported="false" />
         <activity
             android:name=".activity.CustomerOrder"

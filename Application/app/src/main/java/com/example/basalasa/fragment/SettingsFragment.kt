@@ -70,7 +70,7 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
         }
 
         binding.productBtn.setOnClickListener {
-            val intent = Intent(context, SellerProductList::class.java)
+            val intent = Intent(context, SellerBookManagement::class.java)
             intent.putExtra("user", account.email)
             startActivity(intent)
         }
