@@ -6,6 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".activity.BookDetail">
 
+    <ImageView
+        android:id="@+id/animation"
+        android:layout_width="180dp"
+        android:layout_height="270dp"
+        android:layout_marginTop="10dp"
+        android:contentDescription="image"
+        android:alpha="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bookDetailTopbar"
+        tools:ignore="NotSibling"
+        tools:srcCompat="@drawable/bookcover" />
+
     <RelativeLayout
         android:id="@+id/bookDetailTopbar"
         android:layout_width="0dp"
@@ -332,6 +345,7 @@
         android:layout_marginBottom="10dp"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
+        android:translationZ="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
