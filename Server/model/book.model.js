@@ -62,4 +62,14 @@ export default {
 	findBookWSeller: async (seller, id) => {
 		return await Book.findOne({ seller: seller, _id: id })
 	},
+	deleteBook: async (id) => {
+		return await Book.updateOne(
+			{ _id: id },
+			{
+				$set: {
+					quantity: 0,
+				},
+			}
+		)
+	},
 }

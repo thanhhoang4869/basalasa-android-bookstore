@@ -51,12 +51,12 @@ class BookDetail : AppCompatActivity() {
                     val data = response.body()!!
 
                     val formatter: NumberFormat = DecimalFormat("#,###")
-//                    binding.bookPrice.text=data.price.toString()
                     binding.bookPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
                     binding.bookTitle.text = data.name
                     Picasso.get().load(data.picture).into(binding.bookImage)
+                    Picasso.get().load(data.picture).into(binding.animation)
                     binding.bookDescription.text =
-                        HtmlCompat.fromHtml(data.description, HtmlCompat.FROM_HTML_MODE_COMPACT);
+                        HtmlCompat.fromHtml(data.description, HtmlCompat.FROM_HTML_MODE_COMPACT)
                     binding.bookAuthor.text = data.author
 
                     if (data.saleprice.toString() == "0") {
@@ -91,6 +91,24 @@ class BookDetail : AppCompatActivity() {
                                         Log.d("data", data_?.exitcode.toString())
                                         if (data_?.exitcode == 0) {
                                             addCart(token.toString(), data._id)
+
+                                            binding.animation.animate().apply {
+                                                duration=500
+                                                alpha(0f)
+                                                yBy(1500f)
+                                                scaleYBy(-1f)
+                                                scaleXBy(-1f)
+                                                zBy(90f)
+                                            }.withEndAction {
+                                                binding.animation.animate().apply {
+                                                    duration=1
+                                                    z(0f)
+                                                    alpha(0.5f)
+                                                    yBy(-1500f)
+                                                    scaleYBy(1f)
+                                                    scaleXBy(1f)
+                                                }.start()
+                                            }
                                         }
                                     } else {
                                         startActivity(intent)
@@ -133,8 +151,7 @@ class BookDetail : AppCompatActivity() {
                 response: Response<GetUpdateResponse>
             ) {
                 if (response.isSuccessful) {
-                    Toast.makeText(this@BookDetail, "Add to cart successfully", Toast.LENGTH_LONG)
-                        .show()
+                    //Toast.makeText(this@BookDetail, "Add to cart successfully", Toast.LENGTH_LONG).show()
                 }
             }
 

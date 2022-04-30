@@ -53,6 +53,7 @@ class CustomerOrderCanceled : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        binding.customerOrderCanceledNoInfo.visibility = View.GONE
         loadHistory()
     }
 

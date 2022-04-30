@@ -5,17 +5,15 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.basalasa.fragment.*
 
-class SellerOrderListAdapter(fragment: FragmentActivity, private val user: String): FragmentStateAdapter(fragment) {
+class SellerBookManagementAdapter(fragment: FragmentActivity, private val user: String): FragmentStateAdapter(fragment) {
     override fun getItemCount(): Int {
-        return 4
+        return 2
     }
 
     override fun createFragment(position: Int): Fragment {
         return when(position) {
-            0 -> SellerOrderListPendingFrag(user)
-            1 -> SellerOrderListProcessingFrag(user)
-            2 -> SellerOrderListCompleteFrag(user)
-            3 -> SellerOrderListCanceledFrag(user)
+            0 -> SellerViewBookFrag(user)
+            1 -> SellerAddBookFrag(user)
             else -> {
                 Fragment()
             }

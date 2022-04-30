@@ -205,6 +205,8 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:backgroundTint="@color/primary_green"
         android:text="@string/checkout" />
 </RelativeLayout>

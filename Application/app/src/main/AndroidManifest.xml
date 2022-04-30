@@ -16,6 +16,10 @@
         tools:replace="android:theme">
         <activity
             android:name=".activity.RequestList"
+            android:name=".activity.SellerBookDetails"
+            android:exported="false" />
+        <activity
+            android:name=".activity.SellerBookManagementUpdate"
             android:exported="false" />
         <activity
             android:name=".activity.AccountList"
@@ -24,7 +28,7 @@
             android:name=".activity.SellerOrderList"
             android:exported="false" />
         <activity
-            android:name=".activity.SellerProductList"
+            android:name=".activity.SellerBookManagement"
             android:exported="false" />
         <activity
             android:name=".activity.CustomerOrder"

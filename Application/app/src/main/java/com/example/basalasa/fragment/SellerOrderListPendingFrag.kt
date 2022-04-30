@@ -1,16 +1,19 @@
 package com.example.basalasa.fragment
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.basalasa.adapter.CustomerOrderTabRCAdapter
+import com.example.basalasa.activity.SellerOrderDetails
 import com.example.basalasa.adapter.SellerPendingOrderAdapter
 import com.example.basalasa.databinding.FragmentSellerOrderListPendingBinding
-import com.example.basalasa.model.reponse.GetCustomerHistoryResponse
+import com.example.basalasa.model.body.CancelOrderBody
+import com.example.basalasa.model.entity.SellerPendingOrder
+import com.example.basalasa.model.reponse.CancelOrderResponse
 import com.example.basalasa.model.reponse.GetSellerPendingOrderResponse
 import com.example.basalasa.utils.Cache
 import com.example.basalasa.utils.MyAPI
@@ -52,13 +55,103 @@ class SellerOrderListPendingFrag(private val user: String) : Fragment() {
                 if(response.isSuccessful){
                     val orders= response.body()!!.orders
                     val adapter=SellerPendingOrderAdapter(orders)
-                    Log.i("?","orders[0].product[0].picture")
                     binding.rv.adapter=adapter
                     binding.rv.layoutManager=LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
+                    adapter.onCancel = { customerHistory ->
+                        val alertDialog: AlertDialog = this.let {
+                            val builder = AlertDialog.Builder(context!!)
+                            builder.apply {
+                                setPositiveButton("OK") { _, _ ->
+                                    cancelOrder(customerHistory)
+                                }
+                                setNegativeButton("Cancel") { _, _ ->
+                                }
+                                setTitle("Do you really want to cancel this order?")
+                            }
+                            builder.create()
+                        }
+                        alertDialog.show()
+                    }
+                    adapter.onConfirm = { customerHistory ->
+                        val alertDialog: AlertDialog = this.let {
+                            val builder = AlertDialog.Builder(context!!)
+                            builder.apply {
+                                setPositiveButton("OK") { _, _ ->
+                                    confirmOrder(customerHistory)
+                                }
+                                setNegativeButton("Cancel") { _, _ ->
+                                }
+                                setTitle("Confirm this order?")
+                            }
+                            builder.create()
+                        }
+                        alertDialog.show()
+                    }
+                    adapter.onItemClick = { customerHistory->
+                        SellerOrderDetails(customerHistory).show(this@SellerOrderListPendingFrag.childFragmentManager,"bs")
+                    }
                 }
             }
 
             override fun onFailure(call: Call<GetSellerPendingOrderResponse>, t: Throwable) {
+            }
+        })
+    }
+
+    private fun cancelOrder(customerHistory: SellerPendingOrder) {
+        val token = context?.let { Cache.getToken(it) }
+        val response = token?.let { MyAPI.getAPI().cancelOrder(it, CancelOrderBody(customerHistory._id)) }
+
+        response?.enqueue(object : Callback<CancelOrderResponse> {
+            override fun onResponse(
+                call: Call<CancelOrderResponse>,
+                response: Response<CancelOrderResponse>
+            ) {
+                if (response.isSuccessful) {
+                    val data = response.body()
+                    if(data?.exitcode == 0) {
+                        loadPending(user)
+                        Toast.makeText(context, "The order was successfully cancelled", Toast.LENGTH_LONG).show()
+                    } else {
+                        Toast.makeText(context, "Cannot cancel the order", Toast.LENGTH_LONG).show()
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<CancelOrderResponse>, t: Throwable) {
+                if(isAdded){
+                    Toast.makeText(context, "Fail connection to server", Toast.LENGTH_LONG).show()
+                    t.printStackTrace()
+                }
+            }
+        })
+    }
+
+    private fun confirmOrder(customerHistory: SellerPendingOrder) {
+        val token = context?.let { Cache.getToken(it) }
+        val response = token?.let { MyAPI.getAPI().confirmOrder(it, CancelOrderBody(customerHistory._id)) }
+
+        response?.enqueue(object : Callback<CancelOrderResponse> {
+            override fun onResponse(
+                call: Call<CancelOrderResponse>,
+                response: Response<CancelOrderResponse>
+            ) {
+                if (response.isSuccessful) {
+                    val data = response.body()
+                    if(data?.exitcode == 0) {
+                        loadPending(user)
+                        Toast.makeText(context, "The order was successfully confirmed", Toast.LENGTH_LONG).show()
+                    } else {
+                        Toast.makeText(context, "Cannot confirm the order", Toast.LENGTH_LONG).show()
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<CancelOrderResponse>, t: Throwable) {
+                if(isAdded){
+                    Toast.makeText(context, "Fail connection to server", Toast.LENGTH_LONG).show()
+                    t.printStackTrace()
+                }
             }
         })
     }

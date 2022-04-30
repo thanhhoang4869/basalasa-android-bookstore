@@ -57,6 +57,7 @@ class CustomerOrderPending : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        binding.customerOrderPendingNoInfo.visibility = View.GONE
         loadHistory()
     }
 

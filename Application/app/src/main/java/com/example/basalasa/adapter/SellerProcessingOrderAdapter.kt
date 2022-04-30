@@ -10,21 +10,21 @@ import com.example.basalasa.R
 import com.example.basalasa.model.entity.SellerPendingOrder
 import com.squareup.picasso.Picasso
 
-class SellerPendingOrderAdapter(private val orders:ArrayList<SellerPendingOrder>):RecyclerView.Adapter<SellerPendingOrderAdapter.ViewHolder>() {
+class SellerProcessingOrderAdapter(private val orders:ArrayList<SellerPendingOrder>):RecyclerView.Adapter<SellerProcessingOrderAdapter.ViewHolder>() {
     var onItemClick: ((SellerPendingOrder) -> Unit)? = null
-    var onConfirm:((SellerPendingOrder)->Unit)?=null
-    var onCancel: ((SellerPendingOrder) -> Unit)? = null
+    var onDone:((SellerPendingOrder)->Unit)?=null
+    var onDeliver: ((SellerPendingOrder) -> Unit)? = null
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): SellerPendingOrderAdapter.ViewHolder {
+    ): SellerProcessingOrderAdapter.ViewHolder {
         val inflater=LayoutInflater.from(parent.context)
-        val view=inflater.inflate(R.layout.fragment_seller_order_pending_rv_item,parent,false)
+        val view=inflater.inflate(R.layout.fragment_seller_order_processing_rv_item,parent,false)
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: SellerPendingOrderAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: SellerProcessingOrderAdapter.ViewHolder, position: Int) {
         val order = orders[position]
 
         Picasso.get().load(order.product[0].picture).into(holder.image)
@@ -32,6 +32,12 @@ class SellerPendingOrderAdapter(private val orders:ArrayList<SellerPendingOrder>
         holder.name.text = order.product[0].name
         holder.quantity.text = "x" + order.product[0].quantity.toString()
         holder.total.text = order.total.toString()
+
+        if(order.status=="Preparing"){
+            holder.done.visibility=View.GONE
+        }else{
+            holder.deliver.visibility=View.GONE
+        }
     }
 
     override fun getItemCount(): Int {
@@ -44,20 +50,21 @@ class SellerPendingOrderAdapter(private val orders:ArrayList<SellerPendingOrder>
         var name: TextView = itemView.findViewById(R.id.customerOrderName)
         var quantity: TextView = itemView.findViewById(R.id.customerOrderQuantity)
         var total: TextView = itemView.findViewById(R.id.customerOrderTotalMoney)
-        private var confirm:TextView=itemView.findViewById(R.id.btnConfirm)
-        private var cancel:TextView=itemView.findViewById(R.id.btnCancel)
+        var deliver:TextView=itemView.findViewById(R.id.btnDeliver)
+        var done:TextView=itemView.findViewById(R.id.btnDone)
 
         init{
             itemView.setOnClickListener {
                 onItemClick?.invoke(orders[adapterPosition])
             }
 
-            cancel.setOnClickListener {
-                onCancel?.invoke(orders[adapterPosition])
+            deliver.setOnClickListener {
+                onDeliver?.invoke(orders[adapterPosition])
             }
 
-            confirm.setOnClickListener {
-                onConfirm?.invoke(orders[adapterPosition])
+            done.setOnClickListener {
+                onDone?.invoke(orders[adapterPosition])
             }
         }
-    }}
+    }
+}

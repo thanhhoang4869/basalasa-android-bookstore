@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.BookDetail">
+    tools:context=".activity.SellerBookDetails">
 
     <ImageView
         android:id="@+id/animation"
@@ -348,32 +348,33 @@
         android:translationZ="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        android:gravity="center">
 
         <Button
-            android:id="@+id/addCartBtn"
+            android:id="@+id/btnDelete"
             style="?android:attr/borderlessButtonStyle"
-            android:layout_width="match_parent"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="7dp"
-            android:layout_toEndOf="@id/addReviewBtn"
+            android:layout_toEndOf="@id/btnEdit"
             android:background="@null"
-            android:backgroundTint="@color/primary_green"
-            android:text="@string/addToCard"
+            android:backgroundTint="@color/light_red"
+            android:text="Delete"
             android:textColor="@color/white"
             android:textSize="18sp" />
 
         <Button
-            android:id="@+id/addReviewBtn"
+            android:id="@+id/btnEdit"
             style="?android:attr/borderlessButtonStyle"
-            android:layout_width="48dp"
-            android:layout_height="50dp"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
             android:background="@null"
-            android:backgroundTint="@color/white"
-            android:contentDescription="reviewBtn"
-            android:drawableTop="@drawable/ic_review" />
+            android:backgroundTint="#0ACF83"
+            android:text="Edit"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
 
     </RelativeLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
