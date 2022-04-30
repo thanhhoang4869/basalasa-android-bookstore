@@ -1,7 +1,6 @@
 package com.example.basalasa.activity
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -127,12 +126,5 @@ class AccountList : AppCompatActivity() {
                 }
             })
         }
-    }
-
-    fun reload() {
-        finish();
-        overridePendingTransition(0, 0);
-        startActivity(intent);
-        overridePendingTransition(0, 0);
     }
 }
