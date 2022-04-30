@@ -31,7 +31,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/buttonBack"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -81,9 +81,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/bookImage"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
                     android:text="DATA STRUCTURES FOR NEWBIE "
                     android:textColor="#000000"
-                    android:textSize="30sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <RelativeLayout
@@ -109,7 +111,6 @@
                         android:textStyle="bold" />
 
                 </RelativeLayout>
-
             </RelativeLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -145,8 +146,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/tvDetail1"
-                    android:text="Category:"
-                    android:textSize="16sp"
+                    android:text="Category"
+                    android:textColor="@color/black"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvDetail3" />
 
@@ -157,7 +158,6 @@
                     android:layout_below="@id/tvDetail1"
                     android:text="Comic"
                     android:textColor="@color/black"
-                    android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="@+id/guideline3"
                     app:layout_constraintTop_toBottomOf="@id/tvDetail3" />
 
@@ -166,7 +166,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Seller"
-                    android:textSize="16sp"
+                    android:textColor="@color/black"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/textView10" />
 
@@ -174,9 +174,7 @@
                     android:id="@+id/bookSeller"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ah@gmail.com"
                     android:textColor="@color/black"
-                    android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="@id/guideline3"
                     app:layout_constraintTop_toTopOf="@id/tvDetail1" />
 
@@ -186,7 +184,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/tvDetail4"
                     android:text="Release"
-                    android:textSize="16sp"
+                    android:textColor="@color/black"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvDetail1" />
 
@@ -197,7 +195,6 @@
                     android:layout_below="@id/tvDetail4"
                     android:text="2019"
                     android:textColor="@color/black"
-                    android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="@+id/guideline3"
                     app:layout_constraintTop_toBottomOf="@id/tvDetail1" />
 
@@ -207,7 +204,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/tvDetail2"
                     android:text="Remaining"
-                    android:textSize="16sp"
+                    android:textColor="@color/black"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvDetail2" />
 
@@ -218,7 +215,6 @@
                     android:layout_below="@id/tvDetail2"
                     android:text="50"
                     android:textColor="@color/black"
-                    android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="@+id/guideline3"
                     app:layout_constraintTop_toBottomOf="@id/tvDetail2" />
 
@@ -227,7 +223,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Author"
-                    android:textSize="16sp"
+                    android:textColor="@color/black"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/bookCate" />
 
@@ -237,7 +233,6 @@
                     android:layout_height="wrap_content"
                     android:text="Mark Xoan"
                     android:textColor="@color/black"
-                    android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="@id/guideline3"
                     app:layout_constraintTop_toTopOf="@id/tvDetail5" />
 
@@ -268,8 +263,7 @@
                     android:layout_height="wrap_content"
                     android:justificationMode="inter_word"
                     android:text="Description The speaker unit contains a diaphragm that is precision-grown from NAC Audio bio-cellulose, making it stiffer, lighter and stronger than regular PET speaker units, and allowing the sound-producing diaphragm to vibrate without the levels of distortion found in other speakers. test qwwkeqyiu iquey qwiuysd"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
+                    android:textColor="#000000" />
 
             </LinearLayout>
 
@@ -331,8 +325,7 @@
                     android:paddingStart="10dp"
                     android:paddingTop="10dp"
                     android:paddingEnd="10dp"
-                    android:paddingBottom="10dp">
-                </androidx.recyclerview.widget.RecyclerView>
+                    android:paddingBottom="10dp"></androidx.recyclerview.widget.RecyclerView>
             </LinearLayout>
 
         </LinearLayout>
@@ -345,7 +338,6 @@
         android:layout_marginBottom="10dp"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
-        android:translationZ="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -360,7 +352,7 @@
             android:layout_toEndOf="@id/addReviewBtn"
             android:background="@null"
             android:backgroundTint="@color/primary_green"
-            android:text="@string/addToCard"
+            android:text="Add to cart"
             android:textColor="@color/white"
             android:textSize="18sp" />
 
