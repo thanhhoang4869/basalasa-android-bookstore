@@ -16,6 +16,8 @@
         tools:replace="android:theme">
         <activity
             android:name=".activity.RequestList"
+            android:exported="false" />
+        <activity
             android:name=".activity.SellerBookDetails"
             android:exported="false" />
         <activity
