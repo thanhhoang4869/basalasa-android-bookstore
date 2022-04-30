@@ -36,6 +36,10 @@ class BookDetail : AppCompatActivity() {
 
         val id = intent.getStringExtra("id")
         loadDetail(id!!)
+
+        binding.buttonBack.setOnClickListener{
+            finish()
+        }
     }
 
     private fun loadDetail(id: String) {

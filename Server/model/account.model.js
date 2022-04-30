@@ -33,9 +33,6 @@ export default {
         const ret = await Account.findOne({
             email: email
         }).lean();
-
-        delete ret.password
-
         return ret || null
     },
 
