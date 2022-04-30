@@ -6,9 +6,7 @@ import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
-import android.os.Environment
 import android.provider.MediaStore
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -27,23 +25,18 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.io.File
-import java.io.IOException
-import java.lang.Integer.parseInt
-import java.text.SimpleDateFormat
-import java.util.*
-import java.util.logging.Logger
 
 
 class SellerAddBookFrag(private val user: String) : Fragment() {
     private lateinit var _binding: FragmentSellerAddBookBinding
     private val binding get() = _binding
-    var requestcode:Int = 1
-    private var MY_REQUEST_CODE:Int = 1
-    var uri:Uri ?=null
+    private val requestcode:Int = 1
+    private val MY_REQUEST_CODE:Int = 1
+    val uri:Uri ?=null
     var file:File?=null
     private var mediaPath: String? = null
     private var postPath: String? = null
-    var mImageFileLocation:String = ""
+    val mImageFileLocation:String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,34 +59,33 @@ class SellerAddBookFrag(private val user: String) : Fragment() {
             val intent_ = Intent(context, Login::class.java)
             startActivity(intent_)
         }
-        binding.btnChoose.setOnClickListener(View.OnClickListener(){
+        binding.btnChoose.setOnClickListener {
             onClickPermission()
-        })
+        }
         binding.addBook.setOnClickListener(({
 
-            var etTitle:RequestBody = RequestBody.create(MediaType.parse("multipart/form-data"),binding.etTitle.text.toString())
-            var etAuthor:RequestBody = RequestBody.create(MediaType.parse("multipart/form-data"),binding.etAuthor.text.toString())
-            var etDistributor:RequestBody = RequestBody.create(MediaType.parse("multipart/form-data"),binding.etDistributor.text.toString())
-            var user:RequestBody = RequestBody.create(MediaType.parse("multipart/form-data"),user)
-            var etPrice:RequestBody = RequestBody.create(MediaType.parse("multipart/form-data"),binding.etPrice.text.toString())
-            var etSaleprice:RequestBody = RequestBody.create(MediaType.parse("multipart/form-data"),binding.etSaleprice.text.toString())
-            var etCategory:RequestBody = RequestBody.create(MediaType.parse("multipart/form-data"),binding.etCategory.text.toString())
-            var etRelease:RequestBody = RequestBody.create(MediaType.parse("multipart/form-data"),binding.etRelease.text.toString())
-            var etDescription:RequestBody = RequestBody.create(MediaType.parse("multipart/form-data"),binding.etDescription.text.toString())
-            var etQuantity:RequestBody = RequestBody.create(MediaType.parse("multipart/form-data"),binding.etQuantity.text.toString())
-            var etState:RequestBody = RequestBody.create(MediaType.parse("multipart/form-data"),"1")
-            var etStar:RequestBody = RequestBody.create(MediaType.parse("multipart/form-data"),"0")
+            val etTitle:RequestBody = RequestBody.create(MediaType.parse("multipart/form-data"),binding.etTitle.text.toString())
+            val etAuthor:RequestBody = RequestBody.create(MediaType.parse("multipart/form-data"),binding.etAuthor.text.toString())
+            val etDistributor:RequestBody = RequestBody.create(MediaType.parse("multipart/form-data"),binding.etDistributor.text.toString())
+            val user:RequestBody = RequestBody.create(MediaType.parse("multipart/form-data"),user)
+            val etPrice:RequestBody = RequestBody.create(MediaType.parse("multipart/form-data"),binding.etPrice.text.toString())
+//            val etSaleprice:RequestBody = RequestBody.create(MediaType.parse("multipart/form-data"),null)
+            val etCategory:RequestBody = RequestBody.create(MediaType.parse("multipart/form-data"),binding.etCategory.text.toString())
+            val etRelease:RequestBody = RequestBody.create(MediaType.parse("multipart/form-data"),binding.etRelease.text.toString())
+            val etDescription:RequestBody = RequestBody.create(MediaType.parse("multipart/form-data"),binding.etDescription.text.toString())
+            val etQuantity:RequestBody = RequestBody.create(MediaType.parse("multipart/form-data"),binding.etQuantity.text.toString())
+            val etState:RequestBody = RequestBody.create(MediaType.parse("multipart/form-data"),"1")
+            val etStar:RequestBody = RequestBody.create(MediaType.parse("multipart/form-data"),"0")
 
 
-            var requestbodyImg:RequestBody = RequestBody.create(MediaType.parse("multipart/form-data"),file)
-            var multipart:MultipartBody.Part = MultipartBody.Part.createFormData("image",file?.name,requestbodyImg)
+            val requestbodyImg:RequestBody = RequestBody.create(MediaType.parse("multipart/form-data"),file)
+            val multipart:MultipartBody.Part = MultipartBody.Part.createFormData("image",file?.name,requestbodyImg)
             val response = MyAPI.getAPI().addBook(token.toString(),
                 etTitle,
                 etAuthor,
                 etDistributor,
                 user,
                 etPrice,
-                etSaleprice,
                 etCategory,
                 etRelease,
                 etDescription,
@@ -118,32 +110,29 @@ class SellerAddBookFrag(private val user: String) : Fragment() {
             })
         }))
     }
-    fun onClickPermission(){
+    private fun onClickPermission(){
 
-        if(Build.VERSION.SDK_INT<Build.VERSION_CODES.M){
-            System.out.println("TEST")
-            return;
-        }
         if(context?.let { checkSelfPermission(it,Manifest.permission.READ_EXTERNAL_STORAGE) } ==PackageManager.PERMISSION_GRANTED){
             openGallery()
         }else{
 
-            var permission = arrayOf<String>(Manifest.permission.READ_EXTERNAL_STORAGE)
+            val permission = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
             requestPermissions(permission,MY_REQUEST_CODE)
         }
     }
-    fun openGallery(){
+    private fun openGallery(){
 
-        var intent: Intent = Intent(Intent.ACTION_PICK)
+        val intent= Intent(Intent.ACTION_PICK)
         intent.type=("*/*")
         startActivityForResult(intent,MY_REQUEST_CODE)
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
         if(requestCode==requestcode&& resultCode==RESULT_OK){
-            System.out.println("!@#$%")
+//            println("!@#$%")
             if(data!=null){
 
                 binding.ivPicture.setImageURI(data.data)
@@ -160,7 +149,7 @@ class SellerAddBookFrag(private val user: String) : Fragment() {
 
                 postPath = mediaPath
                 file = File(postPath!!)
-                System.out.println("FILE "+file)
+                println("FILE $file")
             }
 
         }

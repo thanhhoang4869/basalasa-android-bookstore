@@ -203,7 +203,6 @@ interface API {
         @Part("distributor")  distributor: RequestBody,
         @Part("seller")  seller: RequestBody,
         @Part("price")  price: RequestBody,
-        @Part("saleprice")  saleprice: RequestBody,
         @Part("category")   category: RequestBody,
         @Part("release_year")  release_year: RequestBody,
         @Part("description")  description: RequestBody,
