@@ -2,8 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/orderDetailItem"
         android:layout_width="match_parent"
@@ -11,7 +14,6 @@
 
 
     </androidx.recyclerview.widget.RecyclerView>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -31,11 +33,9 @@
                     android:id="@+id/textView18"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:text="Total:"
+                    android:text="Total: "
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:textColor="@color/primary_green"
                     app:layout_constraintEnd_toStartOf="@+id/customerOrderTotalMoney"
                     app:layout_constraintTop_toBottomOf="@+id/customerOrderImage" />
 
@@ -43,11 +43,11 @@
                     android:id="@+id/customerOrderTotalMoney"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
                     android:textSize="20sp"
                     android:textColor="@color/primary_green"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/textView18" />
-
             </LinearLayout>
         </RelativeLayout>
         </LinearLayout>

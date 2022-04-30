@@ -38,7 +38,7 @@ class OrderDetailAdapter(private val arrCartBook: ArrayList<CustomerBookHistory>
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val book = arrCartBook[position]
         holder.bookName.text=book.name
-        holder.quantity.text=book.quantity.toString()
+        holder.quantity.text="x " + book.quantity.toString()
         holder.Price.text=book.price.toString()
         Picasso.get().load(book.picture).into(holder.bookImage)
     }

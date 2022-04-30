@@ -359,7 +359,7 @@
             android:layout_marginTop="7dp"
             android:layout_toEndOf="@id/addReviewBtn"
             android:background="@null"
-            android:backgroundTint="#0ACF83"
+            android:backgroundTint="@color/primary_green"
             android:text="@string/addToCard"
             android:textColor="@color/white"
             android:textSize="18sp" />
