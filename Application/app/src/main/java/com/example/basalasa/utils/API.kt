@@ -148,6 +148,19 @@ interface API {
         @Query("seller") seller: String
     ): Call<GetSellerPendingOrderResponse>
 
+    //seller: book management
+    @GET("/seller/delete")
+    fun sellerDeleteBook(
+        @Header("x-access-token") tokenHeader: String,
+        @Query("id") id: String
+    ):Call<SellerDeleteBookResponse>
+
+    @GET("/seller/update")
+    fun sellerUpdateBook(
+        @Header("x-access-token") tokenHeader: String,
+        @Query("id") id: String
+    ):Call<SellerDeleteBookResponse>
+
     //admin
     @GET("/admin/getAccountList")
     fun getAccountList(

@@ -128,4 +128,17 @@ router.get('/canceled', async (req, res) => {
 	res.send({ orders: response })
 })
 
+router.get('/delete', async (req, res) => {
+	try {
+		const book = await bookModel.deleteBook(req.query.id)
+		if (book != null) {
+			res.send({ error: false })
+		} else {
+			res.send({ error: true })
+		}
+	} catch (error) {
+		res.send({ error: true })
+	}
+})
+
 export default router

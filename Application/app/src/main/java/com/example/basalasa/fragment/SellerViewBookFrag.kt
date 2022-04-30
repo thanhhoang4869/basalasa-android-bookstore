@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.basalasa.R
 import com.example.basalasa.activity.BookDetail
+import com.example.basalasa.activity.SellerBookDetails
 import com.example.basalasa.activity.SellerOrderDetails
 import com.example.basalasa.adapter.CategoryAdapter
 import com.example.basalasa.adapter.SellerCompletedOrderAdapter
@@ -69,7 +70,7 @@ class SellerViewBookFrag(private val user: String) : Fragment() {
                     binding.rv.layoutManager = GridLayoutManager(context,2)
                     adapter.setOnItemClickListener(object : CategoryAdapter.onItemClickListener{
                         override fun onItemClick(position: Int) {
-                            val intent= Intent(context, BookDetail::class.java)
+                            val intent= Intent(context, SellerBookDetails::class.java)
                             intent.putExtra("id",arrBooks[position]._id)
                             startActivity(intent)
                         }

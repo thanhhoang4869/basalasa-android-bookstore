@@ -24,8 +24,6 @@ class SellerBookManagement : AppCompatActivity() {
             when (position) {
                 0 -> tab.text = "Your books"
                 1 -> tab.text = "Add book"
-                2 -> tab.text = "Update book"
-                3 -> tab.text="Delete book"
             }
         }.attach()
     }
