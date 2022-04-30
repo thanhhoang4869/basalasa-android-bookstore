@@ -37,7 +37,6 @@
             android:layout_height="50dp"
             android:background="@null"
             android:backgroundTint="@color/white"
-            android:contentDescription="backBtn"
             android:drawableTop="@drawable/ic_arrow_back" />
     </RelativeLayout>
 

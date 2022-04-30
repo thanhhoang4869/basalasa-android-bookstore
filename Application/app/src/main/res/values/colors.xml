@@ -12,6 +12,7 @@
     <color name="yellow">#DEC20B</color>
     <color name="green">#0ACF83</color>
     <color name="grey">#EDEDED</color>
+    <color name="grey_light">#f9f9f9</color>
     <color name="grey_thick">#808080</color>
     <color name="lighter_green">#E1EFE2</color>
     <color name="light_red">#D86F6F</color>

@@ -12,12 +12,10 @@ import com.example.basalasa.model.entity.BooksInCart
 class CheckoutAdapter(private val arrCartBook: HashMap<String,BooksInCart>): RecyclerView.Adapter<CheckoutAdapter.ViewHolder>() {
     lateinit var context: Context
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        var bookName: TextView
-        var Price: TextView
-        init {
-            bookName = itemView.findViewById(R.id.checkoutItemName)
-            Price = itemView.findViewById(R.id.price_quantity)
-        }
+        var bookName: TextView = itemView.findViewById(R.id.checkoutItemName)
+        var Price: TextView = itemView.findViewById(R.id.price)
+        var Quantity: TextView = itemView.findViewById(R.id.quantity)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CheckoutAdapter.ViewHolder {
@@ -30,7 +28,8 @@ class CheckoutAdapter(private val arrCartBook: HashMap<String,BooksInCart>): Rec
         val keyByIndex = arrCartBook.keys.elementAt(position) // Get key by index.
         val valueOfElement = arrCartBook.getValue(keyByIndex)
         holder.bookName.text = valueOfElement.name
-        holder.Price.text = (valueOfElement.price).toString()+" * "+(valueOfElement.quantity).toString()
+        holder.Price.text = valueOfElement.price.toString()
+        holder.Quantity.text = valueOfElement.quantity.toString()
     }
 
     override fun getItemCount(): Int {

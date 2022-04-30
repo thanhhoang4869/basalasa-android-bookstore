@@ -38,10 +38,12 @@ class Cart : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_cart)
         binding = ActivityCartBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         binding.cartActive.isVisible=false
         binding.noCart.isVisible=false
+
         loadListCart()
     }
 
@@ -101,14 +103,14 @@ class Cart : AppCompatActivity() {
 
         var seller= ""
 
-        val TotalView: TextView = findViewById(R.id.total)
-        val hiddenView: TextView = findViewById(R.id.tempTotalView)
+        val TotalView: TextView = binding.total
+        val hiddenView: TextView = binding.tempTotalView
         tmp = total.toString()
         TotalView.text = formatter.format(parseInt(tmp))
 
         hiddenView.text = total.toString()
         adapter = CartAdapter(arrBooks, hiddenView, TotalView)
-        val listCartitem: RecyclerView = findViewById(R.id.listCartitem)
+        val listCartitem: RecyclerView = binding.listCartitem
         listCartitem.adapter = adapter
         listCartitem.layoutManager = LinearLayoutManager(this@Cart)
         adapter.onItemClick = { s, position ->
@@ -184,6 +186,11 @@ class Cart : AppCompatActivity() {
                     Toast.makeText(this@Cart, "Delete Successfully", Toast.LENGTH_LONG).show()
                     arrBooks.removeAt(position)
                     adapter.notifyItemRemoved(position)
+
+                    if(arrBooks.isEmpty()){
+                        binding.cartActive.isVisible=false
+                        binding.noCart.isVisible=true
+                    }
                 }
 
             }
