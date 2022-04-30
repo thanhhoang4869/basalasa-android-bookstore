@@ -1,5 +1,5 @@
 // import accountModel from './account.schema.js'
-
+import cloudinary from '../utils/cloudinary.js'
 import mongoose from 'mongoose'
 import config from '../config/config.js'
 const url = config.url
@@ -10,7 +10,6 @@ mongoose.connect(url, {
 })
 
 const BookSchema = new mongoose.Schema({
-	id: { type: Number, required: true, min: 0, unique: true },
 	name: { type: String, required: true },
 	author: { type: String, required: true },
 	distributor: { type: String, required: true },
@@ -62,14 +61,26 @@ export default {
 	findBookWSeller: async (seller, id) => {
 		return await Book.findOne({ seller: seller, _id: id })
 	},
-	deleteBook: async (id) => {
-		return await Book.updateOne(
-			{ _id: id },
-			{
-				$set: {
-					quantity: 0,
-				},
-			}
-		)
-	},
+	addBook:async(file,book)=>{
+		const img = await cloudinary.uploader.upload(file.path)	
+		const newbook = {
+			name: book.name,
+			author: book.author,
+			distributor: book.distributor,
+			seller: book.seller,
+			price: book.price,
+			saleprice: book.saleprice?book.saleprice:null,
+			category: book.category,
+			picture: img.secure_url,
+			release_year: new Date(),
+			description: book.description,
+			quantity: book.quantity,
+			state: 1,
+			star: 0,
+			comments: [ 
+			],
+		  }
+		//return newbook.picture
+		return await Book.create(newbook)
+	}
 }

@@ -138,17 +138,28 @@
             android:layout_height="wrap_content"
             android:text="Picture:" />
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivPicture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:src="@tools:sample/avatars"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+
         <Button
             android:id="@+id/btnChoose"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="choose file" />
-
-        <ImageView
-            android:id="@+id/ivPicture"
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/addBook"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:src="@tools:sample/avatars" />
+            android:text="ADD NEW BOOK" />
 
     </LinearLayout>
 </ScrollView>

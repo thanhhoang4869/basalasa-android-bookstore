@@ -2,8 +2,12 @@ package com.example.basalasa.utils
 
 import com.example.basalasa.model.body.*
 import com.example.basalasa.model.reponse.*
+import com.google.gson.annotations.SerializedName
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.*
+import java.io.File
 
 interface API {
     //user
@@ -189,4 +193,24 @@ interface API {
         @Header("x-access-token") tokenHeader: String,
         @Body CheckoutBody:CheckoutBody
     ):Call<CheckoutResponse>
+
+    @Multipart
+    @POST("/book/add")
+    fun addBook(
+        @Header("x-access-token") tokenHeader: String,
+        @Part("name")  name: RequestBody,
+        @Part("author")  author: RequestBody,
+        @Part("distributor")  distributor: RequestBody,
+        @Part("seller")  seller: RequestBody,
+        @Part("price")  price: RequestBody,
+        @Part("saleprice")  saleprice: RequestBody,
+        @Part("category")   category: RequestBody,
+        @Part("release_year")  release_year: RequestBody,
+        @Part("description")  description: RequestBody,
+        @Part("quantity")  quantity: RequestBody,
+        @Part("state")  state: RequestBody,
+        @Part("star")  star: RequestBody,
+        @Part img:MultipartBody.Part,
+        ):Call<AddBookResponse>
+
 }

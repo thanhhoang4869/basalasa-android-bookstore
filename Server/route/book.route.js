@@ -1,6 +1,7 @@
 import bookModel from '../model/book.model.js';
 import bodyParser from 'body-parser';
 import express from 'express';
+import multer from '../utils/multer.js';
 
 const router = express.Router();
 router.use(bodyParser.urlencoded({ extended: false }));
@@ -16,6 +17,23 @@ router.get('/onsale', async (req, res) => {
     });
   }
 });
+
+router.post('/add',multer.single("image"),async(req,res)=>{
+  try{
+    console.log(req.body)
+    console.log(req.file)
+    const ret = await bookModel.addBook(req.file,req.body);
+    res.send({
+      exitcode:0,
+      detail:ret
+    })
+  }catch(error){
+    console.log(error)
+    res.send({
+      exitcode:500,
+    });
+  }
+})
 
 router.post('/getDetails', async (req, res) => {
   try {

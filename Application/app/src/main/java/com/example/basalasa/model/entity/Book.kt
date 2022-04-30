@@ -5,7 +5,6 @@ import kotlin.collections.ArrayList
 
 class Book(
     val _id:String,
-    val id: Int,
     val name: String,
     val author: String,
     val distributor: String,
@@ -23,7 +22,6 @@ class Book(
 ) {
     constructor(response: GetBookDetailResponse) : this(
         response._id,
-        response.id,
         response.name,
         response.author,
         response.distributor,
@@ -41,7 +39,6 @@ class Book(
     )
     constructor(item:Book) : this(
         item._id,
-        item.id,
         item.name,
         item.author,
         item.distributor,

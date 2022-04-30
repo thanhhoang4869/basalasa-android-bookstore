@@ -16,7 +16,6 @@ import com.example.basalasa.databinding.FragmentCategoryBinding
 import com.example.basalasa.model.entity.Book
 import com.example.basalasa.model.reponse.GetBooksResponse
 import com.example.basalasa.utils.MyAPI
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
