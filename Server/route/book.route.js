@@ -20,8 +20,6 @@ router.get('/onsale', async(req, res) => {
 
 router.post('/add', multer.single("image"), async(req, res) => {
     try {
-        console.log(req.body)
-        console.log(req.file)
         const ret = await bookModel.addBook(req.file, req.body);
         res.send({
             exitcode: 0,
@@ -38,11 +36,9 @@ router.post('/add', multer.single("image"), async(req, res) => {
 router.post('/getDetails', async(req, res) => {
     try {
         const ret = await bookModel.getBook(req.body._id);
-        console.log(ret)
-        console.log(req.body._id)
+        const relatedBooks = await bookModel.getBookByCategory(ret.category,ret._id)
         res.send({
             _id: ret._id,
-            id: ret.id,
             name: ret.name,
             author: ret.author,
             distributor: ret.distributor,
@@ -57,6 +53,7 @@ router.post('/getDetails', async(req, res) => {
             state: ret.state,
             star: ret.star,
             comments: ret.comments,
+            relatedBooks:relatedBooks
         });
     } catch (err) {
         console.log(err);
