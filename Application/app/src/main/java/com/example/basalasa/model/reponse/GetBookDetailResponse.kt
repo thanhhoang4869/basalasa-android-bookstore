@@ -1,6 +1,5 @@
 package com.example.basalasa.model.reponse
 
-import com.example.basalasa.model.entity.Book
 import com.example.basalasa.model.entity.Comments
 import com.google.gson.annotations.SerializedName
 
@@ -25,7 +24,6 @@ class GetBookDetailResponse {
     val category: String = ""
     @SerializedName("picture")
     val picture: String = ""
-
     @SerializedName("release_year")
     var release_year: String = ""
     @SerializedName("description")

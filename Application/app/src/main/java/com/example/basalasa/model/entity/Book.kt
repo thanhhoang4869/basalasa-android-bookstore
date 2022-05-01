@@ -37,7 +37,7 @@ class Book(
         response.state,
         response.star,
         response.comments,
-        response.relatedBook,
+//        response.relatedBook,
     )
     constructor(item:Book) : this(
         item._id,
