@@ -19,72 +19,84 @@ import com.example.basalasa.utils.MyAPI
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.DecimalFormat
+import java.text.NumberFormat
 
 class Checkout : AppCompatActivity() {
-    lateinit private var binding: ActivityCheckoutBinding
-    lateinit private var hashMap:HashMap<String, BooksInCart>
+    private lateinit var binding: ActivityCheckoutBinding
+    private lateinit var hashMap: HashMap<String, BooksInCart>
     lateinit var adapter: CheckoutAdapter
-    private var account: Account =Account()
+    private var account: Account = Account()
+    private val formatter: NumberFormat = DecimalFormat("#,###")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCheckoutBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        var intent: Intent = getIntent();
+        val intent: Intent = intent
         hashMap = intent.getSerializableExtra("map") as (HashMap<String, BooksInCart>)
         getInfo(this)
-        Log.d("account2",account.toString())
+//        Log.d("account2", account.toString())
 
         loadList()
     }
-    fun loadList(){
+
+    private fun loadList() {
         val token = Cache.getToken(this)
         if (token === null) {
             val intent = Intent(this, Login::class.java)
             startActivity(intent)
             finish()
         }
-        val response = MyAPI.getAPI().getCart(token.toString())
+//        val response = MyAPI.getAPI().getCart(token.toString())
         adapter = CheckoutAdapter(hashMap)
-        binding.list.adapter=adapter
+        binding.list.adapter = adapter
         binding.list.layoutManager = LinearLayoutManager(this@Checkout)
-        var total:Int =0
-        var arrBook:ArrayList<BooksInCart> = ArrayList()
-        for(i in 0..hashMap.size-1){
+        var total = 0
+        val arrBook: ArrayList<BooksInCart> = ArrayList()
+        for (i in 0 until hashMap.size) {
             val keyByIndex = hashMap.keys.elementAt(i) // Get key by index.
             val valueOfElement = hashMap.getValue(keyByIndex)
-            total += valueOfElement.price*valueOfElement.quantity
+            total += valueOfElement.price * valueOfElement.quantity
             arrBook.add(valueOfElement)
         }
-        binding.shippingCost.text = "30000"
-        binding.itemsCost.text= total.toString()
-        binding.totalCost.text =(total +30000).toString()
-        binding.submit.setOnClickListener {
-            var email = binding.emailReceiver.text.toString()
-            var phone= binding.phoneReceiver.text.toString()
-            var address= binding.addressReceiver.text.toString()
+        binding.shippingCost.text = "30,000"
 
-            val response = MyAPI.getAPI().postItemCheckout(token.toString(),
-                CheckoutBody(arrBook,email,address,phone)
+        binding.itemsCost.text = formatter.format(total)
+        binding.totalCost.text = formatter.format(total + 30000)
+        binding.submit.setOnClickListener {
+            val email = binding.emailReceiver.text.toString()
+            val phone = binding.phoneReceiver.text.toString()
+            val address = binding.addressReceiver.text.toString()
+
+            val response = MyAPI.getAPI().postItemCheckout(
+                token.toString(),
+                CheckoutBody(arrBook, email, address, phone)
             )
             response.enqueue(object : Callback<CheckoutResponse> {
-                override fun onResponse(call: Call<CheckoutResponse>, response: Response<CheckoutResponse>) {
+                override fun onResponse(
+                    call: Call<CheckoutResponse>,
+                    response: Response<CheckoutResponse>
+                ) {
                     if (response.isSuccessful) {
                         println("SUCCESS")
-                        val intent2= Intent(this@Checkout, Cart::class.java)
+                        val intent2 = Intent(this@Checkout, Cart::class.java)
                         startActivity(intent2)
                         finish()
                     }
                 }
 
                 override fun onFailure(call: Call<CheckoutResponse>, t: Throwable) {
-                    Toast.makeText(this@Checkout, "Fail connection to server", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@Checkout, "Fail connection to server", Toast.LENGTH_LONG)
+                        .show()
                     t.printStackTrace()
                 }
 
             })
         }
     }
+
     private fun getInfo(context: Context) {
         val token = Cache.getToken(context)
         val response = MyAPI.getAPI().getAccount(token.toString())
@@ -99,8 +111,8 @@ class Checkout : AppCompatActivity() {
                     val data = response.body()
 
                     if (data!!.exitcode == 0) {
-                        account=Account(data!!)
-                        Log.d("account",account.toString())
+                        account = Account(data!!)
+                        Log.d("account", account.toString())
                         binding.emailReceiver.setText(account.email)
                         binding.addressReceiver.setText(account.address)
                         binding.phoneReceiver.setText(account.phone)
@@ -109,7 +121,7 @@ class Checkout : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<GetAccountResponse>, t: Throwable) {
-                System.out.println("FAILED ")
+                println("FAILED ")
                 Toast.makeText(context, "Fail connection to server", Toast.LENGTH_LONG).show()
                 t.printStackTrace()
             }

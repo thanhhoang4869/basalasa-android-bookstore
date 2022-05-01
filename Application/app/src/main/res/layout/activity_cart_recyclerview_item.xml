@@ -7,22 +7,13 @@
     android:paddingTop="10dp"
     android:paddingBottom="10dp">
 
-<!--    <RelativeLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_marginRight="-20dp">-->
 
-<!--        <CheckBox-->
-<!--            android:id="@+id/CartcheckBox"-->
-<!--            android:layout_marginRight="-20dp"-->
-<!--            style="@style/Widget.Material3.CompoundButton.CheckBox"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_marginEnd="15dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_centerInParent="true" />-->
-<!--    </RelativeLayout>-->
-
-
+    <CheckBox
+        android:id="@+id/CartcheckBox"
+        android:buttonTint="@color/grey_thick"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_height="wrap_content" />
 
 
     <LinearLayout
@@ -88,8 +79,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     app:backGroundColor="@color/primary_green"
-                    app:initialNumber="1"
-                    app:textSize="7sp" />
+                    app:initialNumber="1"/>
 
                 <RelativeLayout
                     android:layout_width="match_parent"

@@ -2,14 +2,12 @@ package com.example.basalasa.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.basalasa.R
 import com.example.basalasa.adapter.CartAdapter
 import com.example.basalasa.databinding.ActivityCartBinding
 import com.example.basalasa.model.body.DeleteCartBody
@@ -41,9 +39,13 @@ class Cart : AppCompatActivity() {
         binding = ActivityCartBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.cartActive.isVisible=false
-        binding.noCart.isVisible=false
-
+        binding.cartActive.isVisible = false
+        binding.noCart.isVisible = false
+        binding.goShopping.setOnClickListener {
+            finish()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
         loadListCart()
     }
 
@@ -64,10 +66,10 @@ class Cart : AppCompatActivity() {
                 ) {
                     if (response.isSuccessful) {
                         val data = response.body()
-                        if(data?.arrBooks.isNullOrEmpty()){
-                            binding.cartActive.isVisible=false
-                            binding.noCart.isVisible=true
-                        } else{
+                        if (data?.arrBooks.isNullOrEmpty()) {
+                            binding.cartActive.isVisible = false
+                            binding.noCart.isVisible = true
+                        } else {
                             if (data != null) {
                                 setUpCart(data)
                             }
@@ -80,28 +82,27 @@ class Cart : AppCompatActivity() {
                     t.printStackTrace()
                 }
             })
-            findViewById<Button>(R.id.checkout).setOnClickListener() {
-                var intent: Intent = Intent(this, Checkout::class.java)
-
+            binding.checkout.setOnClickListener() {
+                val intent = Intent(this, Checkout::class.java)
                 if (choosen.size != 0) {
                     intent.putExtra("map", choosen)
                     startActivity(intent)
-                    finish()
+//                    finish()
                 }
             }
         }
 
     }
 
-    fun setUpCart(data:GetCartResponse){
-        binding.cartActive.isVisible=true
-        binding.noCart.isVisible=false
+    fun setUpCart(data: GetCartResponse) {
+        binding.cartActive.isVisible = true
+        binding.noCart.isVisible = false
 
         for (item: BooksInCart in data.arrBooks!!) {
             arrBooks.add(item)
         }
 
-        var seller= ""
+        var seller = ""
 
         val TotalView: TextView = binding.total
         val hiddenView: TextView = binding.tempTotalView
@@ -114,7 +115,7 @@ class Cart : AppCompatActivity() {
         listCartitem.adapter = adapter
         listCartitem.layoutManager = LinearLayoutManager(this@Cart)
         adapter.onItemClick = { s, position ->
-            if (choosen.get(s._id) != null) {
+            if (choosen[s._id] != null) {
                 total -= s.price * s.quantity
                 hiddenView.text =
                     (parseInt(hiddenView.text.toString()) - s.price * s.quantity).toString()
@@ -127,9 +128,9 @@ class Cart : AppCompatActivity() {
             }
             deleteData(s, position)
         }
-        adapter.onCheckClick = { s, position, check_btn ->
+        adapter.onCheckClick = { s, _, check_btn ->
             if (choosen.size == 0) {
-                choosen.put(s._id, s)
+                choosen[s._id] = s
                 seller = s.seller
                 total += s.price * s.quantity
                 hiddenView.text =
@@ -139,7 +140,7 @@ class Cart : AppCompatActivity() {
                 TotalView.text = formatter.format(parseInt(tmp))
             } else {
                 if (s.seller == seller) {
-                    choosen.put(s._id, s)
+                    choosen[s._id] = s
                     hiddenView.text =
                         (parseInt(hiddenView.text.toString()) + s.price * s.quantity).toString()
                     //(total+ s.price * s.quantity).toString()
@@ -158,7 +159,7 @@ class Cart : AppCompatActivity() {
 
         }
         adapter.removeCheck = { s, position ->
-            if (choosen.get(s._id)?.seller == seller) {
+            if (choosen[s._id]?.seller == seller) {
                 choosen.remove(s._id)
                 if (choosen.size == 0)
                     seller = ""
@@ -187,9 +188,9 @@ class Cart : AppCompatActivity() {
                     arrBooks.removeAt(position)
                     adapter.notifyItemRemoved(position)
 
-                    if(arrBooks.isEmpty()){
-                        binding.cartActive.isVisible=false
-                        binding.noCart.isVisible=true
+                    if (arrBooks.isEmpty()) {
+                        binding.cartActive.isVisible = false
+                        binding.noCart.isVisible = true
                     }
                 }
 

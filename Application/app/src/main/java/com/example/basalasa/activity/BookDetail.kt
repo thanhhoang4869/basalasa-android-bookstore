@@ -7,10 +7,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.text.HtmlCompat
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.basalasa.adapter.CartAdapter
-import com.example.basalasa.adapter.CategoryAdapter
+import androidx.core.view.isVisible
 import com.example.basalasa.databinding.ActivityBookDetailBinding
 import com.example.basalasa.model.body.AddCartBody
 import com.example.basalasa.model.body.GetDetailsBody
@@ -45,7 +42,7 @@ class BookDetail : AppCompatActivity() {
         val id = intent.getStringExtra("id")
         loadDetail(id!!)
 
-        binding.buttonBack.setOnClickListener{
+        binding.buttonBack.setOnClickListener {
             finish()
         }
     }
@@ -73,10 +70,10 @@ class BookDetail : AppCompatActivity() {
 
                     if (data.saleprice.toString() == "0") {
                         binding.bookSalePrice.text = formatter.format(data.price)
+                        binding.bookPrice.isVisible=false
                     } else {
                         binding.bookPrice.text = formatter.format(data.price)
                         binding.bookSalePrice.text = formatter.format(data.saleprice)
-
                     }
 
                     val simpleDate = SimpleDateFormat("yyyy")
@@ -119,7 +116,7 @@ class BookDetail : AppCompatActivity() {
                                             addCart(token.toString(), data._id)
 
                                             binding.animation.animate().apply {
-                                                duration=500
+                                                duration = 500
                                                 alpha(0f)
                                                 yBy(1500f)
                                                 scaleYBy(-1f)
@@ -127,7 +124,7 @@ class BookDetail : AppCompatActivity() {
                                                 zBy(90f)
                                             }.withEndAction {
                                                 binding.animation.animate().apply {
-                                                    duration=1
+                                                    duration = 1
                                                     z(0f)
                                                     alpha(0.5f)
                                                     yBy(-1500f)

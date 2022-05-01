@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:text="@string/my_cart"
         android:textColor="@color/primary_green"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,12 +28,43 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="20dp" />
 
-    <ImageView
+    <LinearLayout
         android:id="@+id/noCart"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_gravity="center"
-        android:src="@drawable/no_product" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:src="@drawable/no_product" />
+
+        <LinearLayout
+            android:id="@+id/go_shopping"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_cart_add" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/go_shopping"
+                android:textColor="@color/primary_green"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/cartActive"
@@ -63,17 +94,23 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/total"
+                    android:textColor="@color/primary_green_thick"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
                     android:id="@+id/tempTotalView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:visibility="invisible"
-                    android:text="Total"/>
+                    android:visibility="invisible" />
 
                 <TextView
                     android:id="@+id/total"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="45,000"
                     android:textAlignment="viewEnd"
                     android:textColor="@color/primary_green_thick"
                     android:textSize="20sp"
@@ -89,8 +126,7 @@
                 android:layout_marginTop="10dp"
                 android:backgroundTint="@color/primary_green"
                 android:text="@string/proceed_to_checkout"
-                android:textAlignment="center"
-                android:textStyle="bold" />
+                android:textAlignment="center" />
         </LinearLayout>
     </LinearLayout>
 
