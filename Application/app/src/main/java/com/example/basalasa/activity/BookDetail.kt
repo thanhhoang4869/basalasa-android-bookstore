@@ -86,18 +86,18 @@ class BookDetail : AppCompatActivity() {
                     binding.bookSeller.text = data.seller
                     binding.bookCate.text = data.category
 
-//                    arrRelatedBooks= data.relatedBook!!
-//                    System.out.println(arrRelatedBooks)
-//                    adapter=CategoryAdapter(arrRelatedBooks)
-//                    binding.rvCategoryListItem.adapter = adapter
-//                    binding.rvCategoryListItem.layoutManager = LinearLayoutManager(this@BookDetail,LinearLayoutManager.HORIZONTAL, false)
-//                    adapter.setOnItemClickListener(object :CategoryAdapter.onItemClickListener{
-//                        override fun onItemClick(position: Int) {
-//                            val intent=Intent(this@BookDetail,BookDetail::class.java)
-//                            intent.putExtra("id",arrRelatedBooks[position]._id)
-//                            startActivity(intent)
-//                        }
-//                    })
+                    arrRelatedBooks= data.relatedBooks!!
+                    System.out.println(arrRelatedBooks)
+                    adapter=CategoryAdapter(arrRelatedBooks)
+                    binding.rvCategoryListItem.adapter = adapter
+                    binding.rvCategoryListItem.layoutManager = LinearLayoutManager(this@BookDetail,LinearLayoutManager.HORIZONTAL, false)
+                    adapter.setOnItemClickListener(object :CategoryAdapter.onItemClickListener{
+                        override fun onItemClick(position: Int) {
+                            val intent=Intent(this@BookDetail,BookDetail::class.java)
+                            intent.putExtra("id",arrRelatedBooks[position]._id)
+                            startActivity(intent)
+                        }
+                    })
 
 
                     binding.addCartBtn.setOnClickListener {
