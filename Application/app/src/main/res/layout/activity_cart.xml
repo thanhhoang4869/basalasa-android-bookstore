@@ -66,7 +66,8 @@
                     android:id="@+id/tempTotalView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:visibility="invisible"/>
+                    android:visibility="invisible"
+                    android:text="Total"/>
 
                 <TextView
                     android:id="@+id/total"
@@ -83,6 +84,8 @@
                 android:id="@+id/checkout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
                 android:layout_marginTop="10dp"
                 android:backgroundTint="@color/primary_green"
                 android:text="@string/proceed_to_checkout"
