@@ -51,6 +51,22 @@ export default {
             return null
         }
     },
+    getBookByCategory: async(category,id)=>{
+        try{
+            let books = await Book.find().where('category').equals(category).limit(4).lean()
+            for(let i = 0 ; i< books.length;i++){
+
+                if(String(books[i]._id)===String(id)){
+
+                    books.splice(i,1)
+                }
+            }
+            return books
+        }catch(error){
+            console.log(error)
+            return null
+        }
+    },
     getBook: async(bookID) => {
         return await Book.findOne({ _id: bookID })
     },
@@ -80,8 +96,6 @@ export default {
                 star: 0,
                 comments: [],
             }
-        console.log("NEW BOOK")
-        console.log(newbook)
             //return newbook.picture
         return await Book.create(newbook)
     }

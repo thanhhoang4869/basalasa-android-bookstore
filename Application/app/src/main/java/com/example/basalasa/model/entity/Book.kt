@@ -18,7 +18,8 @@ class Book(
     val quantity: Int,
     val state: Int,
     val star: Int,
-    var comments:ArrayList<Comments>?=null
+    var comments:ArrayList<Comments>?=null,
+    var relatedBook:ArrayList<Book>?=null
 ) {
     constructor(response: GetBookDetailResponse) : this(
         response._id,
@@ -35,7 +36,8 @@ class Book(
         response.quantity,
         response.state,
         response.star,
-        response.comments
+        response.comments,
+        response.relatedBook,
     )
     constructor(item:Book) : this(
         item._id,
@@ -52,5 +54,7 @@ class Book(
         item.quantity,
         item.state,
         item.star,
-        item.comments)
+        item.comments,
+        item.relatedBook
+    )
 }

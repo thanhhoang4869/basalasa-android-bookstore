@@ -36,7 +36,8 @@ router.post('/add',multer.single("image"),async(req,res)=>{
 router.post('/getDetails', async (req, res) => {
   try {
     const ret = await bookModel.getBook(req.body._id);
-    console.log(req.body._id)
+    let relatedBook = await bookModel.getBookByCategory(ret.category,ret._id)
+    
     res.send({
       _id: ret._id,
       name: ret.name,
@@ -53,6 +54,7 @@ router.post('/getDetails', async (req, res) => {
       state: ret.state,
       star: ret.star,
       comments: ret.comments,
+      relatedBook:relatedBook,
     });
   } catch (err) {
     console.log(err);

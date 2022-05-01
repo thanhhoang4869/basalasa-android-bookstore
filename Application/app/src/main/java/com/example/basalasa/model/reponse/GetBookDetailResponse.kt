@@ -1,5 +1,6 @@
 package com.example.basalasa.model.reponse
 
+import com.example.basalasa.model.entity.Book
 import com.example.basalasa.model.entity.Comments
 import com.google.gson.annotations.SerializedName
 
@@ -21,4 +22,5 @@ class GetBookDetailResponse {
     @SerializedName("state") val state:Int = 1
     @SerializedName("star") val star:Int =0
     @SerializedName("comments") val comments:ArrayList<Comments>?=null
+    @SerializedName("relatedBook") val relatedBook:ArrayList<Book>?=null
 }
