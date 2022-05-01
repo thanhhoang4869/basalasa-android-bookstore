@@ -4,10 +4,12 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.basalasa.R
 import com.example.basalasa.model.entity.BooksInCart
+import com.squareup.picasso.Picasso
 
 class CheckoutAdapter(private val arrCartBook: HashMap<String,BooksInCart>): RecyclerView.Adapter<CheckoutAdapter.ViewHolder>() {
     lateinit var context: Context
@@ -15,6 +17,7 @@ class CheckoutAdapter(private val arrCartBook: HashMap<String,BooksInCart>): Rec
         var bookName: TextView = itemView.findViewById(R.id.checkoutItemName)
         var Price: TextView = itemView.findViewById(R.id.price)
         var Quantity: TextView = itemView.findViewById(R.id.quantity)
+        var picture:ImageView = itemView.findViewById(R.id.picture)
 
     }
 
@@ -29,6 +32,7 @@ class CheckoutAdapter(private val arrCartBook: HashMap<String,BooksInCart>): Rec
         val valueOfElement = arrCartBook.getValue(keyByIndex)
         holder.bookName.text = valueOfElement.name
         holder.Price.text = valueOfElement.price.toString()
+        Picasso.get().load(valueOfElement.img).into(holder.picture)
         holder.Quantity.text = valueOfElement.quantity.toString()
     }
 

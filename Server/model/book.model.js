@@ -2,6 +2,7 @@
 import cloudinary from '../utils/cloudinary.js'
 import mongoose from 'mongoose'
 import config from '../config/config.js'
+import moment from "moment"
 const url = config.url
 
 mongoose.connect(url, {
@@ -61,6 +62,8 @@ export default {
     },
     addBook: async(file, book) => {
         const img = await cloudinary.uploader.upload(file.path)
+        const release_year =  moment(book.release_year, "DD/MM/YYYY").utc().toDate()
+        console.log(book)
         const newbook = {
                 name: book.name,
                 author: book.author,
@@ -70,13 +73,15 @@ export default {
                 saleprice: null,
                 category: book.category,
                 picture: img.secure_url,
-                release_year: new Date(),
+                release_year: release_year,
                 description: book.description,
                 quantity: book.quantity,
                 state: 1,
                 star: 0,
                 comments: [],
             }
+        console.log("NEW BOOK")
+        console.log(newbook)
             //return newbook.picture
         return await Book.create(newbook)
     }

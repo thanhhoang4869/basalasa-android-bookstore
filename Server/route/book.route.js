@@ -20,8 +20,6 @@ router.get('/onsale', async (req, res) => {
 
 router.post('/add',multer.single("image"),async(req,res)=>{
   try{
-    console.log(req.body)
-    console.log(req.file)
     const ret = await bookModel.addBook(req.file,req.body);
     res.send({
       exitcode:0,
@@ -41,7 +39,6 @@ router.post('/getDetails', async (req, res) => {
     console.log(req.body._id)
     res.send({
       _id: ret._id,
-      id: ret.id,
       name: ret.name,
       author: ret.author,
       distributor: ret.distributor,

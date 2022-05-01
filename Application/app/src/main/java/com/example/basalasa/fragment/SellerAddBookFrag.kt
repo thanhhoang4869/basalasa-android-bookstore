@@ -93,7 +93,6 @@ class SellerAddBookFrag(private val user: String) : Fragment() {
                 etState,
                 etStar,multipart)
 
-            System.out.println("TEST")
             response.enqueue(object : Callback<AddBookResponse> {
                 override fun onResponse(call: Call<AddBookResponse>, response: Response<AddBookResponse>) {
 
