@@ -37,4 +37,7 @@
     <string name="apply_filter">apply filter</string>
     <string name="go_shopping">Go shopping</string>
     <string name="total">Total</string>
+    <string name="review">Review</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="related_books">Related books</string>
 </resources>

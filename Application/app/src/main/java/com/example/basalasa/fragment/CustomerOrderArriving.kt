@@ -41,7 +41,7 @@ class CustomerOrderArriving : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentCustomerOrderArrivingBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -63,8 +63,8 @@ class CustomerOrderArriving : Fragment() {
                 if (response.isSuccessful) {
                     val data = response.body()
                     val arrHistory: ArrayList<CustomerHistory>? = data?.arrHistory
-                    if(!arrHistory!!.isEmpty()) {
-                        var adapter = CustomerOrderTabRCAdapter(arrHistory!!, false)
+                    if(arrHistory!!.isNotEmpty()) {
+                        val adapter = CustomerOrderTabRCAdapter(arrHistory, false)
                         binding.customerOrderArrivingRC.adapter = adapter
                         binding.customerOrderArrivingRC.layoutManager = LinearLayoutManager( context, LinearLayoutManager.VERTICAL, false)
                         binding.customerOrderArrivingNoInfo.visibility = View.GONE

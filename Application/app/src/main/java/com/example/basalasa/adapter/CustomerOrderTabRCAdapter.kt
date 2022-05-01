@@ -15,20 +15,14 @@ class CustomerOrderTabRCAdapter (private val arrHistory: ArrayList<CustomerHisto
     var onCancelClick: ((CustomerHistory) -> Unit)? = null
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var image: ImageView
-        var date: TextView
-        var name: TextView
-        var quantity: TextView
-        var total: TextView
-        var cancel: TextView
+        var image: ImageView = itemView.findViewById(R.id.customerOrderImage)
+        var date: TextView = itemView.findViewById(R.id.customerOrderDate)
+        var name: TextView = itemView.findViewById(R.id.customerOrderName)
+        var quantity: TextView = itemView.findViewById(R.id.customerOrderQuantity)
+        var total: TextView = itemView.findViewById(R.id.customerOrderTotalMoney)
+        var cancel: TextView = itemView.findViewById(R.id.customerOrderCancelBtn)
 
         init {
-            image = itemView.findViewById(R.id.customerOrderImage)
-            date = itemView.findViewById(R.id.customerOrderDate)
-            name = itemView.findViewById(R.id.customerOrderName)
-            quantity = itemView.findViewById(R.id.customerOrderQuantity)
-            total = itemView.findViewById(R.id.customerOrderTotalMoney)
-            cancel = itemView.findViewById(R.id.customerOrderCancelBtn)
 
             itemView.setOnClickListener {
                 onItemClick?.invoke(arrHistory[adapterPosition])
@@ -55,9 +49,9 @@ class CustomerOrderTabRCAdapter (private val arrHistory: ArrayList<CustomerHisto
     override fun onBindViewHolder(holder: CustomerOrderTabRCAdapter.ViewHolder, position: Int) {
         var order = arrHistory[position]
 
-        Picasso.get().load(order.product?.get(0)?.picture).into(holder.image);
+        Picasso.get().load(order.product[0].picture).into(holder.image);
         holder.date.text = order.date
-        holder.name.text = order.product?.get(0)?.name
+        holder.name.text = order.product[0].name
         holder.quantity.text = "x" + order.product?.get(0)?.quantity.toString()
         holder.total.text = order.total.toString()
 
