@@ -77,33 +77,39 @@ class BottomSheetFilter : BottomSheetDialogFragment() {
         val arrCategory = ArrayList<Category>()
 
         response.enqueue(object : Callback<GetCategoryResponse> {
-            override fun onResponse(call: Call<GetCategoryResponse>, response: Response<GetCategoryResponse>) {
+            override fun onResponse(
+                call: Call<GetCategoryResponse>,
+                response: Response<GetCategoryResponse>
+            ) {
                 if (response.isSuccessful) {
                     val data = response.body()
 
-                    for(item: Category in data!!.arrCategory) {
+                    for (item: Category in data!!.arrCategory) {
                         arrCategory.add(item)
                     }
 
-                    val btnGroup=binding.grCategoryList
-                    for(i in arrCategory){
-                        val btn= ThemedButton(context!!)
-                        btn.text=i.name
-                        btn.bgColor="#FFFFFF".toColorInt()
-                        btn.textColor="#000000".toColorInt()
-                        btn.borderColor="#000000".toColorInt()
-                        btn.borderWidth=5f
-                        btn.selectedBgColor="#0ACF83".toColorInt()
-                        btn.selectedTextColor="#FFFFFF".toColorInt()
-                        btnGroup.addView(btn, ViewGroup.LayoutParams(
-                            ViewGroup.LayoutParams.WRAP_CONTENT,
-                            ViewGroup.LayoutParams.WRAP_CONTENT
-                        ))
+                    val btnGroup = binding.grCategoryList
+                    for (i in arrCategory) {
+                        val btn = ThemedButton(context!!)
+                        btn.text = i.name
+                        btn.bgColor = "#FFFFFF".toColorInt()
+                        btn.textColor = "#000000".toColorInt()
+                        btn.borderColor = "#000000".toColorInt()
+                        btn.borderWidth = 5f
+                        btn.selectedBgColor = "#0ACF83".toColorInt()
+                        btn.selectedTextColor = "#FFFFFF".toColorInt()
+                        btnGroup.addView(
+                            btn, ViewGroup.LayoutParams(
+                                ViewGroup.LayoutParams.WRAP_CONTENT,
+                                ViewGroup.LayoutParams.WRAP_CONTENT
+                            )
+                        )
                     }
                 }
             }
+
             override fun onFailure(call: Call<GetCategoryResponse>, t: Throwable) {
-                if(isAdded){
+                if (isAdded) {
                     Toast.makeText(context, "Fail connection to server", Toast.LENGTH_LONG).show()
                     t.printStackTrace()
                 }

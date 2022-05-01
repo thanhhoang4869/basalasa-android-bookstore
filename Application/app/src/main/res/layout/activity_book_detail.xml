@@ -87,19 +87,12 @@
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
-                <RelativeLayout
+                <LinearLayout
+                    android:gravity="bottom"
+                    android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_below="@id/bookTitle">
-
-                    <TextView
-                        android:id="@+id/bookPrice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_toEndOf="@id/bookSalePrice"
-                        android:textSize="24sp"
-                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/bookSalePrice"
@@ -109,7 +102,15 @@
                         android:textSize="24sp"
                         android:textStyle="bold" />
 
-                </RelativeLayout>
+                    <TextView
+                        android:id="@+id/bookPrice"
+                        android:textSize="18sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
             </RelativeLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout

@@ -211,5 +211,4 @@ interface API {
         @Part("star")  star: RequestBody,
         @Part img:MultipartBody.Part,
         ):Call<AddBookResponse>
-
 }
