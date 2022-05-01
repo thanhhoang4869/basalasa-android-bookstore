@@ -257,12 +257,15 @@
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
-                <TextView
+                <it.mike5v.viewmoretextview.ViewMoreTextView
                     android:id="@+id/bookDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:justificationMode="inter_word"
-                    android:text="Description The speaker unit contains a diaphragm that is precision-grown from NAC Audio bio-cellulose, making it stiffer, lighter and stronger than regular PET speaker units, and allowing the sound-producing diaphragm to vibrate without the levels of distortion found in other speakers. test qwwkeqyiu iquey qwiuysd"
+                    app:ellipsizeText="View More"
+                    app:duration="500"
+                    app:visibleLines="6"
+                    app:isExpanded="false"
                     android:textColor="#000000" />
 
             </LinearLayout>
