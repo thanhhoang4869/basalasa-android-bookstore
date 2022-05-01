@@ -204,6 +204,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="20dp"
+            android:textStyle="bold"
             android:backgroundTint="@color/primary_green"
             android:text="@string/checkout" />
     </LinearLayout>

@@ -159,7 +159,7 @@ class Cart : AppCompatActivity() {
 
         }
         adapter.removeCheck = { s, position ->
-            if (choosen.get(s._id)?.seller == seller) {
+            if (choosen[s._id]?.seller == seller) {
                 choosen.remove(s._id)
                 if (choosen.size == 0)
                     seller = ""
