@@ -8,13 +8,13 @@
     tools:context=".activity.Checkout">
 
     <LinearLayout
-        android:orientation="vertical"
         android:id="@+id/rev"
-        android:layout_margin="20dp"
-
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1.5">
+
+        android:layout_margin="20dp"
+        android:layout_weight="1.5"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/checkouttitle"
@@ -36,70 +36,77 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/emailReceiver"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/custom_input"
-                android:clickable="false"
-                android:drawableStart="@drawable/ic_email"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
 
-                android:drawablePadding="10dp"
-                android:editable="false"
-                android:ems="10"
-                android:hint="@string/email"
-                android:inputType="textEmailAddress"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/emailReceiver"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_email"
+                    android:drawablePadding="10dp"
+                    android:hint="@string/email"
+                    android:maxLength="20"
+                    android:singleLine="true" />
 
-                android:paddingLeft="5dp" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-
-            <EditText
-                android:id="@+id/addressReceiver"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/custom_input"
-                android:drawableStart="@drawable/ic_location"
-                android:drawablePadding="10dp"
-                android:editable="false"
-                android:ems="10"
-                android:hint="@string/address"
-                android:inputType="text"
-                android:paddingLeft="5dp" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/addressReceiver"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_location"
+                    android:drawablePadding="10dp"
+                    android:hint="Address"
+                    android:maxLength="100"
+                    android:singleLine="true" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
 
-            <EditText
-                android:id="@+id/phoneReceiver"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/custom_input"
-                android:drawableStart="@drawable/ic_phone"
-                android:drawablePadding="10dp"
-                android:editable="false"
-                android:ems="10"
-                android:hint="Phone"
-                android:inputType="phone"
-                android:paddingLeft="5dp" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/phoneReceiver"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:drawableStart="@drawable/ic_phone"
+                    android:drawablePadding="10dp"
+                    android:hint="Phone"
+                    android:inputType="phone"
+                    android:maxLength="20"
+                    android:singleLine="true" />
+
+            </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginTop="10dp"
             android:id="@+id/list"
-            android:background="@color/grey_light"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:background="@color/grey_light" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_margin="20dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="bottom"
+        android:layout_margin="20dp"
         android:layout_weight="3.5"
         android:gravity="bottom"
         android:orientation="vertical">
@@ -119,9 +126,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_weight="6"
-                    android:text="Cost"
-                    android:textColor="#000000"
-                    android:textSize="16dp" />
+                    android:text="Cost" />
 
 
                 <TextView
@@ -131,9 +136,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_weight="6"
                     android:text="USD 320"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/primary_green"
-                    android:textSize="16dp" />
+                    android:textAlignment="textEnd" />
 
 
             </LinearLayout>
@@ -148,9 +151,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_weight="6"
-                    android:text="Shipping cost"
-                    android:textColor="#000000"
-                    android:textSize="16dp" />
+                    android:text="Shipping cost" />
 
 
                 <TextView
@@ -161,9 +162,7 @@
                     android:layout_weight="6"
                     android:text="USD 30"
                     android:textAlignment="textEnd"
-
-                    android:textColor="@color/primary_green"
-                    android:textSize="16dp" />
+                    />
 
 
             </LinearLayout>
@@ -180,8 +179,9 @@
                     android:layout_marginTop="10dp"
                     android:layout_weight="6"
                     android:text="Total"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
+                    android:textColor="@color/primary_green"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
 
                 <TextView
@@ -193,7 +193,8 @@
                     android:text="USD 350"
                     android:textAlignment="textEnd"
                     android:textColor="@color/primary_green"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
 

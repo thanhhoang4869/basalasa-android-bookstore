@@ -84,11 +84,10 @@ class Cart : AppCompatActivity() {
             })
             binding.checkout.setOnClickListener() {
                 val intent = Intent(this, Checkout::class.java)
-
                 if (choosen.size != 0) {
                     intent.putExtra("map", choosen)
                     startActivity(intent)
-                    finish()
+//                    finish()
                 }
             }
         }
