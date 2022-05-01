@@ -1,11 +1,13 @@
 package com.example.basalasa.activity
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Paint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.core.text.HtmlCompat
 import com.example.basalasa.databinding.ActivityBookDetailBinding
 import com.example.basalasa.databinding.ActivitySellerBookDetailsBinding
@@ -106,7 +108,21 @@ class SellerBookDetails : AppCompatActivity() {
                     if(error){
                         Toast.makeText(this@SellerBookDetails,"Fail!",Toast.LENGTH_SHORT).show()
                     }else{
-                        finish()
+                        val alertDialog: AlertDialog? = this.let {
+                            val builder = AlertDialog.Builder(this@SellerBookDetails!!)
+                            builder.apply {
+                                setPositiveButton("Delete", DialogInterface.OnClickListener { dialog, id ->
+                                    finish()
+                                })
+                                setNegativeButton("Cancel", DialogInterface.OnClickListener { dialog, id ->
+                                    //do sth
+                                })
+//                                setIcon(android.R.drawable.ic_dialog_alert)
+                                setTitle("Do you want to delete this book?")
+                            }
+                            builder.create()
+                        }
+                        alertDialog!!.show()
                     }
                 }
             }

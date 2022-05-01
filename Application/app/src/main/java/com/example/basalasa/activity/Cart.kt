@@ -88,6 +88,8 @@ class Cart : AppCompatActivity() {
                     intent.putExtra("map", choosen)
                     startActivity(intent)
 //                    finish()
+                } else {
+                    Toast.makeText(this, "Choose at least one to checkout", Toast.LENGTH_SHORT).show()
                 }
             }
         }

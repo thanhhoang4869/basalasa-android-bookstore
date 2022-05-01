@@ -39,6 +39,11 @@ class SellerOrderListCanceledFrag(private val user: String) : Fragment() {
         loadCanceled(user)
     }
 
+    override fun onResume() {
+        super.onResume()
+        loadCanceled(user)
+    }
+
     private fun loadCanceled(user: String) {
         val token= Cache.getToken(requireContext())
         val response= MyAPI.getAPI().getSellerCanceledOrder(token.toString(),user)

@@ -1,10 +1,12 @@
 package com.example.basalasa.activity
 
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.basalasa.adapter.CheckoutAdapter
@@ -70,30 +72,49 @@ class Checkout : AppCompatActivity() {
             val phone = binding.phoneReceiver.text.toString()
             val address = binding.addressReceiver.text.toString()
 
-            val response = MyAPI.getAPI().postItemCheckout(
-                token.toString(),
-                CheckoutBody(arrBook, email, address, phone)
-            )
-            response.enqueue(object : Callback<CheckoutResponse> {
-                override fun onResponse(
-                    call: Call<CheckoutResponse>,
-                    response: Response<CheckoutResponse>
-                ) {
-                    if (response.isSuccessful) {
-                        println("SUCCESS")
-                        val intent2 = Intent(this@Checkout, Cart::class.java)
-                        startActivity(intent2)
-                        finish()
+            if(email.isEmpty() || phone.isEmpty() || address.isEmpty()) {
+                Toast.makeText(this@Checkout, "Please fill all the field", Toast.LENGTH_SHORT).show()
+            } else {
+                val alertDialog: AlertDialog? = this.let {
+                    val builder = AlertDialog.Builder(this@Checkout!!)
+                    builder.apply {
+                        setPositiveButton("Ok", DialogInterface.OnClickListener { dialog, id ->
+                            val response = MyAPI.getAPI().postItemCheckout(
+                                token.toString(),
+                                CheckoutBody(arrBook, email, address, phone)
+                            )
+                            response.enqueue(object : Callback<CheckoutResponse> {
+                                override fun onResponse(
+                                    call: Call<CheckoutResponse>,
+                                    response: Response<CheckoutResponse>
+                                ) {
+                                    if (response.isSuccessful) {
+                                        println("SUCCESS")
+                                        val intent2 = Intent(this@Checkout, Cart::class.java)
+                                        startActivity(intent2)
+                                        Toast.makeText(this@Checkout, "Checkout successfully", Toast.LENGTH_SHORT).show()
+                                        finish()
+                                    }
+                                }
+
+                                override fun onFailure(call: Call<CheckoutResponse>, t: Throwable) {
+                                    Toast.makeText(this@Checkout, "Fail connection to server", Toast.LENGTH_LONG)
+                                        .show()
+                                    t.printStackTrace()
+                                }
+
+                            })
+                        })
+                        setNegativeButton("Cancel", DialogInterface.OnClickListener { dialog, id ->
+                            //do sth
+                        })
+//                                setIcon(android.R.drawable.ic_dialog_alert)
+                        setTitle("Process to checkout")
                     }
+                    builder.create()
                 }
-
-                override fun onFailure(call: Call<CheckoutResponse>, t: Throwable) {
-                    Toast.makeText(this@Checkout, "Fail connection to server", Toast.LENGTH_LONG)
-                        .show()
-                    t.printStackTrace()
-                }
-
-            })
+                alertDialog!!.show()
+            }
         }
     }
 
