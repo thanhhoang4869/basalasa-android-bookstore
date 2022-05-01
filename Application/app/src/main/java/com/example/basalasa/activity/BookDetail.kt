@@ -87,7 +87,7 @@ class BookDetail : AppCompatActivity() {
                     binding.bookCate.text = data.category
 
                     arrRelatedBooks= data.relatedBooks!!
-                    System.out.println(arrRelatedBooks)
+
                     adapter=CategoryAdapter(arrRelatedBooks)
                     binding.rvCategoryListItem.adapter = adapter
                     binding.rvCategoryListItem.layoutManager = LinearLayoutManager(this@BookDetail,LinearLayoutManager.HORIZONTAL, false)
@@ -109,31 +109,41 @@ class BookDetail : AppCompatActivity() {
                             response_.enqueue(object : Callback<GetAccountResponse> {
                                 override fun onResponse(
                                     call: Call<GetAccountResponse>,
-                                    response: Response<GetAccountResponse>
+                                    response_: Response<GetAccountResponse>
                                 ) {
-                                    if (response.isSuccessful) {
-                                        val data_ = response.body()
+                                    if (response_.isSuccessful) {
+                                        val data_ = response_.body()
                                         Log.d("data", data_?.exitcode.toString())
                                         if (data_?.exitcode == 0) {
-                                            addCart(token.toString(), data._id)
+                                            if(data_?.email==data?.seller)
+                                            {
+                                                Toast.makeText(
+                                                    this@BookDetail,
+                                                    "You cannot buy your books",
+                                                    Toast.LENGTH_LONG
+                                                ).show()
+                                            }else{
+                                                addCart(token.toString(), data._id)
 
-                                            binding.animation.animate().apply {
-                                                duration = 500
-                                                alpha(0f)
-                                                yBy(1500f)
-                                                scaleYBy(-1f)
-                                                scaleXBy(-1f)
-                                                zBy(90f)
-                                            }.withEndAction {
                                                 binding.animation.animate().apply {
-                                                    duration = 1
-                                                    z(0f)
-                                                    alpha(0.5f)
-                                                    yBy(-1500f)
-                                                    scaleYBy(1f)
-                                                    scaleXBy(1f)
-                                                }.start()
+                                                    duration = 500
+                                                    alpha(0f)
+                                                    yBy(1500f)
+                                                    scaleYBy(-1f)
+                                                    scaleXBy(-1f)
+                                                    zBy(90f)
+                                                }.withEndAction {
+                                                    binding.animation.animate().apply {
+                                                        duration = 1
+                                                        z(0f)
+                                                        alpha(0.5f)
+                                                        yBy(-1500f)
+                                                        scaleYBy(1f)
+                                                        scaleXBy(1f)
+                                                    }.start()
+                                                }
                                             }
+
                                         }
                                     } else {
                                         startActivity(intent)
