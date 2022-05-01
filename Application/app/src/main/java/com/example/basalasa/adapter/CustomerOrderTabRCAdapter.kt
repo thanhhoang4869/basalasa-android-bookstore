@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.basalasa.R
 import com.example.basalasa.model.entity.CustomerHistory
 import com.squareup.picasso.Picasso
+import java.text.DecimalFormat
+import java.text.NumberFormat
 
 class CustomerOrderTabRCAdapter (private val arrHistory: ArrayList<CustomerHistory>, private val pending: Boolean): RecyclerView.Adapter<CustomerOrderTabRCAdapter.ViewHolder>() {
     var onItemClick: ((CustomerHistory) -> Unit)? = null
@@ -55,11 +57,13 @@ class CustomerOrderTabRCAdapter (private val arrHistory: ArrayList<CustomerHisto
     override fun onBindViewHolder(holder: CustomerOrderTabRCAdapter.ViewHolder, position: Int) {
         var order = arrHistory[position]
 
+        val formatter: NumberFormat = DecimalFormat("#,###")
+
         Picasso.get().load(order.product?.get(0)?.picture).into(holder.image);
         holder.date.text = order.date
         holder.name.text = order.product?.get(0)?.name
-        holder.quantity.text = "x" + order.product?.get(0)?.quantity.toString()
-        holder.total.text = order.total.toString()
+        holder.quantity.text = "x " + order.product?.get(0)?.quantity.toString()
+        holder.total.text = formatter.format(order.total)
 
         if(!pending) {
             holder.cancel.visibility = View.GONE

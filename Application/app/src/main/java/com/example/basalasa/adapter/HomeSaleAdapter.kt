@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.basalasa.R
 import com.example.basalasa.model.entity.Book
 import com.squareup.picasso.Picasso
-import java.lang.Integer.parseInt
 import java.text.DecimalFormat
 import java.text.NumberFormat
 

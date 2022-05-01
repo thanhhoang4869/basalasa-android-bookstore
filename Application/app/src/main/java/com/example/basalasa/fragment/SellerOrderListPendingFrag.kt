@@ -81,7 +81,7 @@ class SellerOrderListPendingFrag(private val user: String) : Fragment() {
                                 }
                                 setNegativeButton("Cancel") { _, _ ->
                                 }
-                                setTitle("Confirm this order?")
+                                setTitle("Process this order?")
                             }
                             builder.create()
                         }

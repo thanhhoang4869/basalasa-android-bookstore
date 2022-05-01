@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.basalasa.R
 import com.example.basalasa.model.entity.CustomerBookHistory
 import com.squareup.picasso.Picasso
+import java.text.DecimalFormat
+import java.text.NumberFormat
 
 
 class OrderDetailAdapter(private val arrCartBook: ArrayList<CustomerBookHistory>): RecyclerView.Adapter<OrderDetailAdapter.ViewHolder>() {
@@ -36,10 +38,12 @@ class OrderDetailAdapter(private val arrCartBook: ArrayList<CustomerBookHistory>
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val formatter: NumberFormat = DecimalFormat("#,###")
+
         val book = arrCartBook[position]
         holder.bookName.text=book.name
         holder.quantity.text="x " + book.quantity.toString()
-        holder.Price.text=book.price.toString()
+        holder.Price.text= formatter.format(book.price)
         Picasso.get().load(book.picture).into(holder.bookImage)
     }
 
