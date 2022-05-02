@@ -34,7 +34,7 @@ class GetBookDetailResponse {
     @SerializedName("state")
     val state: Int = 1
     @SerializedName("star")
-    val star: Int = 0
+    val star: Double = 0.0
     @SerializedName("comments")
     val comments: ArrayList<Comments>? = null
     @SerializedName ("relatedBooks")

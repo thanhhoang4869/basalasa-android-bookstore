@@ -257,15 +257,10 @@
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
-                <it.mike5v.viewmoretextview.ViewMoreTextView
+                <TextView
                     android:id="@+id/bookDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:justificationMode="inter_word"
-                    app:ellipsizeText="View More"
-                    app:duration="500"
-                    app:visibleLines="6"
-                    app:isExpanded="false"
                     android:textColor="#000000" />
 
             </LinearLayout>

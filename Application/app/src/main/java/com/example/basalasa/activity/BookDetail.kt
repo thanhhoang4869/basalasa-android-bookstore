@@ -69,9 +69,9 @@ class BookDetail : AppCompatActivity() {
                     binding.bookDescription.text =
                         HtmlCompat.fromHtml(data.description, HtmlCompat.FROM_HTML_MODE_COMPACT)
 
-                    binding.bookDescription.setOnClickListener {
-                        binding.bookDescription.toggle()
-                    }
+//                    binding.bookDescription.setOnClickListener {
+//                        binding.bookDescription.toggle()
+//                    }
 
                     binding.bookAuthor.text = data.author
 
@@ -94,8 +94,8 @@ class BookDetail : AppCompatActivity() {
                     arrRelatedBooks= data.relatedBooks!!
 
                     adapter=CategoryAdapter(arrRelatedBooks)
-                    binding.rvCategoryListItem.adapter = adapter
-                    binding.rvCategoryListItem.layoutManager = LinearLayoutManager(this@BookDetail,LinearLayoutManager.HORIZONTAL, false)
+                    binding.relatedBooks.adapter = adapter
+                    binding.relatedBooks.layoutManager = LinearLayoutManager(this@BookDetail,LinearLayoutManager.HORIZONTAL, false)
                     adapter.setOnItemClickListener(object :CategoryAdapter.onItemClickListener{
                         override fun onItemClick(position: Int) {
                             val intent=Intent(this@BookDetail,BookDetail::class.java)
@@ -120,7 +120,7 @@ class BookDetail : AppCompatActivity() {
                                         val data_ = response_.body()
                                         Log.d("data", data_?.exitcode.toString())
                                         if (data_?.exitcode == 0) {
-                                            if(data_?.email==data?.seller)
+                                            if(data_.email == data.seller)
                                             {
                                                 Toast.makeText(
                                                     this@BookDetail,
