@@ -45,4 +45,8 @@
         <item>Language</item>
         <item>Economics</item>
     </string-array>
+    <string name="review">Review</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="related_books">Related books</string>
+    <string name="book_name">Book name</string>
 </resources>

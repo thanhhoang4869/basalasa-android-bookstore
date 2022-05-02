@@ -68,6 +68,11 @@ class BookDetail : AppCompatActivity() {
                     Picasso.get().load(data.picture).into(binding.animation)
                     binding.bookDescription.text =
                         HtmlCompat.fromHtml(data.description, HtmlCompat.FROM_HTML_MODE_COMPACT)
+
+                    binding.bookDescription.setOnClickListener {
+                        binding.bookDescription.toggle()
+                    }
+
                     binding.bookAuthor.text = data.author
 
                     if (data.saleprice.toString() == "0") {
