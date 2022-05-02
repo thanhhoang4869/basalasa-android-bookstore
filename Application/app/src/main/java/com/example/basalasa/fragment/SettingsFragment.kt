@@ -1,6 +1,7 @@
 package com.example.basalasa.fragment
 
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.Paint
@@ -10,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
@@ -52,7 +54,23 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
         binding.reqBtn.paintFlags = Paint.UNDERLINE_TEXT_FLAG
         binding.roleTxt.isVisible = false
 
-        binding.reqBtn.setOnClickListener { sendRequest() }
+        binding.reqBtn.setOnClickListener {
+            sendRequest()
+//            val alertDialog: AlertDialog? = this.let {
+//                val builder = AlertDialog.Builder(this@SettingFragment)
+//                builder.apply {
+//                    setPositiveButton("Yes", DialogInterface.OnClickListener { dialog, id ->
+//                        sendRequest()
+//                    })
+//                    setNegativeButton("No", DialogInterface.OnClickListener { dialog, id ->
+//                        //do sth
+//                    })
+//                    setTitle("Do you really want to become a seller?")
+//                }
+//                builder.create()
+//            }
+//            alertDialog!!.show()
+        }
 
         binding.changeInfo.setOnClickListener {
             activity?.let {
@@ -131,6 +149,7 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
 
     private fun sendRequest() {
         val token = context?.let { Cache.getToken(it) }!!
+
         val response = MyAPI.getAPI().postSendRequest(token)
 
         response.enqueue(object : Callback<SendRequestResponse> {
@@ -170,7 +189,7 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
             override fun onFailure(call: Call<SendRequestResponse>, t: Throwable) {
                 Toast.makeText(context, "Fail to connect to server", Toast.LENGTH_LONG)
                     .show()
-                t.printStackTrace();
+                t.printStackTrace()
             }
         })
     }

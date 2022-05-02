@@ -1,7 +1,9 @@
 package com.example.basalasa.activity
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -76,9 +78,8 @@ class RequestList : AppCompatActivity() {
         val newRole = 1
 
         val token = Cache.getToken(this)!!
-        val response =
-            MyAPI.getAPI().postChangeRole(token, ChangeRoleBody(email, newRole))
 
+        val response = MyAPI.getAPI().postChangeRole(token, ChangeRoleBody(email, newRole))
         response.enqueue(object : Callback<ChangeRoleResponse> {
             override fun onResponse(
                 call: Call<ChangeRoleResponse>,
@@ -170,11 +171,39 @@ class RequestList : AppCompatActivity() {
         binding.lsReq.addItemDecoration(itemDecoration)
 
         adapter.onAccButtonClick = { pos ->
-            acceptReq(reqList, adapter, pos)
+            val alertDialog: AlertDialog? = this.let {
+                val builder = AlertDialog.Builder(this@RequestList)
+                builder.apply {
+                    setPositiveButton("OK", DialogInterface.OnClickListener { dialog, id ->
+                        acceptReq(reqList, adapter, pos)
+                    })
+                    setNegativeButton("Cancel", DialogInterface.OnClickListener { dialog, id ->
+                        //do sth
+                    })
+//                                setIcon(android.R.drawable.ic_dialog_alert)
+                    setTitle("Do you want to upgrade this customer")
+                }
+                builder.create()
+            }
+            alertDialog!!.show()
         }
 
         adapter.onDecButtonClick = { pos ->
-            declineReq(reqList, adapter, pos)
+            val alertDialog: AlertDialog? = this.let {
+                val builder = AlertDialog.Builder(this@RequestList)
+                builder.apply {
+                    setPositiveButton("Ok", DialogInterface.OnClickListener { dialog, id ->
+                        declineReq(reqList, adapter, pos)
+                    })
+                    setNegativeButton("Cancel", DialogInterface.OnClickListener { dialog, id ->
+                        //do sth
+                    })
+//                                setIcon(android.R.drawable.ic_dialog_alert)
+                    setTitle("Do you want to reject this request")
+                }
+                builder.create()
+            }
+            alertDialog!!.show()
         }
     }
 }
