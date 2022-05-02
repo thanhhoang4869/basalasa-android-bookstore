@@ -160,28 +160,33 @@
             android:text="Release year"
             android:textColor="@color/black" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:hint="DD/MM/YYYY">-->
+
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:id="@+id/etRelease"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:singleLine="true"-->
+<!--                />-->
+
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+        <TextView
+            android:id="@+id/tvRelease"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="DD/MM/YYYY">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etRelease"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:maxLength="20"
-                android:singleLine="true" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-        <!--        <Button-->
-        <!--            android:id="@+id/btnChoose"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:text="choose file" />-->
+            android:height="50dp"
+            android:background="@drawable/custom_input"
+            android:paddingStart="3dp"
+            android:paddingTop="1dp"
+            android:paddingEnd="3dp"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
 
         <LinearLayout
             android:id="@+id/btnChoose"
