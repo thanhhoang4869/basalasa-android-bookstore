@@ -19,16 +19,11 @@ class OrderDetailAdapter(private val arrCartBook: ArrayList<CustomerBookHistory>
     lateinit var context: Context
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        var bookImage: ImageView
-        var bookName: TextView
-        var Price: TextView
-        var quantity: TextView
-        init {
-            bookImage = itemView.findViewById(R.id.customerOrderImage)
-            bookName = itemView.findViewById(R.id.customerOrderName)
-            quantity = itemView.findViewById(R.id.customerOrderQuantity)
-            Price = itemView.findViewById(R.id.customerOrderItemPrice)
-        }
+        var bookImage: ImageView = itemView.findViewById(R.id.customerOrderImage)
+        var bookName: TextView = itemView.findViewById(R.id.customerOrderName)
+        var Price: TextView = itemView.findViewById(R.id.customerOrderItemPrice)
+        var quantity: TextView = itemView.findViewById(R.id.customerOrderQuantity)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrderDetailAdapter.ViewHolder {
@@ -48,7 +43,6 @@ class OrderDetailAdapter(private val arrCartBook: ArrayList<CustomerBookHistory>
     }
 
     override fun getItemCount(): Int {
-        return arrCartBook!!.size
+        return arrCartBook.size
     }
-
 }

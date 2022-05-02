@@ -11,8 +11,8 @@
         android:layout_width="180dp"
         android:layout_height="270dp"
         android:layout_marginTop="10dp"
-        android:contentDescription="image"
         android:alpha="0.5"
+        android:contentDescription="image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bookDetailTopbar"
@@ -88,11 +88,11 @@
                     android:textStyle="bold" />
 
                 <LinearLayout
-                    android:gravity="bottom"
-                    android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_below="@id/bookTitle">
+                    android:layout_below="@id/bookTitle"
+                    android:gravity="bottom"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/bookSalePrice"
@@ -104,11 +104,11 @@
 
                     <TextView
                         android:id="@+id/bookPrice"
-                        android:textSize="18sp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
-                        android:textStyle="bold"/>
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
             </RelativeLayout>
@@ -261,8 +261,6 @@
                     android:id="@+id/bookDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:justificationMode="inter_word"
-                    android:text="Description The speaker unit contains a diaphragm that is precision-grown from NAC Audio bio-cellulose, making it stiffer, lighter and stronger than regular PET speaker units, and allowing the sound-producing diaphragm to vibrate without the levels of distortion found in other speakers. test qwwkeqyiu iquey qwiuysd"
                     android:textColor="#000000" />
 
             </LinearLayout>
@@ -279,7 +277,6 @@
                 android:paddingBottom="10dp">
 
                 <TextView
-                    android:id="@+id/textView19"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Reviews"
@@ -287,41 +284,55 @@
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/comments"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:paddingStart="10dp"
-                        android:paddingTop="10dp"
-                        android:paddingEnd="10dp"
-                        android:paddingBottom="10dp"></androidx.recyclerview.widget.RecyclerView>
-
-                <TextView
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/comments"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/relatedBook"
+                    android:layout_marginTop="10dp"
+                    android:paddingStart="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginBottom="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingStart="10dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:id="@+id/textView19"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/related_books"
                     android:textColor="@color/primary_green"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
-                <ScrollView
+                <HorizontalScrollView
 
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fillViewport="true">
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
                     <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rv_category_list_item"
-                        android:layout_width="match_parent"
+                        android:id="@+id/relatedBooks"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:scrollbars="horizontal"
-                        android:orientation="horizontal"
-                        app:reverseLayout="true"
-                        app:flow_horizontalGap="20dp"/>
-                </ScrollView>
+                        android:orientation="vertical"
+                        android:paddingStart="10dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:scrollbars="horizontal" />
+                </HorizontalScrollView>
             </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
 
@@ -341,14 +352,12 @@
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="7dp"
+            android:layout_marginTop="10dp"
             android:background="@null"
             android:backgroundTint="@color/primary_green"
-            android:text="Add to cart"
+            android:text="@string/add_to_cart"
             android:textColor="@color/white"
             android:textSize="18sp" />
-
-
 
     </RelativeLayout>
 

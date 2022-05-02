@@ -38,7 +38,8 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
         android:text="Confirm"
-        android:textColor="@color/green"
+        android:textStyle="bold"
+        android:textColor="@color/primary_green"
         app:layout_constraintEnd_toStartOf="@+id/btnCancel"
         app:layout_constraintTop_toTopOf="@+id/customerOrderDate" />
 
@@ -104,6 +105,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:text="total money"
+        android:textStyle="bold"
         android:textColor="@color/primary_green"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView18" />
