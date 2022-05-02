@@ -25,7 +25,7 @@
     <string name="account_list">Account list</string>
     <string name="account_management">Account Management</string>
     <string name="home">Home</string>
-    <string name="category">Category</string>
+    <string name="category">Explore</string>
     <string name="account">Account</string>
     <string name="checkout">Checkout</string>
     <string name="email">Email</string>
@@ -37,4 +37,12 @@
     <string name="apply_filter">apply filter</string>
     <string name="go_shopping">Go shopping</string>
     <string name="total">Total</string>
+
+    <string-array name="Categories">
+        <item>Manga - Comic</item>
+        <item>Foreign books</item>
+        <item>Detective</item>
+        <item>Language</item>
+        <item>Economics</item>
+    </string-array>
 </resources>

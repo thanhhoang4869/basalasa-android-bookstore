@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.isInvisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.basalasa.R
 import com.example.basalasa.model.entity.Book
@@ -26,9 +27,13 @@ class CategoryAdapter(private val arrBook: ArrayList<Book>): RecyclerView.Adapte
     override fun onBindViewHolder(holder: CategoryAdapter.ViewHolder, position: Int) {
         Picasso.get().load(arrBook[position].picture).into(holder.itemImg)
         holder.itemTitle.text=arrBook[position].name
-//        holder.itemPrice.text=arrBook[position].price.toString()
-        holder.itemRate.text=arrBook[position].star.toString()
-        holder.itemReview.text=arrBook[position].comments?.size.toString()+ " Reviews"
+        if(arrBook[position].star.toString()=="0"){
+            holder.itemReview.text="No reviews"
+            holder.itemRate.isInvisible=true
+        }else{
+            holder.itemRate.text=arrBook[position].star.toString()
+            holder.itemReview.text=arrBook[position].comments?.size.toString()+ " Reviews"
+        }
         val formatter: NumberFormat = DecimalFormat("#,###")
         if(arrBook[position].saleprice.toString()=="0"){
             holder.itemPrice.text=formatter.format(arrBook[position].price)

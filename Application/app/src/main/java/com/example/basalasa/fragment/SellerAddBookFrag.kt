@@ -11,8 +11,11 @@ import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.core.content.PermissionChecker.checkSelfPermission
 import androidx.fragment.app.Fragment
+import com.example.basalasa.R
 import com.example.basalasa.activity.Login
 import com.example.basalasa.databinding.FragmentSellerAddBookBinding
 import com.example.basalasa.model.reponse.AddBookResponse
@@ -59,11 +62,33 @@ class SellerAddBookFrag(private val user: String) : Fragment() {
             val intent_ = Intent(context, Login::class.java)
             startActivity(intent_)
         }
+        val categories = resources.getStringArray(R.array.Categories)
+        val spinner = binding.spnCategory
+        if (spinner != null) {
+            val adapter = ArrayAdapter(
+                requireContext(),
+                android.R.layout.simple_spinner_item, categories
+            )
+            spinner.adapter = adapter
+        }
+
         binding.btnChoose.setOnClickListener {
             onClickPermission()
         }
-        binding.addBook.setOnClickListener(({
 
+        binding.addBook.setOnClickListener(({
+            val author=binding.etAuthor.text.toString()
+            val des=binding.etDescription.text.toString()
+            val dis=binding.etDistributor.text.toString()
+            val price=binding.etPrice.text.toString()
+            val quan=binding.etQuantity.text.toString()
+            val date=binding.etRelease.text.toString()
+            val title=binding.etTitle.text.toString()
+            val cate=binding.spnCategory.selectedItem.toString()
+            if(author==""||des==""||title==""||dis==""||price==""||quan==""||date==""||file==null||cate==""){
+                Toast.makeText(context,"Please enter all the fields!",Toast.LENGTH_SHORT).show()
+            }
+            else{
             val etTitle: RequestBody = RequestBody.create(
                 MediaType.parse("multipart/form-data"),
                 binding.etTitle.text.toString()
@@ -81,10 +106,10 @@ class SellerAddBookFrag(private val user: String) : Fragment() {
                 MediaType.parse("multipart/form-data"),
                 binding.etPrice.text.toString()
             )
-//            val etSaleprice:RequestBody = RequestBody.create(MediaType.parse("multipart/form-data"),null)
+
             val etCategory: RequestBody = RequestBody.create(
                 MediaType.parse("multipart/form-data"),
-                binding.etCategory.text.toString()
+                binding.spnCategory.selectedItem.toString()
             )
             val etRelease: RequestBody = RequestBody.create(
                 MediaType.parse("multipart/form-data"),
@@ -108,6 +133,7 @@ class SellerAddBookFrag(private val user: String) : Fragment() {
                 RequestBody.create(MediaType.parse("multipart/form-data"), file)
             val multipart: MultipartBody.Part =
                 MultipartBody.Part.createFormData("image", file?.name, requestbodyImg)
+
             val response = MyAPI.getAPI().addBook(
                 token.toString(),
                 etTitle,
@@ -141,6 +167,7 @@ class SellerAddBookFrag(private val user: String) : Fragment() {
                 }
 
             })
+            }
         }))
     }
 
