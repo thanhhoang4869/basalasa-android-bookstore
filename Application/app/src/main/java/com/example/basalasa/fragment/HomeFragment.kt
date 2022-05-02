@@ -76,8 +76,16 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                     }
 
                     //bind to adapter
-                    binding.homeCategoryRC.adapter = HomeCategoryAdapter(arrCategory)
+                    val adapter=HomeCategoryAdapter(arrCategory)
+                    binding.homeCategoryRC.adapter = adapter
                     binding.homeCategoryRC.layoutManager = LinearLayoutManager( context, LinearLayoutManager.HORIZONTAL, false)
+                    adapter.onItemClick={item->
+                        val nextFrag = HomeCategoryDetails(item.name)
+                        activity!!.supportFragmentManager.beginTransaction()
+                            .replace(R.id.flFragment, nextFrag, "findThisFragment")
+                            .addToBackStack(null)
+                            .commit()
+                    }
                 }
             }
 

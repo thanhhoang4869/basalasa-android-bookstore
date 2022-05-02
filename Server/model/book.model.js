@@ -123,4 +123,7 @@ export default {
 			}
 		)
 	},
+	findBookWCategory: async (cate) => {
+		return Book.find({ category: cate }).lean()
+	},
 }

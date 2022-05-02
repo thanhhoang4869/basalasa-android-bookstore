@@ -12,6 +12,7 @@ export default {
 			// '/book/onsale',
 			// '/book/getDetails',
 			'/search',
+			'/category/details',
 			// '/search/filter',
 		],
 

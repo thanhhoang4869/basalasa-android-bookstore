@@ -79,6 +79,11 @@ interface API {
     @GET("/category")
     fun getCategory(): Call<GetCategoryResponse>
 
+    @GET("/category/details")
+    fun getCategoryDetails(
+        @Query("category") category:String
+    ):Call<GetBooksResponse>
+
     //book
     @GET("/book/onsale")
     fun getBookOnSale(): Call<GetBookOnSaleResponse>
