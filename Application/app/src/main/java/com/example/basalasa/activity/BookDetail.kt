@@ -1,5 +1,6 @@
 package com.example.basalasa.activity
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Paint
 import android.os.Bundle
@@ -14,7 +15,6 @@ import com.example.basalasa.databinding.ActivityBookDetailBinding
 import com.example.basalasa.model.body.AddCartBody
 import com.example.basalasa.model.body.GetDetailsBody
 import com.example.basalasa.model.entity.Book
-import com.example.basalasa.model.entity.BooksInCart
 import com.example.basalasa.model.reponse.GetAccountResponse
 import com.example.basalasa.model.reponse.GetBookDetailResponse
 import com.example.basalasa.model.reponse.GetUpdateResponse
@@ -54,6 +54,7 @@ class BookDetail : AppCompatActivity() {
         val token = Cache.getToken(this)
         val intent = Intent(this, Login::class.java)
         response.enqueue(object : Callback<GetBookDetailResponse> {
+            @SuppressLint("SimpleDateFormat")
             override fun onResponse(
                 call: Call<GetBookDetailResponse>,
                 response: Response<GetBookDetailResponse>
@@ -190,9 +191,9 @@ class BookDetail : AppCompatActivity() {
                 call: Call<GetUpdateResponse>,
                 response: Response<GetUpdateResponse>
             ) {
-                if (response.isSuccessful) {
-                    //Toast.makeText(this@BookDetail, "Add to cart successfully", Toast.LENGTH_LONG).show()
-                }
+//                if (response.isSuccessful) {
+//                    //Toast.makeText(this@BookDetail, "Add to cart successfully", Toast.LENGTH_LONG).show()
+//                }
             }
 
             override fun onFailure(call: Call<GetUpdateResponse>, t: Throwable) {

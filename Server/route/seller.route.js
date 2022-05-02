@@ -141,4 +141,14 @@ router.get('/delete', async (req, res) => {
 	}
 })
 
+router.post('/update', async (req, res) => {
+	const { id, author, description, distributor, quantity, saleprice } = req.body
+	try {
+		await bookModel.updateBook(id, author, description, distributor, quantity, saleprice)
+		res.send({ error: false })
+	} catch (error) {
+		res.send({ error: true })
+	}
+})
+
 export default router

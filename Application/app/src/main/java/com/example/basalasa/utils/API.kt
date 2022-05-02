@@ -2,12 +2,10 @@ package com.example.basalasa.utils
 
 import com.example.basalasa.model.body.*
 import com.example.basalasa.model.reponse.*
-import com.google.gson.annotations.SerializedName
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.*
-import java.io.File
 
 interface API {
     //user
@@ -159,10 +157,10 @@ interface API {
         @Query("id") id: String
     ):Call<SellerDeleteBookResponse>
 
-    @GET("/seller/update")
+    @POST("/seller/update")
     fun sellerUpdateBook(
         @Header("x-access-token") tokenHeader: String,
-        @Query("id") id: String
+        @Body book: UpdateBookBody
     ):Call<SellerDeleteBookResponse>
 
     //admin

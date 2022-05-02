@@ -15,184 +15,141 @@
         android:paddingStart="10dp"
         android:paddingEnd="10dp">
 
-        <TextView
-            android:id="@+id/textView15"
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Edit your book"
-            android:textSize="20sp"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginTop="10dp"/>
 
         <TextView
-            android:id="@+id/textView16"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Title:" />
+            android:text="Author"
+            android:textColor="@color/black" />
 
-        <EditText
-            android:id="@+id/etTitle"
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:height="48dp"
-            android:background="@drawable/custom_input"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:minHeight="48dp" />
+            android:layout_marginTop="10dp">
 
-        <TextView
-            android:id="@+id/textView17"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Author:" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etAuthor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="20"
+                android:singleLine="true" />
 
-        <EditText
-            android:id="@+id/etAuthor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:height="48dp"
-            android:background="@drawable/custom_input"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:minHeight="48dp" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
-            android:id="@+id/textView20"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Price:" />
+            android:text="Sale price"
+            android:textColor="@color/black" />
 
-        <EditText
-            android:id="@+id/etPrice"
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:height="48dp"
-            android:background="@drawable/custom_input"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:minHeight="48dp" />
+            android:layout_marginTop="10dp">
 
-        <TextView
-            android:id="@+id/textView21"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Category:" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:maxLength="20"
+                android:singleLine="true" />
 
-        <EditText
-            android:id="@+id/etCategory"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:height="48dp"
-            android:background="@drawable/custom_input"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:minHeight="48dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <TextView
-            android:id="@+id/textView23"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Distributor:" />
+            android:text="Distributor"
+            android:textColor="@color/black" />
 
-        <EditText
-            android:id="@+id/etDistributor"
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:height="48dp"
-            android:background="@drawable/custom_input"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:minHeight="48dp" />
+            android:layout_marginTop="10dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etDistributor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="20"
+                android:singleLine="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
-            android:id="@+id/textView25"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Quantity:" />
+            android:text="Quantity"
+            android:textColor="@color/black" />
 
-        <EditText
-            android:id="@+id/etQuantity"
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:height="48dp"
-            android:background="@drawable/custom_input"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:minHeight="48dp" />
+            android:layout_marginTop="10dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etQuantity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:maxLength="20"
+                android:singleLine="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <TextView
             android:id="@+id/textView26"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Description:" />
+            android:text="Description"
+            android:textColor="@color/black" />
 
-        <EditText
-            android:id="@+id/etDescription"
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="10dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etDescription"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="top"
+                android:maxLength="2000" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:height="48dp"
-            android:background="@drawable/custom_input"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:minHeight="48dp" />
+            android:layout_marginTop="10dp"
+            android:hint="DD/MM/YYYY"/>
 
-        <TextView
-            android:id="@+id/textView27"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Release:" />
 
-        <EditText
-            android:id="@+id/etRelease"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:height="48dp"
-            android:background="@drawable/custom_input"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:minHeight="48dp" />
-
-        <TextView
-            android:id="@+id/textView28"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Sale price:" />
-
-        <EditText
-            android:id="@+id/etSaleprice"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:height="48dp"
-            android:background="@drawable/custom_input"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:minHeight="48dp" />
-
-        <TextView
-            android:id="@+id/textView13"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Picture:" />
+        <!--        <Button-->
+        <!--            android:id="@+id/btnChoose"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="choose file" />-->
 
         <Button
-            android:id="@+id/btnChoose"
+            android:id="@+id/addBook"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="choose file" />
-
-        <ImageView
-            android:id="@+id/ivPicture"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:src="@tools:sample/avatars" />
+            android:layout_marginTop="20dp"
+            android:text="UPLOAD" />
 
     </LinearLayout>
 </ScrollView>

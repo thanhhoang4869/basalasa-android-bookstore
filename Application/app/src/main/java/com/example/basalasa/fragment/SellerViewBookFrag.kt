@@ -72,6 +72,7 @@ class SellerViewBookFrag(private val user: String) : Fragment() {
                         override fun onItemClick(position: Int) {
                             val intent= Intent(context, SellerBookDetails::class.java)
                             intent.putExtra("id",arrBooks[position]._id)
+                            intent.putExtra("user",user)
                             startActivity(intent)
                         }
                     })

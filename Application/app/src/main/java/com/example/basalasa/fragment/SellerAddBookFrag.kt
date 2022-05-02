@@ -88,7 +88,6 @@ class SellerAddBookFrag(private val user: String) : Fragment() {
             val cate=binding.spnCategory.selectedItem.toString()
 
             if(author==""||des==""||title==""||dis==""||price==""||quan==""||date==""||file==null||cate==""){
-
                 Toast.makeText(context,"Please enter all the fields!",Toast.LENGTH_SHORT).show()
             }
             else{

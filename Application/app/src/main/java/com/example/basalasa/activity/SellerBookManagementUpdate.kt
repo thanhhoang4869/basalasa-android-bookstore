@@ -2,8 +2,10 @@ package com.example.basalasa.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.example.basalasa.databinding.ActivitySellerBookManagementUpdateBinding
+import com.example.basalasa.model.body.UpdateBookBody
 import com.example.basalasa.model.reponse.SellerDeleteBookResponse
 import com.example.basalasa.utils.Cache
 import com.example.basalasa.utils.MyAPI
@@ -20,29 +22,43 @@ class SellerBookManagementUpdate : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        val id=intent.getStringExtra("id")
-        loadBookInfo(id!!)
-    }
+        val id=intent.getStringExtra("id")!!
 
-    private fun loadBookInfo(id:String){
-        val token = this.let { Cache.getToken(it) }
-        val response = token?.let { MyAPI.getAPI().sellerUpdateBook(it, id) }
+        binding.addBook.setOnClickListener {
+            val author=binding.etAuthor.text.toString()
+            val des=binding.etDescription.text.toString()
+            val dis=binding.etDistributor.text.toString()
+            val price=binding.etPrice.text.toString()
+            val quan=binding.etQuantity.text.toString()
 
-        response!!.enqueue(object : Callback<SellerDeleteBookResponse> {
-            override fun onResponse(call: Call<SellerDeleteBookResponse>, response: Response<SellerDeleteBookResponse>) {
-                if (response.isSuccessful) {
-                    val error=response.body()!!.error
-                    if(error){
-                        Toast.makeText(this@SellerBookManagementUpdate,"Fail!", Toast.LENGTH_SHORT).show()
-                    }else{
+            if(author==""||des==""||title==""||dis==""||price==""||quan==""){
+                Toast.makeText(this,"Please enter all the fields!",Toast.LENGTH_SHORT).show()
+            }
+            else{
+                val token=Cache.getToken(this)
+                val body=UpdateBookBody(id,author,des,dis,price.toInt(),quan.toInt())
+                val response=MyAPI.getAPI().sellerUpdateBook(token!!,body)
 
+                response.enqueue(object :Callback<SellerDeleteBookResponse>{
+                    override fun onResponse(
+                        call: Call<SellerDeleteBookResponse>,
+                        response: Response<SellerDeleteBookResponse>
+                    ) {
+                        if(response.isSuccessful){
+                            val data=response.body()!!
+                            if(data.error){
+                                Toast.makeText(this@SellerBookManagementUpdate,"Fail!",Toast.LENGTH_SHORT).show()
+                            }else{
+                                Toast.makeText(this@SellerBookManagementUpdate,"Success!",Toast.LENGTH_SHORT).show()
+                                finish()
+                            }
+                        }
                     }
-                }
+
+                    override fun onFailure(call: Call<SellerDeleteBookResponse>, t: Throwable) {
+                    }
+                })
             }
-            override fun onFailure(call: Call<SellerDeleteBookResponse>, t: Throwable) {
-                Toast.makeText(this@SellerBookManagementUpdate, "Fail connection to server", Toast.LENGTH_LONG).show()
-                t.printStackTrace()
-            }
-        })
+        }
     }
 }

@@ -109,4 +109,18 @@ export default {
 			}
 		)
 	},
+	updateBook: async (id, author, description, distributor, quantity, saleprice) => {
+		await Book.updateOne(
+			{ _id: id },
+			{
+				$set: {
+					author: author,
+					description: description,
+					distributor: distributor,
+					saleprice: saleprice,
+					quantity: quantity,
+				},
+			}
+		)
+	},
 }
