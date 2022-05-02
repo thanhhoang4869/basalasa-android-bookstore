@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.basalasa.R
 import com.example.basalasa.model.entity.SellerPendingOrder
 import com.squareup.picasso.Picasso
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class SellerPendingOrderAdapter(private val orders:ArrayList<SellerPendingOrder>):RecyclerView.Adapter<SellerPendingOrderAdapter.ViewHolder>() {
     var onItemClick: ((SellerPendingOrder) -> Unit)? = null
@@ -28,10 +30,11 @@ class SellerPendingOrderAdapter(private val orders:ArrayList<SellerPendingOrder>
         val order = orders[position]
 
         Picasso.get().load(order.product[0].picture).into(holder.image)
-        holder.date.text = order.date
+        holder.date.text = order.date.slice(0..9)
         holder.name.text = order.product[0].name
         holder.quantity.text = "x" + order.product[0].quantity.toString()
         holder.total.text = order.total.toString()
+        holder.receiver.text=order.receiver
     }
 
     override fun getItemCount(): Int {
@@ -44,6 +47,7 @@ class SellerPendingOrderAdapter(private val orders:ArrayList<SellerPendingOrder>
         var name: TextView = itemView.findViewById(R.id.customerOrderName)
         var quantity: TextView = itemView.findViewById(R.id.customerOrderQuantity)
         var total: TextView = itemView.findViewById(R.id.customerOrderTotalMoney)
+        var receiver:TextView=itemView.findViewById(R.id.tvReceiver)
         private var confirm:TextView=itemView.findViewById(R.id.btnConfirm)
         private var cancel:TextView=itemView.findViewById(R.id.btnCancel)
 

@@ -2,6 +2,7 @@ package com.example.basalasa.fragment
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -55,7 +56,7 @@ class CategoryFragment : Fragment(R.layout.fragment_category) {
                         arrBooks.add(item)
                     }
 
-                    //bind to adapter
+                    Log.i("?","123")
                     val adapter=CategoryAdapter(arrBooks)
                     binding.rvCategoryListItem.adapter = adapter
                     binding.rvCategoryListItem.layoutManager = GridLayoutManager(context,2)

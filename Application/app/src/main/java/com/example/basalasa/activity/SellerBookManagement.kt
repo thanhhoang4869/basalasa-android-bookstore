@@ -1,12 +1,12 @@
 package com.example.basalasa.activity
 
-import androidx.appcompat.app.AppCompatActivity
+import android.R.id.tabs
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.basalasa.adapter.SellerBookManagementAdapter
-import com.example.basalasa.adapter.SellerOrderListAdapter
 import com.example.basalasa.databinding.ActivitySellerBookManagementBinding
-import com.example.basalasa.databinding.ActivitySellerOrderListBinding
 import com.google.android.material.tabs.TabLayoutMediator
+
 
 class SellerBookManagement : AppCompatActivity() {
     private lateinit var binding: ActivitySellerBookManagementBinding
@@ -22,7 +22,7 @@ class SellerBookManagement : AppCompatActivity() {
 
         TabLayoutMediator(binding.tlSellerOrderList,binding.vpSellerOrderList) { tab, position ->
             when (position) {
-                0 -> tab.text = "Your books"
+                0 -> tab.text = "My books"
                 1 -> tab.text = "Add book"
             }
         }.attach()

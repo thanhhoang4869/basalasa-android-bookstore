@@ -30,6 +30,8 @@ class SellerCompletedOrderAdapter(private val orders:ArrayList<SellerPendingOrde
         holder.name.text = order.product[0].name
         holder.quantity.text = "x" + order.product[0].quantity.toString()
         holder.total.text = order.total.toString()
+        holder.receiver.text=order.receiver
+
     }
 
     override fun getItemCount(): Int {
@@ -42,6 +44,7 @@ class SellerCompletedOrderAdapter(private val orders:ArrayList<SellerPendingOrde
         var name: TextView = itemView.findViewById(R.id.customerOrderName)
         var quantity: TextView = itemView.findViewById(R.id.customerOrderQuantity)
         var total: TextView = itemView.findViewById(R.id.customerOrderTotalMoney)
+        var receiver:TextView=itemView.findViewById(R.id.tvReceiver)
 
         init{
             itemView.setOnClickListener {

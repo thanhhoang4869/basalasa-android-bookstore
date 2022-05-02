@@ -27,7 +27,7 @@ class CategoryAdapter(private val arrBook: ArrayList<Book>): RecyclerView.Adapte
     override fun onBindViewHolder(holder: CategoryAdapter.ViewHolder, position: Int) {
         Picasso.get().load(arrBook[position].picture).into(holder.itemImg)
         holder.itemTitle.text=arrBook[position].name
-        if(arrBook[position].star.toString()=="0"){
+        if(arrBook[position].star.toString()=="0.0"){
             holder.itemReview.text="No reviews"
             holder.itemRate.isInvisible=true
         }else{

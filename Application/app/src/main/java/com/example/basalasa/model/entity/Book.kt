@@ -17,7 +17,7 @@ class Book(
     val description: String,
     val quantity: Int,
     val state: Int,
-    val star: Int,
+    val star: Double,
     var comments:ArrayList<Comments>?=null,
     var relatedBook:ArrayList<Book>?=null
 ) {

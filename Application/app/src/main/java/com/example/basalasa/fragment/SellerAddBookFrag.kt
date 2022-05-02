@@ -28,6 +28,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.io.File
+import java.time.LocalDate
 
 
 class SellerAddBookFrag(private val user: String) : Fragment() {
@@ -85,7 +86,9 @@ class SellerAddBookFrag(private val user: String) : Fragment() {
             val date=binding.etRelease.text.toString()
             val title=binding.etTitle.text.toString()
             val cate=binding.spnCategory.selectedItem.toString()
+
             if(author==""||des==""||title==""||dis==""||price==""||quan==""||date==""||file==null||cate==""){
+
                 Toast.makeText(context,"Please enter all the fields!",Toast.LENGTH_SHORT).show()
             }
             else{

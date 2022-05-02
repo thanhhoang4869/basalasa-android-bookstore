@@ -32,7 +32,7 @@ class SellerProcessingOrderAdapter(private val orders:ArrayList<SellerPendingOrd
         holder.name.text = order.product[0].name
         holder.quantity.text = "x" + order.product[0].quantity.toString()
         holder.total.text = order.total.toString()
-
+        holder.receiver.text=order.receiver
         if(order.status=="Preparing"){
             holder.done.visibility=View.GONE
         }else{
@@ -52,6 +52,7 @@ class SellerProcessingOrderAdapter(private val orders:ArrayList<SellerPendingOrd
         var total: TextView = itemView.findViewById(R.id.customerOrderTotalMoney)
         var deliver:TextView=itemView.findViewById(R.id.btnDeliver)
         var done:TextView=itemView.findViewById(R.id.btnDone)
+        var receiver:TextView=itemView.findViewById(R.id.tvReceiver)
 
         init{
             itemView.setOnClickListener {
