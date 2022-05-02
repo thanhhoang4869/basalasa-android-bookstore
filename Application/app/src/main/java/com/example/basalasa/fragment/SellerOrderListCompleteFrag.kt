@@ -41,6 +41,10 @@ class SellerOrderListCompleteFrag(private val user: String) : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         loadCompleted(user)
     }
+    override fun onResume() {
+        super.onResume()
+        loadCompleted(user)
+    }
 
     private fun loadCompleted(user: String) {
         val token= Cache.getToken(requireContext())

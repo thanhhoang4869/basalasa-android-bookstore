@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.basalasa.R
 import com.example.basalasa.model.entity.BooksInCart
+import com.squareup.picasso.Picasso
 import java.text.DecimalFormat
 import java.text.NumberFormat
 
@@ -38,6 +39,7 @@ class CheckoutAdapter(private val arrCartBook: HashMap<String, BooksInCart>) :
         holder.bookName.text = valueOfElement.name
         holder.Price.text = formatter.format( valueOfElement.price)
         holder.Quantity.text = valueOfElement.quantity.toString()
+        Picasso.get().load(valueOfElement.img).into(holder.picture)
     }
 
     override fun getItemCount(): Int {

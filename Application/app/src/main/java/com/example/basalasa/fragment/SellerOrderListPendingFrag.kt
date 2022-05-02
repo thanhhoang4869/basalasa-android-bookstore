@@ -43,6 +43,10 @@ class SellerOrderListPendingFrag(private val user: String) : Fragment() {
         loadPending(user)
     }
 
+    override fun onResume() {
+        super.onResume()
+        loadPending(user)
+    }
     private fun loadPending(user: String) {
         val token=Cache.getToken(requireContext())
         val response=MyAPI.getAPI().getSellerPendingOrder(token.toString(),user)

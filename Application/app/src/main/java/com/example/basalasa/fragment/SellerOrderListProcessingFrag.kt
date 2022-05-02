@@ -45,7 +45,10 @@ class SellerOrderListProcessingFrag(private val user: String) : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         loadProcessing(user)
     }
-
+    override fun onResume() {
+        super.onResume()
+        loadProcessing(user)
+    }
     private fun loadProcessing(user: String) {
         val token= Cache.getToken(requireContext())
         val response= MyAPI.getAPI().getSellerProcessingOrder(token.toString(),user)

@@ -134,6 +134,7 @@ class Checkout : AppCompatActivity() {
                     if (data!!.exitcode == 0) {
                         account = Account(data!!)
                         Log.d("account", account.toString())
+
                         binding.emailReceiver.setText(account.email)
                         binding.addressReceiver.setText(account.address)
                         binding.phoneReceiver.setText(account.phone)

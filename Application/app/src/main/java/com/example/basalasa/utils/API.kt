@@ -146,7 +146,7 @@ interface API {
         @Query("seller") seller: String
     ): Call<GetSellerPendingOrderResponse>
 
-    @GET("/seller/completed")
+    @GET("/seller/canceled")
     fun getSellerCanceledOrder(
         @Header("x-access-token") tokenHeader: String,
         @Query("seller") seller: String
