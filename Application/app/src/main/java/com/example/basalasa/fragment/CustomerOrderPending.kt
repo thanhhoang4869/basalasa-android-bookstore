@@ -9,7 +9,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.viewpager2.widget.ViewPager2
+import com.example.basalasa.R
 import com.example.basalasa.activity.OrderDetail
 import com.example.basalasa.adapter.CustomerOrderTabRCAdapter
 import com.example.basalasa.databinding.FragmentCustomerOrderPendingBinding
@@ -128,8 +132,11 @@ class CustomerOrderPending : Fragment() {
             ) {
                 if (response.isSuccessful) {
                     val data = response.body()
+
                     if(data?.exitcode == 0) {
                         loadHistory()
+                        val viewPaper: ViewPager2 = activity!!.findViewById(R.id.customerOrderViewPager2)
+                        viewPaper.setCurrentItem(4)
                         Toast.makeText(context, "The order was successfully cancelled", Toast.LENGTH_LONG).show()
                     } else {
                         Toast.makeText(context, "Cannot cancel the order", Toast.LENGTH_LONG).show()

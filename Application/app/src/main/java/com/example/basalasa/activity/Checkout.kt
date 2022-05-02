@@ -9,6 +9,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.viewpager2.widget.ViewPager2
+import com.example.basalasa.R
 import com.example.basalasa.adapter.CheckoutAdapter
 import com.example.basalasa.databinding.ActivityCheckoutBinding
 import com.example.basalasa.model.body.CheckoutBody
