@@ -1,7 +1,9 @@
 package com.example.basalasa.activity
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -87,44 +89,55 @@ class AccountList : AppCompatActivity() {
             val newState: Int = 1 - accList[pos].status
 
             val token = Cache.getToken(this)!!
-            val response =
-                MyAPI.getAPI().postChangeAccState(token, ChangeAccStateBody(email, newState))
 
-            response.enqueue(object : Callback<ChangeAccStateResponse> {
-                override fun onResponse(
-                    call: Call<ChangeAccStateResponse>,
-                    response: Response<ChangeAccStateResponse>
-                ) {
-                    if (response.isSuccessful) {
-                        val data = response.body()
-                        when (data?.exitcode) {
-                            0 -> {
-//                                reload()
-                                accList[pos].status = newState
-                                adapter.notifyItemChanged(pos)
-//                                Toast.makeText(
-//                                    this@AccountList,
-//                                    "Success",
-//                                    Toast.LENGTH_LONG
-//                                ).show()
+            val alertDialog: AlertDialog? = this.let {
+                val builder = AlertDialog.Builder(this@AccountList)
+                builder.apply {
+                    setPositiveButton("Confirm", DialogInterface.OnClickListener { dialog, id ->
+                        val response = MyAPI.getAPI().postChangeAccState(token, ChangeAccStateBody(email, newState))
+
+                        response.enqueue(object : Callback<ChangeAccStateResponse> {
+                            override fun onResponse(
+                                call: Call<ChangeAccStateResponse>,
+                                response: Response<ChangeAccStateResponse>
+                            ) {
+                                if (response.isSuccessful) {
+                                    val data = response.body()
+                                    when (data?.exitcode) {
+                                        0 -> {
+                                            accList[pos].status = newState
+                                            adapter.notifyItemChanged(pos)
+                                        }
+                                        403 -> {
+                                            Toast.makeText(
+                                                this@AccountList,
+                                                "Token expired",
+                                                Toast.LENGTH_LONG
+                                            ).show()
+                                        }
+                                    }
+                                }
                             }
-                            403 -> {
-                                Toast.makeText(
-                                    this@AccountList,
-                                    "Token expired",
-                                    Toast.LENGTH_LONG
-                                ).show()
+
+                            override fun onFailure(call: Call<ChangeAccStateResponse>, t: Throwable) {
+                                Toast.makeText(this@AccountList, "Fail connection to server", Toast.LENGTH_LONG)
+                                    .show()
+                                t.printStackTrace();
                             }
-                        }
+                        })
+                    })
+                    setNegativeButton("Cancel", DialogInterface.OnClickListener { dialog, id ->
+                        //do sth
+                    })
+                    if(newState == 0) {
+                        setTitle("Do you really want to ban $email ?")
+                    } else {
+                        setTitle("Do you really want to unban $email")
                     }
                 }
-
-                override fun onFailure(call: Call<ChangeAccStateResponse>, t: Throwable) {
-                    Toast.makeText(this@AccountList, "Fail connection to server", Toast.LENGTH_LONG)
-                        .show()
-                    t.printStackTrace();
-                }
-            })
+                builder.create()
+            }
+            alertDialog!!.show()
         }
     }
 }

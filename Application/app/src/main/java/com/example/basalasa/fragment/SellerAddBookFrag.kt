@@ -3,6 +3,8 @@ package com.example.basalasa.fragment
 
 import android.Manifest
 import android.app.Activity.RESULT_OK
+import android.app.DatePickerDialog
+import android.app.DatePickerDialog.OnDateSetListener
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -28,7 +30,6 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.io.File
-import java.time.LocalDate
 
 
 class SellerAddBookFrag(private val user: String) : Fragment() {
@@ -77,13 +78,42 @@ class SellerAddBookFrag(private val user: String) : Fragment() {
             onClickPermission()
         }
 
+        binding.tvRelease.setOnClickListener {
+            val selectedYear = 2000
+            val selectedMonth = 5
+            val selectedDayOfMonth = 10
+
+            val dateSetListener =
+                OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+                    val month=if(monthOfYear + 1<10){
+                        "0"+(monthOfYear + 1).toString()
+                    }else{
+                        (monthOfYear + 1).toString()
+                    }
+                    val day=if(dayOfMonth<10){
+                        "0"+dayOfMonth.toString()
+                    }else{
+                        dayOfMonth.toString()
+                    }
+                    binding.tvRelease.setText(
+                         day +"/" + month + "/" + year
+                    )
+                }
+            val datePickerDialog = DatePickerDialog(
+                requireContext(),
+                android.R.style.Theme_Holo_Light_Dialog_NoActionBar,
+                dateSetListener, selectedYear, selectedMonth, selectedDayOfMonth
+            )
+            datePickerDialog.show()
+        }
+
         binding.addBook.setOnClickListener(({
             val author=binding.etAuthor.text.toString()
             val des=binding.etDescription.text.toString()
             val dis=binding.etDistributor.text.toString()
             val price=binding.etPrice.text.toString()
             val quan=binding.etQuantity.text.toString()
-            val date=binding.etRelease.text.toString()
+            val date=binding.tvRelease.text.toString()
             val title=binding.etTitle.text.toString()
             val cate=binding.spnCategory.selectedItem.toString()
 
@@ -115,7 +145,7 @@ class SellerAddBookFrag(private val user: String) : Fragment() {
             )
             val etRelease: RequestBody = RequestBody.create(
                 MediaType.parse("multipart/form-data"),
-                binding.etRelease.text.toString()
+                binding.tvRelease.text.toString()
             )
             val etDescription: RequestBody = RequestBody.create(
                 MediaType.parse("multipart/form-data"),
@@ -160,14 +190,14 @@ class SellerAddBookFrag(private val user: String) : Fragment() {
 
                     if (response.isSuccessful) {
                         println("SUCCESS")
+                        Toast.makeText(context,"Success!",Toast.LENGTH_SHORT).show()
                     }
                 }
 
                 override fun onFailure(call: Call<AddBookResponse>, t: Throwable) {
-                    println("FAILED")
+                    Toast.makeText(context,"Fail!",Toast.LENGTH_SHORT).show()
                     t.printStackTrace()
                 }
-
             })
             }
         }))

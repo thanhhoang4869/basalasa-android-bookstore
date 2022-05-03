@@ -57,7 +57,7 @@ class CustomerOrderTabRCAdapter (private val arrHistory: ArrayList<CustomerHisto
         holder.date.text = order.date
         holder.name.text = order.product[0].name
         holder.quantity.text = "x" + order.product?.get(0)?.quantity.toString()
-        holder.total.text = order.total.toString()
+        holder.total.text = formatter.format(order.total)
 
         if(!pending) {
             holder.cancel.visibility = View.GONE

@@ -109,7 +109,7 @@ export default {
 			}
 		)
 	},
-	updateBook: async (id, author, description, distributor, quantity, saleprice) => {
+	updateBook: async (id, author, description, distributor, quantity, saleprice, price) => {
 		await Book.updateOne(
 			{ _id: id },
 			{
@@ -117,8 +117,9 @@ export default {
 					author: author,
 					description: description,
 					distributor: distributor,
-					saleprice: saleprice,
+					saleprice: saleprice == 0 ? null : saleprice,
 					quantity: quantity,
+					price: price,
 				},
 			}
 		)

@@ -51,6 +51,11 @@ class SellerViewBookFrag(private val user: String) : Fragment() {
         loadListBook(user)
     }
 
+    override fun onResume() {
+        super.onResume()
+        loadListBook(user)
+    }
+
     private fun loadListBook(user:String){
         val response = MyAPI.getAPI().getBooks()
         val arrBooks = arrayListOf<Book>()
