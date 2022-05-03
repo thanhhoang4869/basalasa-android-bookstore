@@ -8,10 +8,13 @@ import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.text.HtmlCompat
 import androidx.core.view.isVisible
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.basalasa.adapter.CategoryAdapter
 import com.example.basalasa.adapter.CommentAdapter
 import com.example.basalasa.databinding.ActivityBookDetailBinding
@@ -37,7 +40,7 @@ class BookDetail : AppCompatActivity() {
     private lateinit var binding: ActivityBookDetailBinding
     lateinit var arrRelatedBooks: ArrayList<Book>
     lateinit var adapter: CategoryAdapter
-    lateinit var commentAdapter:CommentAdapter
+    var commentAdapter: CommentAdapter? =null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,6 +54,9 @@ class BookDetail : AppCompatActivity() {
         binding.buttonBack.setOnClickListener {
             finish()
         }
+
+        binding.noReview.isVisible=false
+        binding.comments.isVisible=false
     }
 
     private fun loadDetail(id: String) {
@@ -58,6 +64,7 @@ class BookDetail : AppCompatActivity() {
         val token = Cache.getToken(this)
         val intent = Intent(this, Login::class.java)
         response.enqueue(object : Callback<GetBookDetailResponse> {
+            @RequiresApi(Build.VERSION_CODES.Q)
             @SuppressLint("SimpleDateFormat")
             override fun onResponse(
                 call: Call<GetBookDetailResponse>,
@@ -73,14 +80,30 @@ class BookDetail : AppCompatActivity() {
                     Picasso.get().load(data.picture).into(binding.animation)
                     binding.bookDescription.text =
                         HtmlCompat.fromHtml(data.description, HtmlCompat.FROM_HTML_MODE_COMPACT)
-                    commentAdapter = CommentAdapter(data.comments!!)
+
+                    if(data.comments!!.isNotEmpty()){
+                        binding.comments.isVisible=true
+                        commentAdapter = CommentAdapter(data.comments)
+
+                        val itemDecoration: RecyclerView.ItemDecoration = DividerItemDecoration(
+                            this@BookDetail,
+                            DividerItemDecoration.VERTICAL
+                        )
+                        binding.comments.addItemDecoration(itemDecoration)
+                        binding.sumRev.text= "(${data.comments.size} reviews)"
+                        binding.star.text=data.star.toString()
+                    } else{
+                        binding.noReview.isVisible=true
+                        binding.sumRev.isVisible=false
+                        binding.starIcon.isVisible=false
+                        binding.star.isVisible=false
+                    }
+
 //                    binding.bookDescription.setOnClickListener {
 //                        binding.bookDescription.toggle()
 //                    }
 
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                        binding.bookDescription.justificationMode = JUSTIFICATION_MODE_INTER_WORD
-                    }
+                    binding.bookDescription.justificationMode = JUSTIFICATION_MODE_INTER_WORD
 
                     binding.bookAuthor.text = data.author
 

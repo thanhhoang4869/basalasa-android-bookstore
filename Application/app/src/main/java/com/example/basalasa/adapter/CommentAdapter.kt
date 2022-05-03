@@ -29,7 +29,7 @@ class CommentAdapter(private val arrComment: ArrayList<Comments>): RecyclerView.
     override fun onBindViewHolder(holder: CommentAdapter.ViewHolder, position: Int) {
         holder.comment.text= arrComment[position].review
         holder.rating.text="Rating: "+arrComment[position].rating.toString()
-        holder.userEmail.text = "Email: "+arrComment[position].userEmail
+        holder.userEmail.text = arrComment[position].userEmail
     }
 
     override fun getItemCount(): Int {

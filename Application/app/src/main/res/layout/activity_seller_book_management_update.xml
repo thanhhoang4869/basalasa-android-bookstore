@@ -19,6 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Tên sách đổ lên đây"
+            android:textSize="16sp"
             android:textColor="@color/primary_green"
             android:textStyle="bold"
             android:id="@+id/title"/>
@@ -47,7 +48,7 @@
                 android:id="@+id/etAuthor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:maxLength="20"
+                android:maxLength="50"
                 android:singleLine="true"
                 tools:ignore="SpeakableTextPresentCheck" />
 
@@ -141,7 +142,7 @@
                 android:id="@+id/etDistributor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:maxLength="20"
+                android:maxLength="50"
                 android:singleLine="true"
                 tools:ignore="SpeakableTextPresentCheck" />
 
