@@ -3,6 +3,7 @@ package com.example.basalasa.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.basalasa.adapter.CategoryAdapter
@@ -19,6 +20,7 @@ import retrofit2.Response
 
 class SearchResults : AppCompatActivity(),BottomSheetFilter.BottomSheetListener {
     private lateinit var binding: ActivitySearchResultsBinding
+    private lateinit var temp:String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySearchResultsBinding.inflate(layoutInflater)
@@ -48,8 +50,11 @@ class SearchResults : AppCompatActivity(),BottomSheetFilter.BottomSheetListener 
                     //bind to adapter
                     if(arrBooks.size==0){
                         binding.tvSearchResults.text="Not found"
+                        binding.imageView.visibility=View.VISIBLE
                     }else{
+                        binding.imageView.visibility=View.GONE
                         binding.tvSearchResults.text="Search for "+input
+                        temp=binding.tvSearchResults.text.toString()
                         val adapter= CategoryAdapter(arrBooks)
                         binding.searchList.adapter = adapter
                         binding.searchList.layoutManager = GridLayoutManager(this@SearchResults,2)
@@ -89,7 +94,12 @@ class SearchResults : AppCompatActivity(),BottomSheetFilter.BottomSheetListener 
 
                     if(arrBooks.size==0){
                         binding.tvSearchResults.text="Not found"
+                        binding.imageView.visibility=View.VISIBLE
+                        binding.searchList.visibility=View.GONE
                     }else{
+                        binding.tvSearchResults.text=temp
+                        binding.searchList.visibility=View.VISIBLE
+                        binding.imageView.visibility=View.GONE
                         val adapter= CategoryAdapter(arrBooks)
                         binding.searchList.adapter = adapter
                         binding.searchList.layoutManager = GridLayoutManager(this@SearchResults,2)

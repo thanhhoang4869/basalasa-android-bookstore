@@ -66,7 +66,7 @@ class SellerViewBookFrag(private val user: String) : Fragment() {
                     val data = response.body()
 
                     for(item: Book in data!!.arrBook!!) {
-                        if(item.seller==user)
+                        if(item.seller==user && item.quantity>0)
                             arrBooks.add(item)
                     }
 
