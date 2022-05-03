@@ -132,7 +132,6 @@ export default {
 	},
 	async doneOrder(orderId) {
 		try {
-			console.log(orderId)
 			let order_ = await Order.findOne({_id:orderId}).lean()
 			order_.status='Completed'
 			console.log(order_)
@@ -157,4 +156,18 @@ export default {
 	findByStatus: async (status) => {
 		return await Order.find({ status: status })
 	},
+	updateIsReviewed:async(orderId,bookID)=>{
+		let order = await Order.findOne({_id:orderId})
+		console.log(order)
+		console.log("bookID")
+		console.log(bookID)
+		for (let i =0;i<order.product.length;i++){
+			console.log(order.product[i]._id)
+			if(order.product[i]._id===String(bookID)){
+				console.log("TEST")
+				order.product[i].isReviewed=true
+			}
+		}
+		await Order.findOneAndUpdate({_id:orderId},{product:order.product})
+	}
 }

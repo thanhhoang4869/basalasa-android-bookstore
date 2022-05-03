@@ -3,6 +3,7 @@ import cloudinary from '../utils/cloudinary.js'
 import mongoose from 'mongoose'
 import config from '../config/config.js'
 import moment from 'moment'
+import orderModel from './order.model.js'
 const url = config.url
 
 mongoose.connect(url, {
@@ -23,7 +24,7 @@ const BookSchema = new mongoose.Schema({
 	description: { type: String, required: true },
 	quantity: { type: Number, required: true, min: 1 },
 	state: Number,
-	star: Number,
+	star: {type:Number},
 	comments: [
 		{
 			userEmail: { type: String },
@@ -127,4 +128,30 @@ export default {
 	findBookWCategory: async (cate) => {
 		return Book.find({ category: cate }).lean()
 	},
+	postcomment:async(email,id,star,comment,orderID)=>{
+		try{
+			let book = await Book.findOne({_id:id})
+			const newComment = {
+				userEmail:email,
+				rating: star,
+				review: comment,
+			}
+			let newStar = star
+			for(let i =0;i<book.comments.length;i++){
+				newStar+=book.comments[i].rating
+			}
+			let comments =[...book.comments,newComment]
+			newStar/= comments.length*1.0
+			console.log(newStar)
+			const result = await Book.findOneAndUpdate({_id:id},{star:newStar, comments:comments})
+			await orderModel.updateIsReviewed(orderID,id)
+
+			return result
+		}catch(error){
+			
+			console.log(error)
+			return null
+		}
+	}
+		
 }
