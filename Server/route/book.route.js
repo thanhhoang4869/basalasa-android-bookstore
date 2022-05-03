@@ -65,7 +65,6 @@ router.post('/getDetails', async (req, res) => {
 
 router.get('/', async (req, res) => {
 	try {
-		console.log(number.toFixed(1))
 		const ret = await bookModel.findAll()
 		res.send({ arrBook: ret })
 	} catch (error) {
