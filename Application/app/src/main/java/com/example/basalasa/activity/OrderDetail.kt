@@ -67,7 +67,6 @@ class OrderDetail(private var arrHistory: CustomerHistory,private var type:Int):
     fun postComment (book: CustomerBookHistory,rating:Double,comment_:String,reviewPanel: LinearLayout,notification:TextView){
 
         val token = context?.let { Cache.getToken(it) }
-        Toast.makeText(context, token.toString(), Toast.LENGTH_LONG).show()
         val response = MyAPI.getAPI().postComment(token.toString(), CommentBody(book._id,rating,comment_,arrHistory._id))
 
         response.enqueue(object : Callback<CommentResponse> {

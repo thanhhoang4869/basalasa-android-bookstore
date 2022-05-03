@@ -53,7 +53,9 @@ class CategoryFragment : Fragment(R.layout.fragment_category) {
                     val data = response.body()
 
                     for(item: Book in data!!.arrBook!!) {
-                        arrBooks.add(item)
+                        if(item.quantity>0) {
+                            arrBooks.add(item)
+                        }
                     }
 
                     Log.i("?","123")
