@@ -71,9 +71,11 @@ export default {
 	getBook: async (bookID) => {
 		return await Book.findOne({ _id: bookID })
 	},
+	
 	findAll: async () => {
 		return (await Book.find({}).lean()) || null
 	},
+
 	findBookWSeller: async (seller, id) => {
 		return await Book.findOne({ seller: seller, _id: id })
 	},
@@ -142,6 +144,7 @@ export default {
 			}
 			let comments =[...book.comments,newComment]
 			newStar/= comments.length*1.0
+			newStar = newStar.toFixed(1)
 			console.log(newStar)
 			const result = await Book.findOneAndUpdate({_id:id},{star:newStar, comments:comments})
 			await orderModel.updateIsReviewed(orderID,id)
