@@ -38,6 +38,7 @@ router.post('/login', async(req, res) => {
 
     const ret = req.body.password === account.password
     console.log(account.password)
+    console.log(req.body.password === account.password)
     if (ret === false || account.emailToken !== null) {
         res.send({
             exitcode: 104,

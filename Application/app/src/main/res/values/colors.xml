@@ -6,6 +6,7 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
+    <color name="blue">#4682B4</color>
     <color name="white">#FFFFFFFF</color>
     <color name="primary_green">#219F94</color>
     <color name="primary_green_thick">#008276</color>
@@ -13,6 +14,7 @@
     <color name="green">#0ACF83</color>
     <color name="grey">#EDEDED</color>
     <color name="grey_light">#f9f9f9</color>
+    <color name="border">#60000000</color>
     <color name="grey_thick">#808080</color>
     <color name="lighter_green">#E1EFE2</color>
     <color name="light_red">#D86F6F</color>
