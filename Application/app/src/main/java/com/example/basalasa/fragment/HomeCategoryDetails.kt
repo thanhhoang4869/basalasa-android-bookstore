@@ -42,7 +42,7 @@ class HomeCategoryDetails(val category:String) : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        binding.textView13.text=category
         val response=MyAPI.getAPI().getCategoryDetails(category)
         response.enqueue(object : Callback<GetBooksResponse> {
             override fun onResponse(

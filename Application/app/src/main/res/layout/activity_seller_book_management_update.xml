@@ -20,7 +20,8 @@
             android:layout_height="match_parent"
             android:text="Tên sách đổ lên đây"
             android:textColor="@color/primary_green"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:id="@+id/title"/>
 
         <View
             style="@style/Divider"
