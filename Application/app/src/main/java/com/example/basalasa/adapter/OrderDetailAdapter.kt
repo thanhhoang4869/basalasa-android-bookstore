@@ -4,8 +4,8 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.basalasa.R
 import com.example.basalasa.model.entity.CustomerBookHistory
@@ -23,6 +23,7 @@ class OrderDetailAdapter(private val arrCartBook: ArrayList<CustomerBookHistory>
         var bookName: TextView = itemView.findViewById(R.id.customerOrderName)
         var Price: TextView = itemView.findViewById(R.id.customerOrderItemPrice)
         var quantity: TextView = itemView.findViewById(R.id.customerOrderQuantity)
+        var reviewPanel: LinearLayout = itemView.findViewById(R.id.reviewPanel)
 
     }
 
@@ -40,6 +41,9 @@ class OrderDetailAdapter(private val arrCartBook: ArrayList<CustomerBookHistory>
         holder.quantity.text="x " + book.quantity.toString()
         holder.Price.text= formatter.format(book.price)
         Picasso.get().load(book.picture).into(holder.bookImage)
+        if(book.isReviewed==false){
+            holder.reviewPanel.visibility = View.VISIBLE
+        }
     }
 
     override fun getItemCount(): Int {

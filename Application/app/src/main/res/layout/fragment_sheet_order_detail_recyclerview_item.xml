@@ -54,22 +54,23 @@
         </LinearLayout>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/bookRated"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Book rated!"
-        android:textColor="@color/primary_green"
-        android:textSize="15sp"
-        android:textStyle="italic" />
+
 
     <LinearLayout
         android:id="@+id/reviewPanel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
+        android:orientation="vertical"
+        android:visibility="gone">
+        <TextView
+            android:id="@+id/bookRated"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Book rated!"
+            android:textColor="@color/primary_green"
+            android:textSize="15sp"
+            android:textStyle="italic" />
         <RatingBar
             android:id="@+id/star"
             style="@android:style/Widget.Holo.RatingBar"
