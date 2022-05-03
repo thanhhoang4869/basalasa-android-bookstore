@@ -96,7 +96,7 @@ class CustomerOrderPending : Fragment() {
                         alertDialog!!.show()
                     }
 
-                    if(!arrHistory!!.isEmpty()) {
+                    if(arrHistory.isNotEmpty()) {
                         binding.customerOrderPendingRC.adapter = adapter
                         binding.customerOrderPendingRC.layoutManager = LinearLayoutManager( context, LinearLayoutManager.VERTICAL, false)
                         binding.customerOrderPendingNoInfo.visibility = View.GONE
@@ -136,8 +136,8 @@ class CustomerOrderPending : Fragment() {
                     if(data?.exitcode == 0) {
                         loadHistory()
                         val viewPaper: ViewPager2 = activity!!.findViewById(R.id.customerOrderViewPager2)
-                        viewPaper.setCurrentItem(4)
-                        Toast.makeText(context, "The order was successfully cancelled", Toast.LENGTH_LONG).show()
+                        viewPaper.currentItem = 4
+                        Toast.makeText(context, "The order is cancelled", Toast.LENGTH_LONG).show()
                     } else {
                         Toast.makeText(context, "Cannot cancel the order", Toast.LENGTH_LONG).show()
                     }

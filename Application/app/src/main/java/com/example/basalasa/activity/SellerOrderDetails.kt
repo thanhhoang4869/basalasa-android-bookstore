@@ -10,10 +10,13 @@ import com.example.basalasa.adapter.SellerOrderDetailsAdapter
 import com.example.basalasa.databinding.FragmentOrderDetailBinding
 import com.example.basalasa.model.entity.SellerPendingOrder
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import java.text.DecimalFormat
+import java.text.NumberFormat
 
 class SellerOrderDetails(private var arrHistory: SellerPendingOrder): BottomSheetDialogFragment(){
     private lateinit var _binding: FragmentOrderDetailBinding
     private val binding get() = _binding
+    private val formatter: NumberFormat = DecimalFormat("#,###")
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,7 +26,10 @@ class SellerOrderDetails(private var arrHistory: SellerPendingOrder): BottomShee
         _binding = FragmentOrderDetailBinding.inflate(inflater, container, false)
         _binding.orderDetailItem.adapter=SellerOrderDetailsAdapter(arrHistory.product)
         _binding.orderDetailItem.layoutManager=LinearLayoutManager(container?.context)
-        _binding.customerOrderTotalMoney.text=arrHistory.total.toString()
+
+        val tmp = arrHistory.total.toString()
+
+        _binding.customerOrderTotalMoney.text=formatter.format(tmp)
         return binding.root
     }
 }

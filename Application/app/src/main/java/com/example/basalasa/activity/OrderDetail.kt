@@ -26,6 +26,8 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.lang.Double.parseDouble
+import java.text.DecimalFormat
+import java.text.NumberFormat
 
 
 class OrderDetail(private var arrHistory: CustomerHistory,private var type:Int): BottomSheetDialogFragment(){
@@ -49,9 +51,14 @@ class OrderDetail(private var arrHistory: CustomerHistory,private var type:Int):
             DividerItemDecoration.VERTICAL
         )
         _binding.orderDetailItem.addItemDecoration(itemDecoration)
+        val formatter: NumberFormat = DecimalFormat("#,###")
 
-        _binding.customerOrderTotalMoney.text=arrHistory.total.toString()
-        adapter.onItemClick={s,position,ratingBar,comment,reviewPanel,notification->
+        val tmp = arrHistory.total.toString()
+
+        _binding.customerOrderTotalMoney.text=formatter.format(tmp)
+
+
+        adapter.onItemClick={ s, _, ratingBar, comment, reviewPanel, notification->
             val rating:Double = parseDouble(ratingBar.rating.toString())
             val comment_:String =comment.text.toString()
             if(comment_==""){
@@ -64,7 +71,7 @@ class OrderDetail(private var arrHistory: CustomerHistory,private var type:Int):
         }
         return binding.root
     }
-    fun postComment (book: CustomerBookHistory,rating:Double,comment_:String,reviewPanel: LinearLayout,notification:TextView){
+    private fun postComment (book: CustomerBookHistory, rating:Double, comment_:String, reviewPanel: LinearLayout, notification:TextView){
 
         val token = context?.let { Cache.getToken(it) }
         val response = MyAPI.getAPI().postComment(token.toString(), CommentBody(book._id,rating,comment_,arrHistory._id))

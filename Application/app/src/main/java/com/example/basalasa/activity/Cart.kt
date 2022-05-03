@@ -133,7 +133,7 @@ class Cart : AppCompatActivity() {
             val alertDialog: AlertDialog? = this.let {
                 val builder = AlertDialog.Builder(this@Cart!!)
                 builder.apply {
-                    setPositiveButton("Ok", DialogInterface.OnClickListener { dialog, id ->
+                    setPositiveButton("Remove", DialogInterface.OnClickListener { dialog, id ->
                         deleteData(s, position)
 
                     })
@@ -141,7 +141,7 @@ class Cart : AppCompatActivity() {
                         //do sth
                     })
 //                                setIcon(android.R.drawable.ic_dialog_alert)
-                    setTitle("Process to checkout")
+                    setTitle("Remove this item?")
                 }
                 builder.create()
             }

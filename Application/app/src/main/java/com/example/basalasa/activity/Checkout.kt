@@ -77,7 +77,7 @@ class Checkout : AppCompatActivity() {
             if(email.isEmpty() || phone.isEmpty() || address.isEmpty()) {
                 Toast.makeText(this@Checkout, "Please fill all the field", Toast.LENGTH_SHORT).show()
             } else {
-                val alertDialog: AlertDialog? = this.let {
+                val alertDialog: AlertDialog = this.let {
                     val builder = AlertDialog.Builder(this@Checkout!!)
                     builder.apply {
                         setPositiveButton("Ok", DialogInterface.OnClickListener { dialog, id ->
@@ -94,7 +94,7 @@ class Checkout : AppCompatActivity() {
                                         println("SUCCESS")
                                         val intent2 = Intent(this@Checkout, Cart::class.java)
                                         startActivity(intent2)
-                                        Toast.makeText(this@Checkout, "Checkout successfully", Toast.LENGTH_SHORT).show()
+                                        Toast.makeText(this@Checkout, "Order placed successfully!", Toast.LENGTH_SHORT).show()
                                         finish()
                                     }
                                 }
@@ -111,11 +111,11 @@ class Checkout : AppCompatActivity() {
                             //do sth
                         })
 //                                setIcon(android.R.drawable.ic_dialog_alert)
-                        setTitle("Process to checkout")
+                        setTitle("Confirm checkout")
                     }
                     builder.create()
                 }
-                alertDialog!!.show()
+                alertDialog.show()
             }
         }
     }

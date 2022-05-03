@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.basalasa.adapter.CategoryAdapter
 import com.example.basalasa.databinding.ActivitySearchResultsBinding
@@ -31,6 +32,9 @@ class SearchResults : AppCompatActivity(),BottomSheetFilter.BottomSheetListener 
             BottomSheetFilter().show(this.supportFragmentManager,"bs")
         }
 
+        binding.imageView.visibility=View.GONE
+        binding.tvSearchResults.isVisible=false
+
         loadSearchResults(intent.getStringExtra("searchInput")!!)
     }
 
@@ -49,11 +53,10 @@ class SearchResults : AppCompatActivity(),BottomSheetFilter.BottomSheetListener 
 
                     //bind to adapter
                     if(arrBooks.size==0){
-                        binding.tvSearchResults.text="Not found"
                         binding.imageView.visibility=View.VISIBLE
                     }else{
-                        binding.imageView.visibility=View.GONE
-                        binding.tvSearchResults.text="Search for "+input
+                        binding.tvSearchResults.isVisible=true
+                        binding.tvSearchResults.text="Searched for \"${input}\""
                         temp=binding.tvSearchResults.text.toString()
                         val adapter= CategoryAdapter(arrBooks)
                         binding.searchList.adapter = adapter
@@ -93,7 +96,7 @@ class SearchResults : AppCompatActivity(),BottomSheetFilter.BottomSheetListener 
                     }
 
                     if(arrBooks.size==0){
-                        binding.tvSearchResults.text="Not found"
+                        binding.tvSearchResults.visibility=View.GONE
                         binding.imageView.visibility=View.VISIBLE
                         binding.searchList.visibility=View.GONE
                     }else{

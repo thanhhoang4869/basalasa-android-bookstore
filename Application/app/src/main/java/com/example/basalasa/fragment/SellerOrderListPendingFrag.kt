@@ -70,7 +70,7 @@ class SellerOrderListPendingFrag(private val user: String) : Fragment() {
                                 }
                                 setNegativeButton("Cancel") { _, _ ->
                                 }
-                                setTitle("Do you really want to cancel this order?")
+                                setTitle("Are you sure to cancel this order?")
                             }
                             builder.create()
                         }
@@ -80,12 +80,12 @@ class SellerOrderListPendingFrag(private val user: String) : Fragment() {
                         val alertDialog: AlertDialog = this.let {
                             val builder = AlertDialog.Builder(context!!)
                             builder.apply {
-                                setPositiveButton("OK") { _, _ ->
+                                setPositiveButton("Confirm") { _, _ ->
                                     confirmOrder(customerHistory)
                                 }
                                 setNegativeButton("Cancel") { _, _ ->
                                 }
-                                setTitle("Process this order?")
+                                setTitle("Are you sure to confirm this order?")
                             }
                             builder.create()
                         }
@@ -115,7 +115,7 @@ class SellerOrderListPendingFrag(private val user: String) : Fragment() {
                     val data = response.body()
                     if(data?.exitcode == 0) {
                         loadPending(user)
-                        Toast.makeText(context, "The order was successfully cancelled", Toast.LENGTH_LONG).show()
+                        Toast.makeText(context, "The order is cancelled", Toast.LENGTH_LONG).show()
                     } else {
                         Toast.makeText(context, "Cannot cancel the order", Toast.LENGTH_LONG).show()
                     }
