@@ -53,10 +53,10 @@ class OrderDetail(private var arrHistory: CustomerHistory,private var type:Int):
         _binding.orderDetailItem.addItemDecoration(itemDecoration)
         val formatter: NumberFormat = DecimalFormat("#,###")
 
-        val tmp = arrHistory.total.toString()
+        val tmp = arrHistory.total
+        println(tmp)
 
         _binding.customerOrderTotalMoney.text=formatter.format(tmp)
-
 
         adapter.onItemClick={ s, _, ratingBar, comment, reviewPanel, notification->
             val rating:Double = parseDouble(ratingBar.rating.toString())

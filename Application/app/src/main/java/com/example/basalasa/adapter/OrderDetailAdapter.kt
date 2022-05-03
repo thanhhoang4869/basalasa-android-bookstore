@@ -50,11 +50,11 @@ class OrderDetailAdapter(private val arrCartBook: ArrayList<CustomerBookHistory>
         holder.quantity.text="x " + book.quantity.toString()
         holder.Price.text= formatter.format(book.price)
         Picasso.get().load(book.picture).into(holder.bookImage)
-        if(book.isReviewed==false){
+        if(!book.isReviewed){
             holder.reviewPanel.visibility = View.VISIBLE
         }
         if(type==3){
-            if(book.isReviewed==true){
+            if(book.isReviewed){
                 holder.notification.visibility=View.VISIBLE
             }
         }

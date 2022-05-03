@@ -27,7 +27,7 @@ class SellerOrderDetails(private var arrHistory: SellerPendingOrder): BottomShee
         _binding.orderDetailItem.adapter=SellerOrderDetailsAdapter(arrHistory.product)
         _binding.orderDetailItem.layoutManager=LinearLayoutManager(container?.context)
 
-        val tmp = arrHistory.total.toString()
+        val tmp = arrHistory.total
 
         _binding.customerOrderTotalMoney.text=formatter.format(tmp)
         return binding.root
