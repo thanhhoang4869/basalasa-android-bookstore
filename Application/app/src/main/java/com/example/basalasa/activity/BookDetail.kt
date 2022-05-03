@@ -13,6 +13,7 @@ import androidx.core.text.HtmlCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.basalasa.adapter.CategoryAdapter
+import com.example.basalasa.adapter.CommentAdapter
 import com.example.basalasa.databinding.ActivityBookDetailBinding
 import com.example.basalasa.model.body.AddCartBody
 import com.example.basalasa.model.body.GetDetailsBody
@@ -36,6 +37,7 @@ class BookDetail : AppCompatActivity() {
     private lateinit var binding: ActivityBookDetailBinding
     lateinit var arrRelatedBooks: ArrayList<Book>
     lateinit var adapter: CategoryAdapter
+    lateinit var commentAdapter:CommentAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,7 +73,7 @@ class BookDetail : AppCompatActivity() {
                     Picasso.get().load(data.picture).into(binding.animation)
                     binding.bookDescription.text =
                         HtmlCompat.fromHtml(data.description, HtmlCompat.FROM_HTML_MODE_COMPACT)
-
+                    commentAdapter = CommentAdapter(data.comments!!)
 //                    binding.bookDescription.setOnClickListener {
 //                        binding.bookDescription.toggle()
 //                    }
@@ -99,6 +101,10 @@ class BookDetail : AppCompatActivity() {
                     binding.bookCate.text = data.category
 
                     arrRelatedBooks= data.relatedBooks!!
+
+                    binding.comments.adapter = commentAdapter
+                    binding.comments.layoutManager = LinearLayoutManager(this@BookDetail)
+
 
                     adapter=CategoryAdapter(arrRelatedBooks)
                     binding.relatedBooks.adapter = adapter
