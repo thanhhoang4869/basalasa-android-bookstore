@@ -70,7 +70,7 @@ class CustomerOrderCompleted : Fragment() {
                         binding.customerOrderCompletedNoInfo.visibility = View.GONE
 
                         adapter.onItemClick = { customerHistory->
-                            OrderDetail(customerHistory).show(this@CustomerOrderCompleted.childFragmentManager,"bs")
+                            OrderDetail(customerHistory,3).show(this@CustomerOrderCompleted.childFragmentManager,"bs")
                         }
                     } else {
                         binding.customerOrderCompletedNoInfo.visibility = View.VISIBLE

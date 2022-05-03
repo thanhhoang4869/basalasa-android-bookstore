@@ -36,21 +36,25 @@ class BottomSheetFilter : BottomSheetDialogFragment() {
         binding.btnApply.setOnClickListener {
             val text = binding.grCategoryList.selectedButtons
             val selectedList = arrayListOf<String>()
-            val min = binding.etMinPrice.text
-            val max = binding.etMaxPrice.text
+            val min = binding.etMinPrice.text.toString()
+            val max = binding.etMaxPrice.text.toString()
 
-            for (item in text) {
-                selectedList.add(item.text)
-            }
+            if(min>max){
+                Toast.makeText(context,"Price range is invalid",Toast.LENGTH_SHORT).show()
+            }else{
+                for (item in text) {
+                    selectedList.add(item.text)
+                }
 
-            mListener!!.onButtonClicked(
-                FilterResultsBody(
-                    selectedList,
-                    min.toString(),
-                    max.toString()
+                mListener!!.onButtonClicked(
+                    FilterResultsBody(
+                        selectedList,
+                        min,
+                        max
+                    )
                 )
-            )
-            dismiss()
+                dismiss()
+            }
         }
 
         return binding.root

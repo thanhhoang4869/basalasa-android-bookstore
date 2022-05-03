@@ -28,7 +28,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:importantForAutofill="no"
-            android:imeOptions="actionDone"/>
+            android:imeOptions="actionDone"
+            android:textCursorDrawable="@null"/>
 
         <Button
             android:id="@+id/cartBtn"

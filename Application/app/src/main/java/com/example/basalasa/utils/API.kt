@@ -214,4 +214,9 @@ interface API {
         @Part("star")  star: RequestBody,
         @Part img:MultipartBody.Part,
         ):Call<AddBookResponse>
+    @POST("/comment")
+    fun postComment(
+        @Header ("x-access-token")tokenHeader: String,
+        @Body CommentBody:CommentBody
+    ):Call<CommentResponse>
 }

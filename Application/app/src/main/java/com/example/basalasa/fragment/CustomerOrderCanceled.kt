@@ -76,7 +76,7 @@ class CustomerOrderCanceled : Fragment() {
                         binding.customerOrderCanceledNoInfo.visibility = View.GONE
 
                         adapter.onItemClick = { customerHistory->
-                            OrderDetail(customerHistory).show(this@CustomerOrderCanceled.childFragmentManager,"bs")
+                            OrderDetail(customerHistory,4).show(this@CustomerOrderCanceled.childFragmentManager,"bs")
                         }
                     } else {
                         binding.customerOrderCanceledNoInfo.visibility = View.VISIBLE

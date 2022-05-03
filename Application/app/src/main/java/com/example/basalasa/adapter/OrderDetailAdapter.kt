@@ -8,14 +8,15 @@ import android.widget.*
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.basalasa.R
+import com.example.basalasa.model.entity.BooksInCart
 import com.example.basalasa.model.entity.CustomerBookHistory
 import com.squareup.picasso.Picasso
 import java.text.DecimalFormat
 import java.text.NumberFormat
 
 
-class OrderDetailAdapter(private val arrCartBook: ArrayList<CustomerBookHistory>): RecyclerView.Adapter<OrderDetailAdapter.ViewHolder>() {
-
+class OrderDetailAdapter(private val arrCartBook: ArrayList<CustomerBookHistory>,private val type:Int): RecyclerView.Adapter<OrderDetailAdapter.ViewHolder>() {
+    var onItemClick:((CustomerBookHistory, Int,RatingBar,EditText,LinearLayout,TextView) -> Unit)? = null
     lateinit var context: Context
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
@@ -24,7 +25,15 @@ class OrderDetailAdapter(private val arrCartBook: ArrayList<CustomerBookHistory>
         var Price: TextView = itemView.findViewById(R.id.customerOrderItemPrice)
         var quantity: TextView = itemView.findViewById(R.id.customerOrderQuantity)
         var reviewPanel: LinearLayout = itemView.findViewById(R.id.reviewPanel)
+        var notification:TextView = itemView.findViewById(R.id.bookRatedNotification)
+        var ratingBar:RatingBar = itemView.findViewById(R.id.star)
+        var comment: EditText= itemView.findViewById(R.id.review)
+        var reviewBtn:ImageButton = itemView.findViewById(R.id.reviewBtn)
+        init {
+            reviewBtn.setOnClickListener {
+                onItemClick?.invoke(arrCartBook[adapterPosition],adapterPosition,ratingBar,comment,reviewPanel,notification) }
 
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrderDetailAdapter.ViewHolder {
@@ -43,6 +52,11 @@ class OrderDetailAdapter(private val arrCartBook: ArrayList<CustomerBookHistory>
         Picasso.get().load(book.picture).into(holder.bookImage)
         if(book.isReviewed==false){
             holder.reviewPanel.visibility = View.VISIBLE
+        }
+        if(type==3){
+            if(book.isReviewed==true){
+                holder.notification.visibility=View.VISIBLE
+            }
         }
     }
 

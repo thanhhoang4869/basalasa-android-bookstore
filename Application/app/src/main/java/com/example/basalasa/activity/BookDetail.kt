@@ -3,6 +3,8 @@ package com.example.basalasa.activity
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Paint
+import android.graphics.text.LineBreaker.JUSTIFICATION_MODE_INTER_WORD
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -11,6 +13,7 @@ import androidx.core.text.HtmlCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.basalasa.adapter.CategoryAdapter
+import com.example.basalasa.adapter.CommentAdapter
 import com.example.basalasa.databinding.ActivityBookDetailBinding
 import com.example.basalasa.model.body.AddCartBody
 import com.example.basalasa.model.body.GetDetailsBody
@@ -34,6 +37,7 @@ class BookDetail : AppCompatActivity() {
     private lateinit var binding: ActivityBookDetailBinding
     lateinit var arrRelatedBooks: ArrayList<Book>
     lateinit var adapter: CategoryAdapter
+    lateinit var commentAdapter:CommentAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,10 +73,14 @@ class BookDetail : AppCompatActivity() {
                     Picasso.get().load(data.picture).into(binding.animation)
                     binding.bookDescription.text =
                         HtmlCompat.fromHtml(data.description, HtmlCompat.FROM_HTML_MODE_COMPACT)
-
+                    commentAdapter = CommentAdapter(data.comments!!)
 //                    binding.bookDescription.setOnClickListener {
 //                        binding.bookDescription.toggle()
 //                    }
+
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        binding.bookDescription.justificationMode = JUSTIFICATION_MODE_INTER_WORD
+                    }
 
                     binding.bookAuthor.text = data.author
 
@@ -93,6 +101,10 @@ class BookDetail : AppCompatActivity() {
                     binding.bookCate.text = data.category
 
                     arrRelatedBooks= data.relatedBooks!!
+
+                    binding.comments.adapter = commentAdapter
+                    binding.comments.layoutManager = LinearLayoutManager(this@BookDetail)
+
 
                     adapter=CategoryAdapter(arrRelatedBooks)
                     binding.relatedBooks.adapter = adapter

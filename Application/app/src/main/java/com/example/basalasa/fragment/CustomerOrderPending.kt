@@ -106,7 +106,7 @@ class CustomerOrderPending : Fragment() {
                         binding.customerOrderPendingNoInfo.visibility = View.VISIBLE
                     }
                     adapter.onItemClick = { customerHistory->
-                        OrderDetail(customerHistory).show(this@CustomerOrderPending.childFragmentManager,"bs")
+                        OrderDetail(customerHistory,0).show(this@CustomerOrderPending.childFragmentManager,"bs")
                     }
                 }
 

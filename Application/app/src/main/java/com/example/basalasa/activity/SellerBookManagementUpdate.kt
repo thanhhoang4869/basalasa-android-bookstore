@@ -1,19 +1,33 @@
 package com.example.basalasa.activity
 
+import android.annotation.SuppressLint
+import android.content.Intent
+import android.graphics.Paint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.core.text.HtmlCompat
 import androidx.core.view.isVisible
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.basalasa.adapter.CategoryAdapter
 import com.example.basalasa.databinding.ActivitySellerBookManagementUpdateBinding
+import com.example.basalasa.model.body.GetDetailsBody
 import com.example.basalasa.model.body.UpdateBookBody
+import com.example.basalasa.model.reponse.GetAccountResponse
+import com.example.basalasa.model.reponse.GetBookDetailResponse
 import com.example.basalasa.model.reponse.SellerDeleteBookResponse
 import com.example.basalasa.utils.Cache
 import com.example.basalasa.utils.MyAPI
+import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.DecimalFormat
+import java.text.NumberFormat
+import java.text.SimpleDateFormat
+import java.util.*
 
 class SellerBookManagementUpdate : AppCompatActivity() {
     private lateinit var binding: ActivitySellerBookManagementUpdateBinding
@@ -25,6 +39,8 @@ class SellerBookManagementUpdate : AppCompatActivity() {
         setContentView(view)
 
         val id=intent.getStringExtra("id")!!
+
+        loadDetail(id)
 
         binding.cbSale.setOnClickListener {
             if(binding.cbSale.isChecked){
@@ -80,5 +96,44 @@ class SellerBookManagementUpdate : AppCompatActivity() {
                 })
             }
         }
+    }
+
+    private fun loadDetail(id: String) {
+        val response = MyAPI.getAPI().getBookDetail(GetDetailsBody(id))
+        response.enqueue(object : Callback<GetBookDetailResponse> {
+            @SuppressLint("SimpleDateFormat")
+            override fun onResponse(
+                call: Call<GetBookDetailResponse>,
+                response: Response<GetBookDetailResponse>
+            ) {
+                if (response.isSuccessful) {
+                    val data = response.body()!!
+
+                    binding.title.text = data.name
+                    binding.etDescription.setText(HtmlCompat.fromHtml(data.description, HtmlCompat.FROM_HTML_MODE_COMPACT))
+                    binding.etAuthor.setText(data.author)
+                    binding.etPrice.setText(data.price.toString())
+                    binding.etQuantity.setText(data.quantity.toString())
+                    binding.etDistributor.setText(data.distributor)
+                    if (data.saleprice.toString() == "0") {
+                        binding.cbSale.isChecked=false
+                    } else {
+                        binding.cbSale.isChecked=true
+                        binding.tvSalePrice.visibility=View.VISIBLE
+                        binding.tilSalePrice.visibility=View.VISIBLE
+                        binding.etSalePrice.setText(data.saleprice.toString())
+                    }
+                } else {
+                    Log.i("test", "fail")
+                }
+            }
+
+            override fun onFailure(call: Call<GetBookDetailResponse>, t: Throwable) {
+                Toast.makeText(this@SellerBookManagementUpdate, "Fail connection to server", Toast.LENGTH_LONG)
+                    .show()
+                t.printStackTrace()
+            }
+
+        })
     }
 }

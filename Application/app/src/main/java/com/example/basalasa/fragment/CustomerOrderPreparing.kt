@@ -74,7 +74,7 @@ class CustomerOrderPreparing : Fragment() {
                         binding.customerOrderPreparingNoInfo.visibility = View.GONE
 
                         adapter.onItemClick = { customerHistory->
-                            OrderDetail(customerHistory).show(this@CustomerOrderPreparing.childFragmentManager,"bs")
+                            OrderDetail(customerHistory,1).show(this@CustomerOrderPreparing.childFragmentManager,"bs")
                         }
                     } else {
                         binding.customerOrderPreparingNoInfo.visibility = View.VISIBLE

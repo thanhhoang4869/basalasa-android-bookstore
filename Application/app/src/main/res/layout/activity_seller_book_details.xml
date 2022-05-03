@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.SellerBookDetails">
+    tools:context=".activity.BookDetail">
 
     <ImageView
         android:id="@+id/animation"
         android:layout_width="180dp"
         android:layout_height="270dp"
         android:layout_marginTop="10dp"
-        android:contentDescription="image"
         android:alpha="0.5"
+        android:contentDescription="image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bookDetailTopbar"
@@ -31,24 +31,44 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/buttonBack"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@null"
             android:backgroundTint="@color/white"
-            android:contentDescription="backBtn"
             android:drawableTop="@drawable/ic_arrow_back" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true">
+
+            <ImageButton
+                android:id="@+id/btnEdit"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="15dp"
+                android:background="@color/white"
+                android:src="@drawable/ic_edit" />
+
+            <ImageButton
+                android:id="@+id/btnDelete"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="10dp"
+                android:background="@color/white"
+                android:src="@drawable/ic_delete" />
+        </LinearLayout>
+
     </RelativeLayout>
 
     <ScrollView
         android:id="@+id/bookDetailBody"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_above="@id/bookDetailBottombar"
-        android:layout_below="@id/bookDetailTopbar"
         android:scrollbars="none"
-        app:layout_constraintBottom_toTopOf="@id/bookDetailBottombar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bookDetailTopbar">
@@ -57,14 +77,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/grey"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:background="@color/white"
                 android:paddingStart="10dp"
-                android:paddingTop="10dp"
                 android:paddingEnd="10dp"
                 android:paddingBottom="10dp">
 
@@ -72,6 +94,7 @@
                     android:id="@+id/bookImage"
                     android:layout_width="180dp"
                     android:layout_height="270dp"
+                    android:padding="10dp"
                     android:layout_centerHorizontal="true"
                     android:contentDescription="image"
                     tools:srcCompat="@drawable/bookcover" />
@@ -81,24 +104,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/bookImage"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
                     android:text="DATA STRUCTURES FOR NEWBIE "
                     android:textColor="#000000"
-                    android:textSize="30sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_below="@id/bookTitle">
-
-                    <TextView
-                        android:id="@+id/bookPrice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_toEndOf="@id/bookSalePrice"
-                        android:textSize="24sp"
-                        android:textStyle="bold" />
+                    android:layout_below="@id/bookTitle"
+                    android:gravity="bottom"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/bookSalePrice"
@@ -108,8 +126,15 @@
                         android:textSize="24sp"
                         android:textStyle="bold" />
 
-                </RelativeLayout>
+                    <TextView
+                        android:id="@+id/bookPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
+                </LinearLayout>
             </RelativeLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -145,8 +170,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/tvDetail1"
-                    android:text="Category:"
-                    android:textSize="16sp"
+                    android:text="Category"
+                    android:textColor="@color/black"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvDetail3" />
 
@@ -157,7 +182,6 @@
                     android:layout_below="@id/tvDetail1"
                     android:text="Comic"
                     android:textColor="@color/black"
-                    android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="@+id/guideline3"
                     app:layout_constraintTop_toBottomOf="@id/tvDetail3" />
 
@@ -166,7 +190,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Seller"
-                    android:textSize="16sp"
+                    android:textColor="@color/black"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/textView10" />
 
@@ -174,9 +198,7 @@
                     android:id="@+id/bookSeller"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ah@gmail.com"
                     android:textColor="@color/black"
-                    android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="@id/guideline3"
                     app:layout_constraintTop_toTopOf="@id/tvDetail1" />
 
@@ -186,7 +208,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/tvDetail4"
                     android:text="Release"
-                    android:textSize="16sp"
+                    android:textColor="@color/black"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvDetail1" />
 
@@ -197,7 +219,6 @@
                     android:layout_below="@id/tvDetail4"
                     android:text="2019"
                     android:textColor="@color/black"
-                    android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="@+id/guideline3"
                     app:layout_constraintTop_toBottomOf="@id/tvDetail1" />
 
@@ -207,7 +228,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/tvDetail2"
                     android:text="Remaining"
-                    android:textSize="16sp"
+                    android:textColor="@color/black"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvDetail2" />
 
@@ -218,7 +239,6 @@
                     android:layout_below="@id/tvDetail2"
                     android:text="50"
                     android:textColor="@color/black"
-                    android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="@+id/guideline3"
                     app:layout_constraintTop_toBottomOf="@id/tvDetail2" />
 
@@ -227,7 +247,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Author"
-                    android:textSize="16sp"
+                    android:textColor="@color/black"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/bookCate" />
 
@@ -237,7 +257,6 @@
                     android:layout_height="wrap_content"
                     android:text="Mark Xoan"
                     android:textColor="@color/black"
-                    android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="@id/guideline3"
                     app:layout_constraintTop_toTopOf="@id/tvDetail5" />
 
@@ -265,98 +284,10 @@
                 <TextView
                     android:id="@+id/bookDescription"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:justificationMode="inter_word"
-                    android:text="Description The speaker unit contains a diaphragm that is precision-grown from NAC Audio bio-cellulose, making it stiffer, lighter and stronger than regular PET speaker units, and allowing the sound-producing diaphragm to vibrate without the levels of distortion found in other speakers. test qwwkeqyiu iquey qwiuysd"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:background="@color/white"
-                android:orientation="vertical"
-                android:paddingStart="10dp"
-                android:paddingTop="10dp"
-                android:paddingEnd="10dp"
-                android:paddingBottom="10dp">
-
-                <TextView
-                    android:id="@+id/textView19"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Reviews"
-                    android:textColor="@color/primary_green"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/white"
-                    android:orientation="vertical"
-                    android:paddingStart="10dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp">
-
-                    <HorizontalScrollView
-
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/relatedBooks"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:scrollbars="horizontal" />
-                    </HorizontalScrollView>
-                </LinearLayout>
-
+                    android:textColor="#000000" />
             </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
 
-    <RelativeLayout
-        android:id="@+id/bookDetailBottombar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
-        android:translationZ="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:gravity="center">
-
-        <Button
-            android:id="@+id/btnDelete"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_toEndOf="@id/btnEdit"
-            android:background="@null"
-            android:backgroundTint="@color/light_red"
-            android:text="Delete"
-            android:textColor="@color/white"
-            android:textSize="18sp" />
-
-        <Button
-            android:id="@+id/btnEdit"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:backgroundTint="#0ACF83"
-            android:text="Edit"
-            android:textColor="@color/white"
-            android:textSize="18sp" />
-
-
-    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
