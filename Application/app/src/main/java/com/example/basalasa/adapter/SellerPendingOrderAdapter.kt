@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.basalasa.R
 import com.example.basalasa.model.entity.SellerPendingOrder
 import com.squareup.picasso.Picasso
+import java.text.DecimalFormat
+import java.text.NumberFormat
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
@@ -33,7 +35,8 @@ class SellerPendingOrderAdapter(private val orders:ArrayList<SellerPendingOrder>
         holder.date.text = order.date.slice(0..9)
         holder.name.text = order.product[0].name
         holder.quantity.text = "x" + order.product[0].quantity.toString()
-        holder.total.text = order.total.toString()
+        val formatter: NumberFormat = DecimalFormat("#,###")
+        holder.total.text = formatter.format(order.total)
         holder.receiver.text=order.receiver
     }
 

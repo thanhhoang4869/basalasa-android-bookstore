@@ -123,6 +123,8 @@ class SellerBookManagementUpdate : AppCompatActivity() {
                         binding.tilSalePrice.visibility=View.VISIBLE
                         binding.etSalePrice.setText(data.saleprice.toString())
                     }
+
+
                 } else {
                     Log.i("test", "fail")
                 }

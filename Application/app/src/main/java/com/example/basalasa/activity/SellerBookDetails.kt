@@ -28,15 +28,20 @@ import java.util.*
 
 class SellerBookDetails : AppCompatActivity() {
     private lateinit var binding: ActivitySellerBookDetailsBinding
-
+    private lateinit var id:String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySellerBookDetailsBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
 
-        val id = intent.getStringExtra("id")
+        id = intent.getStringExtra("id").toString()
         loadDetail(id!!)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        loadDetail(id)
     }
 
     private fun loadDetail(id: String) {

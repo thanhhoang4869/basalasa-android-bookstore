@@ -17,6 +17,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.core.content.PermissionChecker.checkSelfPermission
 import androidx.fragment.app.Fragment
+import androidx.viewpager2.widget.ViewPager2
 import com.example.basalasa.R
 import com.example.basalasa.activity.Login
 import com.example.basalasa.databinding.FragmentSellerAddBookBinding
@@ -191,6 +192,16 @@ class SellerAddBookFrag(private val user: String) : Fragment() {
                     if (response.isSuccessful) {
                         println("SUCCESS")
                         Toast.makeText(context,"Success!",Toast.LENGTH_SHORT).show()
+                        binding.etAuthor.setText("")
+                        binding.etTitle.setText("")
+                        binding.etDistributor.setText("")
+                        binding.etPrice.setText("")
+                        binding.tvRelease.setText("")
+                        binding.etDescription.setText("")
+                        binding.etQuantity.setText("")
+                        binding.ivPicture.setImageResource(0)
+                        val viewPaper: ViewPager2 = activity!!.findViewById(R.id.vp_sellerOrderList)
+                        viewPaper.setCurrentItem(0)
                     }
                 }
 
