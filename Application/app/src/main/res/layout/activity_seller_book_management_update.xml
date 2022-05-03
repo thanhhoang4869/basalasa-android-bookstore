@@ -15,17 +15,26 @@
         android:paddingStart="10dp"
         android:paddingEnd="10dp">
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"/>
+            android:layout_height="match_parent"
+            android:text="Tên sách đổ lên đây"
+            android:textColor="@color/primary_green"
+            android:textStyle="bold"/>
+
+        <View
+            style="@style/Divider"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Author"
-            android:textColor="@color/black" />
+            android:textSize="16sp"
+            android:layout_marginTop="15dp"
+            android:textStyle="bold"
+            android:textColor="@color/primary_green" />
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -47,7 +56,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Price"
-            android:textColor="@color/black" />
+            android:textSize="16sp"
+            android:layout_marginTop="15dp"
+            android:textStyle="bold"
+            android:textColor="@color/primary_green" />
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -67,12 +79,15 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <CheckBox
+            android:buttonTint="@color/primary_green"
             android:id="@+id/cbSale"
+            android:textColor="@color/primary_green"
+            android:textStyle="italic"
+            android:layout_marginTop="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Put on sale"
-            android:textSize="14sp"
-            style="@style/Widget.Material3.CompoundButton.CheckBox"/>
+            android:text="@string/put_on_sale"
+            android:textSize="14sp"/>
 
 
         <TextView
@@ -80,8 +95,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Sale price"
-            android:textColor="@color/black"
-            android:visibility="gone"/>
+            android:textSize="16sp"
+            android:layout_marginTop="15dp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            android:textColor="@color/primary_green" />
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -107,7 +125,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Distributor"
-            android:textColor="@color/black" />
+            android:textSize="16sp"
+            android:layout_marginTop="15dp"
+            android:textStyle="bold"
+            android:textColor="@color/primary_green" />
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -129,7 +150,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Quantity"
-            android:textColor="@color/black" />
+            android:textSize="16sp"
+            android:layout_marginTop="15dp"
+            android:textStyle="bold"
+            android:textColor="@color/primary_green" />
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -150,11 +174,13 @@
 
 
         <TextView
-            android:id="@+id/textView26"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Description"
-            android:textColor="@color/black" />
+            android:textSize="16sp"
+            android:layout_marginTop="15dp"
+            android:textStyle="bold"
+            android:textColor="@color/primary_green" />
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -171,26 +197,14 @@
                 tools:ignore="SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="DD/MM/YYYY"/>
-
-
-        <!--        <Button-->
-        <!--            android:id="@+id/btnChoose"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:text="choose file" />-->
 
         <Button
             android:id="@+id/addBook"
+            android:layout_gravity="bottom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="UPLOAD" />
-
+            android:layout_marginBottom="20dp"
+            android:text="SAVE CHANGES" />
     </LinearLayout>
 </ScrollView>

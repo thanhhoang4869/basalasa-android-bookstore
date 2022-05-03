@@ -8,6 +8,7 @@ class CustomerBookHistory {
     @SerializedName("name") val name: String = ""
     @SerializedName("picture") val picture: String = ""
     @SerializedName("price")val price:Int=0
+    @SerializedName("isReviewed") val isReviewed:Boolean = true
     @Override
     override fun toString(): String {
         return _id+" "+" "+quantity+" "+name+" "+picture+" "+price

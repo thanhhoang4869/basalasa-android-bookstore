@@ -20,6 +20,7 @@ const OrderSchema = mongoose.Schema({
 			_id: { type: String },
 			quantity: { type: Number },
 			price: { type: Number },
+			isReviewed:{type:Boolean}
 		},
 	],
 	status: { type: String },
@@ -53,6 +54,7 @@ export default {
 				total += data[i].price * data[i].quantity
 				let book = await bookModel.getBook(data[i]._id)
 				if (data[i].quantity < book.quantity) {
+					data[i]["isReviewed"]=true;
 					result.push(data[i])
 					await bookModel.updateQuantity(data[i]._id, book.quantity - data[i].quantity)
 					await cartModel.DeleteItem(email, data[i]._id)
@@ -71,7 +73,6 @@ export default {
 				address: address,
 				receiver: receiver,
 			}
-			console.log(newCheckout)
 
 			return await Order.create(newCheckout)
 		} catch (error) {
@@ -131,12 +132,21 @@ export default {
 	},
 	async doneOrder(orderId) {
 		try {
+			console.log(orderId)
+			let order_ = await Order.findOne({_id:orderId}).lean()
+			order_.status='Completed'
+			console.log(order_)
+			for (let i =0;i<order_.product.length;i++){
+				order_.product[i].isReviewed=false
+			}
 			await Order.findOneAndUpdate(
 				{ _id: orderId },
 				{
-					$set: { status: 'Completed' },
+					$set: { status: order_.status,
+					product: order_.product},
 				}
 			)
+			
 		} catch (err) {
 			console.log(err)
 		}

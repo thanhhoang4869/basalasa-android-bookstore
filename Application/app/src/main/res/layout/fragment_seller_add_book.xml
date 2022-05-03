@@ -3,20 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.SellerOrderListCompleteFrag">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:layout_margin="20dp">
 
         <TextView
-            android:id="@+id/textView16"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Title"
-            android:textColor="@color/black" />
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/primary_green" />
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -37,7 +39,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Author"
-            android:textColor="@color/black" />
+            android:textSize="16sp"
+            android:layout_marginTop="15dp"
+            android:textStyle="bold"
+            android:textColor="@color/primary_green" />
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -58,7 +63,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Price"
-            android:textColor="@color/black" />
+            android:textSize="16sp"
+            android:layout_marginTop="15dp"
+            android:textStyle="bold"
+            android:textColor="@color/primary_green" />
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -71,6 +79,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLength="20"
+                android:inputType="number"
                 android:singleLine="true" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -79,21 +88,38 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Category"
-            android:textColor="@color/black" />
+            android:textSize="16sp"
+            android:layout_marginTop="15dp"
+            android:textStyle="bold"
+            android:textColor="@color/primary_green" />
 
 
-        <Spinner
-            android:id="@+id/spnCategory"
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="48dp" />
+            app:cardUseCompatPadding="true"
+            android:layout_marginTop="10dp"
+            app:strokeColor="@color/grey_thick"
+            app:strokeWidth="1dp">
+
+            <Spinner
+                android:id="@+id/spnCategory"
+                android:minHeight="48dp"
+                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overlapAnchor="false" />
+        </com.google.android.material.card.MaterialCardView>
 
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Distributor"
-            android:textColor="@color/black" />
+            android:textSize="16sp"
+            android:layout_marginTop="15dp"
+            android:textStyle="bold"
+            android:textColor="@color/primary_green" />
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -114,7 +140,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Quantity"
-            android:textColor="@color/black" />
+            android:textSize="16sp"
+            android:layout_marginTop="15dp"
+            android:textStyle="bold"
+            android:textColor="@color/primary_green" />
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -127,17 +156,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLength="20"
+                android:inputType="number"
                 android:singleLine="true" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
 
         <TextView
-            android:id="@+id/textView26"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Description"
-            android:textColor="@color/black" />
+            android:textSize="16sp"
+            android:layout_marginTop="15dp"
+            android:textStyle="bold"
+            android:textColor="@color/primary_green" />
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -154,45 +186,43 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
-            android:id="@+id/textView27"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Release year"
-            android:textColor="@color/black" />
+            android:text="Release date"
+            android:textSize="16sp"
+            android:layout_marginTop="15dp"
+            android:textStyle="bold"
+            android:textColor="@color/primary_green" />
 
-<!--        <com.google.android.material.textfield.TextInputLayout-->
-<!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tvRelease"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+<!--        <TextView-->
+<!--            android:id="@+id/tvRelease"-->
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:hint="DD/MM/YYYY">-->
-
-<!--            <com.google.android.material.textfield.TextInputEditText-->
-<!--                android:id="@+id/etRelease"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:singleLine="true"-->
-<!--                />-->
-
-<!--        </com.google.android.material.textfield.TextInputLayout>-->
-
-        <TextView
-            android:id="@+id/tvRelease"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:height="50dp"
-            android:background="@drawable/custom_input"
-            android:paddingStart="3dp"
-            android:paddingTop="1dp"
-            android:paddingEnd="3dp"
-            android:textColor="@color/black"
-            android:textSize="14sp" />
+<!--            android:height="50dp"-->
+<!--            android:background="@drawable/custom_input"-->
+<!--            android:paddingStart="3dp"-->
+<!--            android:paddingTop="1dp"-->
+<!--            android:paddingEnd="3dp"-->
+<!--            android:textColor="@color/black" />-->
 
         <LinearLayout
             android:id="@+id/btnChoose"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:clickable="true"
             android:focusable="true"
             android:orientation="horizontal">
@@ -211,8 +241,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginStart="10dp"
+                android:textSize="16sp"
                 android:gravity="center_vertical"
                 android:text="Upload picture"
+                android:textColor="@color/blue"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -232,6 +264,7 @@
         <Button
             android:id="@+id/addBook"
             android:layout_width="match_parent"
+            android:layout_marginBottom="40dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="UPLOAD" />
