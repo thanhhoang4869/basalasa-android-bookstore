@@ -3,6 +3,8 @@ package com.example.basalasa.activity
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Paint
+import android.graphics.text.LineBreaker.JUSTIFICATION_MODE_INTER_WORD
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -73,6 +75,10 @@ class BookDetail : AppCompatActivity() {
 //                    binding.bookDescription.setOnClickListener {
 //                        binding.bookDescription.toggle()
 //                    }
+
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        binding.bookDescription.justificationMode = JUSTIFICATION_MODE_INTER_WORD
+                    }
 
                     binding.bookAuthor.text = data.author
 
