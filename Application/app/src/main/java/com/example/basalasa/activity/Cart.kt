@@ -1,17 +1,21 @@
 package com.example.basalasa.activity
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.basalasa.adapter.CartAdapter
 import com.example.basalasa.databinding.ActivityCartBinding
+import com.example.basalasa.model.body.CheckoutBody
 import com.example.basalasa.model.body.DeleteCartBody
 import com.example.basalasa.model.entity.BooksInCart
+import com.example.basalasa.model.reponse.CheckoutResponse
 import com.example.basalasa.model.reponse.GetCartResponse
 import com.example.basalasa.model.reponse.GetUpdateResponse
 import com.example.basalasa.utils.Cache
@@ -43,8 +47,6 @@ class Cart : AppCompatActivity() {
         binding.noCart.isVisible = false
         binding.goShopping.setOnClickListener {
             finish()
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
         }
         loadListCart()
     }
@@ -128,7 +130,24 @@ class Cart : AppCompatActivity() {
                 choosen.remove(s._id)
                 seller = ""
             }
-            deleteData(s, position)
+            val alertDialog: AlertDialog? = this.let {
+                val builder = AlertDialog.Builder(this@Cart!!)
+                builder.apply {
+                    setPositiveButton("Ok", DialogInterface.OnClickListener { dialog, id ->
+                        deleteData(s, position)
+
+                    })
+                    setNegativeButton("Cancel", DialogInterface.OnClickListener { dialog, id ->
+                        //do sth
+                    })
+//                                setIcon(android.R.drawable.ic_dialog_alert)
+                    setTitle("Process to checkout")
+                }
+                builder.create()
+            }
+            alertDialog!!.show()
+
+
         }
         adapter.onCheckClick = { s, _, check_btn ->
             if (choosen.size == 0) {
@@ -186,7 +205,6 @@ class Cart : AppCompatActivity() {
                 response: Response<GetUpdateResponse>
             ) {
                 if (response.isSuccessful) {
-                    Toast.makeText(this@Cart, "Delete Successfully", Toast.LENGTH_LONG).show()
                     arrBooks.removeAt(position)
                     adapter.notifyItemRemoved(position)
 
@@ -204,5 +222,7 @@ class Cart : AppCompatActivity() {
             }
         })
     }
+
+
 
 }

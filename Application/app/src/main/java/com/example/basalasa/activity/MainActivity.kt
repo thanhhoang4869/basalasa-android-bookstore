@@ -133,6 +133,7 @@ class MainActivity : AppCompatActivity() {
                             if (data_?.exitcode == 0) {
                                 val intentCart = Intent(this@MainActivity, Cart::class.java)
                                 startActivity(intentCart)
+
                             }
                         } else {
                             startActivity(intent)
