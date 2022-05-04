@@ -48,7 +48,10 @@ class SearchResults : AppCompatActivity(),BottomSheetFilter.BottomSheetListener 
                     val data = response.body()
 
                     for(item: Book in data!!.searchResults) {
-                        arrBooks.add(item)
+                        if(item.quantity>0){
+                            arrBooks.add(item)
+                        }
+
                     }
 
                     //bind to adapter
@@ -92,7 +95,10 @@ class SearchResults : AppCompatActivity(),BottomSheetFilter.BottomSheetListener 
                     val data = response.body()
 
                     for(item: Book in data!!.filterResults) {
-                        arrBooks.add(item)
+                        if(item.quantity>0){
+                            arrBooks.add(item)
+                        }
+
                     }
 
                     if(arrBooks.size==0){
