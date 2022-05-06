@@ -1,22 +1,31 @@
-[
-    {
-        "name": "Manga - Comic",
-        "image": "https://i.imgur.com/038n5zK.jpeg"
-    },
-    {
-        "name": "Foreign books",
-        "image": "https://i.imgur.com/X4cX7Aq.jpeg"
-    },
-    {
-        "name": "Detective",
-        "image": "https://almabooks.com/wp-content/uploads/2016/10/adventures-of-Sherlock-Holmes.jpg"
-    },
-    {
-        "name": "Language",
-        "image": "https://www.jeremytaylor.eu/wp-content/uploads/2021/04/IELTS-book.jpg"
-    },
-    {
-        "name": "Economics",
-        "image": "https://d29xot63vimef3.cloudfront.net/image/economics-books/269-4.jpg"
-    }
-]
+[{
+  "_id": {
+    "$oid": "624556727a2c782be726ee40"
+  },
+  "name": "Detective",
+  "image": "https://almabooks.com/wp-content/uploads/2016/10/adventures-of-Sherlock-Holmes.jpg"
+},{
+  "_id": {
+    "$oid": "624556727a2c782be726ee3e"
+  },
+  "name": "Manga - Comic",
+  "image": "https://i.imgur.com/038n5zK.jpeg"
+},{
+  "_id": {
+    "$oid": "624556727a2c782be726ee3f"
+  },
+  "name": "Foreign books",
+  "image": "https://i.imgur.com/X4cX7Aq.jpeg"
+},{
+  "_id": {
+    "$oid": "624556727a2c782be726ee42"
+  },
+  "name": "Economics",
+  "image": "https://d29xot63vimef3.cloudfront.net/image/economics-books/269-4.jpg"
+},{
+  "_id": {
+    "$oid": "624556727a2c782be726ee41"
+  },
+  "name": "Language",
+  "image": "https://www.jeremytaylor.eu/wp-content/uploads/2021/04/IELTS-book.jpg"
+}]

@@ -1,45 +1,94 @@
 [{
-        "password": "3ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
-        "email": "thanhhoang4869@gmail.com",
-        "address": "125 D1, P.25, Binh Thanh, HCM",
-        "fullName": "Hoang Nhu Thanh",
-        "phone": "0933442607",
-        "role": 1,
-        "status": 1,
-        "emailToken": null,
-        "request": 0
-    },
-    {
-        "password": "3ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
-        "email": "19127489@student.hcmus.edu.vn",
-        "fullName": "Hoang Thien Nhan",
-        "address": "125 D1, P.25, Binh Thanh, HCM",
-        "phone": "0933442607",
-        "role": 1,
-        "status": 1,
-        "emailToken": null,
-        "request": 1
-    },
-    {
-        "password": "3ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
-        "email": "19127186@student.hcmus.edu.vn",
-        "fullName": "Le Thanh Khoi",
-        "address": "125 D1, P.25, Binh Thanh, HCM",
-        "phone": "0933442607",
-        "role": 0,
-        "status": 1,
-        "emailToken": null,
-        "request": 0
-    },
-    {
-        "password": "3ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
-        "email": "19127426@student.hcmus.edu.vn",
-        "fullName": "Hoang Huu Giap",
-        "address": "125 D1, P.25, Binh Thanh, HCM",
-        "phone": "0933442607",
-        "role": 0,
-        "status": 0,
-        "emailToken": null,
-        "request": 1
-    }
-]
+  "_id": {
+    "$oid": "6260482b027c5eadd7af0917"
+  },
+  "password": "3ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+  "email": "19127489@student.hcmus.edu.vn",
+  "fullName": "Nhan Hoang",
+  "address": "125 D1, P.25, Binh Thanh, HCM",
+  "phone": "0933442607",
+  "role": 1,
+  "status": 1,
+  "emailToken": null,
+  "request": 0
+},{
+  "_id": {
+    "$oid": "6260482b027c5eadd7af0918"
+  },
+  "password": "3ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+  "email": "19127186@student.hcmus.edu.vn",
+  "fullName": "Le Thanh Khoi",
+  "address": "125 D1, P.25, Binh Thanh, HCM",
+  "phone": "0933442607",
+  "role": 1,
+  "status": 1,
+  "emailToken": null,
+  "request": 0
+},{
+  "_id": {
+    "$oid": "6260482b027c5eadd7af0919"
+  },
+  "password": "3ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+  "email": "vdqhuy10@gmail.com",
+  "fullName": "Quang Huy Vu",
+  "address": "192/168 Nguyen Tri Phuong, P.2, Q.5, HCM",
+  "phone": "0938263278",
+  "role": 0,
+  "status": 1,
+  "emailToken": null,
+  "request": 1
+},{
+  "_id": {
+    "$oid": "6260482b027c5eadd7af0916"
+  },
+  "password": "3ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+  "email": "thanhhoang4869@gmail.com",
+  "address": "125 D1, P.25, Binh Thanh, HCM",
+  "fullName": "Hoang Nhu Thanh",
+  "phone": "0933442607",
+  "role": 1,
+  "status": 0,
+  "emailToken": null,
+  "request": 0
+},{
+  "_id": {
+    "$oid": "6262189d016b7bc82a5726bb"
+  },
+  "password": "3ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+  "email": "quanghuy.1334@gmail.com",
+  "address": "125 Nguyen Thi Minh Khai, P.9, Q.5",
+  "phone": "0909910680",
+  "role": 1,
+  "fullName": "Quang Huy",
+  "status": 1,
+  "emailToken": null,
+  "request": 0,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6272abe4babf797a9b008b69"
+  },
+  "password": "3ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+  "email": "admin2626@gmail.com",
+  "fullName": "Thanh Hoang",
+  "address": "125 D1, P.25, Binh Thanh, HCM",
+  "phone": "0933442608",
+  "role": 2,
+  "status": 1,
+  "emailToken": null,
+  "request": 0
+},{
+  "_id": {
+    "$oid": "6272b97d343982fcacb18c3e"
+  },
+  "password": "3ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+  "email": "jasonhoang6201@gmail.com",
+  "address": "255 Nguyen Van Cu",
+  "phone": "1234567",
+  "role": 0,
+  "fullName": "Hoang Thien Nhan",
+  "status": 1,
+  "emailToken": null,
+  "__v": 0,
+  "request": 1
+}]

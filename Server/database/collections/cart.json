@@ -1,30 +1,44 @@
-[
+[{
+  "_id": {
+    "$oid": "6252e78075d1d3a7b98bb308"
+  },
+  "email": "19127186@student.hcmus.edu.vn",
+  "books": []
+},{
+  "_id": {
+    "$oid": "6252e78075d1d3a7b98bb309"
+  },
+  "email": "19127489@student.hcmus.edu.vn",
+  "books": [
     {
-        "email": "19127186@student.hcmus.edu.vn",
-        "books":[{
-            "id":1,
-            "quantity":2
-        },
-        {
-            "id":3,
-            "quantity":2
-        }
-        ]
-    },
-
-    {
-        "email": "19127489@student.hcmus.edu.vn",
-        "books":[{
-            "id":3,
-            "quantity":2
-        }]
-        
-    },
-    {
-        "email": "quanghuy.1334@gmail.com",
-        "books":[{
-            "id":3,
-            "quantity":2
-        }]
+      "_id": "6246fd2f379d38e8057ad8c2",
+      "quantity": 1
     }
-]
+  ]
+},{
+  "_id": {
+    "$oid": "6252e78075d1d3a7b98bb30a"
+  },
+  "email": "quanghuy.1334@gmail.com",
+  "books": []
+},{
+  "_id": {
+    "$oid": "626207c58412574abfa22517"
+  },
+  "email": "thanhhoang4869@gmail.com",
+  "books": []
+},{
+  "_id": {
+    "$oid": "6262189d016b7bc82a5726bd"
+  },
+  "email": "quanghuy.1334@gmail.com",
+  "books": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6272b97d343982fcacb18c40"
+  },
+  "email": "jasonhoang6201@gmail.com",
+  "books": [],
+  "__v": 0
+}]

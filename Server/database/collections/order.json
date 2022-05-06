@@ -1,34 +1,95 @@
-[
+[{
+  "_id": {
+    "$oid": "6272b4a8dd4d50b45ad29d51"
+  },
+  "email": "19127489@student.hcmus.edu.vn",
+  "product": [
     {
-        "email": "19127186@student.hcmus.edu.vn",
-        "product": [
-            {
-                "book_id": 3,
-                "quantity": 1
-            },
-            {
-                "book_id": 5,
-                "quantity": 1
-            }
-        ],
-        "date": "2021-07-25T17:00:00.000+00:00",
-        "status": "Pending",
-        "total price": 60000
+      "_id": "6246fd2f379d38e8057ad8c4",
+      "quantity": 1,
+      "price": 200000,
+      "isReviewed": false
+    }
+  ],
+  "status": "Canceled",
+  "date": {
+    "$date": "2022-05-04T17:15:20.780Z"
+  },
+  "total": 230000,
+  "phone": "0933442607",
+  "address": "125 D1, P.25, Binh Thanh, HCM",
+  "receiver": "19127489@student.hcmus.edu.vn",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6272b9f3343982fcacb18c87"
+  },
+  "email": "jasonhoang6201@gmail.com",
+  "product": [
+    {
+      "_id": "6246fd2f379d38e8057ad8c5",
+      "quantity": 2,
+      "price": 100000,
+      "isReviewed": true
     },
     {
-        "email": "19127489@student.hcmus.edu.vn",
-        "product": [
-            {
-                "book_id": 3,
-                "quantity": 2
-            },
-            {
-                "book_id": 10,
-                "quantity": 1
-            }
-        ],
-        "date": "2021-07-26T17:00:00.000+00:00",
-        "status": "Arriving",
-        "total price": 160000
+      "_id": "6246fd2f379d38e8057ad8c2",
+      "quantity": 3,
+      "price": 150000,
+      "isReviewed": true
     }
-]
+  ],
+  "status": "Canceled",
+  "date": {
+    "$date": "2022-05-04T17:37:55.683Z"
+  },
+  "total": 680000,
+  "phone": "4651321",
+  "address": "16 Hoa Binh",
+  "receiver": "jasonhoang6201@gmail.com",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6273365ff25a9137165aa145"
+  },
+  "email": "19127489@student.hcmus.edu.vn",
+  "product": [
+    {
+      "_id": "6246fd2f379d38e8057ad8c4",
+      "quantity": 1,
+      "price": 200000,
+      "isReviewed": true
+    }
+  ],
+  "status": "Canceled",
+  "date": {
+    "$date": "2022-05-05T02:28:47.958Z"
+  },
+  "total": 230000,
+  "phone": "0933442607",
+  "address": "125 D1, P.25, Binh Thanh, HCM",
+  "receiver": "19127489@student.hcmus.edu.vn",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62733743e0febf8cb36b25b7"
+  },
+  "email": "19127186@student.hcmus.edu.vn",
+  "product": [
+    {
+      "_id": "6246fd2f379d38e8057ad8ca",
+      "quantity": 1,
+      "price": 140000,
+      "isReviewed": true
+    }
+  ],
+  "status": "Completed",
+  "date": {
+    "$date": "2022-05-05T02:32:35.873Z"
+  },
+  "total": 170000,
+  "phone": "0933442607",
+  "address": "125 D1, P.25, Binh Thanh, HCM",
+  "receiver": "19127186@student.hcmus.edu.vn",
+  "__v": 0
+}]

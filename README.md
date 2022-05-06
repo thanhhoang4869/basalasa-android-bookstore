@@ -47,7 +47,7 @@ This project requires install [Node.js](https://nodejs.org/), npm and [Android S
 **2. Start the server**
 
 Firstly, start the server
-- Open project, then change dir to ```Server```
+- ***Open project, then change dir to ```Server```***
 - Use these commands to start the server:
 ```sh
 npm i
@@ -67,14 +67,40 @@ node server.js
   private const val BASE_URL = //config here
 ```
 
+<a href="#">
+    <img src="https://i.imgur.com/YFMcPzN.png" alt="Logo" width="100" height="100">
+  </a>
+
+
 **4. Test login**
+
+***Password of all account: 1234***
+
+**Seller**
 
 Test login by using the account below
 ```sh
   username: thanhhoang4869@gmail.com
   password: 1234
 ```
-This is the admin account, if you need to login as seller/customer, kindly find ```user.json``` in folder ```Server``` > ```database``` > ```collections``` to see more accounts.
+
+**Customer**
+
+Test login by using the account below
+```sh
+  username: vdqhuy10@gmail.com
+  password: 1234
+```
+
+**Admin**
+
+Test login by using the account below
+```sh
+  username: admin2626@gmail.com
+  password: 1234
+```
+
+If you need to login with another, kindly find ```user.json``` in folder ```Server``` > ```database``` > ```collections``` to see more accounts.
 
 # Contributors
 

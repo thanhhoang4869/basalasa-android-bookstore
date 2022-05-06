@@ -1,216 +1,324 @@
 [{
-        "id": 1,
-        "name": "English Grammar in Use Book w Ans",
-        "author": "Raymond Murphy",
-        "distributor": "Cambridge University",
-        "seller": "thanhhoang4869@gmail.com",
-        "price": 158000,
-        "saleprice": 0,
-        "category": "Foreign books",
-        "picture": "https://cdn0.fahasa.com/media/catalog/product/i/m/img_7523.jpg",
-        "release_year": 2019,
-        "description": "The world's best-selling grammar series for learners of English. English Grammar in Use Fourth edition is an updated version of the world's best-selling grammar title. It has a fresh, appealing new design and clear layout, with revised and updated examples, but retains all the key features of clarity and accessibility that have made the book popular with millions of learners and teachers around the world. This 'with answers' version is ideal for self-study.",
-        "quantity": 100,
-        "state": 1,
-        "star": 4,
-        "comments": [{
-            "userEmail": "19127186@student.hcmus.edu.vn",
-            "rating": 4,
-            "review": "Sach hay vcl"
-        }]
+  "_id": {
+    "$oid": "6246fd2f379d38e8057ad8c4"
+  },
+  "name": "Atomic Habits",
+  "author": "Random House Busines",
+  "distributor": "Grantham Book Servic",
+  "seller": "quanghuy.1334@gmail.com",
+  "price": 311400,
+  "saleprice": 200000,
+  "category": "Foreign books",
+  "picture": "https://cdn-amz.fadoglobal.io/images/I/81wgcld4wxL.jpg",
+  "release_year": {
+    "$date": "2021-01-01T00:00:02.019Z"
+  },
+  "description": "Thay Đổi Tí Hon Hiệu Quả Bất Ngờ\nWall Street Journal Bestseller, USA Today Bestseller, Publisher’s Weekly Bestseller\nNằm trong Top 20 tựa sách thể loại non-fiction bán chạy và được tìm đọc nhiều nhất của Amazon suốt 40 tuần tính đến tháng 9/2019.\n“Thành công là sản phẩm của thói quen hằng ngày – không phải của một cuộc biến hình một-lần-trong-đời”\n“Một thay đổi tí hon có thể biến đổi cuộc đời bạn không?\nHẳn là khó đồng ý với điều đó. Nhưng nếu bạn thay đổi thêm một chút? Một chút nữa? Rồi thêm một chút nữa? Đến một lúc nào đó, bạn phải công nhận rằng cuộc sống của mình đã chuyển biến nhờ vào một thay đổi nhỏ\nVà đó chính là sức mạnh của thói quen nguyên tử…”\n“Quyển sách hữu ích và có giá trị ứng dụng tối đa. James Clear đã chắt lọc thông tin cơ bản nhất về sự hình thành thói quen, nhờ đó bạn có thể đạt được nhiều thành quả hơn bằng cách tập trung ít hơn”\n\t\t ",
+  "quantity": 49,
+  "state": 1,
+  "star": 4.5,
+  "comments": [
+    {
+      "userEmail": "19127186@student.hcmus.edu.vn",
+      "rating": 4,
+      "review": "Sach hay qua"
     },
     {
-        "id": 2,
-        "name": "Life BRE A2-B1: Student Book With Web App Code And Online Workbook 2nd Edition",
-        "author": "John Hughes",
-        "distributor": "Cengage",
-        "seller": "19127489@student.hcmus.edu.vn",
-        "price": 247000,
-        "saleprice": 0,
-        "category": "Foreign books",
-        "picture": "https://newshop.vn/public/uploads/products/23079/lifea2.jpg",
-        "release_year": 2016,
-        "description": "The world's best-selling grammar series for learners of English. English Grammar in Use Fourth edition is an updated version of the world's best-selling grammar title. It has a fresh, appealing new design and clear layout, with revised and updated examples, but retains all the key features of clarity and accessibility that have made the book popular with millions of learners and teachers around the world. This 'with answers' version is ideal for self-study.",
-        "quantity": 50,
-        "state": 1,
-        "star": 3,
-        "comments": [{
-            "userEmail": "19127186@student.hcmus.edu.vn",
-            "rating": 4,
-            "review": "Sach hay vcl"
-        },
-        {
-            "userEmail": "19127186@student.hcmus.edu.vn",
-            "rating": 5,
-            "review": "Sach hay vai cac luon"
-        }]
-    },
-    {
-        "id": 3,
-        "name": "Atomic Habits",
-        "author": "Random House Business",
-        "distributor": "Grantham Book Services",
-        "seller": "19127489@student.hcmus.edu.vn",
-        "price": 311400,
-        "saleprice": 0,
-        "category": "Foreign books",
-        "picture": "https://images-na.ssl-images-amazon.com/images/I/51S7KOWir7L._SX526_BO1,204,203,200_.jpg",
-        "release_year": 2019,
-        "description": "The world's best-selling grammar series for learners of English. English Grammar in Use Fourth edition is an updated version of the world's best-selling grammar title. It has a fresh, appealing new design and clear layout, with revised and updated examples, but retains all the key features of clarity and accessibility that have made the book popular with millions of learners and teachers around the world. This 'with answers' version is ideal for self-study.",
-        "quantity": 50,
-        "state": 1,
-        "star": 4,
-        "comments": [{
-            "userEmail": "19127186@student.hcmus.edu.vn",
-            "rating": 4,
-            "review": "Sach hay vcl"
-        }]
-    },
-    {
-        "id": 4,
-        "name": "Complete IELTS B1 Student's Book with answer with CD-ROM",
-        "author": "Mark Harrison",
-        "distributor": "Cambridge",
-        "seller": "thanhhoang4869@gmail.com",
-        "price": 260400,
-        "saleprice": 600,
-        "category": "Foreign books",
-        "picture": "https://cdn0.fahasa.com/media/catalog/product/c/o/complete_ielts_b1_students_book_with_answer_with_cd_rom_1_2018_08_23_15_46_46.jpg",
-        "release_year": 2019,
-        "description": "The world's best-selling grammar series for learners of English. English Grammar in Use Fourth edition is an updated version of the world's best-selling grammar title. It has a fresh, appealing new design and clear layout, with revised and updated examples, but retains all the key features of clarity and accessibility that have made the book popular with millions of learners and teachers around the world. This 'with answers' version is ideal for self-study.",
-        "quantity": 100,
-        "state": 1,
-        "star": 5,
-        "comments": [{
-            "userEmail": "19127186@student.hcmus.edu.vn",
-            "rating": 4,
-            "review": "Sach hay vcl"
-        }]
-    },
-    {
-        "id": 5,
-        "name": "Dr.STONE - Tập 15: Vũ Khí Mạnh Nhất",
-        "author": "Riichiro Inagaki, Boichi 25",
-        "distributor": "NXB Kim Đồng",
-        "seller": "thanhhoang4869@gmail.com",
-        "price": 21250,
-        "saleprice": 0,
-        "category": "Manga - Comic",
-        "picture": "https://pibook.vn/upload/products/dr-stone-tap-4.jpg",
-        "release_year": 2022,
-        "description": "",
-        "quantity": 50,
-        "state": 1,
-        "star": 0,
-        "comments": [{
-            "userEmail": "19127186@student.hcmus.edu.vn",
-            "rating": 4,
-            "review": "Sach hay vcl"
-        }]
-    },
-    {
-        "id": 6,
-        "name": "Dr.STONE - Tập 14: Vũ Khí Mạnh Nhất",
-        "author": "Riichiro Inagaki, Boichi 25",
-        "distributor": "NXB Kim Đồng",
-        "seller": "thanhhoang4869@gmail.com",
-        "price": 21250,
-        "saleprice": 0,
-        "category": "Manga - Comic",
-        "picture": "https://cdn0.fahasa.com/media/catalog/product/d/r/dr.stoneee-tap_5_cau_chuyen_ngan_nam.jpg",
-        "release_year": 2022,
-        "description": "",
-        "quantity": 50,
-        "state": 1,
-        "star": 4,
-        "comments": [{
-            "userEmail": "19127186@student.hcmus.edu.vn",
-            "rating": 4,
-            "review": "Sach hay vcl"
-        }]
-    },
-    {
-        "id": 7,
-        "name": "Romantica Clock - Tập 1",
-        "author": "Yoko Maki",
-        "distributor": "NXB Trẻ",
-        "seller": "19127489@student.hcmus.edu.vn",
-        "price": 25000,
-        "saleprice": 0,
-        "category": "Manga - Comic",
-        "picture": "https://salt.tikicdn.com/cache/w1200/ts/product/28/7b/39/b9105c49c16c731d197473fd7c2401c8.jpg",
-        "release_year": 2022,
-        "description": "",
-        "quantity": 50,
-        "state": 1,
-        "star": 0,
-        "comments": [{
-            "userEmail": "19127186@student.hcmus.edu.vn",
-            "rating": 4,
-            "review": "Sach hay vcl"
-        }]
-    },
-    {
-        "id": 8,
-        "name": "Khách Sạn Mặt Nạ - Tập 1",
-        "author": "Higashino Keigo",
-        "distributor": "NXB Hà Nội",
-        "seller": "thanhhoang4869@gmail.com",
-        "price": 152000,
-        "saleprice": 0,
-        "category": "Detective",
-        "picture": "https://www.netabooks.vn/Data/Sites/1/Product/44318/khach-san-mat-na-tap-1.jpg",
-        "release_year": 2021,
-        "description": "",
-        "quantity": 50,
-        "state": 1,
-        "star": 0,
-        "comments": [{
-            "userEmail": "19127186@student.hcmus.edu.vn",
-            "rating": 4,
-            "review": "Sach hay vcl"
-        }]
-    },
-    {
-        "id": 9,
-        "name": "Khách Sạn Mặt Nạ - Tập 2",
-        "author": "Higashino Keigo",
-        "distributor": "NXB Hà Nội",
-        "seller": "19127489@student.hcmus.edu.vn",
-        "price": 150000,
-        "saleprice": 0,
-        "category": "Detective",
-        "picture": "https://sach86.com/wp-content/uploads/2022/03/Khach-San-Mat-Na-Tap-2.jpg",
-        "release_year": 2021,
-        "description": "",
-        "quantity": 50,
-        "state": 1,
-        "star": 5,
-        "comments": [{
-            "userEmail": "19127186@student.hcmus.edu.vn",
-            "rating": 4,
-            "review": "Sach hay vcl"
-        }]
-    },
-    {
-        "id": 10,
-        "name": "Trái Tim Của Brutus",
-        "author": "Higashino Keigo",
-        "distributor": "NXB Hà Nội",
-        "seller": "thanhhoang4869@gmail.com",
-        "price": 117000,
-        "saleprice": 0,
-        "category": "Detective",
-        "picture": "https://salt.tikicdn.com/cache/400x400/ts/product/a4/e4/fe/4d9a4d7f7ef61418698c1126858a0403.jpg",
-        "release_year": 2019,
-        "description": "",
-        "quantity": 50,
-        "state": 1,
-        "star": 0,
-        "comments": [{
-            "userEmail": "19127186@student.hcmus.edu.vn",
-            "rating": 4,
-            "review": "Sach hay vcl"
-        }]
+      "userEmail": "thanhhoang4869@gmail.com",
+      "rating": 5,
+      "review": "10 điểm! Vô cùng bổ ích."
     }
-]
+  ]
+},{
+  "_id": {
+    "$oid": "6246fd2f379d38e8057ad8c6"
+  },
+  "name": "Dr.STONE - Tập 15: Vũ Khí Mạnh Nhất",
+  "author": "Riichiro Inagaki, Boichi 25",
+  "distributor": "NXB Kim Đồng",
+  "seller": "thanhhoang4869@gmail.com",
+  "price": 21250,
+  "saleprice": null,
+  "category": "Manga - Comic",
+  "picture": "https://pibook.vn/upload/products/dr-stone-tap-4.jpg",
+  "release_year": {
+    "$date": "2022-01-01T00:00:02.022Z"
+  },
+  "description": "Nhóm Senku liên tiếp hồi sinh đồng minh của Vương quốc khoa học và bắt đầu tìm cách đoạt lấy thiết bị hoá đá. Sau khi trang bị đủ vật phẩm khoa học, họ chuẩn bị đối mặt với trận quyết chiến tam cực cuối cùng với Vương quốc hóa thạch và Moz!! Thế nhưng, ở đó lại có một cạm bẫy bất ngờ!? Phần truyện về đảo kho báu cuối cùng đã đến hồi cao trào!!\n\nRIICHIRO INAGAKI\n\n“Có game escape room chủ đề Dr. STONE nè! Đây là một sự kiện độc nhất vô nhị, nơi bạn phải giải đố bằng những thí nghiệm khoa học. Tôi cũng được chơi thử nghiệm nhưng vẫn phải có gợi ý mới chật vật qua màn được! Vui lắm luôn! Bao giờ có dịp các bạn hãy chơi thử nha! Ngoài ra còn có rất nhiều sự kiện như sưu tầm tem, quảng cáo dán trên tàu điện, triển lãm khoa học… Quả là một tác phẩm “số hưởng”!”",
+  "quantity": 0,
+  "state": 1,
+  "star": 4,
+  "comments": [
+    {
+      "userEmail": "19127186@student.hcmus.edu.vn",
+      "rating": 4,
+      "review": "Sach hay qua"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "6246fd2f379d38e8057ad8c7"
+  },
+  "name": "Dr.STONE - Tập 14: Vũ Khí Mạnh Nhất",
+  "author": "Riichiro Inagaki, Boichi 25",
+  "distributor": "NXB Kim Đồng",
+  "seller": "thanhhoang4869@gmail.com",
+  "price": 21250,
+  "saleprice": null,
+  "category": "Manga - Comic",
+  "picture": "https://cdn0.fahasa.com/media/catalog/product/d/r/dr.stoneee-tap_5_cau_chuyen_ngan_nam.jpg",
+  "release_year": {
+    "$date": "2020-01-01T00:00:02.022Z"
+  },
+  "description": "Nhóm Senku liên tiếp hồi sinh đồng minh của Vương quốc khoa học và bắt đầu tìm cách đoạt lấy thiết bị hoá đá. Sau khi trang bị đủ vật phẩm khoa học, họ chuẩn bị đối mặt với trận quyết chiến tam cực cuối cùng với Vương quốc hóa thạch và Moz!! Thế nhưng, ở đó lại có một cạm bẫy bất ngờ!? Phần truyện về đảo kho báu cuối cùng đã đến hồi cao trào!!\n\nRIICHIRO INAGAKI\n\n“Có game escape room chủ đề Dr. STONE nè! Đây là một sự kiện độc nhất vô nhị, nơi bạn phải giải đố bằng những thí nghiệm khoa học. Tôi cũng được chơi thử nghiệm nhưng vẫn phải có gợi ý mới chật vật qua màn được! Vui lắm luôn! Bao giờ có dịp các bạn hãy chơi thử nha! Ngoài ra còn có rất nhiều sự kiện như sưu tầm tem, quảng cáo dán trên tàu điện, triển lãm khoa học… Quả là một tác phẩm “số hưởng”!”",
+  "quantity": 50,
+  "state": 1,
+  "star": 4,
+  "comments": [
+    {
+      "userEmail": "19127186@student.hcmus.edu.vn",
+      "rating": 4,
+      "review": "Sach hay"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "6246fd2f379d38e8057ad8c8"
+  },
+  "name": "Romantica Clock - Tập 1",
+  "author": "Yoko Maki test update",
+  "distributor": "NXB Trẻ",
+  "seller": "19127489@student.hcmus.edu.vn",
+  "price": 25000,
+  "saleprice": null,
+  "category": "Manga - Comic",
+  "picture": "https://salt.tikicdn.com/cache/w1200/ts/product/28/7b/39/b9105c49c16c731d197473fd7c2401c8.jpg",
+  "release_year": {
+    "$date": "2022-01-01T00:00:02.022Z"
+  },
+  "description": "Akane – vừa xinh đẹp, nổi tiếng lại vừa khỏe mạnh và Aoi – vừa thông minh, yêu động vật lại vừa lạnh lùng, là anh em song sinh. Hai anh em sinh ra cùng một giờ, lớn lên cùng nhau nhưng dòng thời gian của hai đứa trẻ lại chỉ lướt qua nhau. Thời gian vốn đã dừng lại giữa hai anh em liệu có bắt đầu chuyển động trở lại…!?",
+  "quantity": 0,
+  "state": 1,
+  "star": 4,
+  "comments": [
+    {
+      "userEmail": "19127186@student.hcmus.edu.vn",
+      "rating": 4,
+      "review": "Sach hay"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "6246fd2f379d38e8057ad8c3"
+  },
+  "name": "Life BRE A2-B1: Student Book With Web App Code And Online Workbook 2nd Edition",
+  "author": "John Hughes",
+  "distributor": "Cengage",
+  "seller": "19127489@student.hcmus.edu.vn",
+  "price": 247000,
+  "saleprice": null,
+  "category": "Foreign books",
+  "picture": "https://newshop.vn/public/uploads/products/23079/lifea2.jpg",
+  "release_year": {
+    "$date": "2016-01-01T00:00:02.016Z"
+  },
+  "description": "<p style=\"text-align: justify;\"><strong>Life BRE A2-B1: Student Book With Web App Code And Online Workbook 2nd Edition</strong></p><p style=\"text-align: justify;\">Life&nbsp;là bộ sách học tiếng Anh thú vị với 6 cấp độ dành cho người lớn. Dựa trên nội dung của National Geographic,&nbsp;Life&nbsp;biến quá trình học tập của bạn thành một cuộc hành trình tuyệt vời với những hình ảnh đẹp không thể cưỡng lại được.</p><p style=\"text-align: justify;\">Các nội dung trong sách rất sống động và gần gũi vì được lấy ra từ những câu chuyện đời thực ở khắp mọi nơi trên thế giới, giúp cho bạn vừa có cơ hội khám phá nền văn hóa của nhiều quốc gia vừa học tiếng Anh. Kể từ năm 2015, Life đã được Bộ trưởng bộ Giáo dục chọn làm quyển sách giáo khoa Tiếng Anh cho 26 trường đại học với mục tiêu nâng cao kỹ năng tiếng Anh cho sinh viên. Life được chọn vì sách tập trung vào các vấn đề toàn cầu, bắt kịp sự phát triển của công nghệ, và quan trọng nhất là, rèn luyện được cho người học các kỹ năng cần thiết trong thế kỷ 21: sự sáng tạo, tư duy phản biện, sự hợp tác và hiểu biết về các nền văn hóa trên thế giới.</p><p style=\"text-align: justify;\">Lần đầu tiên, Life cho ra mắt phiên bản dành riêng cho thị trường Việt Nam.</p><p style=\"text-align: justify;\"><em>Các cấp độ trong LIFE – phiên bản Việt Nam bao gồm:</em></p><p style=\"text-align: justify;\">- Beginner (A1)<br>\n-&nbsp;Elementary (A1-A2)<br>-&nbsp;Pre-Intermediate (A2-B1)</p>",
+  "quantity": 46,
+  "state": 1,
+  "star": 4.5,
+  "comments": [
+    {
+      "userEmail": "19127186@student.hcmus.edu.vn",
+      "rating": 4,
+      "review": "Sach hay"
+    },
+    {
+      "userEmail": "19127186@student.hcmus.edu.vn",
+      "rating": 5,
+      "review": "Sach hay vai luon"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "6246fd2f379d38e8057ad8c9"
+  },
+  "name": "Khách Sạn Mặt Nạ - Tập 1",
+  "author": "Higashino Keigo",
+  "distributor": "NXB Hà Nội",
+  "seller": "quanghuy.1334@gmail.com",
+  "price": 152000,
+  "saleprice": null,
+  "category": "Detective",
+  "picture": "https://www.netabooks.vn/Data/Sites/1/Product/44318/khach-san-mat-na-tap-1.jpg",
+  "release_year": {
+    "$date": "2020-01-01T00:00:02.021Z"
+  },
+  "description": "<div class=\"content\"><div class=\"ToggleContent__Wrapper-sc-1dbmfaw-1 cqXrJr\"><div class=\"ToggleContent__View-sc-1dbmfaw-0 wyACs\"><div><p><strong>Tập 1:</strong> </p>\n<p>Một vụ giết người hàng loạt bí ẩn ở Tokyo. Hiện chưa rõ nghi phạm và mục tiêu tiếp theo. Điều duy nhất từ mật mã hung thủ để lại ám chỉ nơi sẽ diễn ra tội ác là khách sạn hạng nhất Cortesia Tokyo. Nitta Kousuke, viên cảnh sát hình sự trẻ tuổi, nhận lệnh cải trang làm nhân viên khách sạn để nằm vùng điều tra. Hướng dẫn nghiệp vụ cho anh là Yamagishi Naomi, một nữ lễ tân thông minh có óc quan sát sắc sảo. Liệu cả hai có thể lần ra chân tướng vụ án, trong khi những vị khách đáng ngờ cứ lần lượt ghé thăm!?</p>\n<p><strong>Tập 2:</strong></p>\n<p>Yamagishi Naomi được điều đến đào tạo lễ tân cho khách sạn Cortesia Osaka mới khai trương, cô luôn có thói quen chú ý đến tấm mặt nạ của một vài vị khách. Trong khi đó, Nitta Kousuke đang điều tra một người đàn ông liên quan đến vụ án giết người xảy ra ở Tokyo, kẻ tuyên bố đã đến Osaka vào đêm xảy ra vụ án, nhưng nhất định không nói tên khách sạn. Điều gì buộc anh ta giữ kín ngay cả khi bị tình nghi giết người? Nếu công việc của Naomi là bảo vệ mặt nạ của khách hàng, thì nhiệm vụ của Nitta là lột bỏ mặt nạ của tội phạm. Khách sạn mặt nạ – Đêm trước lễ hội hóa trang là những câu chuyện thú vị được kể trước thời điểm hai con người ấy gặp nhau.</p>\n<p><strong>TÁC GIẢ:</strong></p>\n<p>Higashino Keigo sinh năm 1958 tại Osaka, là nhà văn trinh thám hàng đầu hiện nay tại Nhật Bản. Năm 1985, Higashino Keigo giành được giải Edogawa Rampo lần thứ 31 cho tác phẩm trinh thám hay nhất với tiểu thuyết Giờ tan học.</p>\n</div></div></div></div></div></div>",
+  "quantity": 10,
+  "state": 1,
+  "star": 4,
+  "comments": [
+    {
+      "userEmail": "19127186@student.hcmus.edu.vn",
+      "rating": 4,
+      "review": "Sach hay"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "6246fd2f379d38e8057ad8ca"
+  },
+  "name": "Khách Sạn Mặt Nạ - Tập 2",
+  "author": "Higashino Keigo",
+  "distributor": "NXB Hà Nội",
+  "seller": "19127489@student.hcmus.edu.vn",
+  "price": 150000,
+  "saleprice": 140000,
+  "category": "Detective",
+  "picture": "https://sach86.com/wp-content/uploads/2022/03/Khach-San-Mat-Na-Tap-2.jpg",
+  "release_year": {
+    "$date": "2021-01-01T00:00:02.021Z"
+  },
+  "description": "<div class=\"content\"><div class=\"ToggleContent__Wrapper-sc-1dbmfaw-1 cqXrJr\"><div class=\"ToggleContent__View-sc-1dbmfaw-0 wyACs\"><div><p><strong>Tập 1:</strong> </p>\n<p>Một vụ giết người hàng loạt bí ẩn ở Tokyo. Hiện chưa rõ nghi phạm và mục tiêu tiếp theo. Điều duy nhất từ mật mã hung thủ để lại ám chỉ nơi sẽ diễn ra tội ác là khách sạn hạng nhất Cortesia Tokyo. Nitta Kousuke, viên cảnh sát hình sự trẻ tuổi, nhận lệnh cải trang làm nhân viên khách sạn để nằm vùng điều tra. Hướng dẫn nghiệp vụ cho anh là Yamagishi Naomi, một nữ lễ tân thông minh có óc quan sát sắc sảo. Liệu cả hai có thể lần ra chân tướng vụ án, trong khi những vị khách đáng ngờ cứ lần lượt ghé thăm!?</p>\n<p><strong>Tập 2:</strong></p>\n<p>Yamagishi Naomi được điều đến đào tạo lễ tân cho khách sạn Cortesia Osaka mới khai trương, cô luôn có thói quen chú ý đến tấm mặt nạ của một vài vị khách. Trong khi đó, Nitta Kousuke đang điều tra một người đàn ông liên quan đến vụ án giết người xảy ra ở Tokyo, kẻ tuyên bố đã đến Osaka vào đêm xảy ra vụ án, nhưng nhất định không nói tên khách sạn. Điều gì buộc anh ta giữ kín ngay cả khi bị tình nghi giết người? Nếu công việc của Naomi là bảo vệ mặt nạ của khách hàng, thì nhiệm vụ của Nitta là lột bỏ mặt nạ của tội phạm. Khách sạn mặt nạ – Đêm trước lễ hội hóa trang là những câu chuyện thú vị được kể trước thời điểm hai con người ấy gặp nhau.</p>\n<p><strong>TÁC GIẢ:</strong></p>\n<p>Higashino Keigo sinh năm 1958 tại Osaka, là nhà văn trinh thám hàng đầu hiện nay tại Nhật Bản. Năm 1985, Higashino Keigo giành được giải Edogawa Rampo lần thứ 31 cho tác phẩm trinh thám hay nhất với tiểu thuyết Giờ tan học.</p>\n</div></div></div></div></div></div>",
+  "quantity": 50,
+  "state": 1,
+  "star": 4.5,
+  "comments": [
+    {
+      "userEmail": "19127186@student.hcmus.edu.vn",
+      "rating": 4,
+      "review": "Sach hay",
+      "_id": {
+        "$oid": "627337d0f25a9137165aa220"
+      }
+    },
+    {
+      "userEmail": "19127186@student.hcmus.edu.vn",
+      "rating": 5,
+      "review": "tuyet voi",
+      "_id": {
+        "$oid": "627337d0f25a9137165aa221"
+      }
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "6246fd2f379d38e8057ad8c2"
+  },
+  "name": "Dive into Design Pattern",
+  "author": "Alexander Shvets",
+  "distributor": "Cambridge University",
+  "seller": "thanhhoang4869@gmail.com",
+  "price": 158000,
+  "saleprice": 150000,
+  "category": "Foreign books",
+  "picture": "https://refactoring.guru/images/patterns/book/web-cover-en.png",
+  "release_year": {
+    "$date": "2022-04-25T17:00:00Z"
+  },
+  "description": "<p><strong>Design patterns</strong> help you solve commonly-occurring problems in software design. But you can’t just find a pattern and copy it into your program, the way you can with off-the-shelf functions or libraries. A pattern is not a specific piece of code, but a general concept for solving a particular problem. They are like pre-made blueprints that you can customize to solve a recurring design problem in your code.</p><p>The book <i>Dive Into Design Patterns</i> illustrates 22 classic design patterns, and 8 design principles that these patterns are based on.</p><ul><li>Each chapter starts with a real-world software design <i>problem</i>, then solves it using one of the patterns.</li><li>Then we dive into a detailed review of the pattern's <i>structure</i> and its variations, followed by a <i>code example</i>.</li><li>Then the book shows various <i>applications</i> of the pattern and teaches how to implement the pattern <i>step by step</i>, even in an existing program.</li><li>Each chapter concludes with a discussion of <i>pros and cons</i> of the pattern and explores its <i>relations to, similarities with and differences from</i> other patterns.</li></ul>",
+  "quantity": 46,
+  "state": 1,
+  "star": 4,
+  "comments": [
+    {
+      "userEmail": "19127186@student.hcmus.edu.vn",
+      "rating": 4,
+      "review": "Sach hay ghe"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "6246fd2f379d38e8057ad8c5"
+  },
+  "name": "Complete IELTS B1 Student's Book with answer with CD-ROM",
+  "author": "Mark Harrison",
+  "distributor": "Cambridge",
+  "seller": "thanhhoang4869@gmail.com",
+  "price": 260400,
+  "saleprice": 100000,
+  "category": "Language",
+  "picture": "https://cdn0.fahasa.com/media/catalog/product/c/o/complete_ielts_b1_students_book_with_answer_with_cd_rom_1_2018_08_23_15_46_46.jpg",
+  "release_year": {
+    "$date": "2015-01-01T00:00:02.019Z"
+  },
+  "description": "The world's best-selling grammar series for learners of English. English Grammar in Use Fourth edition is an updated version of the world's best-selling grammar title. It has a fresh, appealing new design and clear layout, with revised and updated examples, but retains all the key features of clarity and accessibility that have made the book popular with millions of learners and teachers around the world. This 'with answers' version is ideal for self-study.",
+  "quantity": 100,
+  "state": 1,
+  "star": 4,
+  "comments": [
+    {
+      "userEmail": "19127186@student.hcmus.edu.vn",
+      "rating": 4,
+      "review": "Sach hay that"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "6246fd2f379d38e8057ad8cb"
+  },
+  "name": "Trái Tim Của Brutus",
+  "author": "Higashino Keigo",
+  "distributor": "NXB Hà Nội",
+  "seller": "thanhhoang4869@gmail.com",
+  "price": 117000,
+  "saleprice": null,
+  "category": "Detective",
+  "picture": "https://salt.tikicdn.com/cache/400x400/ts/product/a4/e4/fe/4d9a4d7f7ef61418698c1126858a0403.jpg",
+  "release_year": {
+    "$date": "2020-01-01T00:00:02.019Z"
+  },
+  "description": "<div class=\"ToggleContent__Wrapper-sc-1dbmfaw-1 cqXrJr\">\n    <div class=\"ToggleContent__View-sc-1dbmfaw-0 wyACs\" style=\"\">\n        <div>\n            <p>Trái tim của Brutus được nhà xuất bản Kobunsha xuất bản lần đầu năm 1989, và năm 2011 được chuyển thể thành phim truyền hình do diễn viên Fujiwara Tatsuya thủ vai chính.<br><br><strong>GIỚI THIỆU SÁCH:</strong><br><br>Suenaga Takuya đảm trách\n                phát triển robot sử dụng trí thông minh nhân tạo ở công ty Công nghiệp nặng MM. Là một gã trai sáng giá, đầy hứa hẹn tương lai, y trở thành “ứng cử viên” chức hôn phu của Hoshiko – con gái út ông chủ. Vì thế, khi người tình Yasuko bắt\n                đầu thai nghén đứa con của gã, Takuya hoang mang. Cùng với Naoki – anh trai cùng cha khác mẹ của Hoshiko, và Hashimoto – đồng nghiệp ở công ty, y quyết định vạch ra một kế hoạch giết người…<br><br>Một cuộc “chạy tiếp sức” cho án mạng được\n                bắt đầu hoàn hảo, nhưng cái kết lại nằm ngoài sức tưởng tượng của bất cứ ai.<br><br><strong>Về tác giả:</strong></p>\n            <p>Higashino Keigo sinh năm 1958 tại Osaka, là nhà văn trinh thám hàng đầu hiện nay tại Nhật Bản. Năm 1985, Higashino Keigo giành được giải Edogawa Rampo lần thứ 31 cho tác phẩm trinh thám hay nhất với tiểu thuyết Giờ tan học.<br><br>Các năm\n                sau đó, Higashino Keigo liên tục được đề cử vô số giải thưởng văn học lớn. Năm 1999, ông đoạt giải Mystery Writers of Japan Inc với tiểu thuyết Bí mật của Naoko, và năm 2006, là giải Naoki lần thứ 134 cho Phía sau nghi can X.<br><br>Các\n                tác phẩm khác của Higashino Keigo đã được Nhã Nam phát hành:</p>\n            <p>- Phía sau nghi can X<br>- Bí mật của Naoko<br>- Bạch dạ hành<br>- Điều kỳ diệu ở tiệm tạp hóa Namiya<br>- Hoa mộng ảo<br>- Ảo dạ<br>- Ma nữ của Laplace<br>- Phương trình hạ chí<br>- Sự cứu rỗi của Thánh nữ<br>- Ma thuật bị cấm<br>- Án mạng\n                mười một chữ<br>- Vụ án mạng ở lữ quán Kairotei</p>\n            <p>Giá sản phẩm trên Tiki đã bao gồm thuế theo luật hiện hành. Bên cạnh đó, tuỳ vào loại sản phẩm, hình thức và địa chỉ giao hàng mà có thể phát sinh thêm chi phí khác như phí vận chuyển, phụ phí hàng cồng kềnh, thuế nhập khẩu (đối với đơn hàng\n                giao từ nước ngoài có giá trị trên 1 triệu đồng).....</p>\n        </div>\n    </div>",
+  "quantity": 50,
+  "state": 1,
+  "star": 4,
+  "comments": [
+    {
+      "userEmail": "19127186@student.hcmus.edu.vn",
+      "rating": 4,
+      "review": "Sach hay"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "6272b3fedd4d50b45ad29d11"
+  },
+  "name": "test",
+  "author": "test",
+  "distributor": "test",
+  "seller": "quanghuy.1334@gmail.com",
+  "price": 123,
+  "saleprice": null,
+  "category": "Manga - Comic",
+  "picture": "https://res.cloudinary.com/gspictures/image/upload/v1651684518/m6p1cswtzypi6oivddyl.jpg",
+  "release_year": {
+    "$date": "2000-06-09T17:00:00Z"
+  },
+  "description": "test",
+  "quantity": 0,
+  "state": 1,
+  "star": 0,
+  "comments": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "627336edf25a9137165aa178"
+  },
+  "name": "Ten sach",
+  "author": "author",
+  "distributor": "test",
+  "seller": "19127489@student.hcmus.edu.vn",
+  "price": 150000,
+  "saleprice": null,
+  "category": "Detective",
+  "picture": "https://res.cloudinary.com/gspictures/image/upload/v1651717870/ocx8efr7ee8jiskdihp1.jpg",
+  "release_year": {
+    "$date": "2022-06-09T17:00:00Z"
+  },
+  "description": "Chuck nang add book",
+  "quantity": 10,
+  "state": 1,
+  "star": 0,
+  "comments": [],
+  "__v": 0
+}]
