@@ -63,14 +63,16 @@ node server.js
 - Open the project with Android Studio
 - Inside the folder ```Application```, find folder ```utils``` then go to the file ```MyAPI.kt```
 - Change the ```BASE_URL``` to your localhost IP address
+
+***Note: localhost must be the IP of the device that the server is running on. E.g: your laptop.***
 ```sh
   private const val BASE_URL = //config here
 ```
-
-<a href="#">
-    <img src="https://i.imgur.com/YFMcPzN.png" alt="Logo" width="100" height="100">
+<div align="center">
+  <a href="#">
+      <img src="https://i.imgur.com/YFMcPzN.png" alt="guide_api" width="50%" height="50%">
   </a>
-
+</div>
 
 **4. Test login**
 
