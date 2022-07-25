@@ -59,19 +59,19 @@ See more (HQ): <a href="https://imgur.com/a/hWHmmQG">Basalasa gallery</a>
 
 <div align="center">
   <a href="#">
-      <img src="https://i.imgur.com/kkwro6Z.png" alt="guide_api" width="60%">
+      <img src="https://i.imgur.com/kkwro6Z.png" alt="guide_api" width="80%">
   </a>
 </div>
 
 <div align="center">
   <a href="#">
-      <img src="https://i.imgur.com/ATfIjOn.png" alt="guide_api" width="60%">
+      <img src="https://i.imgur.com/ATfIjOn.png" alt="guide_api" width="80%">
   </a>
 </div>
 
 <div align="center">
   <a href="#">
-      <img src="https://i.imgur.com/Itc3X9t.png" alt="guide_api" width="60%">
+      <img src="https://i.imgur.com/Itc3X9t.png" alt="guide_api" width="80%">
   </a>
 </div>
 
