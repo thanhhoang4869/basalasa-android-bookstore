@@ -55,23 +55,23 @@ The server resides on Heroku, which works as a NodeJS server, connects to MongoD
 
 **Gallery**
 
-See more: <a href="https://imgur.com/a/hWHmmQG">Basalasa gallery</a>
+See more (HQ): <a href="https://imgur.com/a/hWHmmQG">Basalasa gallery</a>
 
 <div align="center">
   <a href="#">
-      <img src="https://i.imgur.com/kkwro6Z.png" alt="guide_api" width="40%">
+      <img src="https://i.imgur.com/kkwro6Z.png" alt="guide_api" width="60%">
   </a>
 </div>
 
 <div align="center">
   <a href="#">
-      <img src="https://i.imgur.com/ATfIjOn.png" alt="guide_api" width="40%">
+      <img src="https://i.imgur.com/ATfIjOn.png" alt="guide_api" width="60%">
   </a>
 </div>
 
 <div align="center">
   <a href="#">
-      <img src="https://i.imgur.com/Itc3X9t.png" alt="guide_api" width="40%">
+      <img src="https://i.imgur.com/Itc3X9t.png" alt="guide_api" width="60%">
   </a>
 </div>
 
